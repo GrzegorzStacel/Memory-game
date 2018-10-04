@@ -1,9 +1,9 @@
 #ifndef MAINBUTTONS_H
 #define MAINBUTTONS_H
 
+#include <QGraphicsTextItem>
 
-class MainButtons
-{
+class MainButtons : public QGraphicsTextItem{
 public:
     MainButtons();
 };

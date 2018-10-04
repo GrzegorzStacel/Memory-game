@@ -1,6 +1,7 @@
 #include "game.h"
 
 
+#include <QtDebug>
 
 Game::Game()
 {
@@ -19,14 +20,14 @@ Game::Game()
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1300,867);
 
-    setScene(scene);
+    //Create main menu
+     scene->addItem(main);
+     main->setFlag(QGraphicsPixmapItem::ItemIsFocusable);
+     main->setFocus();
 
-
-    // add a view to visualize the scene
-    //QGraphicsView * view = new QGraphicsView(scene);
 }
 
 void Game::keyPressEvent(QKeyEvent *event)
 {
-
+    qDebug() << "Keypressevent work";
 }
