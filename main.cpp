@@ -1,7 +1,7 @@
 #include <QApplication>
 
 #include "game.h"
-
+#include "cards.h"
 
 Game *game;
 
@@ -13,7 +13,5 @@ int main(int argc, char *argv[])
     game = new Game();
     game->show();
 
-//    QGraphicsView *view = new QGraphicsView();
-//    view->show();
     return a.exec();
 }
