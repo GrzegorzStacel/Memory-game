@@ -12,10 +12,8 @@ class Cards : public QObject, public QGraphicsPixmapItem{
     int foo;
 public:
     Cards(int = 0);
-    void VisualizeCards(int=0, int=0);
 
-    Cards *cards[13];
-    QGraphicsScene *scene;
+    //QGraphicsScene *scene;
 };
 
 #endif // CARDS_H

@@ -34,66 +34,18 @@ void Game::start(){
     scene->clear();
     VisualizeCards();
 
-    //cards[1]->VisualizeCards();
 
-//        int x = 150, y = 600;
-
-//        for(int i = 0; i < 13; ++i, ++i){
-
-//            if(i == 6){
-//                y-=250;
-//                x=150;
-//            }
-//            else if(i == 12){
-//                y-=250;
-//                x=575;
-//            }
-
-//                     cards[i] = new Cards();
-//                     cards[i]->VisualizeCards(x, y);
-//                     //cards[i]->setPos(x, y);
-//                     scene->addItem(cards[i]);
-
-//        }
-
-
-
-
-
-
-
-//    int x = 150, y = 600, start = 0, end = 3;
-
-//    for(int i = 0; i < 3; ++i, ++start){
-
-//        for(; start < end; ++start){
-
-//            if(start == 6){
-//                y-=250;
-//                x=150;
-//            }
-//            else if(start == 12){
-//                y-=250;
-//                x=575;
-//            }
-
-//                 cards[start] = new Cards(start+1);
-//                 cards[start]->setPos(x, y);
-//                 scene->addItem(cards[start]);
-
-//                 x += 150;
-//        }
-//        x += 100;
-//        end += 6;
-//        --start;
-        //    }
 }
 
 void Game::VisualizeCards(){
-        int x = 150, y = 600, start = 0, end = 3;
+
+        int x = 300, y = 600, start = 1, end = 3;
+
+        cards[0] = new Cards(0);
+        cards[0]->setPos(150, y);
+        scene->addItem(cards[0]);
 
         for(int i = 0; i < 3; ++i, ++start){
-
             for(; start < end; ++start){
 
                 if(start == 6){
