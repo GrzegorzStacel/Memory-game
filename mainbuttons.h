@@ -4,11 +4,25 @@
 #include <QGraphicsTextItem>
 #include <QKeyEvent>
 
-class MainButtons : public QGraphicsTextItem{
-public:
-    MainButtons();
+#include <QObject>
+#include <QGraphicsRectItem>
+#include <QGraphicsSceneMouseEvent>
 
-    void keyPressEvent(QKeyEvent *event);
+class MainButtons : public QObject, public QGraphicsRectItem{
+    Q_OBJECT
+public:
+    MainButtons(QString name, QGraphicsItem *parent=nullptr);
+
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
+    void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
+
+signals:
+    void clicked();
+
+private:
+    QGraphicsTextItem *text;
+
 };
 
 #endif // MAINBUTTONS_H
