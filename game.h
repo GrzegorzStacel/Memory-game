@@ -15,16 +15,22 @@
 
 class Game : public QGraphicsView{
     Q_OBJECT
+
     int choosen;
+
 public:
     Game();
 
-    void start();
     void VisualizeCards();
+    void displayMainMenu();
+
 
     Cards *cards[13];
     QGraphicsScene *scene;
-    MainButtons *main = new MainButtons();
+
+
+public slots:
+    void start();
 
 };
 
