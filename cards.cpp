@@ -8,12 +8,34 @@
 
 extern Game *game;
 
-Cards::Cards(int xa) : foo(xa){
+//Cards::Cards(bool isActive){
+Cards::Cards(){
 
-    if(foo == 0)
-        setPixmap(QPixmap(":/others/images/cards/active.png"));
-    else
+    //if( isActive == true )
+        //setPixmap(QPixmap(":/others/images/cards/active.png"));
+   // else
         setPixmap(QPixmap(":/others/images/cards/back.png"));
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -35,6 +57,3 @@ Cards::Cards(int xa) : foo(xa){
 //        }
 //    else
 //        qDebug() << "We have problem, probably witch variable \"witchone\" in class \"cards.cpp\" ";
-}
-
-
