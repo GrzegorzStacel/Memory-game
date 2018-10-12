@@ -16,20 +16,32 @@
 class Game : public QGraphicsView{
     Q_OBJECT
 
-    int choosen;
-
 public:
+
+    // constructors
     Game();
 
+
+private:
+
+    // private attributes
+    int choosen;
+
+
+public:
+
+    // public attributes
+    Cards *cards[13];
+    QGraphicsScene *scene;
+
+    // public methods
     void VisualizeCards();
     void displayMainMenu();
 
 
-    Cards *cards[13];
-    QGraphicsScene *scene;
-
-
 public slots:
+
+    // public slots
     void start();
 
 };

@@ -1,6 +1,8 @@
 #include "drawcards.h"
 #include "game.h"
 
+#include "QDebug"
+
 extern Game *game;
 
 
@@ -13,7 +15,7 @@ DrawCards::DrawCards(){
 
 
     // allow responding to hover events
-    //setAcceptHoverEvents(true); TODO
+    //setAcceptHoverEvents(true);
 }
 
 
@@ -44,20 +46,35 @@ void DrawCards::placeCards(int x, int y, int cards){
             Y_SHIFT -= 250;
         }
 
-        createBoard(x + X_SHIFT, y + Y_SHIFT, cards);
+        createBoard(x + X_SHIFT, y + Y_SHIFT, i);
     }
 }
+
 
 // private
 void DrawCards::createBoard(int x, int y, int cards){
 
-    for( int i = 0, n = cards; i < n; i++ ){
+
+    //for( int i = 0, n = cards; i < n; i++ ){
         Cards *card = new Cards();
         card->setPos(x, y);
         listOfCards.append(card);
         game->scene->addItem(card);
 
-    }
+        listOfImage.append(cards);
+        //foreach( int z, listOfImage )//{
+           // qDebug() << listOfImage;// << " , z: " << z <<  "Imageset z: " << z;
+            //card->setImage(z);}
+
+       //qDebug() << "Loop nr: " << listOfImage;
 
 
+
+    //}
+    //foreach( int z, listOfImage )
+       // qDebug() << z;
+}
+
+void DrawCards::cardSupport(){
+    getCards();
 }
