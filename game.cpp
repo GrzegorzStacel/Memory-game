@@ -1,11 +1,9 @@
 #include "game.h"
-#include "drawcards.h"
+
 
 #include <QGraphicsTextItem>
-#include "mainbuttons.h"
 
 #include <QtDebug>
-//#include <QGraphicsItem>
 
 Game::Game()
 {
@@ -29,21 +27,16 @@ Game::Game()
 void Game::start(){
 
     scene->clear();
-    //VisualizeCards();
 
-    Cards *cardgener = new Cards();
-    cardgener->generatorOfRandomNumbers();
+    cards = new Cards();
+    cards->generatorOfRandomNumbers();
 
 
-    DrawCards *draw = new DrawCards();
+    draw = new DrawCards();
     draw->placeCards(100,600,13);
-    draw->cardSupport();
 
 }
 
-void Game::VisualizeCards(){
-
-}
 
 void Game::displayMainMenu(){
     // create the title text

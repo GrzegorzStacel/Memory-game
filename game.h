@@ -3,10 +3,8 @@
 
 #include "mainbuttons.h"
 #include "cards.h"
+#include "drawcards.h"
 
-//#include "QObject"
-//#include <QGraphicsItem>
-//#include <QGraphicsRectItem>
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QGraphicsTextItem>
@@ -31,11 +29,11 @@ private:
 public:
 
     // public attributes
-    Cards *cards[13];
+    DrawCards *draw;
+    Cards *cards;
     QGraphicsScene *scene;
 
     // public methods
-    void VisualizeCards();
     void displayMainMenu();
 
 

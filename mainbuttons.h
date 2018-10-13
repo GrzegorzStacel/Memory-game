@@ -2,7 +2,6 @@
 #define MAINBUTTONS_H
 
 #include <QGraphicsTextItem>
-//#include <QKeyEvent>
 
 #include <QObject>
 #include <QGraphicsRectItem>
@@ -26,9 +25,9 @@ private:
 public:
 
     // public methods
-    void mousePressEvent(QGraphicsSceneMouseEvent *event) { emit clicked(); }
-    void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
-    void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
+    void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
+    void hoverEnterEvent(QGraphicsSceneHoverEvent *);
+    void hoverLeaveEvent(QGraphicsSceneHoverEvent *);
 
 signals:
 

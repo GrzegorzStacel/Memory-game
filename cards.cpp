@@ -3,78 +3,81 @@
 #include <ctime>
 #include <cstdlib>
 #include <QDebug>
-//#include <QGraphicsItem>
 
-int Cards::tablica[13];
+int Cards::RandomNumbers[13];
 
-//Cards::Cards(bool isActive){
 Cards::Cards(){
 
-    //if( isActive == true )
-        //setPixmap(QPixmap(":/others/images/cards/active.png"));
-   // else
-    setPixmap(QPixmap(":/others/images/cards/back.png"));
 }
 
-void Cards::setImage(int number){
+Cards::Cards(bool isActive){
+
+    if( isActive == true )
+        setPixmap(QPixmap(":/others/images/cards/active.png"));
+    else
+        setPixmap(QPixmap(":/others/images/cards/back.png"));
+}
+
+QString Cards::setImage(int number){
+
     switch (number+1) {
-        case 1: setPixmap(QPixmap(":/cards/images/karty/heart/2_serc.png")); break;
-        case 2: setPixmap(QPixmap(":/cards/images/karty/heart/3_serc.png")); break;
-        case 3: setPixmap(QPixmap(":/cards/images/karty/heart/4_serc.png")); break;
-        case 4: setPixmap(QPixmap(":/cards/images/karty/heart/5_serc.png")); break;
-        case 5: setPixmap(QPixmap(":/cards/images/karty/heart/6_serc.png")); break;
-        case 6: setPixmap(QPixmap(":/cards/images/karty/heart/7_serc.png")); break;
-        case 7: setPixmap(QPixmap(":/cards/images/karty/heart/8_serc.png")); break;
-        case 8: setPixmap(QPixmap(":/cards/images/karty/heart/9_serc.png")); break;
-        case 9: setPixmap(QPixmap(":/cards/images/karty/heart/10_serc.png")); break;
-        case 10: setPixmap(QPixmap(":/cards/images/karty/heart/jopek_serc.png")); break;
-        case 11: setPixmap(QPixmap(":/cards/images/karty/heart/dama_serc.png")); break;
-        case 12: setPixmap(QPixmap(":/cards/images/karty/heart/krol_serc.png")); break;
-        case 13: setPixmap(QPixmap(":/cards/images/karty/heart/as_serc.png")); break;
+        case 1: return ":/background/images/cards/heart/2_serc.png";
+        case 2: return":/background/images/cards/heart/3_serc.png";
+        case 3: return":/background/images/cards/heart/4_serc.png";
+        case 4: return":/background/images/cards/heart/5_serc.png";
+        case 5: return":/background/images/cards/heart/6_serc.png";
+        case 6: return":/background/images/cards/heart/7_serc.png";
+        case 7: return":/background/images/cards/heart/8_serc.png";
+        case 8: return":/background/images/cards/heart/9_serc.png";
+        case 9: return":/background/images/cards/heart/10_serc.png";
+        case 10: return":/background/images/cards/heart/jopek_serc.png";
+        case 11: return":/background/images/cards/heart/dama_serc.png";
+        case 12: return":/background/images/cards/heart/krol_serc.png";
+        case 13: return":/background/images/cards/heart/as_serc.png";
+
+        default: qDebug() << "We have a problem in method Cards::setImage"; return ":/others/images/cards/back.png";
     }
+}
+
+QString Cards::setActive(bool foo){
+
+    if( foo == true )
+        return  ":/others/images/cards/active.png";
+    else
+        return ":/others/images/cards/back.png";
+
 }
 
 
 
 void Cards::generatorOfRandomNumbers(){
 
-    srand(time ( 0 ));
+    srand(time ( nullptr ));
 
-    int wylosowanych = 0;
+    int selectedAtRandom = 0;
     int number;
+
     do
        {
-           int number = rand() % 13;
-           if( czyBylaWylosowana( number, wylosowanych ) == false ){
-               tablica[ wylosowanych ] = number;
-               wylosowanych++;
+           number = rand() % 13;
+           if( IfItWasDrawn( number, selectedAtRandom ) == false ){
+               RandomNumbers[ selectedAtRandom ] = number;
+               selectedAtRandom++;
            }
 
-       } while( wylosowanych < 13 );
-
-    for(int i = 0; i < 13; i++)
-        qDebug() << i << ". Wylosowana: " << tablica[i];
-
-
+       } while( selectedAtRandom < 13 );
 }
 
-bool Cards::czyBylaWylosowana( int iNumber, int ile )
+
+bool Cards::IfItWasDrawn( int iNumber, int selectedAtRandom )
 {
-    if( ile <= 0 )
+    if( selectedAtRandom <= 0 )
          return false;
 
-    for(int i = 0; i < ile; i++){
-        if( tablica[i] == iNumber)
+    for(int i = 0; i < selectedAtRandom; i++){
+        if( RandomNumbers[i] == iNumber)
             return true;
     }
-//    int i = 0;
-//    do
-//    {
-//        if( tablica[ i ] == iNumber )
-//             return true;
-
-//        i++;
-//    } while( i < ile );
 
     return false;
 }

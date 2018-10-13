@@ -8,6 +8,7 @@
 extern Game *game;
 
 MainButtons::MainButtons(QString name, QGraphicsItem *parent) : QGraphicsRectItem(parent){
+
     // draw the rect
     setRect(0,0,200,50);
     QBrush brush;
@@ -26,7 +27,7 @@ MainButtons::MainButtons(QString name, QGraphicsItem *parent) : QGraphicsRectIte
 
 }
 
-void MainButtons::hoverEnterEvent(QGraphicsSceneHoverEvent *event){
+void MainButtons::hoverEnterEvent(QGraphicsSceneHoverEvent *){
     // change color to cyan
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
@@ -34,7 +35,7 @@ void MainButtons::hoverEnterEvent(QGraphicsSceneHoverEvent *event){
     setBrush(brush);
 }
 
-void MainButtons::hoverLeaveEvent(QGraphicsSceneHoverEvent *event){
+void MainButtons::hoverLeaveEvent(QGraphicsSceneHoverEvent *){
     // change color to dar cyan
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);

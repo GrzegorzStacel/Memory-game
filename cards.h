@@ -1,31 +1,36 @@
 #ifndef CARDS_H
 #define CARDS_H
 
+#include <QGraphicsSceneMouseEvent>
 #include <QGraphicsTextItem>
-//#include <QGraphicsView>
+#include <QObject>
 
 class Cards : public QObject, public QGraphicsPixmapItem{
-
+    Q_OBJECT
 public:
 
     // constructors
     Cards();
+    Cards(bool isActive);
 
     // public methods
-    void setImage(int number);
+    int getRandomNubmer(int x) { return RandomNumbers[x]; }
+    QString setImage(int number);
+    QString setActive(bool foo);
     void generatorOfRandomNumbers();
-    //Cards(bool isActive);
 
+    void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
 
 private:
 
     //private attributes
-    static int tablica[13];
+    static int RandomNumbers[13];
 
     // private methods
-    bool czyBylaWylosowana( int iL, int i );
+    bool IfItWasDrawn( int number, int selectedAtRandom );
 
-
+signals:
+    void clicked();
 };
 
 #endif // CARDS_H
