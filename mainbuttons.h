@@ -13,13 +13,16 @@ class MainButtons : public QObject, public QGraphicsRectItem{
 public:
 
     //constructors
-    MainButtons(QString name, QGraphicsItem *parent=nullptr);
+    MainButtons(QString name, int x = 200, int y = 50, QGraphicsItem *parent=nullptr);
 
 
 private:
 
     // private attributes
     QGraphicsTextItem *text;
+
+    // private methods
+    void drawRect(int x, int y);
 
 
 public:

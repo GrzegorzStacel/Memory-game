@@ -5,12 +5,15 @@
 #include <QGraphicsTextItem>
 #include <QDebug>
 
+#include <QFont>
+
 extern Game *game;
 
-MainButtons::MainButtons(QString name, QGraphicsItem *parent) : QGraphicsRectItem(parent){
+MainButtons::MainButtons(QString name, int x, int y, QGraphicsItem *parent) : QGraphicsRectItem(parent){
 
+    drawRect(x,y);
     // draw the rect
-    setRect(0,0,200,50);
+    //setRect(0,0,200,50);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::darkCyan);
@@ -25,6 +28,10 @@ MainButtons::MainButtons(QString name, QGraphicsItem *parent) : QGraphicsRectIte
     // allow responding to hover events
     setAcceptHoverEvents(true);
 
+}
+
+void MainButtons::drawRect(int x, int y){
+    setRect(0,0,x,y);
 }
 
 void MainButtons::hoverEnterEvent(QGraphicsSceneHoverEvent *){

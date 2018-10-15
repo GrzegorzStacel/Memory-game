@@ -1,6 +1,7 @@
 #ifndef DRAWCARDS_H
 #define DRAWCARDS_H
 
+#include "mainbuttons.h"
 #include "cards.h"
 #include <QObject>
 #include <QGraphicsSceneMouseEvent>
@@ -23,9 +24,12 @@ private:
     //private attributes
     QList<Cards *> listOfCards;
     static int counter;
+    static int x_posOfCard[13]; // TODO change value to difficult
+    static int y_posOfCard[13]; // TODO change value to difficult
 
     // private methods
     void createBoard(int x, int y, bool iisActive);
+    void connectCardWithMap();
 
 
 public:
@@ -41,7 +45,9 @@ public:
 
 
 public slots:
-    void addImageWithRandomNumber();
+    void addImageWithRandomNumber(); // first part of game
+    void showImageAfterReminding(int); // second part of game
+
 
 signals:
     void clicked();
