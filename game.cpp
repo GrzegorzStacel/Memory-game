@@ -31,9 +31,9 @@ void Game::start(){
     cards = new Cards();
     cards->generatorOfRandomNumbers();
 
-
     draw = new DrawCards();
     draw->placeCards(100,600,13);
+
 
 }
 
@@ -67,4 +67,7 @@ void Game::displayMainMenu(){
 
 }
 
+void Game::gameOver(){
+    overGame = new game_over();
+}
 

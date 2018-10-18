@@ -65,7 +65,7 @@ void Cards::generatorOfRandomNumbers(){
                selectedAtRandom++;
            }
 
-       } while( selectedAtRandom < 13 );
+    } while( selectedAtRandom < 13 );
 }
 
 

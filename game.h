@@ -4,6 +4,7 @@
 #include "mainbuttons.h"
 #include "cards.h"
 #include "drawcards.h"
+#include "game_over.h"
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
@@ -32,9 +33,12 @@ public:
     DrawCards *draw;
     Cards *cards;
     QGraphicsScene *scene;
+    game_over *overGame;
+
 
     // public methods
     void displayMainMenu();
+    void gameOver();
 
 
 public slots:

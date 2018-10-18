@@ -29,13 +29,15 @@ SOURCES += \
     game.cpp \
     mainbuttons.cpp \
     cards.cpp \
-    drawcards.cpp
+    drawcards.cpp \
+    game_over.cpp
 
 HEADERS += \
     game.h \
     mainbuttons.h \
     cards.h \
-    drawcards.h
+    drawcards.h \
+    game_over.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

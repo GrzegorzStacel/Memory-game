@@ -10,6 +10,8 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsPixmapItem>
 
+#include <QtAlgorithms>
+
 class DrawCards : public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 
@@ -23,30 +25,40 @@ private:
 
     //private attributes
     QList<Cards *> listOfCards;
+    QList<MainButtons *> buttons;
+    static int antiRepetition[13]; // TODO change value to difficult
+    static int tmp;
     static int counter;
+    static int counterEnd;
     static int x_posOfCard[13]; // TODO change value to difficult
     static int y_posOfCard[13]; // TODO change value to difficult
 
     // private methods
     void createBoard(int x, int y, bool iisActive);
     void connectCardWithMap();
+    bool isItRepeat(int, int);
+
 
 
 public:
 
     // public attributes
-    QList<Cards *> getCards() { return listOfCards; }
     Cards *cards;
 
     // public methods
     void placeCards(int x, int y, int cards);
-    void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
+    inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
 
+    // setter
+    void setResetAllInOne();
 
 
 public slots:
-    void addImageWithRandomNumber(); // first part of game
-    void showImageAfterReminding(int); // second part of game
+    void addImageWithRandomNumber(); // first part of game ( memorizing )
+    int showImageAfterReminding(int); // second part of game ( reminder from memory )
+    void remember(); // if the player remembers well
+    void wrong(); // if the player misbehaves
+
 
 
 signals:

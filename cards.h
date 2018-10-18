@@ -19,6 +19,7 @@ public:
     QString setActive(bool foo);
     void generatorOfRandomNumbers();
 
+
     void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
 
 private:

@@ -1,5 +1,6 @@
 #include "drawcards.h"
 #include "game.h"
+#include "game_over.h"
 
 #include <QBrush>
 #include "QDebug"
@@ -7,12 +8,16 @@
 
 #include <QSignalMapper>
 
-
+#include <QPointer>
+#include <cmath>
 extern Game *game;
 
 int DrawCards::counter;
+int DrawCards::counterEnd = 0;
+int DrawCards::tmp;
 int DrawCards::x_posOfCard[];
 int DrawCards::y_posOfCard[];
+int DrawCards::antiRepetition[];
 
 
 DrawCards::DrawCards(){
@@ -59,6 +64,7 @@ void DrawCards::placeCards(int x, int y, int cards){
     }
 }
 
+
 void DrawCards::createBoard(int x, int y, bool iisActive){
 
         cards = new Cards(iisActive);
@@ -66,19 +72,9 @@ void DrawCards::createBoard(int x, int y, bool iisActive){
         listOfCards.append(cards);
         connect(cards, SIGNAL(clicked()), this, SLOT(addImageWithRandomNumber()));
         game->scene->addItem(cards);
+        //counter = 13; // TODO cheat variable
+        //counterEnd = 12;
 }
-
-void DrawCards::connectCardWithMap(){
-    QSignalMapper* signalMapper = new QSignalMapper(this) ; // TODO find another way to implement the connections of each object separately with the appropriate signal
-
-    for( int i = 0; i < 13; i++){ // TODO set the value - difficult
-        connect (listOfCards[i], SIGNAL(clicked()), signalMapper, SLOT(map()));
-        signalMapper -> setMapping (listOfCards[i], i);
-    }
-
-    connect (signalMapper, SIGNAL(mapped(int)), this, SLOT(showImageAfterReminding(int))) ;
-}
-
 
 void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber(int difficult)
 
@@ -134,17 +130,16 @@ void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber
         counter++;
 
     } else if(counter == 13){
-        qDebug() << "Counter: " << counter;
         // remove random image and set "back" image
         game->scene->removeItem(listOfCards[counter-1]);
         listOfCards[counter-1]->setPixmap(cards->setActive(false));
         game->scene->addItem(listOfCards[counter-1]);
 
 
-        // create the reminding button // TODO I don't now if this buttoin is necessary
+        // create the reminding button // TODO I don't now if this button is necessary
         MainButtons *reminding = new MainButtons(QString("Stop timer"), 200, 100);
         reminding->setPos(200,100);
-        //connect(reminding, SIGNAL(clicked()), this, SLOT(showImageAfterReminding()));
+        connect(reminding, SIGNAL(clicked()), this, SLOT(iAmCheater()));
         game->scene->addItem(reminding);
 
         counter++;
@@ -153,8 +148,31 @@ void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber
     }
 }
 
+void DrawCards::connectCardWithMap(){
+    QSignalMapper* signalMapper = new QSignalMapper(this) ; // TODO find another way to implement the connections of each object separately with the appropriate signal
 
-void DrawCards::showImageAfterReminding(int x){
+    for( int i = 0; i < listOfCards.size(); i++){ // TODO (DONE) set the value - difficult
+        connect (listOfCards[i], SIGNAL(clicked()), signalMapper, SLOT(map()));
+        signalMapper -> setMapping (listOfCards[i], i);
+    }
+
+    connect (signalMapper, SIGNAL(mapped(int)), this, SLOT(showImageAfterReminding(int))) ;
+}
+
+bool DrawCards::isItRepeat(int xNumber, int selected){
+
+if( selected <= 0 )
+     return false;
+
+for(int i = 0; i < selected; i++){
+    if( antiRepetition[i] == xNumber)
+        return true;
+}
+
+return false;
+}
+
+int DrawCards::showImageAfterReminding(int x){
 
     cards = new Cards();
 
@@ -162,17 +180,93 @@ void DrawCards::showImageAfterReminding(int x){
     listOfCards[x]->setPixmap(cards->setImage(cards->getRandomNubmer(x)));
     game->scene->addItem(listOfCards[x]);
 
-    // create the correct button
-    MainButtons *correct = new MainButtons(QString("Correct"), 50, 25);
+
+    // disable all cards
+    for( int i = 0; i < listOfCards.size() ; i++)
+            listOfCards[i]->setEnabled(false);
+
+    // check if the card has been re-selected - if yes set disable this card
+    if( isItRepeat( x, tmp ) == false ){
+        antiRepetition[ tmp ] = x;
+        tmp++;
+        counterEnd++;
+    }
+
+
+    // create the correct button under the choosen card
+    MainButtons * correct = new MainButtons(QString("Correct"), 50, 25);
     correct->setPos(x_posOfCard[x] + 10, y_posOfCard[x] + 215);
-    //connect(correct, SIGNAL(clicked()), this, SLOT(showImageAfterReminding()));
+    buttons.append(correct);
+    connect(correct, SIGNAL(clicked()), this, SLOT(remember()));
     game->scene->addItem(correct);
 
-    // create the wrong button
-    MainButtons *wrong = new MainButtons(QString("Correct"), 50, 25);
+    // create the wrong button under the choosen card
+    MainButtons *wrong = new MainButtons(QString("Wrong"), 50, 25);
     wrong->setPos(x_posOfCard[x] + 70, y_posOfCard[x] + 215);
-    //connect(wrong, SIGNAL(clicked()), this, SLOT(showImageAfterReminding()));
+    buttons.append(wrong);
+    connect(wrong, SIGNAL(clicked()), this, SLOT(wrong()));
     game->scene->addItem(wrong);
+
 }
 
+void DrawCards::remember(){
+
+    // remove buttons (correct and wrong) under selected card
+    for(int i = 0; i < buttons.size(); i++){
+        game->scene->removeItem(buttons[i]);
+    }
+
+    // buble sort the table with selected cards ( I know, this is very slow algorithm but it is very small table )
+    int x;
+
+    for(int j = 0; j < tmp - 1; j++)
+        for(int i = 0; i < tmp - 1; i++)
+          if(antiRepetition[i] > antiRepetition[i + 1]) {
+
+            x = antiRepetition[i];
+            antiRepetition[i] = antiRepetition[i + 1];
+            antiRepetition[i + 1] = x;
+    }
+
+    // disable all "visible" (selected) cards and else set enabled
+    int i = 0;
+    int n = 0;
+
+    do{
+        if( i == antiRepetition[n] && n <= tmp ){
+
+            listOfCards[ antiRepetition[n] ]->setEnabled(false);
+            n++;
+            i++;
+        } else{
+
+            listOfCards[i]->setEnabled(true);
+            i++;
+        }
+    }while( i < listOfCards.size() && n <= tmp );
+
+    buttons.clear();
+
+    // display the final menu
+    if( counterEnd == listOfCards.size() )
+        game_over *gameOver = new game_over();
+}
+
+void DrawCards::wrong(){
+    remember();
+}
+
+void DrawCards::setResetAllInOne(){
+
+    // reset all the important integers, if a player wants to play again
+    counter = 0;
+    counterEnd = 0;
+
+    for( int i = 0; i < 13; i++)
+        antiRepetition[i] = 0;
+
+    tmp = 0;
+    listOfCards.clear();
+
+}
 
