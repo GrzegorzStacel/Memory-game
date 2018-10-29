@@ -3,9 +3,12 @@
 
 #include "mainbuttons.h"
 #include "cards.h"
+//#include "timer.h"
+
 #include <QObject>
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsTextItem>
+
 #include <QList>
 #include <QGraphicsRectItem>
 #include <QGraphicsPixmapItem>
@@ -45,6 +48,8 @@ public:
     // public attributes
     Cards *cards;
 
+    static bool isActive;
+
     // public methods
     void placeCards(int x, int y, int cards);
     inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
@@ -55,7 +60,7 @@ public:
 
 public slots:
     void addImageWithRandomNumber(); // first part of game ( memorizing )
-    int showImageAfterReminding(int); // second part of game ( reminder from memory )
+    void showImageAfterReminding(int); // second part of game ( reminder from memory )
     void remember(); // if the player remembers well
     void wrong(); // if the player misbehaves
 

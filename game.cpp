@@ -1,9 +1,11 @@
 #include "game.h"
-
+#include "drawgui.h"
 
 #include <QGraphicsTextItem>
 
 #include <QtDebug>
+#include <QTimer>
+#include <QTime>
 
 Game::Game()
 {
@@ -31,12 +33,18 @@ void Game::start(){
     cards = new Cards();
     cards->generatorOfRandomNumbers();
 
+    timer.start();
+
+//    if( !draw->isActive )
+//        timer.stop();
+
+
+//    drawGUI * GUI = new drawGUI();
+
     draw = new DrawCards();
     draw->placeCards(100,600,13);
 
-
 }
-
 
 void Game::displayMainMenu(){
     // create the title text
@@ -67,7 +75,15 @@ void Game::displayMainMenu(){
 
 }
 
-void Game::gameOver(){
-    overGame = new game_over();
-}
+//void Game::gameOver(){
+    //if( draw->isActive )
+//        timer.stop();
+//    qDebug() << "Im game - gameover (isActive) : " << draw->isActive;
+//}
+
+//void Game::startClock(){
+//    timerr = new timer();
+//}
+
+
 

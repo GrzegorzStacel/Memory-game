@@ -4,7 +4,7 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsTextItem>
 #include <QObject>
-
+#include <QDebug>
 class Cards : public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
@@ -18,9 +18,9 @@ public:
     QString setImage(int number);
     QString setActive(bool foo);
     void generatorOfRandomNumbers();
+    void createPauseButton();
 
-
-    void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
+    inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
 
 private:
 

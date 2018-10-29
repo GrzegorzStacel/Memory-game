@@ -18,7 +18,7 @@ int DrawCards::tmp;
 int DrawCards::x_posOfCard[];
 int DrawCards::y_posOfCard[];
 int DrawCards::antiRepetition[];
-
+bool DrawCards::isActive = true;
 
 DrawCards::DrawCards(){
     setPixmap(QPixmap(":/others/images/cards/back.png"));
@@ -65,6 +65,7 @@ void DrawCards::placeCards(int x, int y, int cards){
 }
 
 
+
 void DrawCards::createBoard(int x, int y, bool iisActive){
 
         cards = new Cards(iisActive);
@@ -72,8 +73,8 @@ void DrawCards::createBoard(int x, int y, bool iisActive){
         listOfCards.append(cards);
         connect(cards, SIGNAL(clicked()), this, SLOT(addImageWithRandomNumber()));
         game->scene->addItem(cards);
-        //counter = 13; // TODO cheat variable
-        //counterEnd = 12;
+        counter = 13; // TODO cheat variable
+        counterEnd = 12;
 }
 
 void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber(int difficult)
@@ -144,6 +145,11 @@ void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber
 
         counter++;
 
+        timer time;
+        time.set_mRunning(false);
+        isActive = false;
+        time.stop();
+
         connectCardWithMap();
     }
 }
@@ -172,7 +178,7 @@ for(int i = 0; i < selected; i++){
 return false;
 }
 
-int DrawCards::showImageAfterReminding(int x){
+void DrawCards::showImageAfterReminding(int x){
 
     cards = new Cards();
 
@@ -248,8 +254,11 @@ void DrawCards::remember(){
     buttons.clear();
 
     // display the final menu
-    if( counterEnd == listOfCards.size() )
+    if( counterEnd == listOfCards.size() ){
+
         game_over *gameOver = new game_over();
+        gameOver->drawButtons();
+    }
 }
 
 void DrawCards::wrong(){
@@ -262,7 +271,7 @@ void DrawCards::setResetAllInOne(){
     counter = 0;
     counterEnd = 0;
 
-    for( int i = 0; i < 13; i++)
+    for( int i = 0; i < listOfCards.size(); i++)
         antiRepetition[i] = 0;
 
     tmp = 0;

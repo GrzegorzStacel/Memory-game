@@ -5,6 +5,7 @@
 #include "cards.h"
 #include "drawcards.h"
 #include "game_over.h"
+#include "timer.h"
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
@@ -25,6 +26,7 @@ private:
 
     // private attributes
     int choosen;
+    bool isGameOver = false;
 
 
 public:
@@ -33,12 +35,15 @@ public:
     DrawCards *draw;
     Cards *cards;
     QGraphicsScene *scene;
-    game_over *overGame;
+    //game_over *overGame;
+    timer timer;
 
 
     // public methods
     void displayMainMenu();
-    void gameOver();
+    //void gameOver();
+    //void startClock();
+    void setisGameOver(bool value) { isGameOver = value; }
 
 
 public slots:

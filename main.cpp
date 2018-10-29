@@ -1,7 +1,8 @@
 #include <QApplication>
 
 #include "game.h"
-#include "cards.h"
+//#include "cards.h"
+//#include "timer.h"
 
 Game *game;
 
@@ -13,6 +14,5 @@ int main(int argc, char *argv[])
     game = new Game();
     game->show();
     game->displayMainMenu();
-
     return a.exec();
 }

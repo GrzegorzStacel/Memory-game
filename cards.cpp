@@ -35,7 +35,8 @@ QString Cards::setImage(int number){
         case 12: return":/background/images/cards/heart/krol_serc.png";
         case 13: return":/background/images/cards/heart/as_serc.png";
 
-        default: qDebug() << "We have a problem in method Cards::setImage"; return ":/others/images/cards/back.png";
+        default: qDebug() << "We have a problem in method Cards::setImage";
+                 return ":/others/images/cards/back.png";
     }
 }
 
@@ -68,9 +69,14 @@ void Cards::generatorOfRandomNumbers(){
     } while( selectedAtRandom < 13 );
 }
 
+void Cards::createPauseButton(){
+    setPixmap(QString(":/others/images/others/pauseButtonS.png"));
+    setPos(1150,15);
+}
 
-bool Cards::IfItWasDrawn( int iNumber, int selectedAtRandom )
-{
+
+bool Cards::IfItWasDrawn( int iNumber, int selectedAtRandom ){
+
     if( selectedAtRandom <= 0 )
          return false;
 
