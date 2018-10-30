@@ -22,18 +22,18 @@ QString Cards::setImage(int number){
 
     switch (number+1) {
         case 1: return ":/background/images/cards/heart/2_serc.png";
-        case 2: return":/background/images/cards/heart/3_serc.png";
-        case 3: return":/background/images/cards/heart/4_serc.png";
-        case 4: return":/background/images/cards/heart/5_serc.png";
-        case 5: return":/background/images/cards/heart/6_serc.png";
-        case 6: return":/background/images/cards/heart/7_serc.png";
-        case 7: return":/background/images/cards/heart/8_serc.png";
-        case 8: return":/background/images/cards/heart/9_serc.png";
-        case 9: return":/background/images/cards/heart/10_serc.png";
-        case 10: return":/background/images/cards/heart/jopek_serc.png";
-        case 11: return":/background/images/cards/heart/dama_serc.png";
-        case 12: return":/background/images/cards/heart/krol_serc.png";
-        case 13: return":/background/images/cards/heart/as_serc.png";
+        case 2: return ":/background/images/cards/heart/3_serc.png";
+        case 3: return ":/background/images/cards/heart/4_serc.png";
+        case 4: return ":/background/images/cards/heart/5_serc.png";
+        case 5: return ":/background/images/cards/heart/6_serc.png";
+        case 6: return ":/background/images/cards/heart/7_serc.png";
+        case 7: return ":/background/images/cards/heart/8_serc.png";
+        case 8: return ":/background/images/cards/heart/9_serc.png";
+        case 9: return ":/background/images/cards/heart/10_serc.png";
+        case 10: return ":/background/images/cards/heart/jopek_serc.png";
+        case 11: return ":/background/images/cards/heart/dama_serc.png";
+        case 12: return ":/background/images/cards/heart/krol_serc.png";
+        case 13: return ":/background/images/cards/heart/as_serc.png";
 
         default: qDebug() << "We have a problem in method Cards::setImage";
                  return ":/others/images/cards/back.png";

@@ -3,7 +3,7 @@
 
 #include "mainbuttons.h"
 #include "cards.h"
-//#include "timer.h"
+#include "statistic.h"
 
 #include <QObject>
 #include <QGraphicsSceneMouseEvent>
@@ -47,6 +47,8 @@ public:
 
     // public attributes
     Cards *cards;
+    statistic *stat;
+    QGraphicsTextItem *information;
 
     static bool isActive;
 

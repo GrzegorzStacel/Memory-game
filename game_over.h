@@ -7,6 +7,8 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QObject>
 
+#include "statistic.h"
+
 
 class game_over : public QObject{
     Q_OBJECT
@@ -17,6 +19,7 @@ public:
     game_over();
 
     // public attributes
+    statistic *stat;
 
 
 

@@ -2,7 +2,6 @@
 #include "game.h"
 #include "mainbuttons.h"
 #include "drawcards.h"
-
 #include "timer.h"
 
 #include <QFont>
@@ -40,21 +39,28 @@ void game_over::drawButtons(){
     drawPanel(0, 0, x_pos, y_pos, Qt::black, 0.65);
 
     // draw panel
-    drawPanel(312, 184, x_pos/2, y_pos/2, Qt::lightGray, 0.85);
+    drawPanel(312, 150, x_pos/2, y_pos/2, Qt::lightGray, 0.85);
+
+    // create text with the time reminding
+    QGraphicsTextItem* clock = new QGraphicsTextItem("Your memorizing time:\n ");
+    QFont title("comic sans", 18, QFont::Bold);
+    clock->setFont(title);
+    double txxPos = x_pos/2 - clock->boundingRect().width()/2;
+    clock->setPos(txxPos,180);
+    game->scene->addItem(clock);
 
     // create text with the time reminding
     timer *time = new timer();
-    qDebug() << "Time gameover: " << time->get_time();
-    QGraphicsTextItem* clock = new QGraphicsTextItem("Your memorizing time " + time->get_time());
-    QFont title("comic sans", 18, QFont::Bold);
-    clock->setFont(title);
-    double txxPos = x_pos/2 - time->boundingRect().width()/3;
-    clock->setPos(txxPos-310,200);
-    game->scene->addItem(clock);
+    QGraphicsTextItem* clock2 = new QGraphicsTextItem(time->get_time());
+    QFont title2("comic sans", 18, QFont::Bold);
+    clock2->setFont(title2);
+    double txxPos2 = x_pos/2 - clock->boundingRect().width()/2;
+    clock2->setPos(txxPos2+30,230);
+    game->scene->addItem(clock2);
 
     // create text annoucning winner
     QGraphicsTextItem* overText = new QGraphicsTextItem("Congratulations");
-    QFont titleFont("comic sans", 50);
+    QFont titleFont("comic sans", 40);
     overText->setFont(titleFont);
     double txPos = x_pos/2 - overText->boundingRect().width()/2;
     overText->setPos(txPos-15,260);
@@ -87,5 +93,16 @@ void game_over::restartGame(){
     game->start();
     time->start();
 
+    // adding values from the completed game ( to statistic )
+    stat->setTotalCorrect(stat->getCorrect());
+    stat->setTotalWrong(stat->getWrong());
+
+    // method write - 1 ( totalTime.txt ), 2 ( totalCorrect.txt ), 3 ( totalWrong.txt )
+    for(int i = 1; i < 4; i++)
+        stat->write(i);
+
+    // reset statistic value
+    stat->setCorrect(0);
+    stat->setWrong(0);
 }
 

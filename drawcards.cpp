@@ -9,7 +9,11 @@
 #include <QSignalMapper>
 
 #include <QPointer>
-#include <cmath>
+//#include <cmath>
+//#include <QThread>
+
+//#include <QTimer>
+
 extern Game *game;
 
 int DrawCards::counter;
@@ -136,19 +140,21 @@ void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber
         listOfCards[counter-1]->setPixmap(cards->setActive(false));
         game->scene->addItem(listOfCards[counter-1]);
 
-
-        // create the reminding button // TODO I don't now if this button is necessary
-        MainButtons *reminding = new MainButtons(QString("Stop timer"), 200, 100);
-        reminding->setPos(200,100);
-        connect(reminding, SIGNAL(clicked()), this, SLOT(iAmCheater()));
-        game->scene->addItem(reminding);
-
         counter++;
 
         timer time;
         time.set_mRunning(false);
         isActive = false;
         time.stop();
+
+        // create text annoucning winner
+        information = new QGraphicsTextItem("The clock has been stopped");
+        QFont titleFont("comic sans", 35, 3);
+        information->setFont(titleFont);
+        information->setPos(game->scene->width()/4, 15);
+
+        game->scene->addItem(information);
+
 
         connectCardWithMap();
     }
@@ -217,6 +223,10 @@ void DrawCards::showImageAfterReminding(int x){
 
 void DrawCards::remember(){
 
+    // removing the text informing about stopping the clock
+    if( counterEnd == 1 )
+        game->scene->removeItem(information);
+
     // remove buttons (correct and wrong) under selected card
     for(int i = 0; i < buttons.size(); i++){
         game->scene->removeItem(buttons[i]);
@@ -259,10 +269,16 @@ void DrawCards::remember(){
         game_over *gameOver = new game_over();
         gameOver->drawButtons();
     }
+
+    // add value to statistic ( correct answer )
+    stat->setCorrect(1);
 }
 
 void DrawCards::wrong(){
     remember();
+
+    // add value to statistic ( wrong answer )
+    stat->setWrong(1);
 }
 
 void DrawCards::setResetAllInOne(){

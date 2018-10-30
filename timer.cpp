@@ -3,7 +3,7 @@
 #include "cards.h"
 
 #include "drawcards.h"
-
+#include <QThread>
 #include <QDebug>
 
 extern Game *game;
@@ -17,7 +17,6 @@ timer::timer(){
 }
 
 void timer::start(){
-
     DrawCards *draw = new DrawCards();
     draw->isActive = true;
 
@@ -40,7 +39,7 @@ void timer::start(){
 //    time->setPos(1150,50);
 //    connect(time, SIGNAL(clicked()), time, SLOT(pause()));
 //    game->scene->addItem(time);
-//----------------------------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------------------------
 }
 
 void timer::stop(){
@@ -53,15 +52,18 @@ void timer::timerEvent(QTimerEvent *){
     if(mRunning){
 
         mSessionTime = mStartTime.msecsTo(QDateTime::currentDateTime());
-        mSessionTime *= 111;
+
         long long int h = mSessionTime / 1000 / 60 / 60;
         long long int m = (mSessionTime / 1000 / 60) - (h * 60);
         long long int s = (mSessionTime / 1000) - ((m + (h * 60))* 60);
         long long int ms = mSessionTime - (s + ((m + (h * 60))* 60)) * 1000;
-        timeString = QString("%2m %3s %4ms")
-                                .arg(m,  2, 10, QChar('0'))
-                                .arg(s,  2, 10, QChar('0'))
-                                .arg(ms, 3, 10, QChar('0'));
+        timeString = QString("%1h %2m %3s %4ms")
+                            .arg(h,  1, 10, QChar('0'))
+                            .arg(m,  2, 10, QChar('0'))
+                            .arg(s,  2, 10, QChar('0'))
+                            .arg(ms, 3, 10, QChar('0'));
+
+        //qDebug() << "event: " << timeString;
      }
 }
 

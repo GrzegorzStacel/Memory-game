@@ -1,6 +1,6 @@
 #include "game.h"
 #include "drawgui.h"
-
+#include "statistic.h"
 #include <QGraphicsTextItem>
 
 #include <QtDebug>
@@ -35,6 +35,11 @@ void Game::start(){
 
     timer.start();
 
+    statistic stat;
+
+    stat.read(1);
+    stat.read(2);
+    stat.read(3);
 //    if( !draw->isActive )
 //        timer.stop();
 
@@ -71,19 +76,7 @@ void Game::displayMainMenu(){
     quitbutton->setPos(qxPos,qyPos);
     connect(quitbutton, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quitbutton);
-
-
 }
-
-//void Game::gameOver(){
-    //if( draw->isActive )
-//        timer.stop();
-//    qDebug() << "Im game - gameover (isActive) : " << draw->isActive;
-//}
-
-//void Game::startClock(){
-//    timerr = new timer();
-//}
 
 
 

@@ -36,6 +36,7 @@ public:
     void stop();
     void start();
 
+
     void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
 
     bool get_mRunning() { return mRunning; }
