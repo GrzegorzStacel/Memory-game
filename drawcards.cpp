@@ -8,11 +8,8 @@
 
 #include <QSignalMapper>
 
-#include <QPointer>
-//#include <cmath>
-//#include <QThread>
 
-//#include <QTimer>
+#include <QPointer>
 
 extern Game *game;
 
@@ -155,7 +152,6 @@ void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber
 
         game->scene->addItem(information);
 
-
         connectCardWithMap();
     }
 }
@@ -171,18 +167,6 @@ void DrawCards::connectCardWithMap(){
     connect (signalMapper, SIGNAL(mapped(int)), this, SLOT(showImageAfterReminding(int))) ;
 }
 
-bool DrawCards::isItRepeat(int xNumber, int selected){
-
-if( selected <= 0 )
-     return false;
-
-for(int i = 0; i < selected; i++){
-    if( antiRepetition[i] == xNumber)
-        return true;
-}
-
-return false;
-}
 
 void DrawCards::showImageAfterReminding(int x){
 
@@ -205,6 +189,7 @@ void DrawCards::showImageAfterReminding(int x){
     }
 
 
+
     // create the correct button under the choosen card
     MainButtons * correct = new MainButtons(QString("Correct"), 50, 25);
     correct->setPos(x_posOfCard[x] + 10, y_posOfCard[x] + 215);
@@ -221,7 +206,37 @@ void DrawCards::showImageAfterReminding(int x){
 
 }
 
+bool DrawCards::isItRepeat(int xNumber, int selected){
+
+    if( selected <= 0 )
+        return false;
+
+    for(int i = 0; i < selected; i++){
+        if( antiRepetition[i] == xNumber)
+            return true;
+    }
+
+    return false;
+}
+
 void DrawCards::remember(){
+
+    // add value to statistic ( correct answer )
+    stat->setCorrect(1);
+
+    manageAnswers();
+}
+
+void DrawCards::wrong(){
+
+    // add value to statistic ( wrong answer )
+    stat->setWrong(1);
+
+    manageAnswers();
+}
+
+
+void DrawCards::manageAnswers(){
 
     // removing the text informing about stopping the clock
     if( counterEnd == 1 )
@@ -251,6 +266,7 @@ void DrawCards::remember(){
     do{
         if( i == antiRepetition[n] && n <= tmp ){
 
+
             listOfCards[ antiRepetition[n] ]->setEnabled(false);
             n++;
             i++;
@@ -268,30 +284,22 @@ void DrawCards::remember(){
 
         game_over *gameOver = new game_over();
         gameOver->drawButtons();
+        gameOver->manageStatistic();
     }
-
-    // add value to statistic ( correct answer )
-    stat->setCorrect(1);
 }
 
-void DrawCards::wrong(){
-    remember();
-
-    // add value to statistic ( wrong answer )
-    stat->setWrong(1);
-}
 
 void DrawCards::setResetAllInOne(){
 
     // reset all the important integers, if a player wants to play again
     counter = 0;
     counterEnd = 0;
+    tmp = 0;
 
-    for( int i = 0; i < listOfCards.size(); i++)
+    for( int i = 0; i < 13; i++)// TODO change value for difficult
         antiRepetition[i] = 0;
 
-    tmp = 0;
-    listOfCards.clear();
 
+    listOfCards.clear();
 }
 

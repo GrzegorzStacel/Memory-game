@@ -35,6 +35,8 @@ QString Cards::setImage(int number){
         case 12: return ":/background/images/cards/heart/krol_serc.png";
         case 13: return ":/background/images/cards/heart/as_serc.png";
 
+        case 100: return ":/others/images/others/statisticsIconS.png";
+
         default: qDebug() << "We have a problem in method Cards::setImage";
                  return ":/others/images/cards/back.png";
     }

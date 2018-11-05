@@ -35,48 +35,59 @@ void Game::start(){
 
     timer.start();
 
-    statistic stat;
-
-    stat.read(1);
-    stat.read(2);
-    stat.read(3);
-//    if( !draw->isActive )
-//        timer.stop();
-
-
-//    drawGUI * GUI = new drawGUI();
-
     draw = new DrawCards();
+
     draw->placeCards(100,600,13);
 
 }
 
+
+
 void Game::displayMainMenu(){
+
+    scene->clear();
+
+    timer.setTimeStringSecReset();
+    timer.setTimeStringMinReset();
+    timer.setTimeStringHourReset();
+
     // create the title text
-    QGraphicsTextItem *titleText = new QGraphicsTextItem(QString("Memory Cards"));
+    titleText = new QGraphicsTextItem(QString("Memory Cards"));
     QFont titleFont("comic sans", 50);
     titleText->setFont(titleFont);
     double txPos = this->width()/2 - titleText->boundingRect().width()/2;
-    int tyPos = 250;
-    titleText->setPos(txPos, tyPos);
+    titleText->setPos(txPos, 250);
     scene->addItem(titleText);
 
     // create the play button
-    MainButtons *playButton = new MainButtons(QString("Play"));
+    playButton = new MainButtons(QString("Play"));
     double bxPos = this->width()/2 - playButton->boundingRect().width()/2;
-    int byPos = 450;
-    playButton->setPos(bxPos,byPos);
+    playButton->setPos(bxPos,450);
     connect(playButton,SIGNAL(clicked()), this, SLOT(start()));
     scene->addItem(playButton);
 
+    // create the statistics button
+    statisticsbutton = new MainButtons(QString("Statistic"));
+    statisticsbutton->setPos(bxPos, 550);
+    connect(statisticsbutton, SIGNAL(clicked()), this, SLOT(statisticbutton()));
+    scene->addItem(statisticsbutton);
+
     // create the quit button
-    MainButtons *quitbutton = new MainButtons(QString("Quit"));
-    double qxPos = this->width()/2 - quitbutton->boundingRect().width()/2;
-    int qyPos = 550;
-    quitbutton->setPos(qxPos,qyPos);
+    quitbutton = new MainButtons(QString("Quit"));
+    quitbutton->setPos(bxPos,650);
     connect(quitbutton, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quitbutton);
+
 }
 
+void Game::statisticbutton(){
 
+    scene->removeItem(titleText);
+    scene->removeItem(playButton);
+    scene->removeItem(statisticsbutton);
+    scene->removeItem(quitbutton);
+
+    statistic *stat = new statistic();
+    stat->showstatic();
+}
 

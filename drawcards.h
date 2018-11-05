@@ -40,6 +40,7 @@ private:
     void createBoard(int x, int y, bool iisActive);
     void connectCardWithMap();
     bool isItRepeat(int, int);
+    void manageAnswers();
 
 
 
@@ -58,7 +59,6 @@ public:
 
     // setter
     void setResetAllInOne();
-
 
 public slots:
     void addImageWithRandomNumber(); // first part of game ( memorizing )

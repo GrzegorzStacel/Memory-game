@@ -1,6 +1,7 @@
 #include "timer.h"
 #include "game.h"
 #include "cards.h"
+#include "statistic.h"
 
 #include "drawcards.h"
 #include <QThread>
@@ -10,7 +11,9 @@ extern Game *game;
 
 bool timer::mRunning;
 QString timer::timeString;
-
+QString timer::timeStringHour;
+QString timer::timeStringMin;
+QString timer::timeStringSec;
 
 timer::timer(){
 
@@ -42,6 +45,7 @@ void timer::start(){
     //----------------------------------------------------------------------------------------------------------------------------
 }
 
+
 void timer::stop(){
 
     mRunning = false;
@@ -63,10 +67,23 @@ void timer::timerEvent(QTimerEvent *){
                             .arg(s,  2, 10, QChar('0'))
                             .arg(ms, 3, 10, QChar('0'));
 
-        //qDebug() << "event: " << timeString;
+        timeStringHour = QString("%1").arg(h, 1, 10, QChar('0'));
+        timeStringMin = QString("%1").arg(m, 2, 10, QChar('0'));
+        timeStringSec = QString("%1").arg(s, 2, 10, QChar('0'));        
      }
 }
 
+QString timer::showTotalTime(){
+    qDebug() << "timer showtotaltime1 - timestringhour: " << timeStringHour;
+    qDebug() << "timer showtotaltime1 - timestringmin: " << timeStringMin;
+    statistic *stat = new statistic();
+    setTimeStringSecRegular(stat->read(3));
+    setTimeStringMinRegular(stat->read(4));
+    setTimeStringHourRegular(stat->read(5));
+    qDebug() << "timer showtotaltime2 - timestringhour: " << timeStringHour;
+    qDebug() << "timer showtotaltime2 - timestringmin: " << timeStringMin;
+    return time = "\t" + timeStringHour + "h : " + timeStringMin + "m : " + timeStringSec + "s";
+}
 
             // CODE TO IMPLEMENT THE PAUSE TIME OPTION - FOR NOW IS WITHHELD
 // BECAUSE THIS CODE HAS A FEW BUGS AND I DON'T HAVE ANY IDEA HOW TO SOLVE THIS - THE LIST OF ERRORS IS AT THE END OF THE SITE

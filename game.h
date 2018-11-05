@@ -35,21 +35,19 @@ public:
     DrawCards *draw;
     Cards *cards;
     QGraphicsScene *scene;
-    //game_over *overGame;
+    QGraphicsTextItem *titleText;
+    MainButtons *playButton, *quitbutton, *statisticsbutton;
+    game_over *overGame;
     timer timer;
 
-
-    // public methods
-    void displayMainMenu();
-    //void gameOver();
-    //void startClock();
-    void setisGameOver(bool value) { isGameOver = value; }
 
 
 public slots:
 
     // public slots
     void start();
+    void statisticbutton();
+    void displayMainMenu();
 
 };
 
