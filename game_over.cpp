@@ -49,8 +49,6 @@ void game_over::manageStatistic(){
                     break;
 
                 case 3:
-                    qDebug() << "time->getTimeStringSec().toInt();" << time->getTimeStringSec().toInt();
-                    qDebug() << "textFromFile.toInt();;" << textFromFile.toInt();
                     tmp = time->getTimeStringSec().toInt();
                     tmp += textFromFile.toInt();
 
@@ -58,7 +56,7 @@ void game_over::manageStatistic(){
                         stat->setTotalTimeMinutesAdd(1);
                         tmp -= 60;
                     }
-                    qDebug() << "tmp end: " << tmp;
+
                     stat->setTotalTimeSecondsAdd(tmp);
                     break;
 
@@ -197,7 +195,7 @@ void game_over::restartGame(){
 
     // reset important counters
     DrawCards *draw = new DrawCards();
-    draw->setResetAllInOne();
+    draw->setResetDrawCards();
     draw->isActive = true;
 
     timer *time = new timer();
@@ -219,12 +217,14 @@ void game_over::restartGame(){
 }
 
 void game_over::goToStatistics(){
-    qDebug() << "gotostatistics";
+
+    restartGame();
+
+    DrawCards *draw = new DrawCards();
+    draw->setResetDrawCards();
+
     game->scene->clear();
 
-    stat->setTotalTimeHoursReset();
-    stat->setTotalTimeMinutesReset();
-    stat->setTotalTimeSecondsReset();
     stat->showstatic();
 }
 

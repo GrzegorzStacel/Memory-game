@@ -35,6 +35,7 @@ private:
     static int counterEnd;
     static int x_posOfCard[13]; // TODO change value to difficult
     static int y_posOfCard[13]; // TODO change value to difficult
+    static int variableForChooseImage;
 
     // private methods
     void createBoard(int x, int y, bool iisActive);
@@ -44,12 +45,14 @@ private:
 
 
 
+
+
 public:
 
     // public attributes
-    Cards *cards;
+    Cards *cards, *information;
     statistic *stat;
-    QGraphicsTextItem *information;
+    //QGraphicsTextItem *information;
 
     static bool isActive;
 
@@ -57,19 +60,29 @@ public:
     void placeCards(int x, int y, int cards);
     inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
 
-    // setter
-    void setResetAllInOne();
+    // setters
+    void setResetDrawCards();
+    void setVariableForChooseImage(const int value) { variableForChooseImage = value; }
+
+    // getters
+    int getVariableForChooseImage() { qDebug() << "get: " << variableForChooseImage; return variableForChooseImage; }
+
 
 public slots:
     void addImageWithRandomNumber(); // first part of game ( memorizing )
     void showImageAfterReminding(int); // second part of game ( reminder from memory )
-    void remember(); // if the player remembers well
-    void wrong(); // if the player misbehaves
+    void remember(int x); // if the player remembers well
+    void wrong(int x); // if the player misbehaves
 
 
 
 signals:
     void clicked();
+    //void buttonClicked(int);
+
+private slots:
+    //void handleClick() { qDebug() << "emit"; }//emit buttonClicked(variableForChooseImage); }
+
 
 };
 

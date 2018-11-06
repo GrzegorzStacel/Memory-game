@@ -20,11 +20,11 @@ int DrawCards::x_posOfCard[];
 int DrawCards::y_posOfCard[];
 int DrawCards::antiRepetition[];
 bool DrawCards::isActive = true;
+int DrawCards::variableForChooseImage;
 
 DrawCards::DrawCards(){
-    setPixmap(QPixmap(":/others/images/cards/back.png"));
+    setPixmap(QPixmap(":/others/heart/wrong/images/cards/back.png"));
 }
-
 
 void DrawCards::placeCards(int x, int y, int cards){
 
@@ -65,8 +65,6 @@ void DrawCards::placeCards(int x, int y, int cards){
     }
 }
 
-
-
 void DrawCards::createBoard(int x, int y, bool iisActive){
 
         cards = new Cards(iisActive);
@@ -75,7 +73,7 @@ void DrawCards::createBoard(int x, int y, bool iisActive){
         connect(cards, SIGNAL(clicked()), this, SLOT(addImageWithRandomNumber()));
         game->scene->addItem(cards);
         counter = 13; // TODO cheat variable
-        counterEnd = 12;
+        counterEnd = 11;
 }
 
 void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber(int difficult)
@@ -145,11 +143,9 @@ void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber
         time.stop();
 
         // create text annoucning winner
-        information = new QGraphicsTextItem("The clock has been stopped");
-        QFont titleFont("comic sans", 35, 3);
-        information->setFont(titleFont);
-        information->setPos(game->scene->width()/4, 15);
-
+        information = new Cards();
+        information->setPos(game->scene->width()/4+70, 15);
+        information->setPixmap(information->setImage(100));
         game->scene->addItem(information);
 
         connectCardWithMap();
@@ -157,7 +153,7 @@ void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber
 }
 
 void DrawCards::connectCardWithMap(){
-    QSignalMapper* signalMapper = new QSignalMapper(this) ; // TODO find another way to implement the connections of each object separately with the appropriate signal
+    QSignalMapper* signalMapper = new QSignalMapper(this); // TODO find another way to implement the connections of each object separately with the appropriate signal
 
     for( int i = 0; i < listOfCards.size(); i++){ // TODO (DONE) set the value - difficult
         connect (listOfCards[i], SIGNAL(clicked()), signalMapper, SLOT(map()));
@@ -166,7 +162,6 @@ void DrawCards::connectCardWithMap(){
 
     connect (signalMapper, SIGNAL(mapped(int)), this, SLOT(showImageAfterReminding(int))) ;
 }
-
 
 void DrawCards::showImageAfterReminding(int x){
 
@@ -186,22 +181,26 @@ void DrawCards::showImageAfterReminding(int x){
         antiRepetition[ tmp ] = x;
         tmp++;
         counterEnd++;
-    }
 
+        // Send this value to methods Correct and Wrong by the signal slot
+        setVariableForChooseImage(x);
+    }
 
 
     // create the correct button under the choosen card
     MainButtons * correct = new MainButtons(QString("Correct"), 50, 25);
     correct->setPos(x_posOfCard[x] + 10, y_posOfCard[x] + 215);
     buttons.append(correct);
-    connect(correct, SIGNAL(clicked()), this, SLOT(remember()));
+    connect(correct, SIGNAL(clicked()), correct, SLOT(handleClickCorrect()));
+    connect(correct, SIGNAL(buttonClickedCorrect(int)), this, SLOT(remember(int)));
     game->scene->addItem(correct);
 
     // create the wrong button under the choosen card
     MainButtons *wrong = new MainButtons(QString("Wrong"), 50, 25);
     wrong->setPos(x_posOfCard[x] + 70, y_posOfCard[x] + 215);
     buttons.append(wrong);
-    connect(wrong, SIGNAL(clicked()), this, SLOT(wrong()));
+    connect(wrong, SIGNAL(clicked()), wrong, SLOT(handleClickWrong()));
+    connect(wrong, SIGNAL(buttonClickedWrong(int)), this, SLOT(wrong(int)));
     game->scene->addItem(wrong);
 
 }
@@ -219,18 +218,26 @@ bool DrawCards::isItRepeat(int xNumber, int selected){
     return false;
 }
 
-void DrawCards::remember(){
+void DrawCards::remember(int x){
 
     // add value to statistic ( correct answer )
     stat->setCorrect(1);
 
+    game->scene->removeItem(listOfCards[x]);
+    listOfCards[x]->setPixmap(cards->setImageCorrect(cards->getRandomNubmer(x)));
+    game->scene->addItem(listOfCards[x]);
+
     manageAnswers();
 }
 
-void DrawCards::wrong(){
+void DrawCards::wrong(int x){
 
     // add value to statistic ( wrong answer )
     stat->setWrong(1);
+
+    game->scene->removeItem(listOfCards[x]);
+    listOfCards[x]->setPixmap(cards->setImageWrong(cards->getRandomNubmer(x)));
+    game->scene->addItem(listOfCards[x]);
 
     manageAnswers();
 }
@@ -289,7 +296,7 @@ void DrawCards::manageAnswers(){
 }
 
 
-void DrawCards::setResetAllInOne(){
+void DrawCards::setResetDrawCards(){
 
     // reset all the important integers, if a player wants to play again
     counter = 0;

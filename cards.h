@@ -16,9 +16,10 @@ public:
     // public methods
     int getRandomNubmer(int x) { return RandomNumbers[x]; }
     QString setImage(int number);
+    QString setImageWrong(int number);
+    QString setImageCorrect(int number);
     QString setActive(bool foo);
     void generatorOfRandomNumbers();
-    void createPauseButton();
 
     inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
 

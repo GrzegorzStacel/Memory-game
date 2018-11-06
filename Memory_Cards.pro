@@ -33,7 +33,8 @@ SOURCES += \
     game_over.cpp \
     timer.cpp \
     drawgui.cpp \
-    statistic.cpp
+    statistic.cpp \
+    statisticbesttime.cpp
 
 HEADERS += \
     game.h \
@@ -43,7 +44,8 @@ HEADERS += \
     game_over.h \
     timer.h \
     drawgui.h \
-    statistic.h
+    statistic.h \
+    statisticbesttime.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

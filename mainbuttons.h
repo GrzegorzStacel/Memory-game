@@ -6,7 +6,7 @@
 #include <QObject>
 #include <QGraphicsRectItem>
 #include <QGraphicsSceneMouseEvent>
-//#include <QDebug>
+#include <QDebug>
 
 class MainButtons : public QObject, public QGraphicsRectItem{
     Q_OBJECT
@@ -37,7 +37,12 @@ signals:
 
     // public signals
     void clicked();
+    void buttonClickedWrong(int);
+    void buttonClickedCorrect(int);
 
+private slots:
+    void handleClickWrong();
+    void handleClickCorrect();
 
 
 };

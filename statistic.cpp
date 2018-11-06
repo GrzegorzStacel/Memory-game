@@ -107,24 +107,21 @@ void statistic::write(int value){
 
 
 void statistic::showstatic(){
-    qDebug() << "Showstatic:";
     timer *time = new timer();
     game_over *over = new game_over();
     QString tmp = time->showTotalTime();
-    qDebug() << "Showstatic - tmp : " << tmp ;
     double x_pos = game->scene->width();
     double y_pos = game->scene->height();
 
     over->drawPanel(x_pos/5, y_pos/5, x_pos/2 + 100, y_pos/2 + 50, Qt::white, 0.75);
 
-    qDebug() << "Showstatic2";
     // adds a label showing all the time spent memorizing cards
     QGraphicsTextItem *Ttime = new QGraphicsTextItem(QString("Total time: " + tmp));
     QFont title("comic sans", 25, QFont::Bold);
     Ttime->setFont(title);
     Ttime->setPos(x_pos/5 + 25, y_pos - 650);
     game->scene->addItem(Ttime);
-    qDebug() << "Showstatic3";
+
     // adds a label showing all correct answers
     setTotalCorrect(read(1).toInt());
     QGraphicsTextItem *Tcorrect = new QGraphicsTextItem(QString("Total correct: \t" + QString::number(totalCorrect)));
@@ -146,11 +143,6 @@ void statistic::showstatic(){
     backbutton->setPos(x_pos/2 + 50, y_pos - 300);
     connect(backbutton, SIGNAL(clicked()), game, SLOT(displayMainMenu()));
     game->scene->addItem(backbutton);
-    qDebug() << "Showstatic end";
-
-    time->setTimeStringHourReset();
-    time->setTimeStringMinReset();
-    time->setTimeStringSecReset();
 }
 
 

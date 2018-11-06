@@ -36,6 +36,7 @@ void Game::start(){
     timer.start();
 
     draw = new DrawCards();
+    //draw->setVariableForChooseImage(0);
 
     draw->placeCards(100,600,13);
 

@@ -42,7 +42,7 @@ void timer::start(){
 //    time->setPos(1150,50);
 //    connect(time, SIGNAL(clicked()), time, SLOT(pause()));
 //    game->scene->addItem(time);
-    //----------------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------
 }
 
 
@@ -74,14 +74,11 @@ void timer::timerEvent(QTimerEvent *){
 }
 
 QString timer::showTotalTime(){
-    qDebug() << "timer showtotaltime1 - timestringhour: " << timeStringHour;
-    qDebug() << "timer showtotaltime1 - timestringmin: " << timeStringMin;
     statistic *stat = new statistic();
     setTimeStringSecRegular(stat->read(3));
     setTimeStringMinRegular(stat->read(4));
     setTimeStringHourRegular(stat->read(5));
-    qDebug() << "timer showtotaltime2 - timestringhour: " << timeStringHour;
-    qDebug() << "timer showtotaltime2 - timestringmin: " << timeStringMin;
+
     return time = "\t" + timeStringHour + "h : " + timeStringMin + "m : " + timeStringSec + "s";
 }
 

@@ -43,28 +43,28 @@ public:
     static int getBestTime()                            { return bestTime; }
 
     // setters
-    static void setTotalTIme( QString value)            { totalTime += value; }
-    static void setTotalTimeHoursAdd(int value)         { totalTimeHours += value; }
-    static void setTotalTimeMinutesAdd(int value)       { totalTimeMinutes += value; }
-    static void setTotalTimeSecondsAdd(int value)       { totalTimeSeconds += value; }
+    static void setTotalTIme(const  QString value)      { totalTime += value; }
+    static void setTotalTimeHoursAdd(const int value)   { totalTimeHours += value; }
+    static void setTotalTimeMinutesAdd(const int value) { totalTimeMinutes += value; }
+    static void setTotalTimeSecondsAdd(const int value) { totalTimeSeconds += value; }
 
     static void setTotalTimeHoursReset()                { totalTimeHours = 0; }
     static void setTotalTimeMinutesReset()              { totalTimeMinutes = 0; }
     static void setTotalTimeSecondsReset()              { totalTimeSeconds = 0; }
 
-    static void setTotalCorrect(int value)              { totalCorrect = value; }
-    static void setTotalWrong(int value)                { totalWrong = value; }
+    static void setTotalCorrect(const int value)        { totalCorrect = value; }
+    static void setTotalWrong(const int value)          { totalWrong = value; }
 
     static void setTotalCorrectReset()                  { totalCorrect = 0; }
     static void setTotalWrongReset()                    { totalWrong = 0; }
 
-    static void setCorrect(int value)                   { correct += value; }
-    static void setWrong(int value)                     { wrong += value; }
+    static void setCorrect(const int value)             { correct += value; }
+    static void setWrong(const int value)               { wrong += value; }
 
     static void setCorrectReset()                       { correct = 0; }
     static void setWrongReset()                         { wrong = 0; }
 
-    static void setBestTime(int value)                  { bestTime = value; }
+    static void setBestTime(const int value)            { bestTime = value; }
 };
 
 #endif // STATISTIC_H

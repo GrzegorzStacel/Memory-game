@@ -3,8 +3,6 @@
 
 #include <QBrush>
 #include <QGraphicsTextItem>
-#include <QDebug>
-
 #include <QFont>
 
 extern Game *game;
@@ -48,4 +46,16 @@ void MainButtons::hoverLeaveEvent(QGraphicsSceneHoverEvent *){
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::darkCyan);
     setBrush(brush);
+}
+
+void MainButtons::handleClickWrong(){
+
+    DrawCards *draw = new DrawCards();
+    emit buttonClickedWrong(draw->getVariableForChooseImage());
+}
+
+void MainButtons::handleClickCorrect(){
+
+    DrawCards *draw = new DrawCards();
+    emit buttonClickedCorrect(draw->getVariableForChooseImage());
 }
