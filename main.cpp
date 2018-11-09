@@ -1,11 +1,10 @@
 #include <QApplication>
-
+#include "statisticbesttime.h"
 #include "game.h"
 //#include "cards.h"
 //#include "timer.h"
 
 Game *game;
-
 
 int main(int argc, char *argv[])
 {

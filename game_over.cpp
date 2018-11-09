@@ -16,89 +16,7 @@ game_over::game_over(){
 
 }
 
-void game_over::manageStatistic(){
 
-    if(stat->getCorrect() != 0 || stat->getWrong() != 0){
-
-        timer *time = new timer();
-        QString textFromFile = "";
-
-        for(int i = 1; i < 6; i++){
-
-            // method write/read:
-            // 1 ( totalCorrect.txt )
-            // 2 ( totalWrong.txt )
-            // 3 ( totalTimeSeconds.txt )
-            // 4 ( totalTImeMinutes.txt )
-            // 5 ( totalTimeHour.txt
-
-            textFromFile += stat->read(i);
-
-            int tmp = 0;
-
-            switch(i){
-
-                case 1:
-                    tmp = stat->getCorrect();
-                    stat->setTotalCorrect( textFromFile.toInt() + tmp );
-                    break;
-
-                case 2:
-                    tmp = stat->getWrong();
-                    stat->setTotalWrong( textFromFile.toInt() + tmp );
-                    break;
-
-                case 3:
-                    tmp = time->getTimeStringSec().toInt();
-                    tmp += textFromFile.toInt();
-
-                    if( tmp >= 60 ){
-                        stat->setTotalTimeMinutesAdd(1);
-                        tmp -= 60;
-                    }
-
-                    stat->setTotalTimeSecondsAdd(tmp);
-                    break;
-
-                case 4:
-                    tmp = time->getTimeStringMin().toInt() + stat->getTotalTimeMinutes();
-                    stat->setTotalTimeMinutesReset();
-
-                    tmp += textFromFile.toInt();
-
-                    if( tmp >= 60 ){
-
-                        stat->setTotalTimeHoursAdd(1);
-                        tmp -= 60;
-                    }
-
-                    stat->setTotalTimeMinutesAdd(tmp);
-                    break;
-
-                case 5:
-                    tmp = time->getTimeStringHour().toInt() + stat->getTotalTimeHours();
-                    stat->setTotalTimeHoursReset();
-
-                    tmp += textFromFile.toInt();
-
-                    stat->setTotalTimeHoursAdd(tmp);
-                    break;
-
-                default:
-                    qDebug() << "Attention! in game_over::manageStatistic (switch) - does not have \"" << i << "\" value."; break;
-
-            }
-
-            stat->write(i);
-            textFromFile = "";
-        }
-
-        // reset statistic value
-        stat->setCorrectReset();
-        stat->setWrongReset();
-    }
-
-}
 
 void game_over::drawPanel(double x, double y, double width, double height, QColor color, double opacity){
 
@@ -137,7 +55,7 @@ void game_over::drawButtons(){
 
     // create text with the time reminding
     timer *time = new timer();
-    QGraphicsTextItem* clock2 = new QGraphicsTextItem(time->get_time());
+    QGraphicsTextItem* clock2 = new QGraphicsTextItem(time->getTime());
     clock2->setDefaultTextColor(Qt::darkBlue);
     QFont title2("comic sans", 18, QFont::Bold);
     clock2->setFont(title2);
@@ -196,32 +114,22 @@ void game_over::restartGame(){
     // reset important counters
     DrawCards *draw = new DrawCards();
     draw->setResetDrawCards();
-    draw->isActive = true;
 
     timer *time = new timer();
-    time->set_mRunning(false);
-    time->set_timeString("");
-    time->setTimeStringHourReset();
-    time->setTimeStringMinReset();
-    time->setTimeStringSecReset();
+    time->ResetTimerVariable();
+
+    stat->ResetStatisticVariable();
+
+    statisticBestTime bestStat;
+    bestStat.ResetStaticVariable();
 
     game->start();
     time->start();
-
-    stat->setTotalTimeSecondsReset();
-    stat->setTotalTimeMinutesReset();
-    stat->setTotalTimeHoursReset();
-    stat->setTotalCorrectReset();
-    stat->setTotalWrongReset();
-
 }
 
 void game_over::goToStatistics(){
 
     restartGame();
-
-    DrawCards *draw = new DrawCards();
-    draw->setResetDrawCards();
 
     game->scene->clear();
 

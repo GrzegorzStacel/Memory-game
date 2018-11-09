@@ -44,15 +44,11 @@ private:
     void manageAnswers();
 
 
-
-
-
 public:
 
     // public attributes
     Cards *cards, *information;
     statistic *stat;
-    //QGraphicsTextItem *information;
 
     static bool isActive;
 
@@ -65,7 +61,7 @@ public:
     void setVariableForChooseImage(const int value) { variableForChooseImage = value; }
 
     // getters
-    int getVariableForChooseImage() { qDebug() << "get: " << variableForChooseImage; return variableForChooseImage; }
+    int getVariableForChooseImage() { return variableForChooseImage; }
 
 
 public slots:
@@ -78,11 +74,6 @@ public slots:
 
 signals:
     void clicked();
-    //void buttonClicked(int);
-
-private slots:
-    //void handleClick() { qDebug() << "emit"; }//emit buttonClicked(variableForChooseImage); }
-
 
 };
 

@@ -9,9 +9,9 @@ extern Game *game;
 
 MainButtons::MainButtons(QString name, int x, int y, QGraphicsItem *parent) : QGraphicsRectItem(parent){
 
-    drawRect(x,y);
+
     // draw the rect
-    //setRect(0,0,200,50);
+    drawRect(x,y);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::darkCyan);

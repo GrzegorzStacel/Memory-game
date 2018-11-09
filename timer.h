@@ -41,11 +41,12 @@ public:
     void stop();
     void start();
     QString showTotalTime();
+    void ResetTimerVariable();
 
     void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
 
     bool get_mRunning() { return mRunning; }
-    QString get_time() { return timeString; }
+    QString getTime() { return timeString; }
 
 
 
@@ -77,12 +78,8 @@ public:
     static void setTimeStringMinRegular(QString value)    { timeStringMin = value; }
     static void setTimeStringHourRegular(QString value)   { timeStringHour = value; }
 
-    static void setTimeStringSecReset()                   { timeStringSec = ""; }
-    static void setTimeStringMinReset()                   { timeStringMin = ""; }
-    static void setTimeStringHourReset()                  { timeStringHour = ""; }
-
-    void set_mRunning( bool decision )                    { mRunning = decision; }
-    void set_timeString(QString value)                    { timeString = value; }
+    void setMRunning( bool decision )                    { mRunning = decision; }
+    void setTimeString(QString value)                    { timeString = value; }
 };
 
 

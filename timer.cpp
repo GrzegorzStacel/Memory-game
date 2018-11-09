@@ -62,24 +62,35 @@ void timer::timerEvent(QTimerEvent *){
         long long int s = (mSessionTime / 1000) - ((m + (h * 60))* 60);
         long long int ms = mSessionTime - (s + ((m + (h * 60))* 60)) * 1000;
         timeString = QString("%1h %2m %3s %4ms")
-                            .arg(h,  1, 10, QChar('0'))
+                            .arg(h,  2, 10, QChar('0'))
                             .arg(m,  2, 10, QChar('0'))
                             .arg(s,  2, 10, QChar('0'))
                             .arg(ms, 3, 10, QChar('0'));
 
-        timeStringHour = QString("%1").arg(h, 1, 10, QChar('0'));
+        timeStringHour = QString("%1").arg(h, 2, 10, QChar('0'));
         timeStringMin = QString("%1").arg(m, 2, 10, QChar('0'));
         timeStringSec = QString("%1").arg(s, 2, 10, QChar('0'));        
      }
 }
 
 QString timer::showTotalTime(){
-    statistic *stat = new statistic();
-    setTimeStringSecRegular(stat->read(3));
-    setTimeStringMinRegular(stat->read(4));
-    setTimeStringHourRegular(stat->read(5));
 
-    return time = "\t" + timeStringHour + "h : " + timeStringMin + "m : " + timeStringSec + "s";
+    statistic *stat = new statistic();
+    setTimeStringSecRegular(stat->read(3,0));
+    setTimeStringMinRegular(stat->read(4,0));
+    setTimeStringHourRegular(stat->read(5,0));
+    qDebug() << "read 5: " << stat->read(5,0);
+    return time = timeStringHour + "h : " + timeStringMin + "m : " + timeStringSec + "s";
+}
+
+void timer::ResetTimerVariable(){
+
+    setMRunning(false);
+    setTimeString("");
+
+    timeStringSec = "";
+    timeStringMin = "";
+    timeStringHour = "";
 }
 
             // CODE TO IMPLEMENT THE PAUSE TIME OPTION - FOR NOW IS WITHHELD

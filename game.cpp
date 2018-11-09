@@ -1,6 +1,8 @@
 #include "game.h"
 #include "drawgui.h"
 #include "statistic.h"
+#include "statisticbesttime.h"
+
 #include <QGraphicsTextItem>
 
 #include <QtDebug>
@@ -36,8 +38,6 @@ void Game::start(){
     timer.start();
 
     draw = new DrawCards();
-    //draw->setVariableForChooseImage(0);
-
     draw->placeCards(100,600,13);
 
 }
@@ -46,11 +46,14 @@ void Game::start(){
 
 void Game::displayMainMenu(){
 
+    statisticBestTime statBest;
+    statBest.ResetStaticVariable();
+
     scene->clear();
 
-    timer.setTimeStringSecReset();
-    timer.setTimeStringMinReset();
-    timer.setTimeStringHourReset();
+//    timer.setTimeStringSecReset();//TODO delete
+//    timer.setTimeStringMinReset();
+//    timer.setTimeStringHourReset();
 
     // create the title text
     titleText = new QGraphicsTextItem(QString("Memory Cards"));

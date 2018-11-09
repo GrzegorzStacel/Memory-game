@@ -1,14 +1,14 @@
 #ifndef GAME_OVER_H
 #define GAME_OVER_H
 
-
+#include "statisticbesttime.h"
+#include "statistic.h"
 
 #include <QColor>
 #include <QGraphicsSceneMouseEvent>
 #include <QObject>
 
 #include <QCloseEvent>
-#include "statistic.h"
 #include <QGraphicsTextItem>
 #include <QDebug>
 
@@ -28,7 +28,6 @@ public:
     // public methods
     void drawPanel(double, double, double, double, QColor, double);
     void drawButtons();
-    void manageStatistic();
 
     void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
     void closeEvent(QCloseEvent *event);

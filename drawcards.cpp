@@ -1,12 +1,15 @@
 #include "drawcards.h"
 #include "game.h"
 #include "game_over.h"
+#include "statisticbesttime.h"
+#include "timer.h"
 
 #include <QBrush>
 #include "QDebug"
 #include <QPixmap>
 
 #include <QSignalMapper>
+#include <QDateTime>
 
 
 #include <QPointer>
@@ -73,7 +76,7 @@ void DrawCards::createBoard(int x, int y, bool iisActive){
         connect(cards, SIGNAL(clicked()), this, SLOT(addImageWithRandomNumber()));
         game->scene->addItem(cards);
         counter = 13; // TODO cheat variable
-        counterEnd = 11;
+        //counterEnd = 11;
 }
 
 void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber(int difficult)
@@ -138,7 +141,7 @@ void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber
         counter++;
 
         timer time;
-        time.set_mRunning(false);
+        time.setMRunning(false);
         isActive = false;
         time.stop();
 
@@ -246,9 +249,13 @@ void DrawCards::wrong(int x){
 void DrawCards::manageAnswers(){
 
     // removing the text informing about stopping the clock
-    if( counterEnd == 1 )
-        game->scene->removeItem(information);
+    if( counterEnd == 1 ){
 
+        game->scene->removeItem(information);
+        timer *time = new timer();
+        statisticBestTime best(QDateTime::currentDateTime().toString("dd-MM-yyyy HH:mm:ss"), time->getTime());
+        counterEnd=12;
+    }
     // remove buttons (correct and wrong) under selected card
     for(int i = 0; i < buttons.size(); i++){
         game->scene->removeItem(buttons[i]);
@@ -291,7 +298,8 @@ void DrawCards::manageAnswers(){
 
         game_over *gameOver = new game_over();
         gameOver->drawButtons();
-        gameOver->manageStatistic();
+
+        stat->manageStatistic();
     }
 }
 
@@ -306,7 +314,7 @@ void DrawCards::setResetDrawCards(){
     for( int i = 0; i < 13; i++)// TODO change value for difficult
         antiRepetition[i] = 0;
 
-
+    isActive = true;
     listOfCards.clear();
 }
 
