@@ -252,9 +252,11 @@ void DrawCards::manageAnswers(){
     if( counterEnd == 1 ){
 
         game->scene->removeItem(information);
+
         timer *time = new timer();
-        statisticBestTime best(QDateTime::currentDateTime().toString("dd-MM-yyyy HH:mm:ss"), time->getTime());
-        counterEnd=12;
+        statisticBestTimeCurrentDateAndGameTime = QDateTime::currentDateTime().toString("dd-MM-yyyy HH:mm:ss ") + time->getTime();
+
+        counterEnd = 12; // TODO delete counterend = 12
     }
     // remove buttons (correct and wrong) under selected card
     for(int i = 0; i < buttons.size(); i++){
@@ -299,7 +301,7 @@ void DrawCards::manageAnswers(){
         game_over *gameOver = new game_over();
         gameOver->drawButtons();
 
-        stat->manageStatistic();
+        stat->manageStatistic(statisticBestTimeCurrentDateAndGameTime);
     }
 }
 
@@ -310,6 +312,7 @@ void DrawCards::setResetDrawCards(){
     counter = 0;
     counterEnd = 0;
     tmp = 0;
+    statisticBestTimeCurrentDateAndGameTime = "";
 
     for( int i = 0; i < 13; i++)// TODO change value for difficult
         antiRepetition[i] = 0;

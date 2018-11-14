@@ -2,27 +2,19 @@
 
 
 QString statisticBestTime::complete;
+QString statisticBestTime::bestStatToSave;
+QString statisticBestTime::bestStatToSaveCorrect;
+QString statisticBestTime::bestStatToSaveWrong;
+QString statisticBestTime::StringTmp;
 int statisticBestTime::iterator;
 QList<long int> statisticBestTime::list;
-//int statisticBestTime::list[100];
 QList<long int> statisticBestTime::listTmp;
 QList<QString> statisticBestTime::besttime;
 
 
+
 statisticBestTime::statisticBestTime(){
     iterator = 0;
-
-}
-
-statisticBestTime::statisticBestTime(QString d, QString t) : currentDateTime(d), timeLaps(t) {
-    statistic stat;
-
-    complete = currentDateTime + " "
-            + timeLaps + " "
-            + QString::number(stat.getCorrect()) + " "
-            + QString::number(stat.getTotalWrong());
-
-    write(6, 1);
 
 }
 
@@ -39,17 +31,36 @@ void statisticBestTime::transformationSring(QString line, int i){
     iterator = i;
 }
 
-QString statisticBestTime::showTheBest(){
+QString statisticBestTime::showTheBest(int value){
+
+//        qDebug() << "------------------------- ";
+
+//    for(int i=0; i<=iterator; ++i)
+//        qDebug() << "list: " << list[i];
 
     bubbleSort();
 
-    for( int i = 0; i <= iterator; ++i )
+//    for(int i=0; i<=iterator; ++i)
+//        qDebug() << "list end: " << list[i];
+
+    for( int i = 0; i <= iterator; ++i ){
         if(listTmp[i] == list[0]){
 
-            return prepareTextComplete(besttime[i]);
-        }
+            setBestStatToSave(besttime[i]);
+            setStringTmp(besttime[i]);
+//            qDebug() << "besttime[" << i << "] " << besttime[i];
+            write(7,0);
 
-    return "Error, it's empty";
+            if(value == 0)
+                return prepareTextComplete(besttime[i]);
+
+
+            return "";
+        }
+    }
+
+    qDebug() << "Error in method staticBestTime::showTheBest";
+    return "Error";
 }
 
 void statisticBestTime::bubbleSort(){
@@ -119,10 +130,41 @@ QString statisticBestTime::prepareTextSecond(QString text){
 
     qDebug() << "We have problem in method statisticBestTime::prepareTextSecond";
 
+
     return "Error";
 }
 
-void statisticBestTime::ResetStaticVariable(){
+
+void statisticBestTime::showTheBestCorrect(){
+    qDebug() << "value: " << getBestStatToSave();
+
+    setBestStatToSaveCorrect(QString::number(getBestStatToSave().mid(38, 2).toInt()));
+
+    setBestStatToSaveWrong(QString::number(getBestStatToSave().mid(41, 2).toInt()));
+
+}
+
+void statisticBestTime::transformationCorrect(QString value, int x){
+
+    if(x == 0){
+        setBestStatToSave(value);
+    }
+    else if(x == 1)
+       setBestStatToSaveCorrect(value);
+
+    else if(x == 2)
+       setBestStatToSaveWrong(value);
+
+    qDebug() << "--------------------------------";
+    qDebug() << "save: " << getBestStatToSave();
+    qDebug() << "correct: " << getBestStatToSaveCorrect();
+    qDebug() << "wrong: " << getBestStatToSaveWrong();
+    qDebug() << "--------------------------------";
+
+}
+
+
+void statisticBestTime::ResetStaticBestTimeVariable(){
 
     list.clear();
     listTmp.clear();

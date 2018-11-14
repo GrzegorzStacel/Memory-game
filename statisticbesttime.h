@@ -12,10 +12,13 @@ class statisticBestTime : public statistic{
     QString timeLaps;
     static QString complete;
     static QList<long int> list;
-    //static int list[];
     static QList<long int> listTmp;
     static QList<QString> besttime;
     static int iterator;
+    static QString bestStatToSave;
+    static QString bestStatToSaveCorrect;
+    static QString bestStatToSaveWrong;
+    static QString StringTmp;
 
 
     // private methods
@@ -28,19 +31,31 @@ class statisticBestTime : public statistic{
 public:
     // constructors
     statisticBestTime();
-    statisticBestTime(QString d, QString t);
 
     // public methods
     void transformationSring(const QString line, int i);
-    QString showTheBest();
-    void ResetStaticVariable();
+    QString showTheBest(int value);
+    void showTheBestCorrect();
+    QString showTHeBestWrong();
+    void ResetStaticBestTimeVariable();
+    void transformationCorrect(QString value, int x);
+    void transformationWrong(QString value, int x);
 
+    QString mama2;
 
     // getters
-    static QString getComplete() { return complete; }
+    static QString getComplete()                             { return complete; }
+    static QString getBestStatToSave()                       { return bestStatToSave; }
+    static QString getBestStatToSaveCorrect()                { return bestStatToSaveCorrect; }
+    static QString getBestStatToSaveWrong()                  { return bestStatToSaveWrong; }
+    static QString getStringTmp()                            { return StringTmp; }
 
     // setters
-
+    void setComplete(const QString value)                    { complete = value; }
+    static void setBestStatToSave(const QString value)       { bestStatToSave = value; }
+    static void setBestStatToSaveCorrect(const QString value){ bestStatToSaveCorrect = value; }
+    static void setBestStatToSaveWrong(const QString value)  { bestStatToSaveWrong = value; }
+    static void setStringTmp(const QString &value)           { StringTmp = value; }
 };
 
 #endif // STATISTICBESTTIME_H

@@ -22,8 +22,6 @@ int statistic::correct;
 int statistic::wrong;
 
 
-
-
 statistic::statistic(){
 
 }
@@ -40,6 +38,7 @@ QString statistic::read(int valueA, int valueB){
         case 4: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeMinutes.txt"); break;
         case 5: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeHours.txt"); break;
         case 6: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTime.txt"); break;
+        case 7: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/bestTime.txt"); break;
 
         default:
             qDebug() << "Attention! in statistic::read (1 arg) - does not have \"" << valueA << "\" value."; break;
@@ -61,18 +60,33 @@ QString statistic::read(int valueA, int valueB){
             while(!file.atEnd()){
 
                 line = file.readLine();
+                qDebug() << "line: " << line;
                 best->transformationSring(line, i);
                 ++i;
             }
+
+        } else if(valueB == 2){
+
+            while(!file.atEnd()){
+                qDebug() << "valueB == 2";
+
+                line = file.readLine();
+                best->transformationCorrect(line, i);
+                qDebug() << "valueB - line " << i << " : "<< line;
+                ++i;
+            }
+
         } else {
 
             line = file.readAll();
         }
+
     } else {
 
         qDebug() << "In method statistic::read could not open file for read.";
         return nullptr;
     }
+
 
     file.close();
     return line;
@@ -92,6 +106,7 @@ void statistic::write(int valueA, int valueB){
         case 4: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeMinutes.txt"); break;
         case 5: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeHours.txt"); break;
         case 6: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTime.txt"); break;
+        case 7: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/bestTime.txt"); break;
 
         default:
             qDebug() << "Attention! in statistic::write 1 - does not have \"" << valueA << "\" value."; break;
@@ -101,15 +116,16 @@ void statistic::write(int valueA, int valueB){
 
             if(!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)){
 
-            qDebug() << "In method statistic::write could not open file for write (append).";
-            return;
+                qDebug() << "In method statistic::write could not open file for write (append).";
+                return;
             }
+
     } else {
 
             if(!file.open(QIODevice::WriteOnly | QIODevice::Text)){
 
-            qDebug() << "In method statistic::write could not open file for write (overwrite).";
-            return;
+                qDebug() << "In method statistic::write could not open file for write (overwrite).";
+                return;
             }
     }
 
@@ -122,7 +138,8 @@ void statistic::write(int valueA, int valueB){
         case 3: out << getTotalTimeSeconds();          break;
         case 4: out << getTotalTimeMinutes();          break;
         case 5: out << getTotalTimeHours();            break;
-        case 6: out << best.getComplete() + "\n";      break;
+        case 6: out << best.getComplete();             break;
+        case 7: out << best.getStringTmp();            break;
 
         default:
             qDebug() << "Attention! in statistic::write 2- does not have \"" << valueA << "\" value."; break;
@@ -146,7 +163,7 @@ void statistic::showstatic(){
     double x_pos = game->scene->width();
     double y_pos = game->scene->height();
 
-    over->drawPanel(x_pos/5, y_pos/5, x_pos/2 + 200, y_pos/2 + 50, Qt::white, 0.75);
+    over->drawPanel(x_pos/5, y_pos/5, x_pos/2 + 200, y_pos/2 + 25, Qt::white, 0.75);
 
     // adds a label showing all the time spent memorizing cards
     QGraphicsTextItem *Ttime = new QGraphicsTextItem(QString("Total time: \t" + tmp));
@@ -156,17 +173,33 @@ void statistic::showstatic(){
     game->scene->addItem(Ttime);
 
     // adds a label showing the user best time
-    QGraphicsTextItem *Tbest = new QGraphicsTextItem(QString("Best time: \t\t" + best.showTheBest()));
+    QGraphicsTextItem *Tbest = new QGraphicsTextItem(QString("Best time: \t\t" + best.showTheBest(0)));
     Tbest->setFont(title);
-    Tbest->setPos(x_pos/5 + 25, y_pos - 550);
+    Tbest->setPos(x_pos/5 + 25, y_pos - 575);
     game->scene->addItem(Tbest);
+
+    // adds a label showing value of correct answers from the best time
+    best.showTheBestCorrect();
+    QGraphicsTextItem *TbestCorrect = new QGraphicsTextItem(QString("Correct: " + best.getBestStatToSaveCorrect()));
+    QFont title2("comic sans", 15, QFont::Bold);
+    TbestCorrect->setFont(title2);
+    TbestCorrect->setDefaultTextColor(Qt::darkGreen);
+    TbestCorrect->setPos(x_pos/2 + 40, y_pos - 525);
+    game->scene->addItem(TbestCorrect);
+
+    // adds a label showing value of wrong answers from the best time
+    QGraphicsTextItem *TbestWrong = new QGraphicsTextItem(QString("Wrong: " + best.getBestStatToSaveWrong()));
+    TbestWrong->setFont(title2);
+    TbestWrong->setDefaultTextColor(Qt::darkRed);
+    TbestWrong->setPos(x_pos/2 + 240, y_pos - 525);
+    game->scene->addItem(TbestWrong);
 
     // adds a label showing all correct answers
     setTotalCorrect(read(1,0).toInt());
     QGraphicsTextItem *Tcorrect = new QGraphicsTextItem(QString("Total correct: \t" + QString::number(totalCorrect)));
     Tcorrect->setDefaultTextColor(Qt::darkGreen);
     Tcorrect->setFont(title);
-    Tcorrect->setPos(x_pos/5 + 25, y_pos - 450);
+    Tcorrect->setPos(x_pos/5 + 25, y_pos - 500);
     game->scene->addItem(Tcorrect);
 
     // adds a label showing all wrong answers
@@ -174,12 +207,12 @@ void statistic::showstatic(){
     QGraphicsTextItem *Twrong = new QGraphicsTextItem(QString("Total wrong: \t" + QString::number(totalWrong)));
     Twrong->setDefaultTextColor(Qt::darkRed);
     Twrong->setFont(title);
-    Twrong->setPos(x_pos/5 + 25, y_pos - 350);
+    Twrong->setPos(x_pos/5 + 25, y_pos - 425);
     game->scene->addItem(Twrong);
 
     // create the back button
     MainButtons *backbutton = new MainButtons(QString("Back"));
-    backbutton->setPos(x_pos/2 + 50, y_pos - 300);
+    backbutton->setPos(x_pos/2 + 125, y_pos - 325);
     connect(backbutton, SIGNAL(clicked()), game, SLOT(displayMainMenu()));
     game->scene->addItem(backbutton);
 }
@@ -193,27 +226,37 @@ void statistic::ResetStatisticVariable(){
 
     totalCorrect = 0;
     totalWrong = 0;
+
+    correct = 0;
+    wrong = 0;
 }
 
-void statistic::manageStatistic(){
+void statistic::manageStatistic(QString statisticBestTimeCurrentDateAndGameTime){
+
+    int append = 0; // TODO change to bool
+    statisticBestTime besttime;
+
 
     if(getCorrect() != 0 || getWrong() != 0){
 
         timer *time = new timer();
-        QString textFromFile = "";
+        QString textFromFile = "", a = "";
 
-        for(int i = 1; i < 6; i++){
+        for(int i = 1; i < 8; i++){
 
             // method write/read:
             // 1 ( totalCorrect.txt )
             // 2 ( totalWrong.txt )
             // 3 ( totalTimeSeconds.txt )
             // 4 ( totalTImeMinutes.txt )
-            // 5 ( totalTimeHour.txt
+            // 5 ( totalTimeHour.txt )
+            // 6 ( totalTime.txt ) - current date and time + game time + correct and wrong
+            // 7 ( bestTime.txt ) - the best time with adjusted value wrong and correct
 
             textFromFile += read(i,0);
 
             int tmp = 0;
+            append = 0;
 
             switch(i){
 
@@ -240,8 +283,10 @@ void statistic::manageStatistic(){
                     break;
 
                 case 4:
+                // getTimeStringMin - gets value from string
+                // getTotalTImeMinutes - he has value (+1) when (see above (case 3)) tmp>=60
                     tmp = time->getTimeStringMin().toInt() + getTotalTimeMinutes();
-                    setTotalTimeMinutesReset();
+                    setTotalTimeMinutesAdd(0);
 
                     tmp += textFromFile.toInt();
 
@@ -256,27 +301,62 @@ void statistic::manageStatistic(){
 
                 case 5:
                     tmp = time->getTimeStringHour().toInt() + getTotalTimeHours();
-                    qDebug() << "time->getTimeStringHour().toInt(): " << time->getTimeStringHour().toInt();
-                    qDebug() << "stat->getTotalTimeHours(): " << getTotalTimeHours();
-                    setTotalTimeHoursReset();
+                    setTotalTimeHoursAdd(0);
 
                     tmp += textFromFile.toInt();
 
                     setTotalTimeHoursAdd(tmp);
                     break;
 
+                case 6:
+                    textFromFile = statisticBestTimeCurrentDateAndGameTime + " ";
+                            if( besttime.getCorrect() <= 9 )
+                                textFromFile += "0" + QString::number( besttime.getCorrect() ) + " ";
+                            else
+                                textFromFile += QString::number( besttime.getCorrect() ) + " ";
+
+
+                            if( besttime.getWrong() <= 9 )
+                                textFromFile += "0" + QString::number( besttime.getWrong() ) + "\n";
+                            else
+                                textFromFile += QString::number( besttime.getWrong() ) + "\n";
+
+                    besttime.setComplete(textFromFile);
+                    append = 1;
+                    break;
+
+                case 7:
+                    qDebug() << "case 7";
+                    //besttime.ResetStaticBestTimeVariable();
+                    besttime.read(6,1);
+                    besttime.showTheBest(1);
+                    besttime.showTheBestCorrect();
+
+                    qDebug() << "-------------------------------------";
+                    qDebug() << "getBestStatToSave: " << besttime.getBestStatToSave();
+                    qDebug() << "getBestStatToSaveCorrect: " << besttime.getBestStatToSaveCorrect();
+                    qDebug() << "getBestStatToSaveWrong: " << besttime.getBestStatToSaveWrong();
+
+                    textFromFile = besttime.getBestStatToSave()
+                            + besttime.getBestStatToSaveCorrect() + "\n"
+                            + besttime.getBestStatToSaveWrong();
+
+                    qDebug() << "textFromFile: " << textFromFile;
+                    qDebug() << "-------------------------------------";
+                    besttime.setStringTmp(textFromFile);
+
+                    break;
+
+
                 default:
                     qDebug() << "Attention! in game_over::manageStatistic (switch) - does not have \"" << i << "\" value."; break;
 
             }
 
-            write(i, 0);
+            write(i, append);
             textFromFile = "";
         }
 
-        // reset statistic value
-        setCorrectReset();
-        setWrongReset();
     }
 
 }

@@ -70,7 +70,7 @@ public:
     static QString getTimeStringHour()                    { return timeStringHour; }
 
     // setters
-    static void setTimeStringSecAdd(const QString value)  { timeStringSec += value; }
+    static void setTimeStringSecAdd(const QString value)  { timeStringSec += value; } // TODO delete not used
     static void setTimeStringMinAdd(const QString value)  { timeStringMin += value; }
     static void setTimeStringHourAdd(const QString value) { timeStringHour += value; }
 

@@ -4,6 +4,7 @@
 #include <QString>
 #include <QGraphicsTextItem>
 #include <QObject>
+#include <QDebug>
 
 class statistic : public QObject {
     Q_OBJECT
@@ -29,8 +30,7 @@ public:
     void write(int valueA, int valueB );
     void showstatic();
     void ResetStatisticVariable();
-    void manageStatistic();
-
+    void manageStatistic(QString statisticBestTimeCurrentDateAndGameTime);
 
 
     // getters
@@ -45,21 +45,19 @@ public:
     static int getWrong()                               { return wrong; }
 
     // setters
-    static void setTotalTimeHoursAdd(const int value)   { totalTimeHours += value; }
-    static void setTotalTimeMinutesAdd(const int value) { totalTimeMinutes += value; }
-    static void setTotalTimeSecondsAdd(const int value) { totalTimeSeconds += value; }
+    static void setTotalTimeHoursAdd(const int value)   { totalTimeHours = value; }
+    static void setTotalTimeMinutesAdd(const int value) { totalTimeMinutes = value; }
+    static void setTotalTimeSecondsAdd(const int value) { totalTimeSeconds = value; }
 
-    static void setTotalTimeMinutesReset()              { totalTimeMinutes = 0; }
-    static void setTotalTimeHoursReset()                { totalTimeHours = 0; }
-
-    static void setTotalCorrect(const int value)        { totalCorrect = value; }
+    static void setTotalCorrect(const int value)        { totalCorrect = value;}
     static void setTotalWrong(const int value)          { totalWrong = value; }
 
-    static void setCorrect(const int value)             { correct += value; }
+    static void setCorrect(const int value)             { correct += value;}
     static void setWrong(const int value)               { wrong += value; }
 
-    static void setCorrectReset()                       { correct = 0; }
+    static void setCorrectReset()                       { correct = 0;}
     static void setWrongReset()                         { wrong = 0; }
+
 };
 
 #endif // STATISTIC_H

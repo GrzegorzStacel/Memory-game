@@ -47,7 +47,7 @@ void Game::start(){
 void Game::displayMainMenu(){
 
     statisticBestTime statBest;
-    statBest.ResetStaticVariable();
+    statBest.ResetStaticBestTimeVariable();
 
     scene->clear();
 

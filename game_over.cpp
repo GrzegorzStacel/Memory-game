@@ -98,6 +98,7 @@ void game_over::drawButtons(){
     stats2->setPos(x_pos/2 + 20,550);
     game->scene->addItem(stats2);
 
+    // creates an icon that leads to statistics
     Cards *icon = new Cards();
     icon->setToolTip("Your statistics");
     icon->setPixmap(icon->setImage(99));
@@ -121,7 +122,7 @@ void game_over::restartGame(){
     stat->ResetStatisticVariable();
 
     statisticBestTime bestStat;
-    bestStat.ResetStaticVariable();
+    bestStat.ResetStaticBestTimeVariable();
 
     game->start();
     time->start();

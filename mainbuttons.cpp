@@ -41,7 +41,7 @@ void MainButtons::hoverEnterEvent(QGraphicsSceneHoverEvent *){
 }
 
 void MainButtons::hoverLeaveEvent(QGraphicsSceneHoverEvent *){
-    // change color to dar cyan
+    // change color to dark cyan
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::darkCyan);

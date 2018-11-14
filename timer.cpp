@@ -79,7 +79,7 @@ QString timer::showTotalTime(){
     setTimeStringSecRegular(stat->read(3,0));
     setTimeStringMinRegular(stat->read(4,0));
     setTimeStringHourRegular(stat->read(5,0));
-    qDebug() << "read 5: " << stat->read(5,0);
+
     return time = timeStringHour + "h : " + timeStringMin + "m : " + timeStringSec + "s";
 }
 
