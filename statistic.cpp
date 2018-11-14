@@ -65,17 +65,6 @@ QString statistic::read(int valueA, int valueB){
                 ++i;
             }
 
-        } else if(valueB == 2){
-
-            while(!file.atEnd()){
-                qDebug() << "valueB == 2";
-
-                line = file.readLine();
-                best->transformationCorrect(line, i);
-                qDebug() << "valueB - line " << i << " : "<< line;
-                ++i;
-            }
-
         } else {
 
             line = file.readAll();
@@ -173,7 +162,7 @@ void statistic::showstatic(){
     game->scene->addItem(Ttime);
 
     // adds a label showing the user best time
-    QGraphicsTextItem *Tbest = new QGraphicsTextItem(QString("Best time: \t\t" + best.showTheBest(0)));
+    QGraphicsTextItem *Tbest = new QGraphicsTextItem(QString("Best time: \t\t" + best.showTheBest()));
     Tbest->setFont(title);
     Tbest->setPos(x_pos/5 + 25, y_pos - 575);
     game->scene->addItem(Tbest);
@@ -324,29 +313,6 @@ void statistic::manageStatistic(QString statisticBestTimeCurrentDateAndGameTime)
                     besttime.setComplete(textFromFile);
                     append = 1;
                     break;
-
-                case 7:
-                    qDebug() << "case 7";
-                    //besttime.ResetStaticBestTimeVariable();
-                    besttime.read(6,1);
-                    besttime.showTheBest(1);
-                    besttime.showTheBestCorrect();
-
-                    qDebug() << "-------------------------------------";
-                    qDebug() << "getBestStatToSave: " << besttime.getBestStatToSave();
-                    qDebug() << "getBestStatToSaveCorrect: " << besttime.getBestStatToSaveCorrect();
-                    qDebug() << "getBestStatToSaveWrong: " << besttime.getBestStatToSaveWrong();
-
-                    textFromFile = besttime.getBestStatToSave()
-                            + besttime.getBestStatToSaveCorrect() + "\n"
-                            + besttime.getBestStatToSaveWrong();
-
-                    qDebug() << "textFromFile: " << textFromFile;
-                    qDebug() << "-------------------------------------";
-                    besttime.setStringTmp(textFromFile);
-
-                    break;
-
 
                 default:
                     qDebug() << "Attention! in game_over::manageStatistic (switch) - does not have \"" << i << "\" value."; break;

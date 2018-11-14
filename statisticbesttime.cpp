@@ -31,31 +31,18 @@ void statisticBestTime::transformationSring(QString line, int i){
     iterator = i;
 }
 
-QString statisticBestTime::showTheBest(int value){
-
-//        qDebug() << "------------------------- ";
-
-//    for(int i=0; i<=iterator; ++i)
-//        qDebug() << "list: " << list[i];
+QString statisticBestTime::showTheBest(){
 
     bubbleSort();
-
-//    for(int i=0; i<=iterator; ++i)
-//        qDebug() << "list end: " << list[i];
 
     for( int i = 0; i <= iterator; ++i ){
         if(listTmp[i] == list[0]){
 
             setBestStatToSave(besttime[i]);
-            setStringTmp(besttime[i]);
-//            qDebug() << "besttime[" << i << "] " << besttime[i];
             write(7,0);
 
-            if(value == 0)
-                return prepareTextComplete(besttime[i]);
+            return prepareTextComplete(besttime[i]);
 
-
-            return "";
         }
     }
 
@@ -146,20 +133,20 @@ void statisticBestTime::showTheBestCorrect(){
 
 void statisticBestTime::transformationCorrect(QString value, int x){
 
-    if(x == 0){
-        setBestStatToSave(value);
-    }
-    else if(x == 1)
-       setBestStatToSaveCorrect(value);
+//    if(x == 0){
+//        setBestStatToSave(value);
+//    }
+//    else if(x == 1)
+//       setBestStatToSaveCorrect(value);
 
-    else if(x == 2)
-       setBestStatToSaveWrong(value);
+//    else if(x == 2)
+//       setBestStatToSaveWrong(value);
 
-    qDebug() << "--------------------------------";
-    qDebug() << "save: " << getBestStatToSave();
-    qDebug() << "correct: " << getBestStatToSaveCorrect();
-    qDebug() << "wrong: " << getBestStatToSaveWrong();
-    qDebug() << "--------------------------------";
+//    qDebug() << "--------------------------------";
+//    qDebug() << "save: " << getBestStatToSave();
+//    qDebug() << "correct: " << getBestStatToSaveCorrect();
+//    qDebug() << "wrong: " << getBestStatToSaveWrong();
+//    qDebug() << "--------------------------------";
 
 }
 
