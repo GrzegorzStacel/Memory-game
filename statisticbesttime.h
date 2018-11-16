@@ -11,8 +11,9 @@ class statisticBestTime : public statistic{
     QString currentDateTime;
     QString timeLaps;
     static QString complete;
-    static QList<long int> list;
-    static QList<long int> listTmp;
+    static QList<int> list;
+    static QList<int> tmp;
+    static QList<QString> listTmp;
     static QList<QString> besttime;
     static int iterator;
     static QString bestStatToSave;
@@ -22,7 +23,7 @@ class statisticBestTime : public statistic{
 
 
     // private methods
-    void bubbleSort();
+    void bubbleSortModifiedForCorrectAnswer();
     QString prepareTextComplete(QString text);
     QString prepareTextHour(QString text);
     QString prepareTextMinute(QString text);
@@ -35,10 +36,9 @@ public:
     // public methods
     void transformationSring(const QString line, int i);
     QString showTheBest();
-    void showTheBestCorrect();
+    void showTheBestAnswers();
     QString showTHeBestWrong();
     void ResetStaticBestTimeVariable();
-    void transformationCorrect(QString value, int x);
     void transformationWrong(QString value, int x);
 
     QString mama2;

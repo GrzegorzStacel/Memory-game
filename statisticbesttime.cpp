@@ -1,5 +1,6 @@
 #include "statisticbesttime.h"
 
+#include <algorithm>
 
 QString statisticBestTime::complete;
 QString statisticBestTime::bestStatToSave;
@@ -7,8 +8,9 @@ QString statisticBestTime::bestStatToSaveCorrect;
 QString statisticBestTime::bestStatToSaveWrong;
 QString statisticBestTime::StringTmp;
 int statisticBestTime::iterator;
-QList<long int> statisticBestTime::list;
-QList<long int> statisticBestTime::listTmp;
+QList<int> statisticBestTime::list;
+QList<int> statisticBestTime::tmp;
+QList<QString> statisticBestTime::listTmp;
 QList<QString> statisticBestTime::besttime;
 
 
@@ -21,46 +23,70 @@ statisticBestTime::statisticBestTime(){
 void statisticBestTime::transformationSring(QString line, int i){
 
     besttime.append(line);
-
-    list.append(( line.mid(20,2).toInt() * 100000 ) +
-                ( line.mid(24,2).toInt() * 10000 ) +
-                ( line.mid(28,2).toInt() * 1000 ) +
-                  line.mid(32,3).toInt() );
-
-    listTmp = list;
     iterator = i;
 }
 
 QString statisticBestTime::showTheBest(){
+    if( besttime.isEmpty())
+        return "0h : 0m : 0s : 000ms";
 
-    bubbleSort();
+    int iter = 0;
+    // sort by the correct answer
+    bubbleSortModifiedForCorrectAnswer();
 
-    for( int i = 0; i <= iterator; ++i ){
-        if(listTmp[i] == list[0]){
+    //std::sort(besttime.mid(38,2).begin(), besttime.mid(38,2).end());
 
-            setBestStatToSave(besttime[i]);
+    // searching for the number of repetitions of correct answers
+    for( int i = 0; i <= iterator; ++i )
+        if( besttime[i].mid(38,2).toInt() == besttime[iterator].mid(38,2).toInt() ){
+
+            listTmp.append(besttime[i]);
+
+            // extracts the time from the record with the highest number of correct
+            // answers and recalculates to further compare the fastest time
+            list.append(( besttime[i].mid(20,2).toInt() * 100000 ) +
+                        ( besttime[i].mid(24,2).toInt() * 10000 ) +
+                        ( besttime[i].mid(28,2).toInt() * 1000 ) +
+                          besttime[i].mid(32,3).toInt() );
+            ++iter;
+        }
+
+    // record the order before sorting
+    tmp = list;
+
+    // if there are more than one of the same correct answers, sort by time
+    std::sort(list.begin(), list.end());
+
+    // Compare the entire spare container with the best time by finding the container number with the whole record
+    for( int i = 0; i <= iter; ++i ){
+        if(tmp[i] == list[0]){
+
+            // setter abused in showTheBestCorrect method ( setBestStatToSaveCorrect() )
+            setBestStatToSave(listTmp[i]);
             write(7,0);
+            iter = 0;
 
-            return prepareTextComplete(besttime[i]);
-
+            return prepareTextComplete(listTmp[i]);
         }
     }
 
+    iter = 0;
     qDebug() << "Error in method staticBestTime::showTheBest";
     return "Error";
 }
 
-void statisticBestTime::bubbleSort(){
 
-    int x=0;
+void statisticBestTime::bubbleSortModifiedForCorrectAnswer(){
+
+    QString x = "";
 
     for(int j = 0; j < iterator; j++)
         for(int i = 0; i < iterator; i++)
-          if(list[i] > list[i + 1]) {
+          if(besttime[i].mid(38,2) > besttime[i + 1].mid(38,2)) {
 
-            x = list[i];
-            list[i] = list[i + 1];
-            list[i + 1] = x;
+             x = besttime[i];
+             besttime[i] = besttime[i + 1];
+             besttime[i + 1] = x;
           }
 }
 
@@ -122,33 +148,15 @@ QString statisticBestTime::prepareTextSecond(QString text){
 }
 
 
-void statisticBestTime::showTheBestCorrect(){
-    qDebug() << "value: " << getBestStatToSave();
+void statisticBestTime::showTheBestAnswers(){
 
+    // get the correct and wrong answers from the best game
     setBestStatToSaveCorrect(QString::number(getBestStatToSave().mid(38, 2).toInt()));
 
     setBestStatToSaveWrong(QString::number(getBestStatToSave().mid(41, 2).toInt()));
 
 }
 
-void statisticBestTime::transformationCorrect(QString value, int x){
-
-//    if(x == 0){
-//        setBestStatToSave(value);
-//    }
-//    else if(x == 1)
-//       setBestStatToSaveCorrect(value);
-
-//    else if(x == 2)
-//       setBestStatToSaveWrong(value);
-
-//    qDebug() << "--------------------------------";
-//    qDebug() << "save: " << getBestStatToSave();
-//    qDebug() << "correct: " << getBestStatToSaveCorrect();
-//    qDebug() << "wrong: " << getBestStatToSaveWrong();
-//    qDebug() << "--------------------------------";
-
-}
 
 
 void statisticBestTime::ResetStaticBestTimeVariable(){
@@ -156,5 +164,6 @@ void statisticBestTime::ResetStaticBestTimeVariable(){
     list.clear();
     listTmp.clear();
     besttime.clear();
+    tmp.clear();
     iterator = 0;
 }

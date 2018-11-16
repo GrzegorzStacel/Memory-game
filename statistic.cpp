@@ -60,7 +60,6 @@ QString statistic::read(int valueA, int valueB){
             while(!file.atEnd()){
 
                 line = file.readLine();
-                qDebug() << "line: " << line;
                 best->transformationSring(line, i);
                 ++i;
             }
@@ -168,7 +167,7 @@ void statistic::showstatic(){
     game->scene->addItem(Tbest);
 
     // adds a label showing value of correct answers from the best time
-    best.showTheBestCorrect();
+    best.showTheBestAnswers();
     QGraphicsTextItem *TbestCorrect = new QGraphicsTextItem(QString("Correct: " + best.getBestStatToSaveCorrect()));
     QFont title2("comic sans", 15, QFont::Bold);
     TbestCorrect->setFont(title2);
@@ -204,6 +203,8 @@ void statistic::showstatic(){
     backbutton->setPos(x_pos/2 + 125, y_pos - 325);
     connect(backbutton, SIGNAL(clicked()), game, SLOT(displayMainMenu()));
     game->scene->addItem(backbutton);
+
+    best.ResetStaticBestTimeVariable();
 }
 
 
