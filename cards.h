@@ -24,14 +24,14 @@ public:
     QString setImageOptions(int number);
     QString setImageOthers(int number);
     QString setActive(bool foo);
-    void generatorOfRandomNumbers();
+    void generatorOfRandomNumbers(int difficultLvl);
 
     inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
 
 private:
 
     //private attributes
-    static int RandomNumbers[13];
+    static int RandomNumbers[52];
 
     // private methods
     bool IfItWasDrawn( int number, int selectedAtRandom );

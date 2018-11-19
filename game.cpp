@@ -30,10 +30,12 @@ Game::Game()
 
 void Game::start(){
 
+    int difficultLvl = sta->read(7,0).toInt();
+
     scene->clear();
 
     cards = new Cards();
-    cards->generatorOfRandomNumbers();
+    cards->generatorOfRandomNumbers(difficultLvl);
 
     timer.start();
 
@@ -42,8 +44,8 @@ void Game::start(){
     difficult = sta->read(7, 1).toInt();
 
     draw = new DrawCards();
-    //draw->placeCards(475,650,difficult);
-    draw->placeCards(475,650,13);
+    draw->placeCards(475, 650, difficultLvl);
+    //draw->placeCards(475,650,13);
 
 }
 
@@ -97,9 +99,12 @@ void Game::displayMainMenu(){
     cards->setPos(bxPos + 300, 800);
     scene->addItem(cards);
 
+    // showing the label with actually level of difficulty
     lvlLabel = new Cards();
-    int showDifficult;
+    int showDifficult = 0;
+
     showDifficult = sta->read(7,0).toInt();
+
     if( showDifficult == 13 )
         lvlLabel->setPixmap(lvlLabel->setImageOptions(3));
     else if( showDifficult == 26 )
@@ -111,19 +116,15 @@ void Game::displayMainMenu(){
     else
         qDebug() << "Error in method game::displayMainMenu - if/else...";
 
+
     lvlLabel->setPos(bxPos + 495, 890);
     scene->addItem(lvlLabel);
 
 }
 
 void Game::statisticbutton(){
+
     scene->clear();
-//    scene->removeItem(titleText);
-//    scene->removeItem(playButton);
-//    scene->removeItem(statisticsbutton);
-//    scene->removeItem(optionsbutton);
-//    scene->removeItem(quitbutton);
-//    scene->removeItem(cards);
 
     statistic *stat = new statistic();
     stat->showstatic();

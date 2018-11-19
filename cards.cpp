@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <QDebug>
 
-int Cards::RandomNumbers[13];
+int Cards::RandomNumbers[52];
 
 Cards::Cards(){
 
@@ -411,7 +411,7 @@ QString Cards::setActive(bool foo){
 
 
 
-void Cards::generatorOfRandomNumbers(){
+void Cards::generatorOfRandomNumbers(int difficultLvl){
 
     srand(time ( nullptr ));
 
@@ -420,13 +420,13 @@ void Cards::generatorOfRandomNumbers(){
 
     do
        {
-           number = rand() % 13;
+           number = rand() % difficultLvl;
            if( IfItWasDrawn( number, selectedAtRandom ) == false ){
                RandomNumbers[ selectedAtRandom ] = number;
                selectedAtRandom++;
            }
 
-    } while( selectedAtRandom < 13 );
+    } while( selectedAtRandom < difficultLvl );
 }
 
 
