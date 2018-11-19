@@ -66,11 +66,10 @@ void options_difficulty_level::show_options(){
     game->scene->addItem(buttonBack);
     connect(buttonBack, SIGNAL(clicked()), game, SLOT(displayMainMenu()));
 
-
 }
 
 void options_difficulty_level::easy(){
-    qDebug() << "easy";
+
     stat = new statistic();
 
     stat->setSettings(13);
@@ -78,7 +77,6 @@ void options_difficulty_level::easy(){
 }
 
 void options_difficulty_level::medium(){
-qDebug() << "easy1";
 
     stat = new statistic();
 
@@ -87,7 +85,6 @@ qDebug() << "easy1";
 }
 
 void options_difficulty_level::hard(){
-qDebug() << "easy2";
 
     stat = new statistic();
 
@@ -96,7 +93,6 @@ qDebug() << "easy2";
 }
 
 void options_difficulty_level::hardcore(){
-qDebug() << "easy3";
 
     stat = new statistic();
 

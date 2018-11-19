@@ -62,8 +62,7 @@ QString statistic::read(int valueA, int valueB){
                 line = file.readLine();
                 best->transformationSring(line, i);
                 ++i;
-            }
-
+            }           
         } else {
 
             line = file.readAll();

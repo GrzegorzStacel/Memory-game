@@ -392,6 +392,7 @@ QString Cards::setImageOthers(int number){
 
     switch (number) {
         case 1: return ":/others/images/others/buttonBack.png";
+        case 2: return ":/others/images/others/actuallyLvl.png";
 
         default: qDebug() << "We have a problem in method Cards::setImageOthers";
             return nullptr;

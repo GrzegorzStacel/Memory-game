@@ -13,7 +13,7 @@ Game::Game()
 {
     //create a scene
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,1920,1080);
+    scene->setSceneRect(0,0,1920,990);
 
 
     //Background set
@@ -24,7 +24,7 @@ Game::Game()
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(1920,1080);
+    setFixedSize(1920,990);
 
 }
 
@@ -37,7 +37,12 @@ void Game::start(){
 
     timer.start();
 
+    sta = new statistic();
+    int difficult;
+    difficult = sta->read(7, 1).toInt();
+
     draw = new DrawCards();
+    //draw->placeCards(475,650,difficult);
     draw->placeCards(475,650,13);
 
 }
@@ -85,15 +90,40 @@ void Game::displayMainMenu(){
     connect(quitbutton, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quitbutton);
 
+    // creating information with information about the last selected / and current level of difficulty
+    cards = new Cards();
+    cards->setPixmap(cards->setImageOthers(2));
+    cards->setToolTip("Click the options button to change the difficulty level");
+    cards->setPos(bxPos + 300, 800);
+    scene->addItem(cards);
+
+    lvlLabel = new Cards();
+    int showDifficult;
+    showDifficult = sta->read(7,0).toInt();
+    if( showDifficult == 13 )
+        lvlLabel->setPixmap(lvlLabel->setImageOptions(3));
+    else if( showDifficult == 26 )
+        lvlLabel->setPixmap(lvlLabel->setImageOptions(4));
+    else if( showDifficult == 39 )
+        lvlLabel->setPixmap(lvlLabel->setImageOptions(5));
+    else if( showDifficult == 52 )
+        lvlLabel->setPixmap(lvlLabel->setImageOptions(6));
+    else
+        qDebug() << "Error in method game::displayMainMenu - if/else...";
+
+    lvlLabel->setPos(bxPos + 495, 890);
+    scene->addItem(lvlLabel);
+
 }
 
 void Game::statisticbutton(){
-
-    scene->removeItem(titleText);
-    scene->removeItem(playButton);
-    scene->removeItem(statisticsbutton);
-    scene->removeItem(optionsbutton);
-    scene->removeItem(quitbutton);
+    scene->clear();
+//    scene->removeItem(titleText);
+//    scene->removeItem(playButton);
+//    scene->removeItem(statisticsbutton);
+//    scene->removeItem(optionsbutton);
+//    scene->removeItem(quitbutton);
+//    scene->removeItem(cards);
 
     statistic *stat = new statistic();
     stat->showstatic();
