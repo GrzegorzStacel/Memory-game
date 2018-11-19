@@ -15,9 +15,14 @@ public:
 
     // public methods
     int getRandomNubmer(int x) { return RandomNumbers[x]; }
-    QString setImage(int number);
-    QString setImageWrong(int number);
-    QString setImageCorrect(int number);
+    QString setImageRegularNeutral(int number);
+    QString setImageRegularWrong(int number);
+    QString setImageRegularCorrect(int number);
+    QString setImageVeryHardNeutral(int number);
+    QString setImageVeryHardWrong(int number);
+    QString setImageVeryHardCorrect(int number);
+    QString setImageOptions(int number);
+    QString setImageOthers(int number);
     QString setActive(bool foo);
     void generatorOfRandomNumbers();
 

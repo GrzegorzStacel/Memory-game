@@ -19,8 +19,10 @@ MainButtons::MainButtons(QString name, int x, int y, QGraphicsItem *parent) : QG
 
     // draw the text
     text = new QGraphicsTextItem(name, this);
-    double xPos = rect().width()/2 - text->boundingRect().width()/2;
-    double yPos = rect().height()/2 - text ->boundingRect().height()/2;
+    double xPos = rect().width()/3 - text->boundingRect().width()/3;
+    double yPos = rect().height()/3 - text ->boundingRect().height()/3;
+    QFont titleFont("comic sans", 15);
+    text->setFont(titleFont);
     text->setPos(xPos, yPos);
 
     // allow responding to hover events

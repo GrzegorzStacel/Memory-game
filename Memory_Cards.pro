@@ -34,7 +34,8 @@ SOURCES += \
     timer.cpp \
     drawgui.cpp \
     statistic.cpp \
-    statisticbesttime.cpp
+    statisticbesttime.cpp \
+    options_difficulty_level.cpp
 
 HEADERS += \
     game.h \
@@ -45,7 +46,8 @@ HEADERS += \
     timer.h \
     drawgui.h \
     statistic.h \
-    statisticbesttime.h
+    statisticbesttime.h \
+    options_difficulty_level.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

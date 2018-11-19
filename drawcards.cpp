@@ -26,7 +26,7 @@ bool DrawCards::isActive = true;
 int DrawCards::variableForChooseImage;
 
 DrawCards::DrawCards(){
-    setPixmap(QPixmap(":/others/heart/wrong/images/cards/back.png"));
+    setPixmap(QPixmap(":/others/images/cards/back.png"));
 }
 
 void DrawCards::placeCards(int x, int y, int cards){
@@ -60,6 +60,28 @@ void DrawCards::placeCards(int x, int y, int cards){
             Y_SHIFT -= 250;
         }
 
+
+// ======================================================================= (4x3) x (4x3)
+//        if( i % 3 == 0 && i != 12 )
+//            X_SHIFT += 25;
+
+////        else if( i % 12 == 0 ){ //|| i % 12 == 0
+////            X_SHIFT = 0;
+////            Y_SHIFT -= 250;
+////        }
+
+//        if( i == 0 || i == 12)
+//            X_SHIFT = x;
+//        else
+//            X_SHIFT += 150;
+
+////        if( i == 12 ){
+////            X_SHIFT = 475;
+////            Y_SHIFT -= 250;
+////        }
+
+// =======================================================================
+
         createBoard(x + X_SHIFT, y + Y_SHIFT, isActive);
 
         // coordinates for correct and wrong buttons in DrawCards::showImageAfterReminding(int x) method
@@ -75,7 +97,7 @@ void DrawCards::createBoard(int x, int y, bool iisActive){
         listOfCards.append(cards);
         connect(cards, SIGNAL(clicked()), this, SLOT(addImageWithRandomNumber()));
         game->scene->addItem(cards);
-        counter = 13; // TODO cheat variable
+        //counter = 13; // TODO cheat variable
         //counterEnd = 11;
 }
 
@@ -89,7 +111,7 @@ void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber
 
         //remove first image and set random image
         game->scene->removeItem(listOfCards[counter]);
-        listOfCards[counter]->setPixmap(cards->setImage(cards->getRandomNubmer(counter)));
+        listOfCards[counter]->setPixmap(cards->setImageRegularNeutral(cards->getRandomNubmer(counter)));
         game->scene->addItem(listOfCards[counter]);
 
         // remove "back" image in next object and set "active" image
@@ -108,7 +130,7 @@ void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber
 
         // remove "active" image and set random image
         game->scene->removeItem(listOfCards[counter]);
-        listOfCards[counter]->setPixmap(cards->setImage(cards->getRandomNubmer(counter)));
+        listOfCards[counter]->setPixmap(cards->setImageRegularNeutral(cards->getRandomNubmer(counter)));
         game->scene->addItem(listOfCards[counter]);
 
         // remove "back" image and set "activ" image
@@ -127,7 +149,7 @@ void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber
 
         // remove "active" image  and set random image
         game->scene->removeItem(listOfCards[counter]);
-        listOfCards[counter]->setPixmap(cards->setImage(cards->getRandomNubmer(counter)));
+        listOfCards[counter]->setPixmap(cards->setImageRegularNeutral(cards->getRandomNubmer(counter)));
         game->scene->addItem(listOfCards[counter]);
 
         counter++;
@@ -148,7 +170,7 @@ void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber
         // create text annoucning winner
         information = new Cards();
         information->setPos(game->scene->width()/4+70, 15);
-        information->setPixmap(information->setImage(100));
+        information->setPixmap(information->setImageRegularNeutral(100));
         game->scene->addItem(information);
 
         connectCardWithMap();
@@ -171,7 +193,7 @@ void DrawCards::showImageAfterReminding(int x){
     cards = new Cards();
 
     game->scene->removeItem(listOfCards[x]);
-    listOfCards[x]->setPixmap(cards->setImage(cards->getRandomNubmer(x)));
+    listOfCards[x]->setPixmap(cards->setImageRegularNeutral(cards->getRandomNubmer(x)));
     game->scene->addItem(listOfCards[x]);
 
 
@@ -227,7 +249,7 @@ void DrawCards::remember(int x){
     stat->setCorrect(1);
 
     game->scene->removeItem(listOfCards[x]);
-    listOfCards[x]->setPixmap(cards->setImageCorrect(cards->getRandomNubmer(x)));
+    listOfCards[x]->setPixmap(cards->setImageRegularCorrect(cards->getRandomNubmer(x)));
     game->scene->addItem(listOfCards[x]);
 
     manageAnswers();
@@ -239,7 +261,7 @@ void DrawCards::wrong(int x){
     stat->setWrong(1);
 
     game->scene->removeItem(listOfCards[x]);
-    listOfCards[x]->setPixmap(cards->setImageWrong(cards->getRandomNubmer(x)));
+    listOfCards[x]->setPixmap(cards->setImageRegularWrong(cards->getRandomNubmer(x)));
     game->scene->addItem(listOfCards[x]);
 
     manageAnswers();

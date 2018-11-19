@@ -6,6 +6,7 @@
 #include "drawcards.h"
 #include "game_over.h"
 #include "timer.h"
+#include "options_difficulty_level.h"
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
@@ -28,6 +29,9 @@ private:
     int choosen;
     bool isGameOver = false;
 
+    // private methods
+
+
 
 public:
 
@@ -36,9 +40,10 @@ public:
     Cards *cards;
     QGraphicsScene *scene;
     QGraphicsTextItem *titleText;
-    MainButtons *playButton, *quitbutton, *statisticsbutton;
+    MainButtons *playButton, *quitbutton, *statisticsbutton, *optionsbutton;
     game_over *overGame;
     timer timer;
+    options_difficulty_level *difficult;
 
 
 

@@ -101,7 +101,7 @@ void game_over::drawButtons(){
     // creates an icon that leads to statistics
     Cards *icon = new Cards();
     icon->setToolTip("Your statistics");
-    icon->setPixmap(icon->setImage(99));
+    icon->setPixmap(icon->setImageRegularNeutral(99));
     icon->setPos(x_pos/4, 165);
     game->scene->addItem(icon);
     connect(icon, SIGNAL(clicked()),this,SLOT(goToStatistics()));

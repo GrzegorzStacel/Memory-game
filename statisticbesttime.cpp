@@ -6,7 +6,6 @@ QString statisticBestTime::complete;
 QString statisticBestTime::bestStatToSave;
 QString statisticBestTime::bestStatToSaveCorrect;
 QString statisticBestTime::bestStatToSaveWrong;
-QString statisticBestTime::StringTmp;
 int statisticBestTime::iterator;
 QList<int> statisticBestTime::list;
 QList<int> statisticBestTime::tmp;
@@ -27,14 +26,13 @@ void statisticBestTime::transformationSring(QString line, int i){
 }
 
 QString statisticBestTime::showTheBest(){
+
     if( besttime.isEmpty())
         return "0h : 0m : 0s : 000ms";
 
     int iter = 0;
     // sort by the correct answer
     bubbleSortModifiedForCorrectAnswer();
-
-    //std::sort(besttime.mid(38,2).begin(), besttime.mid(38,2).end());
 
     // searching for the number of repetitions of correct answers
     for( int i = 0; i <= iterator; ++i )
@@ -63,7 +61,7 @@ QString statisticBestTime::showTheBest(){
 
             // setter abused in showTheBestCorrect method ( setBestStatToSaveCorrect() )
             setBestStatToSave(listTmp[i]);
-            write(7,0);
+            //write(7,0);
             iter = 0;
 
             return prepareTextComplete(listTmp[i]);

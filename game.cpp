@@ -13,18 +13,18 @@ Game::Game()
 {
     //create a scene
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,1300,867);
+    scene->setSceneRect(0,0,1920,1080);
 
 
     //Background set
-    setBackgroundBrush(QBrush(QImage(":/background/images/others/bg.jpg")));
+    setBackgroundBrush(QBrush(QImage(":/background/images/others/bg_1920x1080.jpg")));
 
 
     //Visualize scene and disable scroll bars
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(1300,867);
+    setFixedSize(1920,1080);
 
 }
 
@@ -38,7 +38,7 @@ void Game::start(){
     timer.start();
 
     draw = new DrawCards();
-    draw->placeCards(100,600,13);
+    draw->placeCards(475,650,13);
 
 }
 
@@ -50,10 +50,6 @@ void Game::displayMainMenu(){
     statBest.ResetStaticBestTimeVariable();
 
     scene->clear();
-
-//    timer.setTimeStringSecReset();//TODO delete
-//    timer.setTimeStringMinReset();
-//    timer.setTimeStringHourReset();
 
     // create the title text
     titleText = new QGraphicsTextItem(QString("Memory Cards"));
@@ -76,9 +72,16 @@ void Game::displayMainMenu(){
     connect(statisticsbutton, SIGNAL(clicked()), this, SLOT(statisticbutton()));
     scene->addItem(statisticsbutton);
 
+    // create the options button
+    optionsbutton = new MainButtons(QString("Options"));
+    difficult = new options_difficulty_level();
+    optionsbutton->setPos(bxPos, 650);
+    connect(optionsbutton, SIGNAL(clicked()), difficult, SLOT(show_options()));
+    scene->addItem(optionsbutton);
+
     // create the quit button
     quitbutton = new MainButtons(QString("Quit"));
-    quitbutton->setPos(bxPos,650);
+    quitbutton->setPos(bxPos,750);
     connect(quitbutton, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quitbutton);
 
@@ -89,6 +92,7 @@ void Game::statisticbutton(){
     scene->removeItem(titleText);
     scene->removeItem(playButton);
     scene->removeItem(statisticsbutton);
+    scene->removeItem(optionsbutton);
     scene->removeItem(quitbutton);
 
     statistic *stat = new statistic();

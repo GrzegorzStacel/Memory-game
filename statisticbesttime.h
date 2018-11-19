@@ -19,7 +19,6 @@ class statisticBestTime : public statistic{
     static QString bestStatToSave;
     static QString bestStatToSaveCorrect;
     static QString bestStatToSaveWrong;
-    static QString StringTmp;
 
 
     // private methods
@@ -48,14 +47,12 @@ public:
     static QString getBestStatToSave()                       { return bestStatToSave; }
     static QString getBestStatToSaveCorrect()                { return bestStatToSaveCorrect; }
     static QString getBestStatToSaveWrong()                  { return bestStatToSaveWrong; }
-    static QString getStringTmp()                            { return StringTmp; }
 
     // setters
     void setComplete(const QString value)                    { complete = value; }
     static void setBestStatToSave(const QString value)       { bestStatToSave = value; }
     static void setBestStatToSaveCorrect(const QString value){ bestStatToSaveCorrect = value; }
     static void setBestStatToSaveWrong(const QString value)  { bestStatToSaveWrong = value; }
-    static void setStringTmp(const QString &value)           { StringTmp = value; }
 };
 
 #endif // STATISTICBESTTIME_H
