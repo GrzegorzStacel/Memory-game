@@ -30,6 +30,7 @@ Game::Game()
 
 void Game::start(){
 
+    sta = new statistic();
     int difficultLvl = sta->read(7,0).toInt();
 
     scene->clear();
@@ -39,13 +40,20 @@ void Game::start(){
 
     timer.start();
 
-    sta = new statistic();
-    int difficult;
-    difficult = sta->read(7, 1).toInt();
+
 
     draw = new DrawCards();
-    draw->placeCards(475, 650, difficultLvl);
-    //draw->placeCards(475,650,13);
+    draw->setDifficultLvl(difficultLvl);
+
+    if( difficultLvl == 13 )
+        draw->placeCardsEasy(475, 650, difficultLvl);
+    if( difficultLvl == 26 )
+        draw->placeCardsMedium(120, 720, difficultLvl);
+    if( difficultLvl == 39 )
+        draw->placeCardsHard(5, 740, difficultLvl);
+    if( difficultLvl == 52 )
+        draw->placeCardsHardcore(70, 790, difficultLvl);
+
 
 }
 

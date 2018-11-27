@@ -150,19 +150,19 @@ void statistic::showstatic(){
     double x_pos = game->scene->width();
     double y_pos = game->scene->height();
 
-    over->drawPanel(x_pos/5, y_pos/5, x_pos/2 + 200, y_pos/2 + 25, Qt::white, 0.75);
+    over->drawPanel(x_pos/5, y_pos/5, x_pos/2 + 150, y_pos/2 - 10, Qt::white, 0.75);
 
     // adds a label showing all the time spent memorizing cards
     QGraphicsTextItem *Ttime = new QGraphicsTextItem(QString("Total time: \t" + tmp));
     QFont title("comic sans", 25, QFont::Bold);
     Ttime->setFont(title);
-    Ttime->setPos(x_pos/5 + 25, y_pos - 800);
+    Ttime->setPos(x_pos/5 + 25, y_pos - 750);
     game->scene->addItem(Ttime);
 
     // adds a label showing the user best time
     QGraphicsTextItem *Tbest = new QGraphicsTextItem(QString("Best time: \t\t" + best.showTheBest()));
     Tbest->setFont(title);
-    Tbest->setPos(x_pos/5 + 25, y_pos - 725);
+    Tbest->setPos(x_pos/5 + 25, y_pos - 675);
     game->scene->addItem(Tbest);
 
     // adds a label showing value of correct answers from the best time
@@ -171,14 +171,14 @@ void statistic::showstatic(){
     QFont title2("comic sans", 15, QFont::Bold);
     TbestCorrect->setFont(title2);
     TbestCorrect->setDefaultTextColor(Qt::darkGreen);
-    TbestCorrect->setPos(x_pos/2 + 225, y_pos - 710);
+    TbestCorrect->setPos(x_pos/2 + 225, y_pos - 660);
     game->scene->addItem(TbestCorrect);
 
     // adds a label showing value of wrong answers from the best time
     QGraphicsTextItem *TbestWrong = new QGraphicsTextItem(QString("Wrong: " + best.getBestStatToSaveWrong()));
     TbestWrong->setFont(title2);
     TbestWrong->setDefaultTextColor(Qt::darkRed);
-    TbestWrong->setPos(x_pos/2 + 370, y_pos - 710);
+    TbestWrong->setPos(x_pos/2 + 380, y_pos - 660);
     game->scene->addItem(TbestWrong);
 
     // adds a label showing all correct answers
@@ -186,7 +186,7 @@ void statistic::showstatic(){
     QGraphicsTextItem *Tcorrect = new QGraphicsTextItem(QString("Total correct: \t" + QString::number(totalCorrect)));
     Tcorrect->setDefaultTextColor(Qt::darkGreen);
     Tcorrect->setFont(title);
-    Tcorrect->setPos(x_pos/5 + 25, y_pos - 650);
+    Tcorrect->setPos(x_pos/5 + 25, y_pos - 600);
     game->scene->addItem(Tcorrect);
 
     // adds a label showing all wrong answers
@@ -194,14 +194,14 @@ void statistic::showstatic(){
     QGraphicsTextItem *Twrong = new QGraphicsTextItem(QString("Total wrong: \t" + QString::number(totalWrong)));
     Twrong->setDefaultTextColor(Qt::darkRed);
     Twrong->setFont(title);
-    Twrong->setPos(x_pos/5 + 25, y_pos - 575);
+    Twrong->setPos(x_pos/5 + 25, y_pos - 525);
     game->scene->addItem(Twrong);
 
     // create the back button
     //MainButtons *backbutton = new MainButtons(QString("Back"));
     Cards *buttonBack = new Cards();
     buttonBack->setPixmap(buttonBack->setImageOthers(1));
-    buttonBack->setPos(x_pos/2 + 125, y_pos - 500);
+    buttonBack->setPos(x_pos/2 + 100, y_pos - 400);
     connect(buttonBack, SIGNAL(clicked()), game, SLOT(displayMainMenu()));
     game->scene->addItem(buttonBack);
 

@@ -28,14 +28,15 @@ private:
 
     //private attributes
     QList<Cards *> listOfCards;
-    QList<MainButtons *> buttons;
-    static int antiRepetition[13]; // TODO change value to difficult
+    QList<Cards *> buttons;
+    static int antiRepetition[52]; // TODO change value to difficult
     static int tmp;
     static int counter;
     static int counterEnd;
-    static int x_posOfCard[13]; // TODO change value to difficult
-    static int y_posOfCard[13]; // TODO change value to difficult
+    static int x_posOfCard[52]; // TODO change value to difficult
+    static int y_posOfCard[52]; // TODO change value to difficult
     static int variableForChooseImage;
+    static int difficultLvl;
     QString statisticBestTimeCurrentDateAndGameTime;
 
     // private methods
@@ -54,15 +55,19 @@ public:
     static bool isActive;
 
     // public methods
-    void placeCards(int x, int y, int cards);
+    void placeCardsEasy(int x, int y, int cards);
+    void placeCardsMedium(int x, int y, int cards);
+    void placeCardsHard(int x, int y, int cards);
+    void placeCardsHardcore(int x, int y, int cards);
     inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
 
     // setters
     void setResetDrawCards();
-    void setVariableForChooseImage(const int value) { variableForChooseImage = value; }
+    void setVariableForChooseImage(const int value)         { variableForChooseImage = value; }
+    void setDifficultLvl(const int value)                   { difficultLvl = value; }
 
     // getters
-    int getVariableForChooseImage() { return variableForChooseImage; }
+    int getVariableForChooseImage()                         { return variableForChooseImage; }
 
 
 public slots:

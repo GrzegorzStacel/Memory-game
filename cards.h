@@ -11,7 +11,7 @@ public:
 
     // constructors
     Cards();
-    Cards(bool isActive);
+    Cards(bool isActive, bool lvl);
 
     // public methods
     int getRandomNubmer(int x) { return RandomNumbers[x]; }
@@ -23,7 +23,7 @@ public:
     QString setImageVeryHardCorrect(int number);
     QString setImageOptions(int number);
     QString setImageOthers(int number);
-    QString setActive(bool foo);
+    QString setActive(bool side, bool lvl);
     void generatorOfRandomNumbers(int difficultLvl);
 
     inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
@@ -37,7 +37,15 @@ private:
     bool IfItWasDrawn( int number, int selectedAtRandom );
 
 signals:
+
+    // public signals
     void clicked();
+    void buttonClickedWrong(int);
+    void buttonClickedCorrect(int);
+
+private slots:
+    void handleClickWrong();
+    void handleClickCorrect();
 };
 
 #endif // CARDS_H

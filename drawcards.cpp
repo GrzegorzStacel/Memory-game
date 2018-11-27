@@ -24,12 +24,21 @@ int DrawCards::y_posOfCard[];
 int DrawCards::antiRepetition[];
 bool DrawCards::isActive = true;
 int DrawCards::variableForChooseImage;
+int DrawCards::difficultLvl;
 
 DrawCards::DrawCards(){
-    setPixmap(QPixmap(":/others/images/cards/back.png"));
+//    qDebug() << "difficultylvl: " << difficultLvl;
+//    if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39)
+//        setPixmap(QPixmap(":/others/images/cards/back.png"));
+
+//    else if( difficultLvl == 52 )
+//        setPixmap(QPixmap(":/others/images/cards/backVeryHard.png"));
+
+//    else
+//        qDebug() << "Error in constructor DrawCards::DrawCards()";
 }
 
-void DrawCards::placeCards(int x, int y, int cards){
+void DrawCards::placeCardsEasy(int x, int y, int cards){
 
     int X_SHIFT = 0;
     int Y_SHIFT = 0;
@@ -42,45 +51,23 @@ void DrawCards::placeCards(int x, int y, int cards){
         else
             isActive = false;
 
-        if( i % 3 == 0 && i != 6 )
+        if( i % 3 == 0 && i != 6 ) // distance from triples
             X_SHIFT += 100;
 
-        else if( i % 6 == 0 || i % 12 == 0 ){
+        else if( i % 6 == 0 || i % 12 == 0 ){ // new row
             X_SHIFT = 0;
             Y_SHIFT -= 250;
         }
 
-        if( i == 0 || i == 6)
+        if( i == 0 || i == 6) // distance of first cards from the left side
             X_SHIFT = 50;
-        else
+        else // distance from cards (inside triples)
             X_SHIFT += 150;
 
-        if( i == 12 ){
+        if( i == 12 ){ // distance in third row (last card)
             X_SHIFT = 475;
             Y_SHIFT -= 250;
         }
-
-
-// ======================================================================= (4x3) x (4x3)
-//        if( i % 3 == 0 && i != 12 )
-//            X_SHIFT += 25;
-
-////        else if( i % 12 == 0 ){ //|| i % 12 == 0
-////            X_SHIFT = 0;
-////            Y_SHIFT -= 250;
-////        }
-
-//        if( i == 0 || i == 12)
-//            X_SHIFT = x;
-//        else
-//            X_SHIFT += 150;
-
-////        if( i == 12 ){
-////            X_SHIFT = 475;
-////            Y_SHIFT -= 250;
-////        }
-
-// =======================================================================
 
         createBoard(x + X_SHIFT, y + Y_SHIFT, isActive);
 
@@ -90,91 +77,305 @@ void DrawCards::placeCards(int x, int y, int cards){
     }
 }
 
-void DrawCards::createBoard(int x, int y, bool iisActive){
+void DrawCards::placeCardsMedium(int x, int y, int cards){
 
-        cards = new Cards(iisActive);
-        cards->setPos(x, y);
-        listOfCards.append(cards);
-        connect(cards, SIGNAL(clicked()), this, SLOT(addImageWithRandomNumber()));
-        game->scene->addItem(cards);
-        //counter = 13; // TODO cheat variable
-        //counterEnd = 11;
+    int X_SHIFT = 0;
+    int Y_SHIFT = 0;
+    bool isActive = false; // this variable is used by the constructor as the card argument in (this->) createBoard method
+
+    for( int i = 0; i < cards; i++){
+
+        if( i == 0 )
+            isActive = true;
+        else
+            isActive = false;
+
+
+        if( i % 3 == 0 && i != 9 && i != 18 && i != 24 ) // distance from triples
+            X_SHIFT += 100;
+
+        else if( i == 9 || i == 18 || i == 24 ){ // new row
+            X_SHIFT = 0;
+            Y_SHIFT -= 230;
+        }
+
+
+        if( i == 0 || i == 9  ) // distance of first cards from the left side
+            X_SHIFT = 50;
+        else // distance from cards (inside triples)
+            X_SHIFT += 150;
+
+
+        if( i == 18 ) // distance in third row
+            X_SHIFT = 325;
+
+        else if( i == 24 ) // distance in fourth row
+            X_SHIFT = 670;
+
+
+        createBoard(x + X_SHIFT, y + Y_SHIFT, isActive);
+
+        // coordinates for correct and wrong buttons in DrawCards::showImageAfterReminding(int x) method
+        x_posOfCard[i] = x + X_SHIFT;
+        y_posOfCard[i] = y + Y_SHIFT;
+    }
 }
 
-void DrawCards::addImageWithRandomNumber(){ // TODO add addImageWithRandomNumber(int difficult)
+void DrawCards::placeCardsHard(int x, int y, int cards){
+
+    int X_SHIFT = 0;
+    int Y_SHIFT = 0;
+    bool isActive = false; // this variable is used by the constructor as the card argument in (this->) createBoard method
+
+    for( int i = 0; i < cards; i++){
+
+        if( i == 0 )
+            isActive = true;
+        else
+            isActive = false;
+
+
+        if( i % 3 == 0 && i != 12 && i != 24 && i != 36) // distance from triples
+            X_SHIFT += 40;
+
+        else if( i == 12 || i == 24 || i == 36 ){ // new row
+            X_SHIFT = 0;
+            Y_SHIFT -= 230;
+        }
+
+
+        if( i == 0 || i == 12 || i == 24 ) // distance of first cards from the left side
+            X_SHIFT = 30;
+        else // distance from cards (inside triples)
+            X_SHIFT += 145;
+
+
+        if( i == 36 ) // distance in fourth row
+            X_SHIFT = 730;
+
+
+        createBoard(x + X_SHIFT, y + Y_SHIFT, isActive);
+
+        // coordinates for correct and wrong buttons in DrawCards::showImageAfterReminding(int x) method
+        x_posOfCard[i] = x + X_SHIFT;
+        y_posOfCard[i] = y + Y_SHIFT;
+    }
+}
+
+void DrawCards::placeCardsHardcore(int x, int y, int cards){
+
+    int X_SHIFT = 0;
+    int Y_SHIFT = 0;
+    bool isActive = false; // this variable is used by the constructor as the card argument in (this->) createBoard method
+
+    for( int i = 0; i < cards; i++){
+
+        if( i == 0 )
+            isActive = true;
+        else
+            isActive = false;
+
+
+        if( i % 3 == 0 && i != 12 && i != 24 && i != 36 && i != 48) // distance from triples
+            X_SHIFT += 40;
+
+        else if( i == 12 || i == 24 || i == 36 || i == 48){ // new row
+            X_SHIFT = 0;
+            Y_SHIFT -= 190;
+        }
+
+
+        if( i == 0 || i == 12 || i == 24 || i == 36) // distance of first cards from the left side
+            X_SHIFT = 30;
+        else // distance from cards (inside triples)
+            X_SHIFT += 135;
+
+
+        if( i == 48 ) // distance in fourth row
+            X_SHIFT = 630;
+
+
+        createBoard(x + X_SHIFT, y + Y_SHIFT, isActive);
+
+        // coordinates for correct and wrong buttons in DrawCards::showImageAfterReminding(int x) method
+        x_posOfCard[i] = x + X_SHIFT;
+        y_posOfCard[i] = y + Y_SHIFT;
+    }
+
+}
+
+
+void DrawCards::createBoard(int x, int y, bool iisActive){
+
+    if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39 )
+        cards = new Cards(iisActive, true);
+    else if( difficultLvl == 52 )
+        cards = new Cards(iisActive, false);
+    else
+        qDebug() << "Error in method DrawCards::createBoard";
+
+
+    cards->setPos(x, y);
+    listOfCards.append(cards);
+    connect(cards, SIGNAL(clicked()), this, SLOT(addImageWithRandomNumber()));
+    game->scene->addItem(cards);
+    counter = difficultLvl - 1; // TODO cheat variable
+    //counterEnd = 11;
+}
+
+void DrawCards::addImageWithRandomNumber(){
+    //statistic *sta = new statistic();
+    //int difficultLvl = sta->read(7,0).toInt();
 
     cards = new Cards();
 
-    // in method setActive();    true = set "active" image and vice versa,     false = set "back" image
+    // in method setActive(bool1, bool2);
+    //                    1) true = set "active regular" image              false = set "back" image
+    //                    2) true = set "active very hard" image            false = set "back very hard" image
+    if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39){
 
-    if( counter == 0 ){
+                if( counter == 0 ){
 
-        //remove first image and set random image
-        game->scene->removeItem(listOfCards[counter]);
-        listOfCards[counter]->setPixmap(cards->setImageRegularNeutral(cards->getRandomNubmer(counter)));
-        game->scene->addItem(listOfCards[counter]);
+                    //remove first image and set random image
+                    game->scene->removeItem(listOfCards[counter]);
+                    listOfCards[counter]->setPixmap(cards->setImageRegularNeutral(cards->getRandomNubmer(counter)));
+                    game->scene->addItem(listOfCards[counter]);
 
-        // remove "back" image in next object and set "active" image
-        game->scene->removeItem(listOfCards[counter+1]);
-        listOfCards[counter+1]->setPixmap(cards->setActive(true));
-        game->scene->addItem(listOfCards[counter+1]);
+                    // remove "back" image in next object and set "active" image
+                    game->scene->removeItem(listOfCards[counter+1]);
+                    listOfCards[counter+1]->setPixmap(cards->setActive(true, true));
+                    game->scene->addItem(listOfCards[counter+1]);
 
-        counter++;
+                    counter++;
 
-    } else if( counter > 0 && counter < 12 ){ // TODO counter < 13 change to counter < difficult
+                } else if( counter > 0 && counter < difficultLvl - 1 ){
 
-        // remove previus random image and set "back" image
-        game->scene->removeItem(listOfCards[counter-1]);
-        listOfCards[counter-1]->setPixmap(cards->setActive(false));
-        game->scene->addItem(listOfCards[counter-1]);
+                    // remove previus random image and set "back" image
+                    game->scene->removeItem(listOfCards[counter-1]);
+                    listOfCards[counter-1]->setPixmap(cards->setActive(false, true));
+                    game->scene->addItem(listOfCards[counter-1]);
 
-        // remove "active" image and set random image
-        game->scene->removeItem(listOfCards[counter]);
-        listOfCards[counter]->setPixmap(cards->setImageRegularNeutral(cards->getRandomNubmer(counter)));
-        game->scene->addItem(listOfCards[counter]);
+                    // remove "active" image and set random image
+                    game->scene->removeItem(listOfCards[counter]);
+                    listOfCards[counter]->setPixmap(cards->setImageRegularNeutral(cards->getRandomNubmer(counter)));
+                    game->scene->addItem(listOfCards[counter]);
 
-        // remove "back" image and set "activ" image
-        game->scene->removeItem(listOfCards[counter+1]);
-        listOfCards[counter+1]->setPixmap(cards->setActive(true));
-        game->scene->addItem(listOfCards[counter+1]);
+                    // remove "back" image and set "activ" image
+                    game->scene->removeItem(listOfCards[counter+1]);
+                    listOfCards[counter+1]->setPixmap(cards->setActive(true, true));
+                    game->scene->addItem(listOfCards[counter+1]);
 
-        counter++;
+                    counter++;
 
-    } else if( counter == 12){ // TODO counter == 13 change to counter == difficult
+                } else if( counter == difficultLvl - 1){
 
-        // remove previus random image and set "back" image
-        game->scene->removeItem(listOfCards[counter-1]);
-        listOfCards[counter-1]->setPixmap(cards->setActive(false));
-        game->scene->addItem(listOfCards[counter-1]);
+                    // remove previus random image and set "back" image
+                    game->scene->removeItem(listOfCards[counter-1]);
+                    listOfCards[counter-1]->setPixmap(cards->setActive(false, true));
+                    game->scene->addItem(listOfCards[counter-1]);
 
-        // remove "active" image  and set random image
-        game->scene->removeItem(listOfCards[counter]);
-        listOfCards[counter]->setPixmap(cards->setImageRegularNeutral(cards->getRandomNubmer(counter)));
-        game->scene->addItem(listOfCards[counter]);
+                    // remove "active" image  and set random image
+                    game->scene->removeItem(listOfCards[counter]);
+                    listOfCards[counter]->setPixmap(cards->setImageRegularNeutral(cards->getRandomNubmer(counter)));
+                    game->scene->addItem(listOfCards[counter]);
 
-        counter++;
+                    counter++;
 
-    } else if(counter == 13){
-        // remove random image and set "back" image
-        game->scene->removeItem(listOfCards[counter-1]);
-        listOfCards[counter-1]->setPixmap(cards->setActive(false));
-        game->scene->addItem(listOfCards[counter-1]);
+                } else if(counter == difficultLvl){
+                    // remove random image and set "back" image
+                    game->scene->removeItem(listOfCards[counter-1]);
+                    listOfCards[counter-1]->setPixmap(cards->setActive(false, true));
+                    game->scene->addItem(listOfCards[counter-1]);
 
-        counter++;
+                    counter++;
 
-        timer time;
-        time.setMRunning(false);
-        isActive = false;
-        time.stop();
+                    timer time;
+                    time.setMRunning(false);
+                    isActive = false;
+                    time.stop();
 
-        // create text annoucning winner
-        information = new Cards();
-        information->setPos(game->scene->width()/4+70, 15);
-        information->setPixmap(information->setImageRegularNeutral(100));
-        game->scene->addItem(information);
+                    // create text annoucning winner
+                    information = new Cards();
+                    information->setPos(game->scene->width()/4+70, 15);
+                    information->setPixmap(information->setImageOthers(5));
+                    game->scene->addItem(information);
 
-        connectCardWithMap();
-    }
+                    connectCardWithMap();
+                }
+
+    } else if( difficultLvl == 52 ){
+
+                if( counter == 0 ){
+
+                    //remove first image and set random image
+                    game->scene->removeItem(listOfCards[counter]);
+                    listOfCards[counter]->setPixmap(cards->setImageVeryHardNeutral(cards->getRandomNubmer(counter)));
+                    game->scene->addItem(listOfCards[counter]);
+
+                    // remove "back" image in next object and set "active" image
+                    game->scene->removeItem(listOfCards[counter+1]);
+                    listOfCards[counter+1]->setPixmap(cards->setActive(true, false));
+                    game->scene->addItem(listOfCards[counter+1]);
+
+                    counter++;
+
+                } else if( counter > 0 && counter < difficultLvl - 1 ){
+
+                    // remove previus random image and set "back" image
+                    game->scene->removeItem(listOfCards[counter-1]);
+                    listOfCards[counter-1]->setPixmap(cards->setActive(false, false));
+                    game->scene->addItem(listOfCards[counter-1]);
+
+                    // remove "active" image and set random image
+                    game->scene->removeItem(listOfCards[counter]);
+                    listOfCards[counter]->setPixmap(cards->setImageVeryHardNeutral(cards->getRandomNubmer(counter)));
+                    game->scene->addItem(listOfCards[counter]);
+
+                    // remove "back" image and set "activ" image
+                    game->scene->removeItem(listOfCards[counter+1]);
+                    listOfCards[counter+1]->setPixmap(cards->setActive(true, false));
+                    game->scene->addItem(listOfCards[counter+1]);
+
+                    counter++;
+
+                } else if( counter == difficultLvl - 1){
+
+                    // remove previus random image and set "back" image
+                    game->scene->removeItem(listOfCards[counter-1]);
+                    listOfCards[counter-1]->setPixmap(cards->setActive(false, false));
+                    game->scene->addItem(listOfCards[counter-1]);
+
+                    // remove "active" image  and set random image
+                    game->scene->removeItem(listOfCards[counter]);
+                    listOfCards[counter]->setPixmap(cards->setImageVeryHardNeutral(cards->getRandomNubmer(counter)));
+                    game->scene->addItem(listOfCards[counter]);
+
+                    counter++;
+
+                } else if(counter == difficultLvl){
+                    // remove random image and set "back" image
+                    game->scene->removeItem(listOfCards[counter-1]);
+                    listOfCards[counter-1]->setPixmap(cards->setActive(false, false));
+                    game->scene->addItem(listOfCards[counter-1]);
+
+                    counter++;
+
+                    timer time;
+                    time.setMRunning(false);
+                    isActive = false;
+                    time.stop();
+
+                    // create text annoucning winner
+                    information = new Cards();
+                    information->setPos(game->scene->width()/4+70, 15);
+                    information->setPixmap(information->setImageOthers(5));
+                    game->scene->addItem(information);
+
+                    connectCardWithMap();
+                }
+    } else
+        qDebug() << "Error in method DrawCards::addImageWithRandomNumber()";
+
 }
 
 void DrawCards::connectCardWithMap(){
@@ -192,9 +393,20 @@ void DrawCards::showImageAfterReminding(int x){
 
     cards = new Cards();
 
-    game->scene->removeItem(listOfCards[x]);
-    listOfCards[x]->setPixmap(cards->setImageRegularNeutral(cards->getRandomNubmer(x)));
-    game->scene->addItem(listOfCards[x]);
+    if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39){
+
+        game->scene->removeItem(listOfCards[x]);
+        listOfCards[x]->setPixmap(cards->setImageRegularNeutral(cards->getRandomNubmer(x)));
+        game->scene->addItem(listOfCards[x]);
+
+    } else if( difficultLvl == 52 ){
+
+        game->scene->removeItem(listOfCards[x]);
+        listOfCards[x]->setPixmap(cards->setImageVeryHardNeutral(cards->getRandomNubmer(x)));
+        game->scene->addItem(listOfCards[x]);
+
+    } else
+        qDebug() << "Error in method DrawCards::showImageAfterReminding()";
 
 
     // disable all cards
@@ -212,21 +424,39 @@ void DrawCards::showImageAfterReminding(int x){
     }
 
 
-    // create the correct button under the choosen card
-    MainButtons * correct = new MainButtons(QString("Correct"), 50, 25);
-    correct->setPos(x_posOfCard[x] + 10, y_posOfCard[x] + 215);
-    buttons.append(correct);
-    connect(correct, SIGNAL(clicked()), correct, SLOT(handleClickCorrect()));
-    connect(correct, SIGNAL(buttonClickedCorrect(int)), this, SLOT(remember(int)));
-    game->scene->addItem(correct);
+    Cards *corr = new Cards();
+    Cards *wron = new Cards();
 
-    // create the wrong button under the choosen card
-    MainButtons *wrong = new MainButtons(QString("Wrong"), 50, 25);
-    wrong->setPos(x_posOfCard[x] + 70, y_posOfCard[x] + 215);
-    buttons.append(wrong);
-    connect(wrong, SIGNAL(clicked()), wrong, SLOT(handleClickWrong()));
-    connect(wrong, SIGNAL(buttonClickedWrong(int)), this, SLOT(wrong(int)));
-    game->scene->addItem(wrong);
+    // Add the buttons correct and wrong
+
+    if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39){
+
+        corr->setPixmap(cards->setImageOthers(7));
+        corr->setPos(x_posOfCard[x] + 20, y_posOfCard[x] + 20);
+
+        wron->setPixmap(cards->setImageOthers(8));
+        wron->setPos(x_posOfCard[x] + 35, y_posOfCard[x] + 105);
+
+    } else if( difficultLvl == 52 ){
+
+        corr->setPixmap(cards->setImageOthers(9));
+        corr->setPos(x_posOfCard[x] + 15, y_posOfCard[x] + 15);
+
+        wron->setPixmap(cards->setImageOthers(10));
+        wron->setPos(x_posOfCard[x] + 25, y_posOfCard[x] + 100);
+
+    } else
+        qDebug() << "Error in method DrawCards::showImageAfterReminding(); - if( difficultLvl == 13 ||...";
+
+    buttons.append(corr);
+    connect(corr, SIGNAL(clicked()), corr, SLOT(handleClickCorrect()));
+    connect(corr, SIGNAL(buttonClickedCorrect(int)), this, SLOT(remember(int)));
+    game->scene->addItem(corr);
+
+    buttons.append(wron);
+    connect(wron, SIGNAL(clicked()), wron, SLOT(handleClickWrong()));
+    connect(wron, SIGNAL(buttonClickedWrong(int)), this, SLOT(wrong(int)));
+    game->scene->addItem(wron);
 
 }
 
@@ -248,11 +478,24 @@ void DrawCards::remember(int x){
     // add value to statistic ( correct answer )
     stat->setCorrect(1);
 
-    game->scene->removeItem(listOfCards[x]);
-    listOfCards[x]->setPixmap(cards->setImageRegularCorrect(cards->getRandomNubmer(x)));
-    game->scene->addItem(listOfCards[x]);
+    if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39){
+
+        game->scene->removeItem(listOfCards[x]);
+        listOfCards[x]->setPixmap(cards->setImageRegularCorrect(cards->getRandomNubmer(x)));
+        game->scene->addItem(listOfCards[x]);
+
+    } else if( difficultLvl == 52 ){
+
+        game->scene->removeItem(listOfCards[x]);
+        listOfCards[x]->setPixmap(cards->setImageVeryHardCorrect(cards->getRandomNubmer(x)));
+        game->scene->addItem(listOfCards[x]);
+
+    } else
+        qDebug() << "Error in method DrawCards::remember()";
+
 
     manageAnswers();
+
 }
 
 void DrawCards::wrong(int x){
@@ -260,11 +503,24 @@ void DrawCards::wrong(int x){
     // add value to statistic ( wrong answer )
     stat->setWrong(1);
 
-    game->scene->removeItem(listOfCards[x]);
-    listOfCards[x]->setPixmap(cards->setImageRegularWrong(cards->getRandomNubmer(x)));
-    game->scene->addItem(listOfCards[x]);
+    if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39){
+
+        game->scene->removeItem(listOfCards[x]);
+        listOfCards[x]->setPixmap(cards->setImageRegularWrong(cards->getRandomNubmer(x)));
+        game->scene->addItem(listOfCards[x]);
+
+    } else if( difficultLvl == 52 ){
+
+        game->scene->removeItem(listOfCards[x]);
+        listOfCards[x]->setPixmap(cards->setImageVeryHardWrong(cards->getRandomNubmer(x)));
+        game->scene->addItem(listOfCards[x]);
+
+    } else
+        qDebug() << "Error in method DrawCards::wrong()";
+
 
     manageAnswers();
+
 }
 
 
@@ -280,6 +536,7 @@ void DrawCards::manageAnswers(){
 
         counterEnd = 12; // TODO delete counterend = 12
     }
+
     // remove buttons (correct and wrong) under selected card
     for(int i = 0; i < buttons.size(); i++){
         game->scene->removeItem(buttons[i]);
@@ -330,13 +587,16 @@ void DrawCards::manageAnswers(){
 
 void DrawCards::setResetDrawCards(){
 
+//    statistic *sta = new statistic();
+//    int difficultLvl = sta->read(7,0).toInt();
+
     // reset all the important integers, if a player wants to play again
     counter = 0;
     counterEnd = 0;
     tmp = 0;
     statisticBestTimeCurrentDateAndGameTime = "";
 
-    for( int i = 0; i < 13; i++)// TODO change value for difficult
+    for( int i = 0; i < difficultLvl; i++)
         antiRepetition[i] = 0;
 
     isActive = true;
