@@ -13,6 +13,16 @@ class MainButtons : public QObject, public QGraphicsRectItem{
 
 public:
 
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
+    void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
+
+signals:
+    void clicked();
+
+private:
+    QGraphicsTextItem *text;
+
     //constructors
     MainButtons(QString name, int x = 200, int y = 50, QGraphicsItem *parent=nullptr);
 

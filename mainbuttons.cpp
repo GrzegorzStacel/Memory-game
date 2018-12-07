@@ -60,4 +60,6 @@ void MainButtons::handleClickCorrect(){
 
     DrawCards *draw = new DrawCards();
     emit buttonClickedCorrect(draw->getVariableForChooseImage());
+    brush.setColor(Qt::darkCyan);
+    setBrush(brush);
 }
