@@ -197,7 +197,7 @@ void DrawCards::placeCardsHardcore(int x, int y, int cards){
 
         createBoard(x + X_SHIFT, y + Y_SHIFT, isActive);
 
-        // coordinates for correct and wrong buttons in DrawCards::showImageAfterReminding(int x) method
+        // coordinates for correct and wrong buttons in method DrawCards::showImageAfterReminding(int x)
         x_posOfCard[i] = x + X_SHIFT;
         y_posOfCard[i] = y + Y_SHIFT;
     }
@@ -224,8 +224,6 @@ void DrawCards::createBoard(int x, int y, bool iisActive){
 }
 
 void DrawCards::addImageWithRandomNumber(){
-    //statistic *sta = new statistic();
-    //int difficultLvl = sta->read(7,0).toInt();
 
     cards = new Cards();
 
@@ -534,7 +532,7 @@ void DrawCards::manageAnswers(){
         timer *time = new timer();
         statisticBestTimeCurrentDateAndGameTime = QDateTime::currentDateTime().toString("dd-MM-yyyy HH:mm:ss ") + time->getTime();
 
-        counterEnd = 12; // TODO delete counterend = 12
+        //counterEnd = 12; // TODO delete counterend = 12
     }
 
     // remove buttons (correct and wrong) under selected card
