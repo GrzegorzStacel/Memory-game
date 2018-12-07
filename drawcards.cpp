@@ -27,15 +27,7 @@ int DrawCards::variableForChooseImage;
 int DrawCards::difficultLvl;
 
 DrawCards::DrawCards(){
-//    qDebug() << "difficultylvl: " << difficultLvl;
-//    if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39)
-//        setPixmap(QPixmap(":/others/images/cards/back.png"));
 
-//    else if( difficultLvl == 52 )
-//        setPixmap(QPixmap(":/others/images/cards/backVeryHard.png"));
-
-//    else
-//        qDebug() << "Error in constructor DrawCards::DrawCards()";
 }
 
 void DrawCards::placeCardsEasy(int x, int y, int cards){
