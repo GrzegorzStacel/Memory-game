@@ -20,13 +20,10 @@
 class Game : public QGraphicsView{
     Q_OBJECT
 
-
 public:
 
     // constructors
     Game();
-
-    void displayMainMenu();
 
 
 private:
