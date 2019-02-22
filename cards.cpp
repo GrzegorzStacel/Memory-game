@@ -1,11 +1,9 @@
 #include "cards.h"
 #include "drawcards.h"
 
-#include <ctime>
-#include <cstdlib>
+//#include <ctime>
+//#include <cstdlib>
 #include <QDebug>
-
-//int Cards::RandomNumbers[52];
 
 Cards::Cards(){
 

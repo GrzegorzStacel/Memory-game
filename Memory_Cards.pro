@@ -32,7 +32,6 @@ SOURCES += \
     drawcards.cpp \
     game_over.cpp \
     timer.cpp \
-    drawgui.cpp \
     statistic.cpp \
     statisticbesttime.cpp \
     options_difficulty_level.cpp \
@@ -45,7 +44,6 @@ HEADERS += \
     drawcards.h \
     game_over.h \
     timer.h \
-    drawgui.h \
     statistic.h \
     statisticbesttime.h \
     options_difficulty_level.h \

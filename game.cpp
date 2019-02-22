@@ -1,5 +1,4 @@
 #include "game.h"
-#include "drawgui.h"
 #include "statistic.h"
 #include "statisticbesttime.h"
 #include "generator_of_random_numbers.h"
