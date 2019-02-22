@@ -2,9 +2,9 @@
 #include "drawgui.h"
 #include "statistic.h"
 #include "statisticbesttime.h"
+#include "generator_of_random_numbers.h"
 
 #include <QGraphicsTextItem>
-
 #include <QtDebug>
 #include <QTimer>
 #include <QTime>
@@ -35,8 +35,11 @@ void Game::start(){
 
     scene->clear();
 
-    cards = new Cards();
-    cards->generatorOfRandomNumbers(difficultLvl);
+    //cards = new Cards();
+    //cards->generatorOfRandomNumbers(difficultLvl);
+
+    Generator_of_random_numbers *generator = new Generator_of_random_numbers();
+    generator->GenerateNumber(difficultLvl);
 
     timer.start();
 

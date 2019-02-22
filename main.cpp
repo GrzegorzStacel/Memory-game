@@ -1,8 +1,6 @@
 #include <QApplication>
 #include "statisticbesttime.h"
 #include "game.h"
-//#include "cards.h"
-//#include "timer.h"
 
 Game *game;
 

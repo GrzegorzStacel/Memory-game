@@ -40,7 +40,7 @@ public:
     void ResetStaticBestTimeVariable();
     void transformationWrong(QString value, int x);
 
-    QString mama2;
+    //QString mama2;
 
     // getters
     static QString getComplete()                             { return complete; }

@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <QDebug>
 
-int Cards::RandomNumbers[52];
+//int Cards::RandomNumbers[52];
 
 Cards::Cards(){
 
@@ -449,39 +449,39 @@ QString Cards::setActive(bool side, bool lvl){
 
 
 
-void Cards::generatorOfRandomNumbers(int difficultLvl){
+//void Cards::generatorOfRandomNumbers(int difficultLvl){
 
-    srand(time ( nullptr ));
+//    srand(time ( nullptr ));
 
-    int selectedAtRandom = 0;
-    int number;
+//    int selectedAtRandom = 0;
+//    int number;
 
-    do
-       {
-           number = rand() % difficultLvl;
-           if( IfItWasDrawn( number, selectedAtRandom ) == false ){
-               RandomNumbers[ selectedAtRandom ] = number;
-               selectedAtRandom++;
-           }
+//    do
+//       {
+//           number = rand() % difficultLvl;
+//           if( IfItWasDrawn( number, selectedAtRandom ) == false ){
+//               RandomNumbers[ selectedAtRandom ] = number;
+//               selectedAtRandom++;
+//           }
 
-    } while( selectedAtRandom < difficultLvl );
-}
-
-
+//    } while( selectedAtRandom < difficultLvl );
+//}
 
 
-bool Cards::IfItWasDrawn( int iNumber, int selectedAtRandom ){
 
-    if( selectedAtRandom <= 0 )
-         return false;
 
-    for(int i = 0; i < selectedAtRandom; i++){
-        if( RandomNumbers[i] == iNumber)
-            return true;
-    }
+//bool Cards::IfItWasDrawn( int iNumber, int selectedAtRandom ){
 
-    return false;
-}
+//    if( selectedAtRandom <= 0 )
+//         return false;
+
+//    for(int i = 0; i < selectedAtRandom; i++){
+//        if( RandomNumbers[i] == iNumber)
+//            return true;
+//    }
+
+//    return false;
+//}
 
 void Cards::handleClickWrong(){
 

@@ -45,7 +45,7 @@ public:
     static int getCorrect()                             { return correct; }
     static int getWrong()                               { return wrong; }
 
-    int getSettings()                               { return settings; }
+    int getSettings()                                   { return settings; }
 
     // setters
     static void setTotalTimeHoursAdd(const int value)   { totalTimeHours = value; }
@@ -61,7 +61,7 @@ public:
     static void setCorrectReset()                       { correct = 0;}
     static void setWrongReset()                         { wrong = 0; }
 
-    void setSettings(const int value)                     { settings = value; }
+    void setSettings(const int value)                   { settings = value; }
 
 };
 
