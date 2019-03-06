@@ -3,6 +3,7 @@
 #include "statisticbesttime.h"
 #include "generator_of_random_numbers.h"
 #include "graphic_options.h"
+#include "graphic_others.h"
 
 #include <QGraphicsTextItem>
 #include <QtDebug>
@@ -104,11 +105,12 @@ void Game::displayMainMenu(){
     scene->addItem(quitbutton);
 
     // creating information with information about the last selected / and current level of difficulty
-    cards = new Cards();
-    cards->setPixmap(cards->setImageOthers(2));
-    cards->setToolTip("Click the options button to change the difficulty level");
-    cards->setPos(bxPos + 300, 800);
-    scene->addItem(cards);
+    //cards = new Cards();
+    Graphic_others *actual_lvl = new Graphic_others();
+    actual_lvl->setPixmap(actual_lvl->setImageOthers(2));
+    actual_lvl->setToolTip("Click the options button to change the difficulty level");
+    actual_lvl->setPos(bxPos + 300, 800);
+    scene->addItem(actual_lvl);
 
     // showing the label with actually level of difficulty
     Graphic_options *graphic = new Graphic_options();

@@ -426,8 +426,6 @@ void DrawCards::showImageAfterReminding(int x){
     }
 
 
-//    Cards *corr = new Cards();
-//    Cards *wron = new Cards();
     Graphic_others *corr = new Graphic_others();
     Graphic_others *wron = new Graphic_others();
 
