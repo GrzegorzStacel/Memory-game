@@ -2,6 +2,7 @@
 #include "statistic.h"
 #include "statisticbesttime.h"
 #include "generator_of_random_numbers.h"
+#include "graphic_options.h"
 
 #include <QGraphicsTextItem>
 #include <QtDebug>
@@ -110,25 +111,26 @@ void Game::displayMainMenu(){
     scene->addItem(cards);
 
     // showing the label with actually level of difficulty
-    lvlLabel = new Cards();
+    //lvlLabel = new Cards();
+    Graphic_options *graphic = new Graphic_options();
     int showDifficult = 0;
 
     showDifficult = sta->read(7,0).toInt();
 
     if( showDifficult == 13 )
-        lvlLabel->setPixmap(lvlLabel->setImageOptions(3));
+        graphic->setPixmap(lvlLabel->setImageOptions(3));
     else if( showDifficult == 26 )
-        lvlLabel->setPixmap(lvlLabel->setImageOptions(4));
+        graphic->setPixmap(lvlLabel->setImageOptions(4));
     else if( showDifficult == 39 )
-        lvlLabel->setPixmap(lvlLabel->setImageOptions(5));
+        graphic->setPixmap(lvlLabel->setImageOptions(5));
     else if( showDifficult == 52 )
-        lvlLabel->setPixmap(lvlLabel->setImageOptions(6));
+        graphic->setPixmap(lvlLabel->setImageOptions(6));
     else
         qDebug() << "Error in method game::displayMainMenu - if/else...";
 
 
-    lvlLabel->setPos(bxPos + 495, 890);
-    scene->addItem(lvlLabel);
+    graphic->setPos(bxPos + 495, 890);
+    scene->addItem(graphic);
 
 }
 
