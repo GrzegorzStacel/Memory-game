@@ -384,21 +384,21 @@ QString Cards::setImageVeryHardCorrect(int number){
     }
 }
 
-QString Cards::setImageOptions(int number){
+//QString Cards::setImageOptions(int number){
 
-    switch (number) {
+//    switch (number) {
 
-        case 1: return ":/others/images/others/options/Options.png";
-        case 2: return ":/others/images/others/options/difficultLevel.png";
-        case 3: return ":/others/images/others/options/buttonEasy.png";
-        case 4: return ":/others/images/others/options/buttonMedium.png";
-        case 5: return ":/others/images/others/options/buttonHard.png";
-        case 6: return ":/others/images/others/options/buttonHardcore.png";
+//        case 1: return ":/others/images/others/options/Options.png";
+//        case 2: return ":/others/images/others/options/difficultLevel.png";
+//        case 3: return ":/others/images/others/options/buttonEasy.png";
+//        case 4: return ":/others/images/others/options/buttonMedium.png";
+//        case 5: return ":/others/images/others/options/buttonHard.png";
+//        case 6: return ":/others/images/others/options/buttonHardcore.png";
 
-        default: qDebug() << "We have a problem in method Cards::setImageOptions";
-            return nullptr;
-    }
-}
+//        default: qDebug() << "We have a problem in method Cards::setImageOptions";
+//            return nullptr;
+//    }
+//}
 
 QString Cards::setImageOthers(int number){
 

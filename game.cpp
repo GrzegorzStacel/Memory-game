@@ -111,20 +111,19 @@ void Game::displayMainMenu(){
     scene->addItem(cards);
 
     // showing the label with actually level of difficulty
-    //lvlLabel = new Cards();
     Graphic_options *graphic = new Graphic_options();
     int showDifficult = 0;
 
     showDifficult = sta->read(7,0).toInt();
 
     if( showDifficult == 13 )
-        graphic->setPixmap(lvlLabel->setImageOptions(3));
+        graphic->setPixmap(graphic->setImageOptions(3));
     else if( showDifficult == 26 )
-        graphic->setPixmap(lvlLabel->setImageOptions(4));
+        graphic->setPixmap(graphic->setImageOptions(4));
     else if( showDifficult == 39 )
-        graphic->setPixmap(lvlLabel->setImageOptions(5));
+        graphic->setPixmap(graphic->setImageOptions(5));
     else if( showDifficult == 52 )
-        graphic->setPixmap(lvlLabel->setImageOptions(6));
+        graphic->setPixmap(graphic->setImageOptions(6));
     else
         qDebug() << "Error in method game::displayMainMenu - if/else...";
 
