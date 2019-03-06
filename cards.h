@@ -24,7 +24,7 @@ public:
     QString setImageVeryHardWrong(int number);
     QString setImageVeryHardCorrect(int number);
 
-    QString setImageOptions(int number);
+    //QString setImageOptions(int number);
     QString setImageOthers(int number);
     QString setActive(bool side, bool lvl);
 
@@ -34,12 +34,12 @@ signals:
 
     //signals
     void clicked();
-    void buttonClickedWrong(int);
-    void buttonClickedCorrect(int);
+//    void buttonClickedWrong(int);
+//    void buttonClickedCorrect(int);
 
-private slots:
-    void handleClickWrong();
-    void handleClickCorrect();
+//private slots:
+//    void handleClickWrong();
+//    void handleClickCorrect();
 };
 
 #endif // CARDS_H

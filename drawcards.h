@@ -4,6 +4,7 @@
 #include "mainbuttons.h"
 #include "cards.h"
 #include "statistic.h"
+#include "graphic_others.h"
 
 #include <QObject>
 #include <QGraphicsSceneMouseEvent>
@@ -28,7 +29,7 @@ private:
 
     //private attributes
     QList<Cards *> listOfCards;
-    QList<Cards *> buttons;
+    QList<Graphic_others *> buttons;
     static int antiRepetition[52]; // TODO change value to difficult
     static int tmp;
     static int counter;

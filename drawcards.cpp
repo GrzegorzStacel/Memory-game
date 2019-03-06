@@ -5,6 +5,7 @@
 #include "timer.h"
 #include "generator_of_random_numbers.h"
 
+
 #include <QBrush>
 #include "QDebug"
 #include <QPixmap>
@@ -295,10 +296,10 @@ void DrawCards::addImageWithRandomNumber(){
                     time.stop();
 
                     // create text annoucning winner
-                    information = new Cards();
-                    information->setPos(game->scene->width()/4+70, 15);
-                    information->setPixmap(information->setImageOthers(5));
-                    game->scene->addItem(information);
+                    Graphic_others *graphic = new Graphic_others();
+                    graphic->setPos(game->scene->width()/4+70, 15);
+                    graphic->setPixmap(graphic->setImageOthers(5));
+                    game->scene->addItem(graphic);
 
                     connectCardWithMap();
                 }
@@ -366,10 +367,10 @@ void DrawCards::addImageWithRandomNumber(){
                     time.stop();
 
                     // create text annoucning winner
-                    information = new Cards();
-                    information->setPos(game->scene->width()/4+70, 15);
-                    information->setPixmap(information->setImageOthers(5));
-                    game->scene->addItem(information);
+                    Graphic_others *graphic = new Graphic_others();
+                    graphic->setPos(game->scene->width()/4+70, 15);
+                    graphic->setPixmap(graphic->setImageOthers(5));
+                    game->scene->addItem(graphic);
 
                     connectCardWithMap();
                 }
@@ -425,8 +426,10 @@ void DrawCards::showImageAfterReminding(int x){
     }
 
 
-    Cards *corr = new Cards();
-    Cards *wron = new Cards();
+//    Cards *corr = new Cards();
+//    Cards *wron = new Cards();
+    Graphic_others *corr = new Graphic_others();
+    Graphic_others *wron = new Graphic_others();
 
     // Add the buttons correct and wrong
 

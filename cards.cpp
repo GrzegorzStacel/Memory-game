@@ -481,14 +481,14 @@ QString Cards::setActive(bool side, bool lvl){
 //    return false;
 //}
 
-void Cards::handleClickWrong(){
+//void Cards::handleClickWrong(){
 
-    DrawCards *draw = new DrawCards();
-    emit buttonClickedWrong(draw->getVariableForChooseImage());
-}
+//    DrawCards *draw = new DrawCards();
+//    emit buttonClickedWrong(draw->getVariableForChooseImage());
+//}
 
-void Cards::handleClickCorrect(){
+//void Cards::handleClickCorrect(){
 
-    DrawCards *draw = new DrawCards();
-    emit buttonClickedCorrect(draw->getVariableForChooseImage());
-}
+//    DrawCards *draw = new DrawCards();
+//    emit buttonClickedCorrect(draw->getVariableForChooseImage());
+//}
