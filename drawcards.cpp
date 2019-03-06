@@ -220,7 +220,7 @@ void DrawCards::createBoard(int x, int y, bool iisActive){
     listOfCards.append(cards);
     connect(cards, SIGNAL(clicked()), this, SLOT(addImageWithRandomNumber()));
     game->scene->addItem(cards);
-    counter = difficultLvl - 1; // TODO cheat variable for tests
+    //counter = difficultLvl - 1; // TODO cheat variable for tests
     //counterEnd = 11;
 }
 

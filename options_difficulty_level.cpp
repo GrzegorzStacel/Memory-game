@@ -4,6 +4,8 @@
 #include "cards.h"
 #include "statistic.h"
 
+#include "graphic_options.h"
+
 #include <QDebug>
 
 extern Game *game;
@@ -20,44 +22,44 @@ void options_difficulty_level::show_options(){
     double y_pos = game->scene->height()/6;
 
     // add the title text from image
-    Cards *title = new Cards();
-    title->setPixmap(title->setImageOptions(1));
-    title->setPos(x_pos - 25, y_pos);
-    game->scene->addItem(title);
+    Graphic_options *graphics_title_text = new Graphic_options();
+    graphics_title_text->setPixmap(graphics_title_text->setImageOptions(1));
+    graphics_title_text->setPos(x_pos - 25, y_pos);
+    game->scene->addItem(graphics_title_text);
 
     // add the difficult text from image
-    Cards *difficultText = new Cards();
-    difficultText->setPixmap(difficultText->setImageOptions(2));
-    difficultText->setPos(x_pos, y_pos+170);
-    game->scene->addItem(difficultText);
+    Graphic_options *graphics_difficult_text = new Graphic_options();
+    graphics_difficult_text->setPixmap(graphics_difficult_text->setImageOptions(2));
+    graphics_difficult_text->setPos(x_pos, y_pos+170);
+    game->scene->addItem(graphics_difficult_text);
 
     // add the easy button from image
-    Cards *buttonEasy = new Cards();
-    buttonEasy->setPixmap(buttonEasy->setImageOptions(3));
-    buttonEasy->setPos(x_pos + 200, y_pos + 360);
-    game->scene->addItem(buttonEasy);
-    connect(buttonEasy, SIGNAL(clicked()),this,SLOT(easy()));
+    Graphic_options *graphics_easy = new Graphic_options();
+    graphics_easy->setPixmap(graphics_easy->setImageOptions(3));
+    graphics_easy->setPos(x_pos + 200, y_pos + 360);
+    game->scene->addItem(graphics_easy);
+    connect(graphics_easy, SIGNAL(clicked()),this,SLOT(easy()));
 
     // add the medium button from image
-    Cards *buttonMedium = new Cards();
-    buttonMedium->setPixmap(buttonMedium->setImageOptions(4));
-    buttonMedium->setPos(x_pos + 200, y_pos + 440);
-    game->scene->addItem(buttonMedium);
-    connect(buttonMedium, SIGNAL(clicked()),this,SLOT(medium()));
+    Graphic_options *graphics_medium = new Graphic_options();
+    graphics_medium->setPixmap(graphics_medium->setImageOptions(4));
+    graphics_medium->setPos(x_pos + 200, y_pos + 440);
+    game->scene->addItem(graphics_medium);
+    connect(graphics_medium, SIGNAL(clicked()),this,SLOT(medium()));
 
     // add the hard button from image
-    Cards *buttonHard = new Cards();
-    buttonHard->setPixmap(buttonHard->setImageOptions(5));
-    buttonHard->setPos(x_pos + 200, y_pos + 520);
-    game->scene->addItem(buttonHard);
-    connect(buttonHard, SIGNAL(clicked()),this,SLOT(hard()));
+    Graphic_options *graphics_hard= new Graphic_options();
+    graphics_hard->setPixmap(graphics_hard->setImageOptions(5));
+    graphics_hard->setPos(x_pos + 200, y_pos + 520);
+    game->scene->addItem(graphics_hard);
+    connect(graphics_hard, SIGNAL(clicked()),this,SLOT(hard()));
 
     // add the hardcore button from image
-    Cards *buttonHardcore = new Cards();
-    buttonHardcore->setPixmap(buttonHardcore->setImageOptions(6));
-    buttonHardcore->setPos(x_pos + 200, y_pos+600);
-    game->scene->addItem(buttonHardcore);
-    connect(buttonHardcore, SIGNAL(clicked()),this,SLOT(hardcore()));
+    Graphic_options *graphics_hardcore= new Graphic_options();
+    graphics_hardcore->setPixmap(graphics_hardcore->setImageOptions(6));
+    graphics_hardcore->setPos(x_pos + 200, y_pos+600);
+    game->scene->addItem(graphics_hardcore);
+    connect(graphics_hardcore, SIGNAL(clicked()),this,SLOT(hardcore()));
 
     // add the back button from image
     Cards *buttonBack = new Cards();

@@ -35,7 +35,8 @@ SOURCES += \
     statistic.cpp \
     statisticbesttime.cpp \
     options_difficulty_level.cpp \
-    generator_of_random_numbers.cpp
+    generator_of_random_numbers.cpp \
+    graphic_options.cpp
 
 HEADERS += \
     game.h \
@@ -47,7 +48,8 @@ HEADERS += \
     statistic.h \
     statisticbesttime.h \
     options_difficulty_level.h \
-    generator_of_random_numbers.h
+    generator_of_random_numbers.h \
+    graphic_options.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
