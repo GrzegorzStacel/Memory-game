@@ -199,7 +199,6 @@ void statistic::showstatic(){
     game->scene->addItem(Twrong);
 
     // create the back button
-    //MainButtons *backbutton = new MainButtons(QString("Back"));
     Graphic_others *buttonBack = new Graphic_others();
     buttonBack->setPixmap(buttonBack->setImageOthers(1));
     buttonBack->setPos(x_pos/2 + 100, y_pos - 400);

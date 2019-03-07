@@ -40,7 +40,6 @@ public:
 
     // public attributes
     DrawCards *draw;
-    Cards *cards, *lvlLabel;
     QGraphicsScene *scene;
     QGraphicsTextItem *titleText;
     MainButtons *playButton, *quitbutton, *statisticsbutton, *optionsbutton;

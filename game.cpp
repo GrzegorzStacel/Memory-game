@@ -36,15 +36,11 @@ void Game::start(){
 
     scene->clear();
 
-    //cards = new Cards();
-    //cards->generatorOfRandomNumbers(difficultLvl);
 
     Generator_of_random_numbers *generator = new Generator_of_random_numbers();
     generator->GenerateNumber(difficultLvl);
 
     timer.start();
-
-
 
     draw = new DrawCards();
     draw->setDifficultLvl(difficultLvl);
