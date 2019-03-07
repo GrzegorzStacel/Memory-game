@@ -433,18 +433,18 @@ void DrawCards::showImageAfterReminding(int x){
 
     if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39){
 
-        corr->setPixmap(cards->setImageOthers(7));
+        corr->setPixmap(corr->setImageOthers(7));
         corr->setPos(x_posOfCard[x] + 20, y_posOfCard[x] + 20);
 
-        wron->setPixmap(cards->setImageOthers(8));
+        wron->setPixmap(wron->setImageOthers(8));
         wron->setPos(x_posOfCard[x] + 35, y_posOfCard[x] + 105);
 
     } else if( difficultLvl == 52 ){
 
-        corr->setPixmap(cards->setImageOthers(9));
+        corr->setPixmap(corr->setImageOthers(9));
         corr->setPos(x_posOfCard[x] + 15, y_posOfCard[x] + 15);
 
-        wron->setPixmap(cards->setImageOthers(10));
+        wron->setPixmap(wron->setImageOthers(10));
         wron->setPos(x_posOfCard[x] + 25, y_posOfCard[x] + 100);
 
     } else
