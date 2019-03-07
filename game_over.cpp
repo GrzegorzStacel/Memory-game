@@ -4,7 +4,9 @@
 
 #include "drawcards.h"
 #include "timer.h"
-#include <cards.h>
+#include "cards.h"
+
+#include "graphic_others.h"
 
 #include <QFont>
 #include <QWhatsThis>
@@ -76,10 +78,10 @@ void game_over::drawButtons(){
     connect(quit, SIGNAL(clicked()), game, SLOT(close()));
 
     // set the image with "Your memorizing time ", correct and wrong
-    Cards *card = new Cards();
-    card->setPixmap(card->setImageOthers(11));
-    card->setPos(550, 350);
-    game->scene->addItem(card);
+    Graphic_others *graphic = new Graphic_others();
+    graphic->setPixmap(graphic->setImageOthers(11));
+    graphic->setPos(550, 350);
+    game->scene->addItem(graphic);
 
     // create text with the time reminding
     timer *time = new timer();
@@ -106,12 +108,12 @@ void game_over::drawButtons(){
     game->scene->addItem(stats2);
 
     // creates an icon that leads to statistics
-    Cards *icon = new Cards();
-    icon->setToolTip("Your statistics");
-    icon->setPixmap(icon->setImageOthers(6));
-    icon->setPos(x_pos/5 + 100, 170);
-    game->scene->addItem(icon);
-    connect(icon, SIGNAL(clicked()),this,SLOT(goToStatistics()));
+    Graphic_others *stat_icon = new Graphic_others();
+    stat_icon->setToolTip("Your statistics");
+    stat_icon->setPixmap(stat_icon->setImageOthers(6));
+    stat_icon->setPos(x_pos/5 + 100, 170);
+    game->scene->addItem(stat_icon);
+    connect(stat_icon, SIGNAL(clicked()),this,SLOT(goToStatistics()));
 
 }
 
