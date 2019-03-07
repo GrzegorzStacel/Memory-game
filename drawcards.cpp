@@ -288,10 +288,10 @@ void DrawCards::addImageWithRandomNumber(){
                     time.stop();
 
                     // create text annoucning winner
-                    Graphic_others *graphic = new Graphic_others();
-                    graphic->setPos(game->scene->width()/4+70, 15);
-                    graphic->setPixmap(graphic->setImageOthers(5));
-                    game->scene->addItem(graphic);
+                    inf_clock_stop = new Graphic_others();
+                    inf_clock_stop->setPos(game->scene->width()/4+70, 15);
+                    inf_clock_stop->setPixmap(graphic->setImageOthers(5));
+                    game->scene->addItem(inf_clock_stop);
 
                     connectCardWithMap();
                 }
@@ -527,7 +527,7 @@ void DrawCards::manageAnswers(){
     // removing the text informing about stopping the clock
     if( counterEnd == 1 ){
 
-        game->scene->removeItem(graphic);
+        game->scene->removeItem(inf_clock_stop);
 
         timer *time = new timer();
         statisticBestTimeCurrentDateAndGameTime = QDateTime::currentDateTime().toString("dd-MM-yyyy HH:mm:ss ") + time->getTime();

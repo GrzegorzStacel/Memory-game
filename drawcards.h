@@ -52,7 +52,7 @@ public:
     // public attributes
     Cards *cards;
     statistic *stat;
-    Graphic_others *graphic;
+    Graphic_others *graphic, *inf_clock_stop;
 
     static bool isActive;
 
