@@ -4,6 +4,7 @@
 
 #include "game_over.h"
 #include "statisticbesttime.h"
+#include "graphic_others.h"
 
 #include <QFile>
 #include <QDebug>
@@ -199,7 +200,7 @@ void statistic::showstatic(){
 
     // create the back button
     //MainButtons *backbutton = new MainButtons(QString("Back"));
-    Cards *buttonBack = new Cards();
+    Graphic_others *buttonBack = new Graphic_others();
     buttonBack->setPixmap(buttonBack->setImageOthers(1));
     buttonBack->setPos(x_pos/2 + 100, y_pos - 400);
     connect(buttonBack, SIGNAL(clicked()), game, SLOT(displayMainMenu()));
