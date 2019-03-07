@@ -62,7 +62,7 @@ void options_difficulty_level::show_options(){
     connect(graphics_hardcore, SIGNAL(clicked()),this,SLOT(hardcore()));
 
     // add the back button from image
-    Cards *buttonBack = new Cards();
+    Graphic_others *buttonBack = new Graphic_others();
     buttonBack->setPixmap(buttonBack->setImageOthers(1));
     buttonBack->setPos(x_pos + 550, y_pos+710);
     game->scene->addItem(buttonBack);
