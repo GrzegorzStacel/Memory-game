@@ -7,6 +7,7 @@
 #include "cards.h"
 
 #include "graphic_others.h"
+#include "statistic_is_best_time.h"
 
 #include <QFont>
 #include <QWhatsThis>
@@ -106,6 +107,13 @@ void game_over::drawButtons(){
     stats2->setFont(title3);
     stats2->setPos(1120,755);
     game->scene->addItem(stats2);
+
+    //
+
+    statistic_Is_Best_Time *is_best = new statistic_Is_Best_Time();
+    is_best->setPixmap(is_best->SetIcon(time->getTime()));
+    is_best->setPos(800, 550);
+    game->scene->addItem(is_best);
 
     // creates an icon that leads to statistics
     Graphic_others *stat_icon = new Graphic_others();
