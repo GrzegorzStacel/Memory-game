@@ -50,8 +50,9 @@ private:
 public:
 
     // public attributes
-    Cards *cards, *information;
+    Cards *cards;
     statistic *stat;
+    Graphic_others *graphic;
 
     static bool isActive;
 

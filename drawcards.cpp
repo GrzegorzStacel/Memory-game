@@ -367,7 +367,7 @@ void DrawCards::addImageWithRandomNumber(){
                     time.stop();
 
                     // create text annoucning winner
-                    Graphic_others *graphic = new Graphic_others();
+                    graphic = new Graphic_others();
                     graphic->setPos(game->scene->width()/4+70, 15);
                     graphic->setPixmap(graphic->setImageOthers(5));
                     game->scene->addItem(graphic);
@@ -535,7 +535,7 @@ void DrawCards::manageAnswers(){
     // removing the text informing about stopping the clock
     if( counterEnd == 1 ){
 
-        game->scene->removeItem(information);
+        game->scene->removeItem(graphic);
 
         timer *time = new timer();
         statisticBestTimeCurrentDateAndGameTime = QDateTime::currentDateTime().toString("dd-MM-yyyy HH:mm:ss ") + time->getTime();

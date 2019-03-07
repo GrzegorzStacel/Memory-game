@@ -25,7 +25,7 @@ public:
     QString setImageVeryHardCorrect(int number);
 
     //QString setImageOptions(int number);
-    QString setImageOthers(int number);
+    //QString setImageOthers(int number);
     QString setActive(bool side, bool lvl);
 
     inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
