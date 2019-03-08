@@ -3,12 +3,22 @@
 
 #include <QDebug>
 
+int Who_Is_Best::correct;
+int Who_Is_Best::wrong;
+
 Who_Is_Best::Who_Is_Best(){
 
 }
 
 int Who_Is_Best::score(){
     return Comparison();
+}
+
+void Who_Is_Best::set_Correct_And_Wrong(int corr, int wro){
+    correct = corr;
+    wrong = wro;
+
+    qDebug() << "correct : " << correct << " and wrong : " << wrong;
 }
 
 int Who_Is_Best::Comparison(){
@@ -53,9 +63,6 @@ void Who_Is_Best::Receive_Value(){
     qDebug() << "best time: " << Best;
 
     statistic *stat = new statistic();
-    qDebug() << "correct : " << stat->getCorrect();
-    qDebug() << "wrong : " << stat->getWrong();
-
-
-
+    stat->getCorrect();
+    stat->getWrong();
 }

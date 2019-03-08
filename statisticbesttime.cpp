@@ -90,9 +90,21 @@ void statisticBestTime::bubbleSortModifiedForCorrectAnswer(){
 
 QString statisticBestTime::prepareTextComplete(QString text){
 
-    return prepareTextHour(text) + "h "
-           + prepareTextMinute(text) + "m "
-           + prepareTextSecond(text) + "s "
+//    return prepareTextHour(text) + "h "
+//           + prepareTextMinute(text) + "m "
+//           + prepareTextSecond(text) + "s "
+//           + text.mid(32,3) + "ms";
+    Who_Is_Best *who = new Who_Is_Best();
+
+    int correct = 0, wrong = 0;
+    correct = text.mid(38,2).toInt();
+    wrong = text.mid(41,2).toInt();
+
+    who->set_Correct_And_Wrong(correct, wrong);
+
+    return text.mid(20,2) + "h "
+           + text.mid(24,2) + "m "
+           + text.mid(28,2) + "s "
            + text.mid(32,3) + "ms";
 }
 

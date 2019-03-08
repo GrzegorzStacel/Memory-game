@@ -11,6 +11,11 @@ public:
 
     // Public Methods
     int score();
+    void set_Correct_And_Wrong(int, int);
+
+    // Public Attributes
+    static int correct;
+    static int wrong;
 
 private:
     // Private Attributes

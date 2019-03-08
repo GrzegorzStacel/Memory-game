@@ -2,6 +2,7 @@
 #define STATISTICBESTTIME_H
 
 #include "statistic.h"
+#include "who_is_best.h"
 
 #include <QDebug>
 
