@@ -213,7 +213,7 @@ void DrawCards::createBoard(int x, int y, bool iisActive){
     listOfCards.append(cards);
     connect(cards, SIGNAL(clicked()), this, SLOT(addImageWithRandomNumber()));
     game->scene->addItem(cards);
-    //counter = difficultLvl - 1; // TODO cheat variable for tests
+    counter = difficultLvl - 1; // TODO cheat variable for tests
     //counterEnd = 11;
 }
 
@@ -531,7 +531,7 @@ void DrawCards::manageAnswers(){
 
         timer *time = new timer();
         statisticBestTimeCurrentDateAndGameTime = QDateTime::currentDateTime().toString("dd-MM-yyyy HH:mm:ss ") + time->getTime();
-
+        qDebug() << "statisticbesttime... : " << statisticBestTimeCurrentDateAndGameTime;
         //counterEnd = 12; // TODO delete counterend = 12
     }
 

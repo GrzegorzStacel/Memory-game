@@ -14,7 +14,7 @@ public:
     statistic_Is_Best_Time();
 
     // Methods
-    QString SetIcon(QString ActualTime);
+    QString SetIcon();
 };
 
 #endif // IS_BEST_TIME_H
