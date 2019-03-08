@@ -90,59 +90,78 @@ void statisticBestTime::bubbleSortModifiedForCorrectAnswer(){
 
 QString statisticBestTime::prepareTextComplete(QString text){
 
-    return prepareTextHour(text) + "h : "
-           + prepareTextMinute(text) + "m : "
-           + prepareTextSecond(text) + "s : "
+//    return prepareTextHour(text) + "h "
+//           + prepareTextMinute(text) + "m "
+//           + prepareTextSecond(text) + "s "
+//           + text.mid(32,3) + "ms";
+
+    {
+        Who_Is_Best *who = new Who_Is_Best();
+
+        int correct = 0;
+        correct = text.mid(38,2).toInt();
+
+        who->set_Best_Correct(correct);
+    }
+
+    return text.mid(20,2) + "h "
+           + text.mid(24,2) + "m "
+           + text.mid(28,2) + "s "
            + text.mid(32,3) + "ms";
 }
 
 QString statisticBestTime::prepareTextHour(QString text){
 
-    if(text.mid(20,2).toInt() == 0)
-        return "0";
+//    if(text.mid(20,2).toInt() == 0)
+//        return "00";
 
-    else if(text.mid(20,1).toInt() != 0)
-        return text.mid(20,2);
+//    else if(text.mid(20,1).toInt() != 0)
+//        return text.mid(20,2);
 
-    else if(text.mid(20,1).toInt() == 0)
-        return text.mid(21,1);
+//    else if(text.mid(20,1).toInt() == 0)
+//        return text.mid(20,2);
 
-    qDebug() << "We have problem in method statisticBestTime::prepareTextHour";
+//    qDebug() << "We have problem in method statisticBestTime::prepareTextHour";
 
-    return "Error";
+//    return "Error";
+    return text.mid(20,2);
 }
 
 QString statisticBestTime::prepareTextMinute(QString text){
 
-    if(text.mid(24,2).toInt() == 0)
-        return "0";
+//    if(text.mid(24,2).toInt() == 0)
+//        return "00";
 
-    else if(text.mid(24,1).toInt() != 0)
-        return text.mid(24,2);
+//    else if(text.mid(24,1).toInt() != 0)
+//        return text.mid(24,2);
 
-    else if(text.mid(24,1).toInt() == 0)
-        return text.mid(25,1);
+//    else if(text.mid(24,1).toInt() == 0)
+//        return text.mid(24,2);
 
-    qDebug() << "We have problem in method statisticBestTime::prepareTextMinute";
+//    qDebug() << "We have problem in method statisticBestTime::prepareTextMinute";
 
-    return "Error";
+//    return "Error";
+
+    return text.mid(24,2);
 }
 
 QString statisticBestTime::prepareTextSecond(QString text){
 
-    if(text.mid(28,2).toInt() == 0)
-        return "0";
+//    if(text.mid(28,2).toInt() == 0)
+//        return "00";
 
-    else if(text.mid(28,1).toInt() != 0)
-        return text.mid(28,2);
+//    else if(text.mid(28,1).toInt() != 0)
+//        return text.mid(28,2);
 
-    else if(text.mid(28,1).toInt() == 0)
-        return text.mid(29,1);
+//    else if(text.mid(28,1).toInt() == 0)
+//        return text.mid(29,1);
 
-    qDebug() << "We have problem in method statisticBestTime::prepareTextSecond";
+//    qDebug() << "We have problem in method statisticBestTime::prepareTextSecond";
 
 
-    return "Error";
+//    return "Error";
+
+    return text.mid(28,2);
 }
 
 

@@ -7,6 +7,7 @@
 #include "cards.h"
 
 #include "graphic_others.h"
+#include "statistic_is_best_time.h"
 
 #include <QFont>
 #include <QWhatsThis>
@@ -45,8 +46,7 @@ void game_over::drawButtons(){
     drawPanel(0, 0, x_pos, y_pos, Qt::black, 0.65);
 
     // draw panel
-//    drawPanel(312, 150, x_pos/2, y_pos/2 + 50, Qt::lightGray, 0.85);
-    drawPanel(470, 150, x_pos/2, y_pos/2 + 200, Qt::lightGray, 0.85);
+    drawPanel(470, 150, x_pos/2, y_pos/2 + 260, Qt::lightGray, 0.85);
 
     // create text with the time reminding
 //    QGraphicsTextItem* clock = new QGraphicsTextItem("Your memorizing time:\n ");
@@ -106,6 +106,16 @@ void game_over::drawButtons(){
     stats2->setFont(title3);
     stats2->setPos(1120,755);
     game->scene->addItem(stats2);
+
+    // Show icon in arrow up/down or point depending on the time obtained
+    statistic_Is_Best_Time *is_best = new statistic_Is_Best_Time();
+    QGraphicsTextItem* Summary_Text = new QGraphicsTextItem(is_best->Set_Icon_Time());
+    QString text_colour = is_best->Set_Colour_Of_Text();
+    Summary_Text->setDefaultTextColor(text_colour);
+    QFont SummaryFont("comic sans", 15, 87);
+    Summary_Text->setFont(SummaryFont);
+    Summary_Text->setPos(530,840);
+    game->scene->addItem(Summary_Text);
 
     // creates an icon that leads to statistics
     Graphic_others *stat_icon = new Graphic_others();
