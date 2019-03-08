@@ -94,13 +94,15 @@ QString statisticBestTime::prepareTextComplete(QString text){
 //           + prepareTextMinute(text) + "m "
 //           + prepareTextSecond(text) + "s "
 //           + text.mid(32,3) + "ms";
-    Who_Is_Best *who = new Who_Is_Best();
 
-    int correct = 0, wrong = 0;
-    correct = text.mid(38,2).toInt();
-    wrong = text.mid(41,2).toInt();
+    {
+        Who_Is_Best *who = new Who_Is_Best();
 
-    who->set_Correct_And_Wrong(correct, wrong);
+        int correct = 0;
+        correct = text.mid(38,2).toInt();
+
+        who->set_Best_Correct(correct);
+    }
 
     return text.mid(20,2) + "h "
            + text.mid(24,2) + "m "

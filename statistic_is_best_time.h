@@ -14,7 +14,12 @@ public:
     statistic_Is_Best_Time();
 
     // Methods
-    QString SetIcon();
+    QString Set_Icon_Time();
+    QString Set_Colour_Of_Text();
+
+private:
+    //Attributes
+    int value;
 };
 
 #endif // IS_BEST_TIME_H

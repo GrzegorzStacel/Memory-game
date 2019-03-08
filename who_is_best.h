@@ -11,16 +11,16 @@ public:
 
     // Public Methods
     int score();
-    void set_Correct_And_Wrong(int, int);
+    void set_Best_Correct(int);
 
     // Public Attributes
-    static int correct;
-    static int wrong;
+
 
 private:
     // Private Attributes
     int count_ActualTime;
     int count_BestTime;
+    static int Best_Correct;
 
     // Private Methods
     int Comparison();

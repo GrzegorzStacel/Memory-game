@@ -531,7 +531,7 @@ void DrawCards::manageAnswers(){
 
         timer *time = new timer();
         statisticBestTimeCurrentDateAndGameTime = QDateTime::currentDateTime().toString("dd-MM-yyyy HH:mm:ss ") + time->getTime();
-        qDebug() << "statisticbesttime... : " << statisticBestTimeCurrentDateAndGameTime;
+
         //counterEnd = 12; // TODO delete counterend = 12
     }
 
