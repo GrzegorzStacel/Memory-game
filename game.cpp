@@ -9,12 +9,16 @@
 #include <QtDebug>
 #include <QTimer>
 #include <QTime>
-
+#include <QSqlQuery>
+#include <QSqlQueryModel>
 #include "database.h"
 
 Game::Game()
 {
-    DataBase *db = new DataBase();
+    DataBase *base = new DataBase();
+
+    base->insert("SELECT * FROM statistic_db");
+
 
     //create a scene
     scene = new QGraphicsScene();

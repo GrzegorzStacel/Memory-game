@@ -3,17 +3,17 @@
 
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlError>
-#include <QtSql/QSqlQueryModel>
+#include <QtSql/QSqlQuery>
 
 #include <QDebug>
 
-//#include <QtSql>
-//INCLUDEPATH += F:/Programy/Qt/SQL_CONNECTOR/mysql-connector-c-6.1.11-win32/mysql-connector-c-6.1.11-win32/include
 class DataBase{
 
 public:
     // Constructor
     DataBase();
+
+    void insert(QString value);
 
     QSqlDatabase db;
 };
