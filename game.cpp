@@ -10,8 +10,12 @@
 #include <QTimer>
 #include <QTime>
 
+#include "database.h"
+
 Game::Game()
 {
+    DataBase *db = new DataBase();
+
     //create a scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1920,990);
@@ -30,6 +34,9 @@ Game::Game()
 }
 
 void Game::start(){
+
+
+
 
     sta = new statistic();
     int difficultLvl = sta->read(7,0).toInt();
