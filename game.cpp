@@ -18,16 +18,17 @@ Game::Game()
                                      // TESTING DATA BASE
 // --------------------------------------------------------------------------------------------------------------
 
-    DataBase *base = new DataBase();
-    if(base->data_base().open()) {
-        qDebug() << "DB is opened ( all )";
-        int godz = 100;
-        QString insert = "INSERT INTO statistic_db ( data, time, hour, minutes, seconds, miliseconds, correct, wrong, difficult ) "
-                         "VALUES (NOW(), CURTIME(), " + QString::number(godz) + ", 20, 12, 234, 12, 55, \"hard\" )";
-        base->data_base().exec(insert);
-    } else {
-        qDebug() << base->data_base().lastError();
-    }
+//    DataBase *base = new DataBase();
+
+//    if(base->data_base().open()) {
+//        qDebug() << "DB is opened ( all )";
+//        int h = 100;
+//        QString insert = "INSERT INTO statistic_db ( data, time, hour, minutes, seconds, miliseconds, correct, wrong, difficult ) "
+//                         "VALUES (NOW(), CURTIME(), " + QString::number(h) + ", 20, 12, 234, 12, 55, \"hard\" )";
+//        base->data_base().exec(insert);
+//    } else {
+//        qDebug() << base->data_base().lastError();
+//    }
 
 //    base->query("SELECT data FROM statistic_db", 0);
 //    base->query("SELECT data, time FROM statistic_db", 0, 1);

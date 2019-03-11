@@ -14,10 +14,10 @@ public:
         DataBase();
 
     // Public Methods
-        void query(QString value, int column);
+        QString query(QString value, int column);
         void query(QString value, int columnA, int columnB);
         QSqlDatabase data_base();
-        void error();
+        void error(QString value);
 
     // Public Attributes
         QSqlDatabase db;

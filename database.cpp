@@ -18,11 +18,11 @@ QSqlDatabase DataBase::data_base(){
     return db;
 }
 
-void DataBase::error(){
-    qDebug() << "Data hasn't been saved in the database";
+void DataBase::error(QString value){
+    qDebug() << "Data hasn't been saved in the database in " + value;
 }
 
-void DataBase::query(QString value, int column){
+QString DataBase::query(QString value, int column){
 
     if(db.open()) {
 
@@ -31,17 +31,26 @@ void DataBase::query(QString value, int column){
         QSqlQuery ask;
 
         if(ask.exec(value)){
+
             while(ask.next()){
                  qDebug() << ask.value(column).toString();
+                 return ask.value(column).toString();
+
             }
+
+            qDebug() << "Closing ( working )...";
+            db.close();
+
         }
 
     } else {
         qDebug() << "Error load: " << db.lastError();
     }
 
-    qDebug() << "Closing...";
+    qDebug() << "Closing ( database isn't open )...";
     db.close();
+
+    return "Error load in database";
 }
 
 void DataBase::query(QString value, int columnA, int columnB){
