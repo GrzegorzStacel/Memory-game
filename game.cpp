@@ -84,10 +84,12 @@ Game::Game()
 void Game::start(){
 
 
-
-
-    sta = new statistic();
-    int difficultLvl = sta->read(7,0).toInt();
+    DataBase *db = new DataBase();
+    QString result = db->query("SELECT difficult FROM settings", 0);
+    int difficultLvl = result.toInt();
+    delete  db;
+//    sta = new statistic();
+//    int difficultLvl = sta->read(7,0).toInt();
 
     scene->clear();
 
@@ -167,7 +169,12 @@ void Game::displayMainMenu(){
     Graphic_options *graphic = new Graphic_options();
     int showDifficult = 0;
 
-    showDifficult = sta->read(7,0).toInt();
+    DataBase *db = new DataBase();
+
+    QString result = db->query("SELECT difficult FROM settings", 0);
+    showDifficult = result.toInt();
+
+//    showDifficult = sta->read(7,0).toInt();
 
     if( showDifficult == 13 )
         graphic->setPixmap(graphic->setImageOptions(3));
