@@ -11,11 +11,16 @@ class DataBase{
 
 public:
     // Constructor
-    DataBase();
+        DataBase();
 
-    void insert(QString value);
+    // Public Methods
+        void query(QString value, int column);
+        void query(QString value, int columnA, int columnB);
+        QSqlDatabase data_base();
+        void error();
 
-    QSqlDatabase db;
+    // Public Attributes
+        QSqlDatabase db;
 };
 
 #endif // DATABASE_H

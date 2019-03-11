@@ -14,25 +14,48 @@ DataBase::DataBase(){
 
 }
 
-void DataBase::insert(QString value){
+QSqlDatabase DataBase::data_base(){
+    return db;
+}
+
+void DataBase::error(){
+    qDebug() << "Data hasn't been saved in the database";
+}
+
+void DataBase::query(QString value, int column){
 
     if(db.open()) {
 
-        qDebug() << "DB is opened";
+        qDebug() << "DB is opened ( one )";
+
         QSqlQuery ask;
 
         if(ask.exec(value)){
             while(ask.next()){
-                qDebug() << ask.value(0).toString() + " - " +
-                            ask.value(1).toString() + " - " +
-                            ask.value(2).toString() + " - " +
-                            ask.value(3).toString() + " - " +
-                            ask.value(4).toString() + " - " +
-                            ask.value(5).toString() + " - " +
-                            ask.value(6).toString() + " - " +
-                            ask.value(7).toString() + " - " +
-                            ask.value(8).toString() + " - " +
-                            ask.value(9).toString();
+                 qDebug() << ask.value(column).toString();
+            }
+        }
+
+    } else {
+        qDebug() << "Error load: " << db.lastError();
+    }
+
+    qDebug() << "Closing...";
+    db.close();
+}
+
+void DataBase::query(QString value, int columnA, int columnB){
+
+    if(db.open()) {
+
+        qDebug() << "DB is opened ( two )";
+
+        QSqlQuery ask;
+
+        if(ask.exec(value)){
+            while(ask.next()){
+                    qDebug() << ask.value(columnA).toString() + " - " +
+                                ask.value(columnB).toString();
 
             }
         }
@@ -43,7 +66,4 @@ void DataBase::insert(QString value){
 
     qDebug() << "Closing...";
     db.close();
-
-
-
 }

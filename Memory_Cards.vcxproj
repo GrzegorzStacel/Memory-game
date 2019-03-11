@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E2397BAC-A224-3068-BE88-E0D1C52B587C}</ProjectGuid>
+    <RootNamespace>Memory_Cards</RootNamespace>
+    <Keyword>Qt4VSv1.0</Keyword>
+    <MinimumVisualStudioVersion>15.00</MinimumVisualStudioVersion>
+    <DefaultLanguage>en</DefaultLanguage>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.17763.0</WindowsTargetPlatformMinVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <OutputDirectory>release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>Unicode</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>Memory_Cards</PrimaryOutput>
+    <EmbedManifest>false</EmbedManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <OutputDirectory>debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>Unicode</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>Memory_Cards</PrimaryOutput>
+    <EmbedManifest>false</EmbedManifest>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
+  </ImportGroup>
+  <ImportGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists(&apos;$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props&apos;)" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">release\</OutDir>
+    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">release\</IntDir>
+    <TargetName Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">Memory_Cards</TargetName>
+    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">false</LinkIncremental>
+    <GenerateManifest Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">false</GenerateManifest>
+    <OutDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">debug\</OutDir>
+    <IntDir Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">debug\</IntDir>
+    <TargetName Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">Memory_Cards</TargetName>
+    <IgnoreImportLibrary Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">true</IgnoreImportLibrary>
+    <GenerateManifest Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\include;..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\include\QtWidgets;..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\include\QtGui;..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\include\QtANGLE;..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\include\QtSql;..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\include\QtCore;release;..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\mkspecs\winrt-x86-msvc2017;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>release\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;Q_BYTE_ORDER=Q_LITTLE_ENDIAN;WINAPI_FAMILY=WINAPI_FAMILY_PC_APP;WINAPI_PARTITION_PHONE_APP=1;X86;__X86__;__x86__;_ENABLE_EXTENDED_ALIGNED_STORAGE;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_SQL_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName></ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib\qtmain.lib;ucrt.lib;vcruntime.lib;windowscodecs.lib;WindowsApp.lib;runtimeobject.lib;OneCore.lib;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib\Qt5Widgets.lib;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib\Qt5Gui.lib;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib\Qt5Sql.lib;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib\Qt5Core.lib;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib\libEGL.lib;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib\libGLESv2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/APPCONTAINER %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <GenerateManifest>false</GenerateManifest>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <ImageHasSafeExceptionHandlers>true</ImageHasSafeExceptionHandlers>
+      <IgnoreSpecificDefaultLibraries>ole32.lib;kernel32.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <LinkIncremental>false</LinkIncremental>
+      <OutputFile>$(OutDir)\Memory_Cards.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;Q_BYTE_ORDER=Q_LITTLE_ENDIAN;WINAPI_FAMILY=WINAPI_FAMILY_PC_APP;WINAPI_PARTITION_PHONE_APP=1;X86;__X86__;__x86__;_ENABLE_EXTENDED_ALIGNED_STORAGE;QT_DEPRECATED_WARNINGS;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_SQL_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <Target Name="WinDeployQt_Release|Win32" Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;" Inputs="$(OutDir)\$(TargetName).exe" Outputs="$(TargetName).windeployqt.$(Platform).$(Configuration)">
+    <Message Text="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\windeployqt.exe -qmldir &quot;F:\Programy C++\Qt\Memory_Cards&quot; -list relative -dir &quot;$(MSBuildProjectDirectory)&quot; &quot;$(OutDir)\$(TargetName).exe&quot; > &quot;$(TargetName).windeployqt.$(Platform).$(Configuration)&quot;" />
+    <Exec Command="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\windeployqt.exe -qmldir &quot;F:\Programy C++\Qt\Memory_Cards&quot; -list relative -dir &quot;$(MSBuildProjectDirectory)&quot; &quot;$(OutDir)\$(TargetName).exe&quot; > &quot;$(TargetName).windeployqt.$(Platform).$(Configuration)&quot;" />
+  </Target>
+  <Target Name="PopulateWinDeployQtItems_Release|Win32" Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;" AfterTargets="Link" DependsOnTargets="WinDeployQt_Release|Win32">
+    <ReadLinesFromFile File="$(TargetName).windeployqt.$(Platform).$(Configuration)">
+      <Output TaskParameter="Lines" ItemName="DeploymentItems" />
+    </ReadLinesFromFile>
+    <ItemGroup>
+      <None Include="@(DeploymentItems)">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+  </Target>
+  <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\include;..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\include\QtWidgets;..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\include\QtGui;..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\include\QtANGLE;..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\include\QtSql;..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\include\QtCore;debug;..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\mkspecs\winrt-x86-msvc2017;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>debug\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;Q_BYTE_ORDER=Q_LITTLE_ENDIAN;WINAPI_FAMILY=WINAPI_FAMILY_PC_APP;WINAPI_PARTITION_PHONE_APP=1;X86;__X86__;__x86__;_ENABLE_EXTENDED_ALIGNED_STORAGE;QT_DEPRECATED_WARNINGS;QT_WIDGETS_LIB;QT_GUI_LIB;QT_SQL_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib\qtmaind.lib;ucrtd.lib;vcruntimed.lib;windowscodecs.lib;WindowsApp.lib;runtimeobject.lib;OneCore.lib;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib\Qt5Widgetsd.lib;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib\Qt5Guid.lib;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib\Qt5Sqld.lib;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib\Qt5Cored.lib;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib\libEGLd.lib;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib\libGLESv2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\lib;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/APPCONTAINER %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateManifest>false</GenerateManifest>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <ImageHasSafeExceptionHandlers>true</ImageHasSafeExceptionHandlers>
+      <IgnoreSpecificDefaultLibraries>ole32.lib;kernel32.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OutputFile>$(OutDir)\Memory_Cards.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;Q_BYTE_ORDER=Q_LITTLE_ENDIAN;WINAPI_FAMILY=WINAPI_FAMILY_PC_APP;WINAPI_PARTITION_PHONE_APP=1;X86;__X86__;__x86__;_ENABLE_EXTENDED_ALIGNED_STORAGE;QT_DEPRECATED_WARNINGS;QT_WIDGETS_LIB;QT_GUI_LIB;QT_SQL_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <Target Name="WinDeployQt_Debug|Win32" Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;" Inputs="$(OutDir)\$(TargetName).exe" Outputs="$(TargetName).windeployqt.$(Platform).$(Configuration)">
+    <Message Text="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\windeployqt.exe -qmldir &quot;F:\Programy C++\Qt\Memory_Cards&quot; -list relative -dir &quot;$(MSBuildProjectDirectory)&quot; &quot;$(OutDir)\$(TargetName).exe&quot; > &quot;$(TargetName).windeployqt.$(Platform).$(Configuration)&quot;" />
+    <Exec Command="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\windeployqt.exe -qmldir &quot;F:\Programy C++\Qt\Memory_Cards&quot; -list relative -dir &quot;$(MSBuildProjectDirectory)&quot; &quot;$(OutDir)\$(TargetName).exe&quot; > &quot;$(TargetName).windeployqt.$(Platform).$(Configuration)&quot;" />
+  </Target>
+  <Target Name="PopulateWinDeployQtItems_Debug|Win32" Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;" AfterTargets="Link" DependsOnTargets="WinDeployQt_Debug|Win32">
+    <ReadLinesFromFile File="$(TargetName).windeployqt.$(Platform).$(Configuration)">
+      <Output TaskParameter="Lines" ItemName="DeploymentItems" />
+    </ReadLinesFromFile>
+    <ItemGroup>
+      <None Include="@(DeploymentItems)">
+        <DeploymentContent>true</DeploymentContent>
+      </None>
+    </ItemGroup>
+  </Target>
+  <ItemGroup>
+    <ClCompile Include="cards.cpp" />
+    <ClCompile Include="database.cpp" />
+    <ClCompile Include="drawcards.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="game_over.cpp" />
+    <ClCompile Include="generator_of_random_numbers.cpp" />
+    <ClCompile Include="graphic_options.cpp" />
+    <ClCompile Include="graphic_others.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mainbuttons.cpp" />
+    <ClCompile Include="options_difficulty_level.cpp" />
+    <ClCompile Include="statistic.cpp" />
+    <ClCompile Include="statistic_is_best_time.cpp" />
+    <ClCompile Include="statisticbesttime.cpp" />
+    <ClCompile Include="timer.cpp" />
+    <ClCompile Include="who_is_best.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="cards.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">cards.h;release\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/release/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; cards.h -o release\moc_cards.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">MOC cards.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">release\moc_cards.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">cards.h;debug\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/debug/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; cards.h -o debug\moc_cards.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">MOC cards.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">debug\moc_cards.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="database.h" />
+    <CustomBuild Include="drawcards.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">drawcards.h;release\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/release/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; drawcards.h -o release\moc_drawcards.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">MOC drawcards.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">release\moc_drawcards.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">drawcards.h;debug\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/debug/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; drawcards.h -o debug\moc_drawcards.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">MOC drawcards.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">debug\moc_drawcards.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="game.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">game.h;release\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/release/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; game.h -o release\moc_game.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">MOC game.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">release\moc_game.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">game.h;debug\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/debug/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; game.h -o debug\moc_game.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">MOC game.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">debug\moc_game.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="game_over.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">game_over.h;release\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/release/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; game_over.h -o release\moc_game_over.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">MOC game_over.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">release\moc_game_over.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">game_over.h;debug\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/debug/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; game_over.h -o debug\moc_game_over.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">MOC game_over.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">debug\moc_game_over.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="generator_of_random_numbers.h" />
+    <CustomBuild Include="graphic_options.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">graphic_options.h;release\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/release/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; graphic_options.h -o release\moc_graphic_options.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">MOC graphic_options.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">release\moc_graphic_options.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">graphic_options.h;debug\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/debug/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; graphic_options.h -o debug\moc_graphic_options.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">MOC graphic_options.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">debug\moc_graphic_options.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="graphic_others.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">graphic_others.h;release\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/release/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; graphic_others.h -o release\moc_graphic_others.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">MOC graphic_others.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">release\moc_graphic_others.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">graphic_others.h;debug\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/debug/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; graphic_others.h -o debug\moc_graphic_others.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">MOC graphic_others.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">debug\moc_graphic_others.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="mainbuttons.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">mainbuttons.h;release\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/release/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; mainbuttons.h -o release\moc_mainbuttons.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">MOC mainbuttons.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">release\moc_mainbuttons.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">mainbuttons.h;debug\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/debug/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; mainbuttons.h -o debug\moc_mainbuttons.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">MOC mainbuttons.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">debug\moc_mainbuttons.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="options_difficulty_level.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">options_difficulty_level.h;release\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/release/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; options_difficulty_level.h -o release\moc_options_difficulty_level.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">MOC options_difficulty_level.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">release\moc_options_difficulty_level.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">options_difficulty_level.h;debug\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/debug/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; options_difficulty_level.h -o debug\moc_options_difficulty_level.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">MOC options_difficulty_level.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">debug\moc_options_difficulty_level.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="statistic.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">statistic.h;release\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/release/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; statistic.h -o release\moc_statistic.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">MOC statistic.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">release\moc_statistic.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">statistic.h;debug\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/debug/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; statistic.h -o debug\moc_statistic.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">MOC statistic.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">debug\moc_statistic.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="statistic_is_best_time.h" />
+    <ClInclude Include="statisticbesttime.h" />
+    <CustomBuild Include="timer.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">timer.h;release\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/release/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; timer.h -o release\moc_timer.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">MOC timer.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">release\moc_timer.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">timer.h;debug\moc_predefs.h;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQ_BYTE_ORDER=Q_LITTLE_ENDIAN -DWINAPI_FAMILY=WINAPI_FAMILY_PC_APP -DWINAPI_PARTITION_PHONE_APP=1 -DX86 -D__X86__ -D__x86__ -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include &quot;F:/Programy C++/Qt/Memory_Cards/debug/moc_predefs.h&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/mkspecs/winrt-x86-msvc2017 -I&quot;F:/Programy C++/Qt/Memory_Cards&quot; -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtWidgets -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtGui -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtANGLE -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtSql -IF:/PROGRAMY/QT/5.11.2/WINRT_X86_MSVC2017/include/QtCore -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; -I&quot;F:\Programy\Visual Studio\VC\Tools\MSVC\14.16.27023\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; timer.h -o debug\moc_timer.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">MOC timer.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">debug\moc_timer.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="who_is_best.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="debug\moc_cards.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_cards.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_drawcards.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_drawcards.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_game.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_game.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_game_over.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_game_over.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_graphic_options.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_graphic_options.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_graphic_others.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_graphic_others.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_mainbuttons.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_mainbuttons.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_options_difficulty_level.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_options_difficulty_level.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">cl -Bx&quot;$(QTDIR)\bin\qmake.exe&quot; -nologo -FS -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -GR -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E ..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\mkspecs\features\data\dummy.cpp 2>NUL >debug\moc_predefs.h</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">Generate moc_predefs.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">debug\moc_predefs.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">cl -Bx&quot;$(QTDIR)\bin\qmake.exe&quot; -nologo -FS -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -O2 -MD -GR -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E ..\..\..\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\mkspecs\features\data\dummy.cpp 2>NUL >release\moc_predefs.h</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">Generate moc_predefs.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">release\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">true</ExcludedFromBuild>
+    </CustomBuild>
+    <ClCompile Include="debug\moc_statistic.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_statistic.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\moc_timer.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_timer.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="debug\qrc_res.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\qrc_res.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="hard\clover\correct\10_clover_regular_correct.png" />
+    <None Include="hard\clover\neutral\10_clover_regular_neutral.png" />
+    <None Include="hard\clover\wrong\10_clover_regular_wrong.png" />
+    <None Include="hard\clover\correct\10_clover_very_hard_correct.png" />
+    <None Include="hard\clover\neutral\10_clover_very_hard_neutral.png" />
+    <None Include="hard\clover\wrong\10_clover_very_hard_wrong.png" />
+    <None Include="hard\diamond\correct\10_diamond_very_hard_correct.png" />
+    <None Include="hard\diamond\neutral\10_diamond_very_hard_neutral.png" />
+    <None Include="hard\diamond\wrong\10_diamond_very_hard_wrong.png" />
+    <None Include="hard\heart\correct\10_serc_regular_correct.png" />
+    <None Include="hard\heart\neutral\10_serc_regular_neutral.png" />
+    <None Include="hard\heart\wrong\10_serc_regular_wrong.png" />
+    <None Include="hard\heart\correct\10_serc_very_hard_correct.png" />
+    <None Include="hard\heart\neutral\10_serc_very_hard_neutral.png" />
+    <None Include="hard\heart\wrong\10_serc_very_hard_wrong.png" />
+    <None Include="hard\spade\correct\10_spade_regular_correct.png" />
+    <None Include="hard\spade\neutral\10_spade_regular_neutral.png" />
+    <None Include="hard\spade\wrong\10_spade_regular_wrong.png" />
+    <None Include="hard\spade\correct\10_spade_very_hard_correct.png" />
+    <None Include="hard\spade\neutral\10_spade_very_hard_neutral.png" />
+    <None Include="hard\spade\wrong\10_spade_very_hard_wrong.png" />
+    <None Include="hard\clover\correct\2_clover_regular_correct.png" />
+    <None Include="hard\clover\neutral\2_clover_regular_neutral.png" />
+    <None Include="hard\clover\wrong\2_clover_regular_wrong.png" />
+    <None Include="hard\clover\correct\2_clover_very_hard_correct.png" />
+    <None Include="hard\clover\neutral\2_clover_very_hard_neutral.png" />
+    <None Include="hard\clover\wrong\2_clover_very_hard_wrong.png" />
+    <None Include="hard\diamond\correct\2_diamond_very_hard_correct.png" />
+    <None Include="hard\diamond\neutral\2_diamond_very_hard_neutral.png" />
+    <None Include="hard\diamond\wrong\2_diamond_very_hard_wrong.png" />
+    <None Include="hard\heart\correct\2_serc_regular_correct.png" />
+    <None Include="hard\heart\neutral\2_serc_regular_neutral.png" />
+    <None Include="hard\heart\wrong\2_serc_regular_wrong.png" />
+    <None Include="hard\heart\correct\2_serc_very_hard_correct.png" />
+    <None Include="hard\heart\neutral\2_serc_very_hard_neutral.png" />
+    <None Include="hard\spade\correct\2_spade_regular_correct.png" />
+    <None Include="hard\spade\neutral\2_spade_regular_neutral.png" />
+    <None Include="hard\spade\wrong\2_spade_regular_wrong.png" />
+    <None Include="hard\spade\correct\2_spade_very_hard_correct.png" />
+    <None Include="hard\spade\neutral\2_spade_very_hard_neutral.png" />
+    <None Include="hard\spade\wrong\2_spade_very_hard_wrong.png" />
+    <None Include="hard\clover\correct\3_clover_regular_correct.png" />
+    <None Include="hard\clover\neutral\3_clover_regular_neutral.png" />
+    <None Include="hard\clover\wrong\3_clover_regular_wrong.png" />
+    <None Include="hard\clover\correct\3_clover_very_hard_correct.png" />
+    <None Include="hard\clover\neutral\3_clover_very_hard_neutral.png" />
+    <None Include="hard\clover\wrong\3_clover_very_hard_wrong.png" />
+    <None Include="hard\diamond\correct\3_diamond_very_hard_correct.png" />
+    <None Include="hard\diamond\neutral\3_diamond_very_hard_neutral.png" />
+    <None Include="hard\diamond\wrong\3_diamond_very_hard_wrong.png" />
+    <None Include="hard\heart\correct\3_serc_regular_correct.png" />
+    <None Include="hard\heart\neutral\3_serc_regular_neutral.png" />
+    <None Include="hard\heart\wrong\3_serc_regular_wrong.png" />
+    <None Include="hard\heart\correct\3_serc_very_hard_correct.png" />
+    <None Include="hard\heart\neutral\3_serc_very_hard_neutral.png" />
+    <None Include="hard\heart\wrong\3_serc_very_hard_wrong.png" />
+    <None Include="hard\spade\correct\3_spade_regular_correct.png" />
+    <None Include="hard\spade\neutral\3_spade_regular_neutral.png" />
+    <None Include="hard\spade\wrong\3_spade_regular_wrong.png" />
+    <None Include="hard\spade\correct\3_spade_very_hard_correct.png" />
+    <None Include="hard\spade\neutral\3_spade_very_hard_neutral.png" />
+    <None Include="hard\spade\wrong\3_spade_very_hard_wrong.png" />
+    <None Include="hard\clover\correct\4_clover_regular_correct.png" />
+    <None Include="hard\clover\neutral\4_clover_regular_neutral.png" />
+    <None Include="hard\clover\wrong\4_clover_regular_wrong.png" />
+    <None Include="hard\clover\correct\4_clover_very_hard_correct.png" />
+    <None Include="hard\clover\neutral\4_clover_very_hard_neutral.png" />
+    <None Include="hard\clover\wrong\4_clover_very_hard_wrong.png" />
+    <None Include="hard\diamond\correct\4_diamond_very_hard_correct.png" />
+    <None Include="hard\diamond\neutral\4_diamond_very_hard_neutral.png" />
+    <None Include="hard\diamond\wrong\4_diamond_very_hard_wrong.png" />
+    <None Include="hard\heart\correct\4_serc_regular_correct.png" />
+    <None Include="hard\heart\neutral\4_serc_regular_neutral.png" />
+    <None Include="hard\heart\wrong\4_serc_regular_wrong.png" />
+    <None Include="hard\heart\correct\4_serc_very_hard_correct.png" />
+    <None Include="hard\heart\neutral\4_serc_very_hard_neutral.png" />
+    <None Include="hard\heart\wrong\4_serc_very_hard_wrong.png" />
+    <None Include="hard\spade\correct\4_spade_regular_correct.png" />
+    <None Include="hard\spade\neutral\4_spade_regular_neutral.png" />
+    <None Include="hard\spade\wrong\4_spade_regular_wrong.png" />
+    <None Include="hard\spade\correct\4_spade_very_hard_correct.png" />
+    <None Include="hard\spade\neutral\4_spade_very_hard_neutral.png" />
+    <None Include="hard\spade\wrong\4_spade_very_hard_wrong.png" />
+    <None Include="hard\clover\correct\5_clover_regular_correct.png" />
+    <None Include="hard\clover\neutral\5_clover_regular_neutral.png" />
+    <None Include="hard\clover\wrong\5_clover_regular_wrong.png" />
+    <None Include="hard\clover\correct\5_clover_very_hard_correct.png" />
+    <None Include="hard\clover\neutral\5_clover_very_hard_neutral.png" />
+    <None Include="hard\clover\wrong\5_clover_very_hard_wrong.png" />
+    <None Include="hard\diamond\correct\5_diamond_very_hard_correct.png" />
+    <None Include="hard\diamond\neutral\5_diamond_very_hard_neutral.png" />
+    <None Include="hard\diamond\wrong\5_diamond_very_hard_wrong.png" />
+    <None Include="hard\heart\correct\5_serc_regular_correct.png" />
+    <None Include="hard\heart\neutral\5_serc_regular_neutral.png" />
+    <None Include="hard\heart\wrong\5_serc_regular_wrong.png" />
+    <None Include="hard\heart\correct\5_serc_very_hard_correct.png" />
+    <None Include="hard\heart\neutral\5_serc_very_hard_neutral.png" />
+    <None Include="hard\heart\wrong\5_serc_very_hard_wrong.png" />
+    <None Include="hard\spade\correct\5_spade_regular_correct.png" />
+    <None Include="hard\spade\neutral\5_spade_regular_neutral.png" />
+    <None Include="hard\spade\wrong\5_spade_regular_wrong.png" />
+    <None Include="hard\spade\correct\5_spade_very_hard_correct.png" />
+    <None Include="hard\spade\neutral\5_spade_very_hard_neutral.png" />
+    <None Include="hard\spade\wrong\5_spade_very_hard_wrong.png" />
+    <None Include="hard\clover\correct\6_clover_regular_correct.png" />
+    <None Include="hard\clover\neutral\6_clover_regular_neutral.png" />
+    <None Include="hard\clover\wrong\6_clover_regular_wrong.png" />
+    <None Include="hard\clover\correct\6_clover_very_hard_correct.png" />
+    <None Include="hard\clover\neutral\6_clover_very_hard_neutral.png" />
+    <None Include="hard\clover\wrong\6_clover_very_hard_wrong.png" />
+    <None Include="hard\diamond\correct\6_diamond_very_hard_correct.png" />
+    <None Include="hard\diamond\neutral\6_diamond_very_hard_neutral.png" />
+    <None Include="hard\diamond\wrong\6_diamond_very_hard_wrong.png" />
+    <None Include="hard\heart\correct\6_serc_regular_correct.png" />
+    <None Include="hard\heart\neutral\6_serc_regular_neutral.png" />
+    <None Include="hard\heart\wrong\6_serc_regular_wrong.png" />
+    <None Include="hard\heart\correct\6_serc_very_hard_correct.png" />
+    <None Include="hard\heart\neutral\6_serc_very_hard_neutral.png" />
+    <None Include="hard\heart\wrong\6_serc_very_hard_wrong.png" />
+    <None Include="hard\spade\correct\6_spade_regular_correct.png" />
+    <None Include="hard\spade\neutral\6_spade_regular_neutral.png" />
+    <None Include="hard\spade\wrong\6_spade_regular_wrong.png" />
+    <None Include="hard\spade\correct\6_spade_very_hard_correct.png" />
+    <None Include="hard\spade\neutral\6_spade_very_hard_neutral.png" />
+    <None Include="hard\spade\wrong\6_spade_very_hard_wrong.png" />
+    <None Include="hard\clover\correct\7_clover_regular_correct.png" />
+    <None Include="hard\clover\neutral\7_clover_regular_neutral.png" />
+    <None Include="hard\clover\wrong\7_clover_regular_wrong.png" />
+    <None Include="hard\clover\correct\7_clover_very_hard_correct.png" />
+    <None Include="hard\clover\neutral\7_clover_very_hard_neutral.png" />
+    <None Include="hard\clover\wrong\7_clover_very_hard_wrong.png" />
+    <None Include="hard\diamond\correct\7_diamond_very_hard_correct.png" />
+    <None Include="hard\diamond\neutral\7_diamond_very_hard_neutral.png" />
+    <None Include="hard\diamond\wrong\7_diamond_very_hard_wrong.png" />
+    <None Include="hard\heart\correct\7_serc_regular_correct.png" />
+    <None Include="hard\heart\neutral\7_serc_regular_neutral.png" />
+    <None Include="hard\heart\wrong\7_serc_regular_wrong.png" />
+    <None Include="hard\heart\correct\7_serc_very_hard_correct.png" />
+    <None Include="hard\heart\neutral\7_serc_very_hard_neutral.png" />
+    <None Include="hard\heart\wrong\7_serc_very_hard_wrong.png" />
+    <None Include="hard\spade\correct\7_spade_regular_correct.png" />
+    <None Include="hard\spade\neutral\7_spade_regular_neutral.png" />
+    <None Include="hard\spade\wrong\7_spade_regular_wrong.png" />
+    <None Include="hard\spade\correct\7_spade_very_hard_correct.png" />
+    <None Include="hard\spade\neutral\7_spade_very_hard_neutral.png" />
+    <None Include="hard\spade\wrong\7_spade_very_hard_wrong.png" />
+    <None Include="hard\clover\correct\8_clover_regular_correct.png" />
+    <None Include="hard\clover\neutral\8_clover_regular_neutral.png" />
+    <None Include="hard\clover\wrong\8_clover_regular_wrong.png" />
+    <None Include="hard\clover\correct\8_clover_very_hard_correct.png" />
+    <None Include="hard\clover\neutral\8_clover_very_hard_neutral.png" />
+    <None Include="hard\clover\wrong\8_clover_very_hard_wrong.png" />
+    <None Include="hard\diamond\correct\8_diamond_very_hard_correct.png" />
+    <None Include="hard\diamond\neutral\8_diamond_very_hard_neutral.png" />
+    <None Include="hard\diamond\wrong\8_diamond_very_hard_wrong.png" />
+    <None Include="hard\heart\correct\8_serc_regular_correct.png" />
+    <None Include="hard\heart\neutral\8_serc_regular_neutral.png" />
+    <None Include="hard\heart\wrong\8_serc_regular_wrong.png" />
+    <None Include="hard\heart\correct\8_serc_very_hard_correct.png" />
+    <None Include="hard\heart\neutral\8_serc_very_hard_neutral.png" />
+    <None Include="hard\heart\wrong\8_serc_very_hard_wrong.png" />
+    <None Include="hard\spade\correct\8_spade_regular_correct.png" />
+    <None Include="hard\spade\neutral\8_spade_regular_neutral.png" />
+    <None Include="hard\spade\wrong\8_spade_regular_wrong.png" />
+    <None Include="hard\spade\correct\8_spade_very_hard_correct.png" />
+    <None Include="hard\spade\neutral\8_spade_very_hard_neutral.png" />
+    <None Include="hard\spade\wrong\8_spade_very_hard_wrong.png" />
+    <None Include="hard\clover\correct\9_clover_regular_correct.png" />
+    <None Include="hard\clover\neutral\9_clover_regular_neutral.png" />
+    <None Include="hard\clover\wrong\9_clover_regular_wrong.png" />
+    <None Include="hard\clover\correct\9_clover_very_hard_correct.png" />
+    <None Include="hard\clover\neutral\9_clover_very_hard_neutral.png" />
+    <None Include="hard\clover\wrong\9_clover_very_hard_wrong.png" />
+    <None Include="hard\diamond\correct\9_diamond_very_hard_correct.png" />
+    <None Include="hard\diamond\neutral\9_diamond_very_hard_neutral.png" />
+    <None Include="hard\diamond\wrong\9_diamond_very_hard_wrong.png" />
+    <None Include="hard\heart\correct\9_serc_regular_correct.png" />
+    <None Include="hard\heart\neutral\9_serc_regular_neutral.png" />
+    <None Include="hard\heart\wrong\9_serc_regular_wrong.png" />
+    <None Include="hard\heart\correct\9_serc_very_hard_correct.png" />
+    <None Include="hard\heart\neutral\9_serc_very_hard_neutral.png" />
+    <None Include="hard\heart\wrong\9_serc_very_hard_wrong.png" />
+    <None Include="hard\spade\correct\9_spade_regular_correct.png" />
+    <None Include="hard\spade\neutral\9_spade_regular_neutral.png" />
+    <None Include="hard\spade\wrong\9_spade_regular_wrong.png" />
+    <None Include="hard\spade\correct\9_spade_very_hard_correct.png" />
+    <None Include="hard\spade\neutral\9_spade_very_hard_neutral.png" />
+    <None Include="hard\spade\wrong\9_spade_very_hard_wrong.png" />
+    <None Include="images\others\options\Options.png" />
+    <None Include="images\cards\active.png" />
+    <None Include="images\cards\activeVeryHard.png" />
+    <None Include="images\others\actuallyLvl.png" />
+    <None Include="hard\clover\correct\as_clover_regular_correct.png" />
+    <None Include="hard\clover\neutral\as_clover_regular_neutral.png" />
+    <None Include="hard\clover\wrong\as_clover_regular_wrong.png" />
+    <None Include="hard\clover\correct\as_clover_very_hard_correct.png" />
+    <None Include="hard\clover\neutral\as_clover_very_hard_neutral.png" />
+    <None Include="hard\clover\wrong\as_clover_very_hard_wrong.png" />
+    <None Include="hard\diamond\correct\as_diamond_very_hard_correct.png" />
+    <None Include="hard\diamond\neutral\as_diamond_very_hard_neutral.png" />
+    <None Include="hard\diamond\wrong\as_diamond_very_hard_wrong.png" />
+    <None Include="hard\heart\correct\as_serc_regular_correct.png" />
+    <None Include="hard\heart\neutral\as_serc_regular_neutral.png" />
+    <None Include="hard\heart\wrong\as_serc_regular_wrong.png" />
+    <None Include="hard\heart\correct\as_serc_very_hard_correct.png" />
+    <None Include="hard\heart\neutral\as_serc_very_hard_neutral.png" />
+    <None Include="hard\heart\wrong\as_serc_very_hard_wrong.png" />
+    <None Include="hard\spade\correct\as_spade_regular_correct.png" />
+    <None Include="hard\spade\neutral\as_spade_regular_neutral.png" />
+    <None Include="hard\spade\wrong\as_spade_regular_wrong.png" />
+    <None Include="hard\spade\correct\as_spade_very_hard_correct.png" />
+    <None Include="hard\spade\neutral\as_spade_very_hard_neutral.png" />
+    <None Include="hard\spade\wrong\as_spade_very_hard_wrong.png" />
+    <None Include="images\cards\back.png" />
+    <None Include="images\cards\backVeryHard.png" />
+    <None Include="images\others\bg.jpg" />
+    <None Include="images\others\bg_1920x1080.jpg" />
+    <None Include="images\others\buttonBack.png" />
+    <None Include="images\others\options\buttonEasy.png" />
+    <None Include="images\others\options\buttonHard.png" />
+    <None Include="images\others\options\buttonHardcore.png" />
+    <None Include="images\others\options\buttonMedium.png" />
+    <None Include="images\others\correct.png" />
+    <None Include="images\others\correctVeryHard.png" />
+    <None Include="hard\clover\correct\dama_clover_regular_correct.png" />
+    <None Include="hard\clover\neutral\dama_clover_regular_neutral.png" />
+    <None Include="hard\clover\wrong\dama_clover_regular_wrong.png" />
+    <None Include="hard\clover\correct\dama_clover_very_hard_correct.png" />
+    <None Include="hard\clover\neutral\dama_clover_very_hard_neutral.png" />
+    <None Include="hard\clover\wrong\dama_clover_very_hard_wrong.png" />
+    <None Include="hard\diamond\correct\dama_diamond_very_hard_correct.png" />
+    <None Include="hard\diamond\neutral\dama_diamond_very_hard_neutral.png" />
+    <None Include="hard\diamond\wrong\dama_diamond_very_hard_wrong.png" />
+    <None Include="hard\heart\correct\dama_serc_regular_correct.png" />
+    <None Include="hard\heart\neutral\dama_serc_regular_neutral.png" />
+    <None Include="hard\heart\wrong\dama_serc_regular_wrong.png" />
+    <None Include="hard\heart\correct\dama_serc_very_hard_correct.png" />
+    <None Include="hard\heart\neutral\dama_serc_very_hard_neutral.png" />
+    <None Include="hard\heart\wrong\dama_serc_very_hard_wrong.png" />
+    <None Include="hard\spade\correct\dama_spade_regular_correct.png" />
+    <None Include="hard\spade\neutral\dama_spade_regular_neutral.png" />
+    <None Include="hard\spade\wrong\dama_spade_regular_wrong.png" />
+    <None Include="hard\spade\correct\dama_spade_very_hard_correct.png" />
+    <None Include="hard\spade\neutral\dama_spade_very_hard_neutral.png" />
+    <None Include="hard\spade\wrong\dama_spade_very_hard_wrong.png" />
+    <None Include="images\others\options\difficultLevel.png" />
+    <None Include="images\cards\easy," />
+    <None Include="images\others\empty.png" />
+    <None Include="images\others\informationFrame.png" />
+    <None Include="hard\clover\correct\jopek_clover_regular_correct.png" />
+    <None Include="hard\clover\neutral\jopek_clover_regular_neutral.png" />
+    <None Include="hard\clover\wrong\jopek_clover_regular_wrong.png" />
+    <None Include="hard\clover\correct\jopek_clover_very_hard_correct.png" />
+    <None Include="hard\clover\neutral\jopek_clover_very_hard_neutral.png" />
+    <None Include="hard\clover\wrong\jopek_clover_very_hard_wrong.png" />
+    <None Include="hard\diamond\correct\jopek_diamond_very_hard_correct.png" />
+    <None Include="hard\diamond\neutral\jopek_diamond_very_hard_neutral.png" />
+    <None Include="hard\diamond\wrong\jopek_diamond_very_hard_wrong.png" />
+    <None Include="hard\heart\correct\jopek_serc_regular_correct.png" />
+    <None Include="hard\heart\neutral\jopek_serc_regular_neutral.png" />
+    <None Include="hard\heart\wrong\jopek_serc_regular_wrong.png" />
+    <None Include="hard\heart\correct\jopek_serc_very_hard_correct.png" />
+    <None Include="hard\heart\neutral\jopek_serc_very_hard_neutral.png" />
+    <None Include="hard\heart\wrong\jopek_serc_very_hard_wrong.png" />
+    <None Include="hard\spade\correct\jopek_spade_regular_correct.png" />
+    <None Include="hard\spade\neutral\jopek_spade_regular_neutral.png" />
+    <None Include="hard\spade\wrong\jopek_spade_regular_wrong.png" />
+    <None Include="hard\spade\correct\jopek_spade_very_hard_correct.png" />
+    <None Include="hard\spade\neutral\jopek_spade_very_hard_neutral.png" />
+    <None Include="hard\spade\wrong\jopek_spade_very_hard_wrong.png" />
+    <None Include="hard\clover\correct\krol_clover_regular_correct.png" />
+    <None Include="hard\clover\neutral\krol_clover_regular_neutral.png" />
+    <None Include="hard\clover\wrong\krol_clover_regular_wrong.png" />
+    <None Include="hard\clover\correct\krol_clover_very_hard_correct.png" />
+    <None Include="hard\clover\neutral\krol_clover_very_hard_neutral.png" />
+    <None Include="hard\clover\wrong\krol_clover_very_hard_wrong.png" />
+    <None Include="hard\diamond\correct\krol_diamond_very_hard_correct.png" />
+    <None Include="hard\diamond\neutral\krol_diamond_very_hard_neutral.png" />
+    <None Include="hard\diamond\wrong\krol_diamond_very_hard_wrong.png" />
+    <None Include="hard\heart\correct\krol_serc_regular_correct.png" />
+    <None Include="hard\heart\neutral\krol_serc_regular_neutral.png" />
+    <None Include="hard\heart\wrong\krol_serc_regular_wrong.png" />
+    <None Include="hard\heart\correct\krol_serc_very_hard_correct.png" />
+    <None Include="hard\heart\neutral\krol_serc_very_hard_neutral.png" />
+    <None Include="hard\heart\wrong\krol_serc_very_hard_wrong.png" />
+    <None Include="hard\spade\correct\krol_spade_regular_correct.png" />
+    <None Include="hard\spade\neutral\krol_spade_regular_neutral.png" />
+    <None Include="hard\spade\wrong\krol_spade_regular_wrong.png" />
+    <None Include="hard\spade\correct\krol_spade_very_hard_correct.png" />
+    <None Include="hard\spade\neutral\krol_spade_very_hard_neutral.png" />
+    <None Include="hard\spade\wrong\krol_spade_very_hard_wrong.png" />
+    <None Include="medium," />
+    <CustomBuild Include="res.qrc">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">res.qrc;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\rcc.exe;images\cards\backVeryHard.png;images\cards\activeVeryHard.png;images\cards\back.png;images\cards\active.png;images\cards\very hard\spade\neutral\krol_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\2_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\3_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\dama_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\4_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\5_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\6_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\7_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\8_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\9_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\as_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\jopek_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\10_spade_very_hard_neutral.png;images\cards\very hard\spade\correct\10_spade_very_hard_correct.png;images\cards\very hard\spade\correct\krol_spade_very_hard_correct.png;images\cards\very hard\spade\correct\2_spade_very_hard_correct.png;images\cards\very hard\spade\correct\3_spade_very_hard_correct.png;images\cards\very hard\spade\correct\4_spade_very_hard_correct.png;images\cards\very hard\spade\correct\dama_spade_very_hard_correct.png;images\cards\very hard\spade\correct\5_spade_very_hard_correct.png;images\cards\very hard\spade\correct\6_spade_very_hard_correct.png;images\cards\very hard\spade\correct\7_spade_very_hard_correct.png;images\cards\very hard\spade\correct\8_spade_very_hard_correct.png;images\cards\very hard\spade\correct\9_spade_very_hard_correct.png;images\cards\very hard\spade\correct\as_spade_very_hard_correct.png;images\cards\very hard\spade\correct\jopek_spade_very_hard_correct.png;images\cards\very hard\spade\wrong\2_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\7_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\jopek_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\5_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\dama_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\3_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\8_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\as_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\6_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\10_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\4_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\9_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\krol_spade_very_hard_wrong.png;images\cards\very hard\clover\neutral\3_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\5_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\krol_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\7_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\jopek_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\9_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\dama_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\10_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\as_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\2_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\4_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\6_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\8_clover_very_hard_neutral.png;images\cards\very hard\clover\correct\6_clover_very_hard_correct.png;images\cards\very hard\clover\correct\8_clover_very_hard_correct.png;images\cards\very hard\clover\correct\3_clover_very_hard_correct.png;images\cards\very hard\clover\correct\5_clover_very_hard_correct.png;images\cards\very hard\clover\correct\krol_clover_very_hard_correct.png;images\cards\very hard\clover\correct\7_clover_very_hard_correct.png;images\cards\very hard\clover\correct\9_clover_very_hard_correct.png;images\cards\very hard\clover\correct\jopek_clover_very_hard_correct.png;images\cards\very hard\clover\correct\10_clover_very_hard_correct.png;images\cards\very hard\clover\correct\as_clover_very_hard_correct.png;images\cards\very hard\clover\correct\dama_clover_very_hard_correct.png;images\cards\very hard\clover\correct\2_clover_very_hard_correct.png;images\cards\very hard\clover\correct\4_clover_very_hard_correct.png;images\cards\very hard\clover\wrong\3_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\6_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\9_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\10_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\4_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\7_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\as_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\2_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\jopek_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\5_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\krol_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\8_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\dama_clover_very_hard_wrong.png;images\cards\very hard\diamond\neutral\7_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\as_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\5_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\jopek_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\10_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\3_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\8_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\krol_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\6_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\4_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\9_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\dama_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\2_diamond_very_hard_neutral.png;images\cards\very hard\diamond\correct\dama_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\2_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\7_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\as_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\5_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\jopek_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\10_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\3_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\krol_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\8_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\6_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\4_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\9_diamond_very_hard_correct.png;images\cards\very hard\diamond\wrong\9_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\as_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\jopek_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\10_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\krol_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\2_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\3_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\dama_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\4_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\5_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\6_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\7_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\8_diamond_very_hard_wrong.png;images\cards\very hard\heart\neutral\dama_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\3_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\6_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\9_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\10_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\4_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\7_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\as_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\2_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\jopek_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\5_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\krol_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\8_serc_very_hard_neutral.png;images\cards\very hard\heart\correct\5_serc_very_hard_correct.png;images\cards\very hard\heart\correct\krol_serc_very_hard_correct.png;images\cards\very hard\heart\correct\8_serc_very_hard_correct.png;images\cards\very hard\heart\correct\dama_serc_very_hard_correct.png;images\cards\very hard\heart\correct\3_serc_very_hard_correct.png;images\cards\very hard\heart\correct\6_serc_very_hard_correct.png;images\cards\very hard\heart\correct\9_serc_very_hard_correct.png;images\cards\very hard\heart\correct\10_serc_very_hard_correct.png;images\cards\very hard\heart\correct\4_serc_very_hard_correct.png;images\cards\very hard\heart\correct\7_serc_very_hard_correct.png;images\cards\very hard\heart\correct\as_serc_very_hard_correct.png;images\cards\very hard\heart\correct\2_serc_very_hard_correct.png;images\cards\very hard\heart\correct\jopek_serc_very_hard_correct.png;images\cards\very hard\heart\wrong\10_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\3_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\5_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\7_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\9_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\dama_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\krol_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\jopek_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\4_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\as_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\6_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\8_serc_very_hard_wrong.png;images\cards\easy, medium, hard\spade\neutral\dama_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\8_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\3_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\as_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\6_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\10_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\4_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\9_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\krol_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\2_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\7_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\jopek_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\5_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\correct\5_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\dama_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\8_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\3_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\as_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\6_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\10_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\4_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\9_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\krol_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\2_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\7_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\jopek_spade_regular_correct.png;images\cards\easy, medium, hard\spade\wrong\5_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\6_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\10_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\7_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\krol_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\as_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\dama_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\8_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\2_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\9_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\3_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\jopek_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\4_spade_regular_wrong.png;images\cards\easy, medium, hard\clover\neutral\10_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\4_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\7_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\as_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\2_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\jopek_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\krol_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\5_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\8_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\dama_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\3_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\6_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\9_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\correct\6_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\9_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\10_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\4_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\7_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\as_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\2_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\jopek_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\5_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\krol_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\8_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\dama_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\3_clover_regular_correct.png;images\cards\easy, medium, hard\clover\wrong\krol_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\jopek_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\2_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\as_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\4_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\6_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\8_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\10_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\3_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\5_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\7_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\9_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\dama_clover_regular_wrong.png;images\cards\easy, medium, hard\heart\neutral\7_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\9_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\dama_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\krol_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\jopek_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\2_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\4_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\as_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\6_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\8_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\10_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\3_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\5_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\correct\3_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\5_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\7_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\9_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\dama_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\krol_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\jopek_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\2_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\4_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\as_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\6_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\8_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\10_serc_regular_correct.png;images\cards\easy, medium, hard\heart\wrong\dama_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\2_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\9_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\6_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\3_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\krol_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\as_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\7_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\10_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\4_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\8_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\jopek_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\5_serc_regular_wrong.png;images\others\buttonBack.png;images\others\wrong.png;images\others\summaryGameOver.png;images\others\empty.png;images\others\statisticsIconS.png;images\others\actuallyLvl.png;images\others\informationFrame.png;images\others\correct.png;images\others\correctVeryHard.png;images\others\wrongVeryHard.png;images\others\options\buttonEasy.png;images\others\options\buttonHard.png;images\others\options\Options.png;images\others\options\buttonMedium.png;images\others\options\buttonHardcore.png;images\others\options\difficultLevel.png;images\others\bg.jpg;images\others\bg_1920x1080.jpg;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\rcc.exe -name res res.qrc -o release\qrc_res.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">RCC res.qrc</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|Win32&apos;">release\qrc_res.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">res.qrc;F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\rcc.exe;images\cards\backVeryHard.png;images\cards\activeVeryHard.png;images\cards\back.png;images\cards\active.png;images\cards\very hard\spade\neutral\krol_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\2_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\3_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\dama_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\4_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\5_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\6_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\7_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\8_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\9_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\as_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\jopek_spade_very_hard_neutral.png;images\cards\very hard\spade\neutral\10_spade_very_hard_neutral.png;images\cards\very hard\spade\correct\10_spade_very_hard_correct.png;images\cards\very hard\spade\correct\krol_spade_very_hard_correct.png;images\cards\very hard\spade\correct\2_spade_very_hard_correct.png;images\cards\very hard\spade\correct\3_spade_very_hard_correct.png;images\cards\very hard\spade\correct\4_spade_very_hard_correct.png;images\cards\very hard\spade\correct\dama_spade_very_hard_correct.png;images\cards\very hard\spade\correct\5_spade_very_hard_correct.png;images\cards\very hard\spade\correct\6_spade_very_hard_correct.png;images\cards\very hard\spade\correct\7_spade_very_hard_correct.png;images\cards\very hard\spade\correct\8_spade_very_hard_correct.png;images\cards\very hard\spade\correct\9_spade_very_hard_correct.png;images\cards\very hard\spade\correct\as_spade_very_hard_correct.png;images\cards\very hard\spade\correct\jopek_spade_very_hard_correct.png;images\cards\very hard\spade\wrong\2_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\7_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\jopek_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\5_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\dama_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\3_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\8_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\as_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\6_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\10_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\4_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\9_spade_very_hard_wrong.png;images\cards\very hard\spade\wrong\krol_spade_very_hard_wrong.png;images\cards\very hard\clover\neutral\3_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\5_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\krol_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\7_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\jopek_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\9_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\dama_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\10_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\as_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\2_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\4_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\6_clover_very_hard_neutral.png;images\cards\very hard\clover\neutral\8_clover_very_hard_neutral.png;images\cards\very hard\clover\correct\6_clover_very_hard_correct.png;images\cards\very hard\clover\correct\8_clover_very_hard_correct.png;images\cards\very hard\clover\correct\3_clover_very_hard_correct.png;images\cards\very hard\clover\correct\5_clover_very_hard_correct.png;images\cards\very hard\clover\correct\krol_clover_very_hard_correct.png;images\cards\very hard\clover\correct\7_clover_very_hard_correct.png;images\cards\very hard\clover\correct\9_clover_very_hard_correct.png;images\cards\very hard\clover\correct\jopek_clover_very_hard_correct.png;images\cards\very hard\clover\correct\10_clover_very_hard_correct.png;images\cards\very hard\clover\correct\as_clover_very_hard_correct.png;images\cards\very hard\clover\correct\dama_clover_very_hard_correct.png;images\cards\very hard\clover\correct\2_clover_very_hard_correct.png;images\cards\very hard\clover\correct\4_clover_very_hard_correct.png;images\cards\very hard\clover\wrong\3_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\6_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\9_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\10_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\4_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\7_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\as_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\2_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\jopek_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\5_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\krol_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\8_clover_very_hard_wrong.png;images\cards\very hard\clover\wrong\dama_clover_very_hard_wrong.png;images\cards\very hard\diamond\neutral\7_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\as_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\5_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\jopek_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\10_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\3_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\8_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\krol_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\6_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\4_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\9_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\dama_diamond_very_hard_neutral.png;images\cards\very hard\diamond\neutral\2_diamond_very_hard_neutral.png;images\cards\very hard\diamond\correct\dama_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\2_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\7_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\as_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\5_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\jopek_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\10_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\3_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\krol_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\8_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\6_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\4_diamond_very_hard_correct.png;images\cards\very hard\diamond\correct\9_diamond_very_hard_correct.png;images\cards\very hard\diamond\wrong\9_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\as_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\jopek_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\10_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\krol_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\2_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\3_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\dama_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\4_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\5_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\6_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\7_diamond_very_hard_wrong.png;images\cards\very hard\diamond\wrong\8_diamond_very_hard_wrong.png;images\cards\very hard\heart\neutral\dama_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\3_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\6_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\9_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\10_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\4_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\7_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\as_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\2_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\jopek_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\5_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\krol_serc_very_hard_neutral.png;images\cards\very hard\heart\neutral\8_serc_very_hard_neutral.png;images\cards\very hard\heart\correct\5_serc_very_hard_correct.png;images\cards\very hard\heart\correct\krol_serc_very_hard_correct.png;images\cards\very hard\heart\correct\8_serc_very_hard_correct.png;images\cards\very hard\heart\correct\dama_serc_very_hard_correct.png;images\cards\very hard\heart\correct\3_serc_very_hard_correct.png;images\cards\very hard\heart\correct\6_serc_very_hard_correct.png;images\cards\very hard\heart\correct\9_serc_very_hard_correct.png;images\cards\very hard\heart\correct\10_serc_very_hard_correct.png;images\cards\very hard\heart\correct\4_serc_very_hard_correct.png;images\cards\very hard\heart\correct\7_serc_very_hard_correct.png;images\cards\very hard\heart\correct\as_serc_very_hard_correct.png;images\cards\very hard\heart\correct\2_serc_very_hard_correct.png;images\cards\very hard\heart\correct\jopek_serc_very_hard_correct.png;images\cards\very hard\heart\wrong\10_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\3_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\5_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\7_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\9_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\dama_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\krol_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\jopek_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\4_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\as_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\6_serc_very_hard_wrong.png;images\cards\very hard\heart\wrong\8_serc_very_hard_wrong.png;images\cards\easy, medium, hard\spade\neutral\dama_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\8_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\3_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\as_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\6_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\10_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\4_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\9_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\krol_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\2_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\7_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\jopek_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\neutral\5_spade_regular_neutral.png;images\cards\easy, medium, hard\spade\correct\5_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\dama_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\8_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\3_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\as_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\6_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\10_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\4_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\9_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\krol_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\2_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\7_spade_regular_correct.png;images\cards\easy, medium, hard\spade\correct\jopek_spade_regular_correct.png;images\cards\easy, medium, hard\spade\wrong\5_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\6_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\10_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\7_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\krol_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\as_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\dama_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\8_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\2_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\9_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\3_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\jopek_spade_regular_wrong.png;images\cards\easy, medium, hard\spade\wrong\4_spade_regular_wrong.png;images\cards\easy, medium, hard\clover\neutral\10_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\4_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\7_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\as_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\2_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\jopek_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\krol_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\5_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\8_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\dama_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\3_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\6_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\neutral\9_clover_regular_neutral.png;images\cards\easy, medium, hard\clover\correct\6_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\9_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\10_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\4_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\7_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\as_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\2_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\jopek_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\5_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\krol_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\8_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\dama_clover_regular_correct.png;images\cards\easy, medium, hard\clover\correct\3_clover_regular_correct.png;images\cards\easy, medium, hard\clover\wrong\krol_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\jopek_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\2_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\as_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\4_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\6_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\8_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\10_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\3_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\5_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\7_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\9_clover_regular_wrong.png;images\cards\easy, medium, hard\clover\wrong\dama_clover_regular_wrong.png;images\cards\easy, medium, hard\heart\neutral\7_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\9_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\dama_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\krol_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\jopek_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\2_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\4_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\as_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\6_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\8_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\10_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\3_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\neutral\5_serc_regular_neutral.png;images\cards\easy, medium, hard\heart\correct\3_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\5_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\7_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\9_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\dama_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\krol_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\jopek_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\2_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\4_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\as_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\6_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\8_serc_regular_correct.png;images\cards\easy, medium, hard\heart\correct\10_serc_regular_correct.png;images\cards\easy, medium, hard\heart\wrong\dama_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\2_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\9_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\6_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\3_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\krol_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\as_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\7_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\10_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\4_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\8_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\jopek_serc_regular_wrong.png;images\cards\easy, medium, hard\heart\wrong\5_serc_regular_wrong.png;images\others\buttonBack.png;images\others\wrong.png;images\others\summaryGameOver.png;images\others\empty.png;images\others\statisticsIconS.png;images\others\actuallyLvl.png;images\others\informationFrame.png;images\others\correct.png;images\others\correctVeryHard.png;images\others\wrongVeryHard.png;images\others\options\buttonEasy.png;images\others\options\buttonHard.png;images\others\options\Options.png;images\others\options\buttonMedium.png;images\others\options\buttonHardcore.png;images\others\options\difficultLevel.png;images\others\bg.jpg;images\others\bg_1920x1080.jpg;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\rcc.exe -name res res.qrc -o debug\qrc_res.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">RCC res.qrc</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|Win32&apos;">debug\qrc_res.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <None Include="images\others\statisticsIconS.png" />
+    <None Include="images\others\summaryGameOver.png" />
+    <None Include="images\cards\very" />
+    <None Include="images\others\wrong.png" />
+    <None Include="images\others\wrongVeryHard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\Qt5Core.dll" />
+    <None Include="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\Qt5Cored.dll" />
+    <None Include="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\Qt5Gui.dll" />
+    <None Include="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\Qt5Guid.dll" />
+    <None Include="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\Qt5Sql.dll" />
+    <None Include="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\Qt5Sqld.dll" />
+    <None Include="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\Qt5Widgets.dll" />
+    <None Include="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\Qt5Widgetsd.dll" />
+    <None Include="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\libEGL.dll" />
+    <None Include="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\libEGLd.dll" />
+    <None Include="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\libGLESv2.dll" />
+    <None Include="F:\PROGRAMY\QT\5.11.2\WINRT_X86_MSVC2017\bin\libGLESv2d.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+    <Image Include="assets/logo_150x150.png" />
+    <Image Include="assets/logo_44x44.png" />
+    <Image Include="assets/logo_store.png" />
+    <Image Include="assets/logo_620x300.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

@@ -15,10 +15,53 @@
 
 Game::Game()
 {
+                                     // TESTING DATA BASE
+// --------------------------------------------------------------------------------------------------------------
+
     DataBase *base = new DataBase();
+    if(base->data_base().open()) {
+        qDebug() << "DB is opened ( all )";
+        int godz = 100;
+        QString insert = "INSERT INTO statistic_db ( data, time, hour, minutes, seconds, miliseconds, correct, wrong, difficult ) "
+                         "VALUES (NOW(), CURTIME(), " + QString::number(godz) + ", 20, 12, 234, 12, 55, \"hard\" )";
+        base->data_base().exec(insert);
+    } else {
+        qDebug() << base->data_base().lastError();
+    }
 
-    base->insert("SELECT * FROM statistic_db");
+//    base->query("SELECT data FROM statistic_db", 0);
+//    base->query("SELECT data, time FROM statistic_db", 0, 1);
 
+//    if(base->data_base().open()) {
+
+//        qDebug() << "DB is opened ( all )";
+
+//        QSqlQuery ask;
+
+//        if(ask.exec("SELECT * FROM statistic_db")){
+//            while(ask.next()){
+//                qDebug() << ask.value(0).toString() + " - " +
+//                            ask.value(1).toString() + " - " +
+//                            ask.value(2).toString() + " - " +
+//                            ask.value(3).toString() + " - " +
+//                            ask.value(4).toString() + " - " +
+//                            ask.value(5).toString() + " - " +
+//                            ask.value(6).toString() + " - " +
+//                            ask.value(7).toString() + " - " +
+//                            ask.value(8).toString() + " - " +
+//                            ask.value(9).toString();
+
+//            }
+//        }
+
+//    } else {
+//        qDebug() << "Error load: " << base->data_base().lastError();
+//    }
+
+//    qDebug() << "Closing...";
+//    base->data_base().close();
+
+// --------------------------------------------------------------------------------------------------------------
 
     //create a scene
     scene = new QGraphicsScene();
