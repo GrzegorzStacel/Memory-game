@@ -14,13 +14,14 @@ public:
         DataBase();
 
     // Public Methods
-        QString query(QString value, int column);
-        void query(QString value, int columnA, int columnB);
+        QString select(QString value, int column);
+        QString select(QString value, int columnA, int columnB);
+        void insert(QString value);
         QSqlDatabase data_base();
-        void error(QString value);
+        void connect();
 
     // Public Attributes
-        QSqlDatabase db;
+        static QSqlDatabase dba;
 };
 
 #endif // DATABASE_H

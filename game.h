@@ -10,6 +10,7 @@
 #include "options_difficulty_level.h"
 
 #include "statistic.h"
+#include "database.h"
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
@@ -47,6 +48,7 @@ public:
     timer timer;
     options_difficulty_level *difficult;
     statistic *sta;
+    //DataBase *db;
 
 
 

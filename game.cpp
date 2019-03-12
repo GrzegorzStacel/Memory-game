@@ -11,24 +11,45 @@
 #include <QTime>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
-#include "database.h"
+
 
 Game::Game()
 {
+
+
+
+
                                      // TESTING DATA BASE
 // --------------------------------------------------------------------------------------------------------------
+//    {
+//        DataBase db;
+//            if(db.data_base().open()) {
 
-//    DataBase *base = new DataBase();
 
-//    if(base->data_base().open()) {
-//        qDebug() << "DB is opened ( all )";
-//        int h = 100;
-//        QString insert = "INSERT INTO statistic_db ( data, time, hour, minutes, seconds, miliseconds, correct, wrong, difficult ) "
-//                         "VALUES (NOW(), CURTIME(), " + QString::number(h) + ", 20, 12, 234, 12, 55, \"hard\" )";
-//        base->data_base().exec(insert);
-//    } else {
-//        qDebug() << base->data_base().lastError();
+//                qDebug() << "Game open";
+
+//                int h = 100;
+//                QString insert = "INSERT INTO statistic_db "
+
+//                                 "( data, time, t_time, hour, minutes, seconds, miliseconds, "
+//                                 "correct, wrong, difficult ) "
+
+//                                 "VALUES (NOW(), CURTIME(), 001032, " + QString::number(h) +
+//                                 ", 20, 12, 234, 12, 55, \"hard\" )";
+
+//                db.data_base().exec(insert);
+
+//            } else {
+//                qDebug() << db.data_base().lastError();
+//                qDebug() << "Game error";
+//            }
+//        qDebug() << "Game close";
 //    }
+
+//        {
+//            DataBase db;
+//            qDebug() << "wynik selecta: " + db.select("SELECT t_time FROM statistic_db WHERE id = 17", 0 );
+//        }
 
 //    base->query("SELECT data FROM statistic_db", 0);
 //    base->query("SELECT data, time FROM statistic_db", 0, 1);
@@ -64,6 +85,12 @@ Game::Game()
 
 // --------------------------------------------------------------------------------------------------------------
 
+
+    DataBase db;
+    db.insert("INSERT INTO statistic_db (minutes) VALUES (13)");
+
+
+
     //create a scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1920,990);
@@ -83,13 +110,15 @@ Game::Game()
 
 void Game::start(){
 
+    QString result;
 
-    DataBase *db = new DataBase();
-    QString result = db->query("SELECT difficult FROM settings", 0);
+    {
+        DataBase db;
+        result = db.select("SELECT difficult FROM settings", 0);
+    }
+
     int difficultLvl = result.toInt();
-    delete  db;
-//    sta = new statistic();
-//    int difficultLvl = sta->read(7,0).toInt();
+
 
     scene->clear();
 
@@ -167,14 +196,16 @@ void Game::displayMainMenu(){
 
     // showing the label with actually level of difficulty
     Graphic_options *graphic = new Graphic_options();
+
     int showDifficult = 0;
+    QString result;
 
-    DataBase *db = new DataBase();
+    {
+        DataBase db;
+        result = db.select("SELECT difficult FROM settings", 0);
+    }
 
-    QString result = db->query("SELECT difficult FROM settings", 0);
     showDifficult = result.toInt();
-
-//    showDifficult = sta->read(7,0).toInt();
 
     if( showDifficult == 13 )
         graphic->setPixmap(graphic->setImageOptions(3));

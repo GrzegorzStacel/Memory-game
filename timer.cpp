@@ -4,6 +4,8 @@
 #include "statistic.h"
 
 #include "drawcards.h"
+#include "database.h"
+
 #include <QThread>
 #include <QDebug>
 
@@ -76,6 +78,7 @@ void timer::timerEvent(QTimerEvent *){
 QString timer::showTotalTime(){
 
     statistic *stat = new statistic();
+
     setTimeStringSecRegular(stat->read(3,0));
     setTimeStringMinRegular(stat->read(4,0));
     setTimeStringHourRegular(stat->read(5,0));
