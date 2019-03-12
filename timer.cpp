@@ -76,14 +76,23 @@ void timer::timerEvent(QTimerEvent *){
 }
 
 QString timer::showTotalTime(){
+    QString value = 0;
 
-    statistic *stat = new statistic();
+    {
+        DataBase db;
+//        value = db.select("SELECT SUM(t_time) FROM statistic_db", 0);
+        value = db.select("SELECT  SEC_TO_TIME( SUM( TIME_TO_SEC( t_time ) ) ) FROM statistic_db;", 0);
+    }
 
-    setTimeStringSecRegular(stat->read(3,0));
-    setTimeStringMinRegular(stat->read(4,0));
-    setTimeStringHourRegular(stat->read(5,0));
+    return value;
 
-    return time = timeStringHour + "h : " + timeStringMin + "m : " + timeStringSec + "s";
+//    statistic *stat = new statistic();
+
+//    setTimeStringSecRegular(stat->read(3,0));
+//    setTimeStringMinRegular(stat->read(4,0));
+//    setTimeStringHourRegular(stat->read(5,0));
+
+//    return time = timeStringHour + "h : " + timeStringMin + "m : " + timeStringSec + "s";
 }
 
 void timer::ResetTimerVariable(){
