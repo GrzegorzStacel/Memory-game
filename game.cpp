@@ -86,10 +86,6 @@ Game::Game()
 // --------------------------------------------------------------------------------------------------------------
 
 
-    DataBase db;
-    db.insert("INSERT INTO statistic_db (minutes) VALUES (13)");
-
-
 
     //create a scene
     scene = new QGraphicsScene();
