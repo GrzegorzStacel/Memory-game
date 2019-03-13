@@ -6,6 +6,8 @@
 #include "statisticbesttime.h"
 #include "graphic_others.h"
 
+#include "database.h"
+
 #include <QFile>
 #include <QDebug>
 #include <QTextStream>
@@ -16,7 +18,6 @@ int statistic::totalTimeHours;
 int statistic::totalTimeMinutes;
 int statistic::totalTimeSeconds;
 
-int statistic::totalCorrect;
 int statistic::totalWrong;
 
 int statistic::correct;
@@ -121,7 +122,7 @@ void statistic::write(int valueA, int valueB){
     statisticBestTime best;
 
     switch (valueA) {
-        case 1: out << getTotalCorrect();              break;
+        //case 1: out << getTotalCorrect();              break;
         case 2: out << getTotalWrong();                break;
         case 3: out << getTotalTimeSeconds();          break;
         case 4: out << getTotalTimeMinutes();          break;
@@ -140,6 +141,7 @@ void statistic::write(int valueA, int valueB){
 
 void statistic::showstatic(){
 
+    DataBase db;
     timer *time = new timer();
     statisticBestTime best;
     game_over *over = new game_over();
@@ -183,16 +185,14 @@ void statistic::showstatic(){
     game->scene->addItem(TbestWrong);
 
     // adds a label showing all correct answers
-    setTotalCorrect(read(1,0).toInt());
-    QGraphicsTextItem *Tcorrect = new QGraphicsTextItem(QString("Total correct: \t" + QString::number(totalCorrect)));
+    QGraphicsTextItem *Tcorrect = new QGraphicsTextItem(QString("Total correct: \t" + db.select("SELECT SUM(correct) FROM statistic_db", 0)));
     Tcorrect->setDefaultTextColor(Qt::darkGreen);
     Tcorrect->setFont(title);
     Tcorrect->setPos(x_pos/5 + 25, y_pos - 600);
     game->scene->addItem(Tcorrect);
 
     // adds a label showing all wrong answers
-    setTotalWrong(read(2,0).toInt());
-    QGraphicsTextItem *Twrong = new QGraphicsTextItem(QString("Total wrong: \t" + QString::number(totalWrong)));
+    QGraphicsTextItem *Twrong = new QGraphicsTextItem(QString("Total wrong: \t" + db.select("SELECT SUM(wrong) FROM statistic_db",0)));
     Twrong->setDefaultTextColor(Qt::darkRed);
     Twrong->setFont(title);
     Twrong->setPos(x_pos/5 + 25, y_pos - 525);
@@ -215,7 +215,6 @@ void statistic::ResetStatisticVariable(){
     totalTimeMinutes = 0;
     totalTimeSeconds = 0;
 
-    totalCorrect = 0;
     totalWrong = 0;
 
     correct = 0;
@@ -252,7 +251,7 @@ void statistic::manageStatistic(QString statisticBestTimeCurrentDateAndGameTime)
 
                 case 1:
                     tmp = getCorrect();
-                    setTotalCorrect( textFromFile.toInt() + tmp );
+                    //setTotalCorrect( textFromFile.toInt() + tmp ); // TODO Refactoring
                     break;
 
                 case 2:
