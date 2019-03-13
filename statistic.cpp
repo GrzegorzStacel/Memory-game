@@ -18,8 +18,6 @@ int statistic::totalTimeHours;
 int statistic::totalTimeMinutes;
 int statistic::totalTimeSeconds;
 
-int statistic::totalWrong;
-
 int statistic::correct;
 int statistic::wrong;
 
@@ -123,7 +121,7 @@ void statistic::write(int valueA, int valueB){
 
     switch (valueA) {
         //case 1: out << getTotalCorrect();              break;
-        case 2: out << getTotalWrong();                break;
+        //case 2: out << getTotalWrong();                break;
         case 3: out << getTotalTimeSeconds();          break;
         case 4: out << getTotalTimeMinutes();          break;
         case 5: out << getTotalTimeHours();            break;
@@ -215,8 +213,6 @@ void statistic::ResetStatisticVariable(){
     totalTimeMinutes = 0;
     totalTimeSeconds = 0;
 
-    totalWrong = 0;
-
     correct = 0;
     wrong = 0;
 }
@@ -256,7 +252,7 @@ void statistic::manageStatistic(QString statisticBestTimeCurrentDateAndGameTime)
 
                 case 2:
                     tmp = getWrong();
-                    setTotalWrong( textFromFile.toInt() + tmp );
+                    //setTotalWrong( textFromFile.toInt() + tmp ); // TODO Refactoring
                     break;
 
                 case 3:

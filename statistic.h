@@ -15,7 +15,6 @@ class statistic : public QObject {
     static int totalTimeSeconds;
     static int correct;
     static int wrong;
-    static int totalWrong;
     int settings;
 
     // private methods
@@ -38,8 +37,6 @@ public:
     static int getTotalTimeMinutes()                    { return totalTimeMinutes; }
     static int getTotalTimeSeconds()                    { return totalTimeSeconds; }
 
-    static int getTotalWrong()                          { return totalWrong; }
-
     static int getCorrect()                             { return correct; }
     static int getWrong()                               { return wrong; }
 
@@ -49,8 +46,6 @@ public:
     static void setTotalTimeHoursAdd(const int value)   { totalTimeHours = value; }
     static void setTotalTimeMinutesAdd(const int value) { totalTimeMinutes = value; }
     static void setTotalTimeSecondsAdd(const int value) { totalTimeSeconds = value; }
-
-    static void setTotalWrong(const int value)          { totalWrong = value; }
 
     static void setCorrect(const int value)             { correct += value;}
     static void setWrong(const int value)               { wrong += value; }
