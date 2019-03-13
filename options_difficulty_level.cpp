@@ -5,6 +5,7 @@
 #include "statistic.h"
 
 #include "graphic_options.h"
+#include "database.h"
 
 #include <QDebug>
 
@@ -72,34 +73,39 @@ void options_difficulty_level::show_options(){
 
 void options_difficulty_level::easy(){
 
-    stat = new statistic();
+    {
+        DataBase db;
+        db.insert("UPDATE user_settings SET difficult = 13 WHERE id = 1");
+    }
 
-    stat->setSettings(13);
-    stat->write(7,0);
 }
 
 void options_difficulty_level::medium(){
 
-    stat = new statistic();
+    {
+        DataBase db;
+        db.insert("UPDATE user_settings SET difficult = 26 WHERE id = 1");
+    }
 
-    stat->setSettings(26);
-    stat->write(7,0);
 }
 
 void options_difficulty_level::hard(){
 
-    stat = new statistic();
 
-    stat->setSettings(39);
-    stat->write(7,0);
+    {
+        DataBase db;
+        db.insert("UPDATE user_settings SET difficult = 39 WHERE id = 1");
+    }
+
 }
 
 void options_difficulty_level::hardcore(){
 
-    stat = new statistic();
+    {
+        DataBase db;
+        db.insert("UPDATE user_settings SET difficult = 52 WHERE id = 1");
+    }
 
-    stat->setSettings(52);
-    stat->write(7,0);
 }
 
 

@@ -198,7 +198,7 @@ void Game::displayMainMenu(){
 
     {
         DataBase db;
-        result = db.select("SELECT difficult FROM settings", 0);
+        result = db.select("SELECT difficult FROM user_settings WHERE id = 1", 0);
     }
 
     showDifficult = result.toInt();
