@@ -1,5 +1,6 @@
 #include "who_is_best.h"
 #include "timer.h"
+#include "database.h"
 
 #include <QDebug>
 
@@ -65,7 +66,10 @@ void Who_Is_Best::Receive_Value(){
     count_ActualTime += Actual.mid(8,2).toInt() * 1000;
     count_ActualTime += Actual.mid(12,3).toInt();
 
-
+//    {
+//        DataBase db;
+//        db.select("SELECT MAX( correct (MAX(t_time)) FROM statistic_db", 0);
+//    }
     statisticBestTime *BestTIme = new statisticBestTime();
     BestTIme->read(6, 1);
     QString Best = BestTIme->showTheBest();

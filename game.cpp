@@ -34,8 +34,8 @@ Game::Game()
 //                                 "( data, time, t_time, hour, minutes, seconds, miliseconds, "
 //                                 "correct, wrong, difficult ) "
 
-//                                 "VALUES (NOW(), CURTIME(), 001032, " + QString::number(h) +
-//                                 ", 20, 12, 234, 12, 55, \"hard\" )";
+//                                 "VALUES (NOW(), CURTIME(), 001712, " + QString::number(h) +
+//                                 ", 20, 12, 54, 5, 9, \"ease\" )";
 
 //                db.data_base().exec(insert);
 
