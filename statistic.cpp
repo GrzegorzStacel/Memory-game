@@ -166,7 +166,8 @@ void statistic::showstatic(){
     game->scene->addItem(Ttime);
 
     // adds a label showing the user best time
-    QGraphicsTextItem *Tbest = new QGraphicsTextItem(QString("Best time: \t\t" + best.showTheBest()));
+    //QGraphicsTextItem *Tbest = new QGraphicsTextItem(QString("Best time: \t\t" + best.showTheBest()));
+    QGraphicsTextItem *Tbest = new QGraphicsTextItem(QString("Best time: \t\t"+ db.select("SELECT t_time FROM statistic_db WHERE id = " + bestID + ";",0).mid(0,8)));
     Tbest->setFont(title);
     Tbest->setPos(x_pos/5 + 25, y_pos - 675);
     game->scene->addItem(Tbest);
@@ -223,6 +224,7 @@ void statistic::ResetStatisticVariable(){
 }
 
 void statistic::manageStatistic(){
+    qDebug() << "manageStatistic";
 
     if(getCorrect() != 0 || getWrong() != 0){
 

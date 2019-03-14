@@ -108,7 +108,7 @@ void Game::test(){
 
     DataBase db;
 
-    qDebug() << db.select("SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( t_time ) ) ) FROM statistic_db;", 0);
+    qDebug() << db.select("SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( t_time ) ) ) FROM statistic_db;", 0).mid(0,8);
 
 }
 
