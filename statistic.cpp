@@ -26,60 +26,6 @@ statistic::statistic(){
 
 }
 
-//QString statistic::read(int valueA, int valueB){
-
-//    QFile file;
-
-//    // I added a description at the bottom of the page about the address of the file
-//    switch (valueA) {
-//        case 1: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalCorrect.txt"); break;
-//        case 2: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalWrong.txt"); break;
-//        case 3: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeSeconds.txt"); break;
-//        case 4: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeMinutes.txt"); break;
-//        case 5: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeHours.txt"); break;
-//        case 6: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTime.txt"); break;
-//        case 7: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/settings.txt"); break;
-
-//        default:
-//            qDebug() << "Attention! in statistic::read (1 arg) - does not have \"" << valueA << "\" value."; break;
-//    }
-
-//    // Protecion
-//    if(!file.exists()){
-//        qDebug() << file.fileName() << " does not exists";
-//    }
-
-//    QString line;
-//    statisticBestTime *best = new statisticBestTime();
-//    int i = 0;
-
-//    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
-
-//        if(valueB == 1){
-
-//            while(!file.atEnd()){
-
-//                line = file.readLine();
-//                best->transformationSring(line, i);
-//                ++i;
-//            }
-//        } else {
-
-//            line = file.readAll();
-//        }
-
-//    } else {
-
-//        qDebug() << "In method statistic::read could not open file for read.";
-//        return nullptr;
-//    }
-
-
-//    file.close();
-//    return line;
-//}
-
-
 void statistic::showstatic(){
 
     DataBase db;

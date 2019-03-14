@@ -25,7 +25,6 @@ public:
     statistic();
 
     // public methods
-    QString read(int valueA, int valueB);
     void showstatic();
     void ResetStatisticVariable();
     void manageStatistic();
