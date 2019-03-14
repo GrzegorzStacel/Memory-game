@@ -140,6 +140,11 @@ void statistic::write(int valueA, int valueB){
 void statistic::showstatic(){
 
     DataBase db;
+    QString bestID = db.select("SELECT id FROM statistic_db WHERE correct = (SELECT MAX(correct) FROM statistic_db) "
+                               "AND t_time = (SELECT MIN(t_time) FROM statistic_db "
+                               "    WHERE correct = (SELECT MAX(correct) FROM statistic_db))",0);
+
+    qDebug() << "bestID " << bestID;
     timer *time = new timer();
     statisticBestTime best;
     game_over *over = new game_over();
@@ -167,8 +172,7 @@ void statistic::showstatic(){
     game->scene->addItem(Tbest);
 
     // adds a label showing value of correct answers from the best time
-    best.showTheBestAnswers();
-    QGraphicsTextItem *TbestCorrect = new QGraphicsTextItem(QString("Correct: " + best.getBestStatToSaveCorrect()));
+    QGraphicsTextItem *TbestCorrect = new QGraphicsTextItem(QString("Correct: " + db.select("SELECT correct FROM statistic_db WHERE id = " + bestID + ";",0)));
     QFont title2("comic sans", 15, QFont::Bold);
     TbestCorrect->setFont(title2);
     TbestCorrect->setDefaultTextColor(Qt::darkGreen);
@@ -176,7 +180,8 @@ void statistic::showstatic(){
     game->scene->addItem(TbestCorrect);
 
     // adds a label showing value of wrong answers from the best time
-    QGraphicsTextItem *TbestWrong = new QGraphicsTextItem(QString("Wrong: " + best.getBestStatToSaveWrong()));
+
+    QGraphicsTextItem *TbestWrong = new QGraphicsTextItem(QString("Wrong: " + db.select("SELECT wrong FROM statistic_db WHERE id = " + bestID + ";",0)));
     TbestWrong->setFont(title2);
     TbestWrong->setDefaultTextColor(Qt::darkRed);
     TbestWrong->setPos(x_pos/2 + 380, y_pos - 660);
