@@ -572,10 +572,11 @@ void DrawCards::manageAnswers(){
     // display the final menu
     if( counterEnd == listOfCards.size() ){
 
+        stat->manageStatistic();
+
         game_over *gameOver = new game_over();
         gameOver->drawButtons();
 
-        stat->manageStatistic();
     }
 }
 

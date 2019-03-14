@@ -142,14 +142,10 @@ void statistic::showstatic(){
     DataBase db;
     QString bestID = db.select("SELECT id FROM statistic_db WHERE correct = (SELECT MAX(correct) FROM statistic_db) "
                                "AND t_time = (SELECT MIN(t_time) FROM statistic_db "
-                               "    WHERE correct = (SELECT MAX(correct) FROM statistic_db))",0);
+                                "WHERE correct = (SELECT MAX(correct) FROM statistic_db))",0);
 
-    qDebug() << "bestID " << bestID;
-    timer *time = new timer();
     statisticBestTime best;
     game_over *over = new game_over();
-
-    QString tmp = time->showTotalTime();
 
     read(6,1);
 
@@ -159,14 +155,13 @@ void statistic::showstatic(){
     over->drawPanel(x_pos/5, y_pos/5, x_pos/2 + 150, y_pos/2 - 10, Qt::white, 0.75);
 
     // adds a label showing all the time spent memorizing cards
-    QGraphicsTextItem *Ttime = new QGraphicsTextItem(QString("Total time: \t" + tmp));
+    QGraphicsTextItem *Ttime = new QGraphicsTextItem(QString("Total time: \t" + db.select("SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( t_time ) ) ) FROM statistic_db;", 0).mid(0,8)));
     QFont title("comic sans", 25, QFont::Bold);
     Ttime->setFont(title);
     Ttime->setPos(x_pos/5 + 25, y_pos - 750);
     game->scene->addItem(Ttime);
 
     // adds a label showing the user best time
-    //QGraphicsTextItem *Tbest = new QGraphicsTextItem(QString("Best time: \t\t" + best.showTheBest()));
     QGraphicsTextItem *Tbest = new QGraphicsTextItem(QString("Best time: \t\t"+ db.select("SELECT t_time FROM statistic_db WHERE id = " + bestID + ";",0).mid(0,8)));
     Tbest->setFont(title);
     Tbest->setPos(x_pos/5 + 25, y_pos - 675);
