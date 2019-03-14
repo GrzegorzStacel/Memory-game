@@ -36,7 +36,6 @@ public:
     // public methods
     void transformationSring(const QString line, int i);
     QString showTheBest();
-    void showTheBestAnswers();
     QString showTHeBestWrong();
     void ResetStaticBestTimeVariable();
     void transformationWrong(QString value, int x);

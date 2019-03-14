@@ -165,14 +165,6 @@ QString statisticBestTime::prepareTextSecond(QString text){
 }
 
 
-void statisticBestTime::showTheBestAnswers(){
-
-    // get the correct and wrong answers from the best game
-    setBestStatToSaveCorrect(QString::number(getBestStatToSave().mid(38, 2).toInt()));
-
-    setBestStatToSaveWrong(QString::number(getBestStatToSave().mid(41, 2).toInt()));
-
-}
 
 
 
