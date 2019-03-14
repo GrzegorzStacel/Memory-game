@@ -13,10 +13,11 @@
 #include <QSqlQueryModel>
 
 #include "timer.h"
+#include "who_is_best.h"
 Game::Game()
 {
 
-    test();
+
 
 
                                      // TESTING DATA BASE
@@ -107,18 +108,34 @@ Game::Game()
 void Game::test(){
 
     DataBase db;
+    QString id = db.select("SELECT id FROM statistic_db WHERE correct = (SELECT MAX(correct) FROM statistic_db) "
+              "AND t_time = (SELECT MIN(t_time) FROM statistic_db "
+               "WHERE correct = (SELECT MAX(correct) FROM statistic_db))", 0);
 
-    qDebug() << db.select("SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( t_time ) ) ) FROM statistic_db;", 0).mid(0,8);
+    db.insert("UPDATE user_settings SET b_time = (SELECT t_time FROM statistic_db WHERE id = " + id + "), "
+              "b_correct = (SELECT correct FROM statistic_db WHERE id = " + id + ");");
 
 }
 
 void Game::start(){
 
+    test();
+
     QString result;
 
     {
         DataBase db;
+
+        // Set the user settings - difficult
         result = db.select("SELECT difficult FROM user_settings WHERE id = 1", 0);
+
+        // Update the best time and amount of correct for later comparisons in who_is_best::comparison()
+        QString best_id = db.select("SELECT id FROM statistic_db WHERE correct = (SELECT MAX(correct) FROM statistic_db) "
+                  "AND t_time = (SELECT MIN(t_time) FROM statistic_db "
+                   "WHERE correct = (SELECT MAX(correct) FROM statistic_db))", 0);
+
+        db.insert("UPDATE user_settings SET b_time = (SELECT t_time FROM statistic_db WHERE id = " + best_id + "), "
+                  "b_correct = (SELECT correct FROM statistic_db WHERE id = " + best_id + ");");
     }
 
     int difficultLvl = result.toInt();

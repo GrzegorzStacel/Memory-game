@@ -577,6 +577,7 @@ void DrawCards::manageAnswers(){
         game_over *gameOver = new game_over();
         gameOver->drawButtons();
 
+
     }
 }
 

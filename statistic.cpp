@@ -147,7 +147,7 @@ void statistic::showstatic(){
     statisticBestTime best;
     game_over *over = new game_over();
 
-    read(6,1);
+    //read(6,1);
 
     double x_pos = game->scene->width();
     double y_pos = game->scene->height();

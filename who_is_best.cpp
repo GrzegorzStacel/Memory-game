@@ -4,7 +4,7 @@
 
 #include <QDebug>
 
-int Who_Is_Best::Best_Correct;
+//int Who_Is_Best::Best_Correct;
 
 Who_Is_Best::Who_Is_Best(){
 
@@ -16,7 +16,7 @@ int Who_Is_Best::score(){
 
 void Who_Is_Best::set_Best_Correct(int corr){
     // Receive the value of correct answers from the best time
-    Best_Correct = corr;
+    //Best_Correct = corr;
 
 }
 
@@ -24,8 +24,9 @@ int Who_Is_Best::Comparison(){
 
     Receive_Value();
 
-    statistic *stat = new statistic();
-    int Actual_Correct = stat->getCorrect();
+    DataBase db;
+    int Actual_Correct = db.select("SELECT correct FROM statistic_db ORDER BY id DESC LIMIT 1;)", 0).toInt();
+    int Best_Correct = db.select("SELECT b_correct FROM user_settings WHERE id = 1", 0).toInt();
 
     //Numbers are the text version used in the summary result when the user ends the game
     // Better time
@@ -57,27 +58,23 @@ int Who_Is_Best::Comparison(){
 
 void Who_Is_Best::Receive_Value(){
 
-    timer *time = new timer();
-    QString Actual = time->getTime();
+    DataBase db;
+
+    QString Actual = db.select("SELECT t_time, id FROM statistic_db ORDER BY id DESC LIMIT 1;)", 0);
 
     count_ActualTime = 0;
     count_ActualTime += Actual.mid(0,2).toInt() * 3600000;
-    count_ActualTime += Actual.mid(4,2).toInt() * 60000;
-    count_ActualTime += Actual.mid(8,2).toInt() * 1000;
-    count_ActualTime += Actual.mid(12,3).toInt();
+    count_ActualTime += Actual.mid(3,2).toInt() * 60000;
+    count_ActualTime += Actual.mid(6,2).toInt() * 1000;
+    qDebug() << "count actual : " << count_ActualTime;
 
-//    {
-//        DataBase db;
-//        db.select("SELECT MAX( correct (MAX(t_time)) FROM statistic_db", 0);
-//    }
-    statisticBestTime *BestTIme = new statisticBestTime();
-    BestTIme->read(6, 1);
-    QString Best = BestTIme->showTheBest();
+
+    QString Best = db.select("SELECT b_time FROM user_settings WHERE id = 1", 0);
 
     count_BestTime = 0;
     count_BestTime += Best.mid(0,2).toInt() * 3600000;
-    count_BestTime += Best.mid(4,2).toInt() * 60000;
-    count_BestTime += Best.mid(8,2).toInt() * 1000;
-    count_BestTime += Best.mid(12,3).toInt();
+    count_BestTime += Best.mid(3,2).toInt() * 60000;
+    count_BestTime += Best.mid(6,2).toInt() * 1000;
+    qDebug() << "count best : " << count_BestTime;
 
 }
