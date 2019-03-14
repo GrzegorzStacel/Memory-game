@@ -19,7 +19,6 @@ private:
     // Private Attributes
     int count_ActualTime;
     int count_BestTime;
-    static int Best_Correct;
 
     // Private Methods
     int Comparison();

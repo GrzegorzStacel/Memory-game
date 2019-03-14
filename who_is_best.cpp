@@ -4,7 +4,6 @@
 
 #include <QDebug>
 
-//int Who_Is_Best::Best_Correct;
 
 Who_Is_Best::Who_Is_Best(){
 
@@ -61,7 +60,6 @@ void Who_Is_Best::Receive_Value(){
     count_ActualTime += Actual.mid(0,2).toInt() * 3600000;
     count_ActualTime += Actual.mid(3,2).toInt() * 60000;
     count_ActualTime += Actual.mid(6,2).toInt() * 1000;
-    qDebug() << "count actual : " << count_ActualTime;
 
 
     QString Best = db.select("SELECT b_time FROM user_settings WHERE id = 1", 0);
@@ -70,6 +68,5 @@ void Who_Is_Best::Receive_Value(){
     count_BestTime += Best.mid(0,2).toInt() * 3600000;
     count_BestTime += Best.mid(3,2).toInt() * 60000;
     count_BestTime += Best.mid(6,2).toInt() * 1000;
-    qDebug() << "count best : " << count_BestTime;
 
 }
