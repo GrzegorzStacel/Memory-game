@@ -529,9 +529,6 @@ void DrawCards::manageAnswers(){
 
         game->scene->removeItem(inf_clock_stop);
 
-        timer *time = new timer();
-        statisticBestTimeCurrentDateAndGameTime = QDateTime::currentDateTime().toString("dd-MM-yyyy HH:mm:ss ") + time->getTime();
-
         //counterEnd = 12; // TODO delete counterend = 12
     }
 
@@ -578,7 +575,7 @@ void DrawCards::manageAnswers(){
         game_over *gameOver = new game_over();
         gameOver->drawButtons();
 
-        stat->manageStatistic(statisticBestTimeCurrentDateAndGameTime);
+        stat->manageStatistic();
     }
 }
 
@@ -592,7 +589,6 @@ void DrawCards::setResetDrawCards(){
     counter = 0;
     counterEnd = 0;
     tmp = 0;
-    statisticBestTimeCurrentDateAndGameTime = "";
 
     for( int i = 0; i < difficultLvl; i++)
         antiRepetition[i] = 0;

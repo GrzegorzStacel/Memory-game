@@ -29,8 +29,7 @@ public:
     void write(int valueA, int valueB );
     void showstatic();
     void ResetStatisticVariable();
-    void manageStatistic(QString statisticBestTimeCurrentDateAndGameTime);
-
+    void manageStatistic();
 
     // getters
     static int getTotalTimeHours()                      { return totalTimeHours; }

@@ -38,7 +38,6 @@ private:
     static int y_posOfCard[52]; // TODO change value to difficult
     static int variableForChooseImage;
     static int difficultLvl;
-    QString statisticBestTimeCurrentDateAndGameTime;
 
     // private methods
     void createBoard(int x, int y, bool iisActive);
