@@ -3,8 +3,6 @@
 #include "timer.h"
 
 #include "game_over.h"
-//#include "graphic_others.h"
-
 #include "database.h"
 
 #include <QFile>

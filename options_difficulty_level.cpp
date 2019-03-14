@@ -1,9 +1,5 @@
 #include "options_difficulty_level.h"
-
 #include "game.h"
-#include "cards.h"
-#include "statistic.h"
-
 #include "graphic_options.h"
 #include "database.h"
 

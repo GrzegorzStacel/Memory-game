@@ -19,8 +19,6 @@ game_over::game_over(){
 
 }
 
-
-
 void game_over::drawPanel(double x, double y, double width, double height, QColor color, double opacity){
 
     // draws a panel at the specified location with the specified properties
@@ -47,15 +45,6 @@ void game_over::drawButtons(){
 
     // draw panel
     drawPanel(470, 150, x_pos/2, y_pos/2 + 260, Qt::lightGray, 0.85);
-
-    // create text with the time reminding
-//    QGraphicsTextItem* clock = new QGraphicsTextItem("Your memorizing time:\n ");
-//    QFont title("comic sans", 18, QFont::Bold);
-//    clock->setFont(title);
-//    clock->setPos(750,180);
-//    game->scene->addItem(clock);
-
-
 
     // create text annoucning winner
     QGraphicsTextItem* overText = new QGraphicsTextItem("Congratulations!");

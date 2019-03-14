@@ -369,14 +369,18 @@ void DrawCards::addImageWithRandomNumber(){
 }
 
 void DrawCards::connectCardWithMap(){
+
     QSignalMapper* signalMapper = new QSignalMapper(this); // TODO find another way to implement the connections of each object separately with the appropriate signal
 
-    for( int i = 0; i < listOfCards.size(); i++){ // TODO (DONE) set the value - difficult
-        connect (listOfCards[i], SIGNAL(clicked()), signalMapper, SLOT(map()));
-        signalMapper -> setMapping (listOfCards[i], i);
-    }
+        for( int i = 0; i < listOfCards.size(); i++){
 
-    connect (signalMapper, SIGNAL(mapped(int)), this, SLOT(showImageAfterReminding(int))) ;
+            connect (listOfCards[i], SIGNAL(clicked()), signalMapper, SLOT(map()));
+            signalMapper -> setMapping (listOfCards[i], i);
+
+        }
+
+    connect (signalMapper, SIGNAL(mapped(int)), this, SLOT(showImageAfterReminding(int)));
+
 }
 
 void DrawCards::showImageAfterReminding(int x){
@@ -437,6 +441,7 @@ void DrawCards::showImageAfterReminding(int x){
 
     } else
         qDebug() << "Error in method DrawCards::showImageAfterReminding(); - if( difficultLvl == 13 ||...";
+
 
     buttons.append(corr);
     connect(corr, SIGNAL(clicked()), corr, SLOT(handleClickCorrect()));
@@ -528,10 +533,12 @@ void DrawCards::manageAnswers(){
         //counterEnd = 12; // TODO delete counterend = 12
     }
 
+
     // remove buttons (correct and wrong) under selected card
     for(int i = 0; i < buttons.size(); i++){
         game->scene->removeItem(buttons[i]);
     }
+
 
     // buble sort the table with selected cards ( I know, this is very slow algorithm but it is very small table )
     int x;
@@ -544,6 +551,7 @@ void DrawCards::manageAnswers(){
             antiRepetition[i] = antiRepetition[i + 1];
             antiRepetition[i + 1] = x;
     }
+
 
     // disable all "visible" (selected) cards and else set enabled
     int i = 0;
@@ -563,7 +571,9 @@ void DrawCards::manageAnswers(){
         }
     }while( i < listOfCards.size() && n <= tmp );
 
+
     buttons.clear();
+
 
     // display the final menu
     if( counterEnd == listOfCards.size() ){
@@ -572,7 +582,6 @@ void DrawCards::manageAnswers(){
 
         game_over *gameOver = new game_over();
         gameOver->drawButtons();
-
 
     }
 }

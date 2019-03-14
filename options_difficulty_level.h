@@ -20,9 +20,6 @@ public:
     // constructors
     options_difficulty_level();
 
-    // public attributes
-    statistic *stat;
-
 signals:
     void clicked();
 

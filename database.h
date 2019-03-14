@@ -15,9 +15,7 @@ public:
 
     // Public Methods
         QString select(QString value, int column);
-        QString select(QString value, int columnA, int columnB);
         void insert(QString value);
-        QSqlDatabase data_base();
         void connect();
 
     // Public Attributes

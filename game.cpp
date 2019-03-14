@@ -1,6 +1,5 @@
 #include "game.h"
 #include "statistic.h"
-#include "statisticbesttime.h"
 #include "generator_of_random_numbers.h"
 #include "graphic_options.h"
 #include "graphic_others.h"
@@ -9,84 +8,10 @@
 #include <QtDebug>
 #include <QTimer>
 #include <QTime>
-#include <QSqlQuery>
-#include <QSqlQueryModel>
+//#include <QSqlQuery>
+//#include <QSqlQueryModel>
 
-#include "timer.h"
-#include "who_is_best.h"
-Game::Game()
-{
-
-
-
-
-                                     // TESTING DATA BASE
-// --------------------------------------------------------------------------------------------------------------
-//    {
-//        DataBase db;
-//            if(db.data_base().open()) {
-
-
-//                qDebug() << "Game open";
-
-//                int h = 100;
-//                QString insert = "INSERT INTO statistic_db "
-
-//                                 "( data, time, t_time, hour, minutes, seconds, miliseconds, "
-//                                 "correct, wrong, difficult ) "
-
-//                                 "VALUES (NOW(), CURTIME(), 001712, " + QString::number(h) +
-//                                 ", 20, 12, 54, 5, 9, \"ease\" )";
-
-//                db.data_base().exec(insert);
-
-//            } else {
-//                qDebug() << db.data_base().lastError();
-//                qDebug() << "Game error";
-//            }
-//        qDebug() << "Game close";
-//    }
-
-//        {
-//            DataBase db;
-//            qDebug() << "wynik selecta: " + db.select("SELECT t_time FROM statistic_db WHERE id = 17", 0 );
-//        }
-
-//    base->query("SELECT data FROM statistic_db", 0);
-//    base->query("SELECT data, time FROM statistic_db", 0, 1);
-
-//    if(base->data_base().open()) {
-
-//        qDebug() << "DB is opened ( all )";
-
-//        QSqlQuery ask;
-
-//        if(ask.exec("SELECT * FROM statistic_db")){
-//            while(ask.next()){
-//                qDebug() << ask.value(0).toString() + " - " +
-//                            ask.value(1).toString() + " - " +
-//                            ask.value(2).toString() + " - " +
-//                            ask.value(3).toString() + " - " +
-//                            ask.value(4).toString() + " - " +
-//                            ask.value(5).toString() + " - " +
-//                            ask.value(6).toString() + " - " +
-//                            ask.value(7).toString() + " - " +
-//                            ask.value(8).toString() + " - " +
-//                            ask.value(9).toString();
-
-//            }
-//        }
-
-//    } else {
-//        qDebug() << "Error load: " << base->data_base().lastError();
-//    }
-
-//    qDebug() << "Closing...";
-//    base->data_base().close();
-
-// --------------------------------------------------------------------------------------------------------------
-
-
+Game::Game(){
 
     //create a scene
     scene = new QGraphicsScene();
@@ -105,25 +30,13 @@ Game::Game()
 
 }
 
-void Game::test(){
-
-    DataBase db;
-    QString id = db.select("SELECT id FROM statistic_db WHERE correct = (SELECT MAX(correct) FROM statistic_db) "
-              "AND t_time = (SELECT MIN(t_time) FROM statistic_db "
-               "WHERE correct = (SELECT MAX(correct) FROM statistic_db))", 0);
-
-    db.insert("UPDATE user_settings SET b_time = (SELECT t_time FROM statistic_db WHERE id = " + id + "), "
-              "b_correct = (SELECT correct FROM statistic_db WHERE id = " + id + ");");
-
-}
 
 void Game::start(){
-
-    test();
 
     QString result;
 
     {
+
         DataBase db;
 
         // Set the user settings - difficult
@@ -136,6 +49,7 @@ void Game::start(){
 
         db.insert("UPDATE user_settings SET b_time = (SELECT t_time FROM statistic_db WHERE id = " + best_id + "), "
                   "b_correct = (SELECT correct FROM statistic_db WHERE id = " + best_id + ");");
+
     }
 
     int difficultLvl = result.toInt();

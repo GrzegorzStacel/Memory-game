@@ -25,17 +25,11 @@ public:
     // constructors
     Game();
 
-    void test();
-
 private:
 
     // private attributes
     int choosen;
     bool isGameOver = false;
-
-    // private methods
-
-
 
 public:
 

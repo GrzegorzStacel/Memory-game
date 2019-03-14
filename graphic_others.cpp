@@ -3,8 +3,7 @@
 
 #include <QDebug>
 
-Graphic_others::Graphic_others()
-{
+Graphic_others::Graphic_others(){
 
 }
 

@@ -1,8 +1,7 @@
 #include "graphic_options.h"
 #include <QDebug>
 
-Graphic_options::Graphic_options()
-{
+Graphic_options::Graphic_options(){
 
 }
 
