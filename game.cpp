@@ -12,11 +12,11 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 
-
+#include "timer.h"
 Game::Game()
 {
 
-
+    test();
 
 
                                      // TESTING DATA BASE
@@ -101,6 +101,14 @@ Game::Game()
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1920,990);
+
+}
+
+void Game::test(){
+
+    DataBase db;
+
+    qDebug() << db.select("SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( t_time ) ) ) FROM statistic_db;", 0);
 
 }
 

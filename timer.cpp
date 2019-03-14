@@ -68,10 +68,10 @@ void timer::timerEvent(QTimerEvent *){
                             .arg(m,  2, 10, QChar('0'))
                             .arg(s,  2, 10, QChar('0'))
                             .arg(ms, 3, 10, QChar('0'));
-
         timeStringHour = QString("%1").arg(h, 2, 10, QChar('0'));
         timeStringMin = QString("%1").arg(m, 2, 10, QChar('0'));
-        timeStringSec = QString("%1").arg(s, 2, 10, QChar('0'));        
+        timeStringSec = QString("%1").arg(s, 2, 10, QChar('0'));
+
      }
 }
 
@@ -82,7 +82,7 @@ QString timer::showTotalTime(){
 
         {
             DataBase db;
-            value = db.select("SELECT  SEC_TO_TIME( SUM( TIME_TO_SEC( t_time ) ) ) FROM statistic_db;", 0);
+            value = db.select("SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( t_time ) ) ) FROM statistic_db;", 0);
         }
 
     return value;

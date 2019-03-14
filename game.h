@@ -25,7 +25,7 @@ public:
     // constructors
     Game();
 
-
+    void test();
 
 private:
 
@@ -48,7 +48,6 @@ public:
     timer timer;
     options_difficulty_level *difficult;
     statistic *sta;
-    //DataBase *db;
 
 
 
