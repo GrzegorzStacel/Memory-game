@@ -11,7 +11,6 @@ public:
 
     // Public Methods
     int score();
-    void set_Best_Correct(int);
 
     // Public Attributes
 

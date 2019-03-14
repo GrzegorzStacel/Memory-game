@@ -14,11 +14,6 @@ int Who_Is_Best::score(){
     return Comparison();
 }
 
-void Who_Is_Best::set_Best_Correct(int corr){
-    // Receive the value of correct answers from the best time
-    //Best_Correct = corr;
-
-}
 
 int Who_Is_Best::Comparison(){
 
