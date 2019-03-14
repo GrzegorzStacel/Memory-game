@@ -75,20 +75,6 @@ void timer::timerEvent(QTimerEvent *){
      }
 }
 
-QString timer::showTotalTime(){
-
-    // Show how much time the user has spent on the exercises
-    QString value;
-
-        {
-            DataBase db;
-            value = db.select("SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( t_time ) ) ) FROM statistic_db;", 0);
-        }
-
-    return value;
-
-}
-
 void timer::ResetTimerVariable(){
 
     setMRunning(false);

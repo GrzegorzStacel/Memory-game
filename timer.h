@@ -40,7 +40,6 @@ public:
     // public methods
     void stop();
     void start();
-    QString showTotalTime();
     void ResetTimerVariable();
 
     void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
