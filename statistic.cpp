@@ -26,115 +26,58 @@ statistic::statistic(){
 
 }
 
-QString statistic::read(int valueA, int valueB){
+//QString statistic::read(int valueA, int valueB){
 
-    QFile file;
+//    QFile file;
 
-    // I added a description at the bottom of the page about the address of the file
-    switch (valueA) {
-        case 1: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalCorrect.txt"); break;
-        case 2: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalWrong.txt"); break;
-        case 3: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeSeconds.txt"); break;
-        case 4: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeMinutes.txt"); break;
-        case 5: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeHours.txt"); break;
-        case 6: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTime.txt"); break;
-        case 7: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/settings.txt"); break;
+//    // I added a description at the bottom of the page about the address of the file
+//    switch (valueA) {
+//        case 1: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalCorrect.txt"); break;
+//        case 2: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalWrong.txt"); break;
+//        case 3: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeSeconds.txt"); break;
+//        case 4: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeMinutes.txt"); break;
+//        case 5: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeHours.txt"); break;
+//        case 6: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTime.txt"); break;
+//        case 7: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/settings.txt"); break;
 
-        default:
-            qDebug() << "Attention! in statistic::read (1 arg) - does not have \"" << valueA << "\" value."; break;
-    }
+//        default:
+//            qDebug() << "Attention! in statistic::read (1 arg) - does not have \"" << valueA << "\" value."; break;
+//    }
 
-    // Protecion
-    if(!file.exists()){
-        qDebug() << file.fileName() << " does not exists";
-    }
+//    // Protecion
+//    if(!file.exists()){
+//        qDebug() << file.fileName() << " does not exists";
+//    }
 
-    QString line;
-    statisticBestTime *best = new statisticBestTime();
-    int i = 0;
+//    QString line;
+//    statisticBestTime *best = new statisticBestTime();
+//    int i = 0;
 
-    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
+//    if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
 
-        if(valueB == 1){
+//        if(valueB == 1){
 
-            while(!file.atEnd()){
+//            while(!file.atEnd()){
 
-                line = file.readLine();
-                best->transformationSring(line, i);
-                ++i;
-            }
-        } else {
+//                line = file.readLine();
+//                best->transformationSring(line, i);
+//                ++i;
+//            }
+//        } else {
 
-            line = file.readAll();
-        }
+//            line = file.readAll();
+//        }
 
-    } else {
+//    } else {
 
-        qDebug() << "In method statistic::read could not open file for read.";
-        return nullptr;
-    }
-
-
-    file.close();
-    return line;
-}
+//        qDebug() << "In method statistic::read could not open file for read.";
+//        return nullptr;
+//    }
 
 
-void statistic::write(int valueA, int valueB){
-
-    QFile file;
-
-    // I added a description at the bottom of the page about the address of the file
-    switch (valueA) {
-
-        case 1: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalCorrect.txt"); break;
-        case 2: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalWrong.txt"); break;
-        case 3: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeSeconds.txt"); break;
-        case 4: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeMinutes.txt"); break;
-        case 5: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTimeHours.txt"); break;
-        case 6: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/totalTime.txt"); break;
-        case 7: file.setFileName("F:/Programy C++/Qt/Memory_Cards/files/settings.txt"); break;
-
-        default:
-            qDebug() << "Attention! in statistic::write 1 - does not have \"" << valueA << "\" value."; break;
-    }
-
-    if(valueB == 1){
-
-            if(!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)){
-
-                qDebug() << "In method statistic::write could not open file for write (append).";
-                return;
-            }
-
-    } else {
-
-            if(!file.open(QIODevice::WriteOnly | QIODevice::Text)){
-
-                qDebug() << "In method statistic::write could not open file for write (overwrite).";
-                return;
-            }
-    }
-
-    QTextStream out(&file);
-    statisticBestTime best;
-
-    switch (valueA) {
-        //case 1: out << getTotalCorrect();              break;
-        //case 2: out << getTotalWrong();                break;
-        case 3: out << getTotalTimeSeconds();          break;
-        case 4: out << getTotalTimeMinutes();          break;
-        case 5: out << getTotalTimeHours();            break;
-        case 6: out << best.getComplete();             break;
-        case 7: out << getSettings();                  break;
-
-        default:
-            qDebug() << "Attention! in statistic::write 2- does not have \"" << valueA << "\" value."; break;
-    }
-
-    file.flush();
-    file.close();
-}
+//    file.close();
+//    return line;
+//}
 
 
 void statistic::showstatic(){
@@ -219,7 +162,6 @@ void statistic::ResetStatisticVariable(){
 }
 
 void statistic::manageStatistic(){
-    qDebug() << "manageStatistic";
 
     if(getCorrect() != 0 || getWrong() != 0){
 
