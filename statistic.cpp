@@ -222,109 +222,23 @@ void statistic::ResetStatisticVariable(){
     wrong = 0;
 }
 
-void statistic::manageStatistic(QString statisticBestTimeCurrentDateAndGameTime){
-
-    int append = 0; // TODO change to bool
-    statisticBestTime besttime;
-
+void statistic::manageStatistic(){
 
     if(getCorrect() != 0 || getWrong() != 0){
 
-        timer *time = new timer();
-        QString textFromFile = "", a = "";
+        timer time;
+        DataBase db;
 
-        for(int i = 1; i < 7; i++){
+        QString clock = time.getTimeStringHour() + time.getTimeStringMin() + time.getTimeStringSec();
+        QString difficult = db.select("SELECT difficult FROM user_settings WHERE id = 1", 0);
+        QString corr = QString::number(getCorrect());
+        QString wro = QString::number(getWrong());
 
-            // method write/read:
-            // 1 ( totalCorrect.txt )
-            // 2 ( totalWrong.txt )
-            // 3 ( totalTimeSeconds.txt )
-            // 4 ( totalTImeMinutes.txt )
-            // 5 ( totalTimeHour.txt )
-            // 6 ( totalTime.txt ) - current date and time + game time + correct and wrong
+        db.insert("INSERT INTO statistic_db ( data, time, t_time, correct, wrong, difficult ) "
+                  "VALUES (NOW(), CURTIME(), " + clock + ", " + corr + ", " + wro + ", \"" + difficult + "\" " + ");");
 
-            textFromFile += read(i,0);
-
-            int tmp = 0;
-            append = 0;
-
-            switch(i){
-
-                case 1:
-                    tmp = getCorrect();
-                    //setTotalCorrect( textFromFile.toInt() + tmp ); // TODO Refactoring
-                    break;
-
-                case 2:
-                    tmp = getWrong();
-                    //setTotalWrong( textFromFile.toInt() + tmp ); // TODO Refactoring
-                    break;
-
-                case 3:
-                    tmp = time->getTimeStringSec().toInt();
-                    tmp += textFromFile.toInt();
-
-                    if( tmp >= 60 ){
-                        setTotalTimeMinutesAdd(1);
-                        tmp -= 60;
-                    }
-
-                    setTotalTimeSecondsAdd(tmp);
-                    break;
-
-                case 4:
-                // getTimeStringMin - gets value from string
-                // getTotalTImeMinutes - he has value (+1) when (see above (case 3)) tmp>=60
-                    tmp = time->getTimeStringMin().toInt() + getTotalTimeMinutes();
-                    setTotalTimeMinutesAdd(0);
-
-                    tmp += textFromFile.toInt();
-
-                    if( tmp >= 60 ){
-
-                        setTotalTimeHoursAdd(1);
-                        tmp -= 60;
-                    }
-
-                    setTotalTimeMinutesAdd(tmp);
-                    break;
-
-                case 5:
-                    tmp = time->getTimeStringHour().toInt() + getTotalTimeHours();
-                    setTotalTimeHoursAdd(0);
-
-                    tmp += textFromFile.toInt();
-
-                    setTotalTimeHoursAdd(tmp);
-                    break;
-
-                case 6:
-                    textFromFile = statisticBestTimeCurrentDateAndGameTime + " ";
-                            if( besttime.getCorrect() <= 9 )
-                                textFromFile += "0" + QString::number( besttime.getCorrect() ) + " ";
-                            else
-                                textFromFile += QString::number( besttime.getCorrect() ) + " ";
-
-
-                            if( besttime.getWrong() <= 9 )
-                                textFromFile += "0" + QString::number( besttime.getWrong() ) + "\n";
-                            else
-                                textFromFile += QString::number( besttime.getWrong() ) + "\n";
-
-                    besttime.setComplete(textFromFile);
-                    append = 1;
-                    break;
-
-                default:
-                    qDebug() << "Attention! in game_over::manageStatistic (switch) - does not have \"" << i << "\" value."; break;
-
-            }
-
-            write(i, append);
-            textFromFile = "";
-        }
-
-    }
+    } else
+         qDebug() << "Error in statistic::manageStatistic()";
 
 }
 
