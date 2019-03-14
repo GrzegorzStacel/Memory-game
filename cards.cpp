@@ -1,8 +1,6 @@
 #include "cards.h"
 #include "drawcards.h"
 
-//#include <ctime>
-//#include <cstdlib>
 #include <QDebug>
 
 Cards::Cards(){
@@ -75,9 +73,6 @@ QString Cards::setImageRegularNeutral(int number){
         case 37: return ":/others/images/cards/easy, medium, hard/spade/neutral/dama_spade_regular_neutral.png";
         case 38: return ":/others/images/cards/easy, medium, hard/spade/neutral/krol_spade_regular_neutral.png";
         case 39: return ":/others/images/cards/easy, medium, hard/spade/neutral/as_spade_regular_neutral.png";
-
-//        case 100: return ":/others/images/others/statisticsIconS.png";
-//        case 101: return ":/others/images/others/informationFrame.png";
 
         default: qDebug() << "We have a problem in method Cards::setImageRegularNeutral";
                  return ":/others/images/cards/back.png";

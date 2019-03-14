@@ -35,7 +35,6 @@ SOURCES += \
     game_over.cpp \
     timer.cpp \
     statistic.cpp \
-    statisticbesttime.cpp \
     options_difficulty_level.cpp \
     generator_of_random_numbers.cpp \
     graphic_options.cpp \
@@ -52,7 +51,6 @@ HEADERS += \
     game_over.h \
     timer.h \
     statistic.h \
-    statisticbesttime.h \
     options_difficulty_level.h \
     generator_of_random_numbers.h \
     graphic_options.h \

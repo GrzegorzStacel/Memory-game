@@ -168,9 +168,6 @@ void Game::start(){
 
 void Game::displayMainMenu(){
 
-    statisticBestTime statBest;
-    statBest.ResetStaticBestTimeVariable();
-
     scene->clear();
 
     // create the title text

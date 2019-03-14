@@ -140,9 +140,6 @@ void game_over::restartGame(){
 
     stat->ResetStatisticVariable();
 
-    statisticBestTime bestStat;
-    bestStat.ResetStaticBestTimeVariable();
-
     game->start();
     time->start();
 }

@@ -3,8 +3,7 @@
 #include "timer.h"
 
 #include "game_over.h"
-#include "statisticbesttime.h"
-#include "graphic_others.h"
+//#include "graphic_others.h"
 
 #include "database.h"
 
@@ -13,10 +12,6 @@
 #include <QTextStream>
 
 extern Game *game;
-
-int statistic::totalTimeHours;
-int statistic::totalTimeMinutes;
-int statistic::totalTimeSeconds;
 
 int statistic::correct;
 int statistic::wrong;
@@ -33,10 +28,7 @@ void statistic::showstatic(){
                                "AND t_time = (SELECT MIN(t_time) FROM statistic_db "
                                 "WHERE correct = (SELECT MAX(correct) FROM statistic_db))",0);
 
-    statisticBestTime best;
     game_over *over = new game_over();
-
-    //read(6,1);
 
     double x_pos = game->scene->width();
     double y_pos = game->scene->height();
@@ -93,18 +85,14 @@ void statistic::showstatic(){
     connect(buttonBack, SIGNAL(clicked()), game, SLOT(displayMainMenu()));
     game->scene->addItem(buttonBack);
 
-    best.ResetStaticBestTimeVariable();
 }
 
 
 void statistic::ResetStatisticVariable(){
 
-    totalTimeHours = 0;
-    totalTimeMinutes = 0;
-    totalTimeSeconds = 0;
-
     correct = 0;
     wrong = 0;
+
 }
 
 void statistic::manageStatistic(){
@@ -126,9 +114,3 @@ void statistic::manageStatistic(){
          qDebug() << "Error in statistic::manageStatistic()";
 
 }
-
-//                                     Attention!
-//
-// I used non-portable file addresses because the compiler makes strange problems with writing to a file when
-// given files are added to resources.
-// There were no problems with the reading only with the record.

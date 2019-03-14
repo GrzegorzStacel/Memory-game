@@ -5,14 +5,12 @@
 #include "timer.h"
 #include "generator_of_random_numbers.h"
 
-
 #include <QBrush>
 #include "QDebug"
 #include <QPixmap>
 
 #include <QSignalMapper>
 #include <QDateTime>
-
 
 #include <QPointer>
 
@@ -219,7 +217,6 @@ void DrawCards::createBoard(int x, int y, bool iisActive){
 
 void DrawCards::addImageWithRandomNumber(){
 
-    //cards = new Cards();
     Generator_of_random_numbers *generator = new Generator_of_random_numbers();
 
     // in method setActive(bool1, bool2);
@@ -384,7 +381,6 @@ void DrawCards::connectCardWithMap(){
 
 void DrawCards::showImageAfterReminding(int x){
 
-    //cards = new Cards();
     Generator_of_random_numbers *generator = new Generator_of_random_numbers();
 
     if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39){
@@ -583,9 +579,6 @@ void DrawCards::manageAnswers(){
 
 
 void DrawCards::setResetDrawCards(){
-
-//    statistic *sta = new statistic();
-//    int difficultLvl = sta->read(7,0).toInt();
 
     // reset all the important integers, if a player wants to play again
     counter = 0;

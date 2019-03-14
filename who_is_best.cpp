@@ -22,22 +22,24 @@ int Who_Is_Best::Comparison(){
     int Actual_Correct = db.select("SELECT correct FROM statistic_db ORDER BY id DESC LIMIT 1;)", 0).toInt();
     int Best_Correct = db.select("SELECT b_correct FROM user_settings WHERE id = 1", 0).toInt();
 
+
     //Numbers are the text version used in the summary result when the user ends the game
-    // Better time
+
+                               // Better time
     if( count_ActualTime < count_BestTime && Actual_Correct > Best_Correct )
         return 1;
     else if( count_ActualTime < count_BestTime && Actual_Correct == Best_Correct )
         return 2;
     else if( count_ActualTime < count_BestTime && Actual_Correct < Best_Correct )
         return 3;
-    // At the same time
+                             // At the same time
     else if( count_ActualTime == count_BestTime && Actual_Correct > Best_Correct)
         return 4;
     else if( count_ActualTime == count_BestTime && Actual_Correct == Best_Correct)
         return 5;
     else if( count_ActualTime == count_BestTime && Actual_Correct < Best_Correct)
         return 6;
-    // Worse time
+                                // Worse time
     else if( count_ActualTime > count_BestTime && Actual_Correct > Best_Correct )
         return 7;
     else if( count_ActualTime > count_BestTime && Actual_Correct == Best_Correct)
