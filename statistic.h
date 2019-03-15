@@ -14,7 +14,7 @@ class statistic : public QObject {
     static int wrong;
 
     // private methods
-
+    void hall_of_glory(int level, int X_Position, int Y_Position);
 
 public:
     // constructors
