@@ -200,9 +200,9 @@ void DrawCards::placeCardsHardcore(int x, int y, int cards){
 void DrawCards::createBoard(int x, int y, bool iisActive){
 
     if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39 )
-        cards = new Cards(iisActive, true);
+        cards = new Cards(iisActive, true, x, y );
     else if( difficultLvl == 52 )
-        cards = new Cards(iisActive, false);
+        cards = new Cards(iisActive, false, x, y);
     else
         qDebug() << "Error in method DrawCards::createBoard";
 
@@ -211,7 +211,7 @@ void DrawCards::createBoard(int x, int y, bool iisActive){
     listOfCards.append(cards);
     connect(cards, SIGNAL(clicked()), this, SLOT(addImageWithRandomNumber()));
     game->scene->addItem(cards);
-    counter = difficultLvl - 1; // TODO cheat variable for tests
+    //counter = difficultLvl - 1; // TODO cheat variable for tests
     //counterEnd = 11;
 }
 
@@ -233,7 +233,7 @@ void DrawCards::addImageWithRandomNumber(){
 
                     // remove "back" image in next object and set "active" image
                     game->scene->removeItem(listOfCards[counter+1]);
-                    listOfCards[counter+1]->setPixmap(cards->setActive(true, true));
+                    listOfCards[counter+1]->cards->setActive(true, true);
                     game->scene->addItem(listOfCards[counter+1]);
 
                     counter++;
