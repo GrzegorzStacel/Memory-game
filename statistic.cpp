@@ -4,6 +4,7 @@
 
 #include "game_over.h"
 #include "database.h"
+#include "statistic_set_data.h"
 
 #include <QFile>
 #include <QDebug>
@@ -17,67 +18,37 @@ int statistic::wrong;
 
 void statistic::hall_of_glory(int level, int X_Position, int Y_Position){
 
-    DataBase db;
-    QString bestID = db.select("SELECT * FROM statistic_db WHERE correct = "
-                   "(SELECT MAX(correct) FROM statistic_db WHERE difficult = " + QString::number(level) + ")"
-                   "AND t_time = (SELECT MIN(t_time) FROM statistic_db "
-                   "WHERE correct = (SELECT MAX(correct) FROM statistic_db WHERE difficult = " + QString::number(level) + "))",0);
+    // Search, downloads and checks data
+    statistic_set_data set;
+    set.set_the_data(level);
 
-    qDebug() << "bestId: " << bestID;
-
-
-    QString time = db.select("SELECT t_time FROM statistic_db WHERE id = " + bestID + ";" , 0).remove(8, 4);
-    QString corr = " " + db.select("SELECT correct FROM statistic_db WHERE id = " + bestID + ";" , 0);
-    QString wro = " " + db.select("SELECT wrong FROM statistic_db WHERE id = " + bestID + ";" , 0);
-    qDebug() << "value : " << time;
-    qDebug() << "corr : " << corr;
-    qDebug() << "wro : " << wro;
-
-    QString difficult;
-
-    if(level == 13){
-        difficult = "Easy: ";
-    }
-    else if(level == 26){
-        difficult = "Medium: ";
-    }
-    else if(level == 39){
-        difficult = "Hard: ";
-    }
-    else if(level == 52){
-        difficult = "Hardcore: ";
-    }
-    else
-        difficult = "Error statistic::hall_of_glory()";
-
-
-
-    QGraphicsTextItem *diffi = new QGraphicsTextItem(QString(difficult));
+    // Information on the level of difficulty
+    QGraphicsTextItem *diffi = new QGraphicsTextItem(QString(set.difficult));
     QFont font("comic sans", 21, QFont::Bold);
+    diffi->setDefaultTextColor(set.colour);
     diffi->setFont(font);
-    diffi->setFont(font);
-    diffi->setPos(X_Position, Y_Position);
+    diffi->setPos( X_Position, Y_Position );
     game->scene->addItem(diffi);
 
     // adds a label showing the user best time
-    QGraphicsTextItem *collapse = new QGraphicsTextItem(QString(time));
+    QGraphicsTextItem *collapse = new QGraphicsTextItem(QString(set.time));
+    collapse->setDefaultTextColor(set.colour);
     collapse->setFont(font);
-    collapse->setFont(font);
-    collapse->setPos(X_Position + 270, Y_Position);
+    collapse->setPos( X_Position + 270, Y_Position );
     game->scene->addItem(collapse);
 
     // adds a label showing value of correct answers from the best time
-    QGraphicsTextItem *TbestCorrect = new QGraphicsTextItem(QString("Correct: " + corr));
+    QGraphicsTextItem *TbestCorrect = new QGraphicsTextItem(QString(set.correct));
     TbestCorrect->setFont(font);
     TbestCorrect->setDefaultTextColor(Qt::darkGreen);
-    TbestCorrect->setPos(X_Position + 470, Y_Position);
+    TbestCorrect->setPos( X_Position + 470, Y_Position );
     game->scene->addItem(TbestCorrect);
 
     // adds a label showing value of wrong answers from the best time
-    QGraphicsTextItem *TbestWrong = new QGraphicsTextItem(QString("Wrong: " + wro));
+    QGraphicsTextItem *TbestWrong = new QGraphicsTextItem(QString(set.wrong));
     TbestWrong->setFont(font);
     TbestWrong->setDefaultTextColor(Qt::darkRed);
-    TbestWrong->setPos(X_Position + 680, Y_Position);
+    TbestWrong->setPos( X_Position + 680, Y_Position );
     game->scene->addItem(TbestWrong);
 
 }
@@ -89,9 +60,6 @@ statistic::statistic(){
 void statistic::showstatic(){
 
     DataBase db;
-    QString bestID = db.select("SELECT id FROM statistic_db WHERE correct = (SELECT MAX(correct) FROM statistic_db) "
-                               "AND t_time = (SELECT MIN(t_time) FROM statistic_db "
-                                "WHERE correct = (SELECT MAX(correct) FROM statistic_db))",0);
 
     game_over *over = new game_over();
 
