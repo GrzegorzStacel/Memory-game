@@ -213,6 +213,7 @@ void DrawCards::createBoard(int x, int y, bool iisActive){
     game->scene->addItem(cards);
     //counter = difficultLvl - 1; // TODO cheat variable for tests
     //counterEnd = 11;
+
 }
 
 void DrawCards::addImageWithRandomNumber(){
@@ -282,7 +283,7 @@ void DrawCards::addImageWithRandomNumber(){
                     listOfCards[counter-1]->setActive(false, true);
                     game->scene->addItem(listOfCards[counter-1]);
 
-                    counter++;
+                    //counter++;
 
                     timer time;
                     time.setMRunning(false);
@@ -355,7 +356,6 @@ void DrawCards::addImageWithRandomNumber(){
 
                     counter++;
 
-qDebug() << "counter hardcore last: " << counter;
                     timer time;
                     time.setMRunning(false);
                     isActive = false;
@@ -493,7 +493,7 @@ void DrawCards::remember(int x){
     } else if( difficultLvl == 52 ){
 
         game->scene->removeItem(listOfCards[x]);
-        listOfCards[x]->Picture_Wrong( RandomNumber, false );
+        listOfCards[x]->Picture_Correct( RandomNumber, false );
         game->scene->addItem(listOfCards[x]);
 
     } else
