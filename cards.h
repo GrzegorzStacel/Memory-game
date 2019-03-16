@@ -29,11 +29,14 @@ public:
 
     // Public Methods
     void setActive(bool isActive, bool lvl);
+    void Picture_Neutral(int value, bool lvl);
+    void Picture_Correct(int value, bool lvl);
+    void Picture_Wrong(int value, bool lvl);
 
 
 
     inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
-
+    graphic_cards picture;
 
 
 signals:

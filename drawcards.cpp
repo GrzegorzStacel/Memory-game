@@ -217,23 +217,28 @@ void DrawCards::createBoard(int x, int y, bool iisActive){
 
 void DrawCards::addImageWithRandomNumber(){
 
+
     Generator_of_random_numbers *generator = new Generator_of_random_numbers();
+    int RandomNumber = generator->getRandomNubmer(counter);
+
+
 
     // in method setActive(bool1, bool2);
     //                    1) true = set "active regular" image              false = set "back" image
     //                    2) true = set "active very hard" image            false = set "back very hard" image
     if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39){
 
+
                 if( counter == 0 ){
 
                     //remove first image and set random image
                     game->scene->removeItem(listOfCards[counter]);
-                    listOfCards[counter]->setPixmap(cards->setImageRegularNeutral(generator->getRandomNubmer(counter)));
+                    listOfCards[counter]->Picture_Neutral( RandomNumber , true );
                     game->scene->addItem(listOfCards[counter]);
 
                     // remove "back" image in next object and set "active" image
                     game->scene->removeItem(listOfCards[counter+1]);
-                    listOfCards[counter+1]->cards->setActive(true, true);
+                    listOfCards[counter+1]->setActive(true, true);
                     game->scene->addItem(listOfCards[counter+1]);
 
                     counter++;
@@ -242,17 +247,17 @@ void DrawCards::addImageWithRandomNumber(){
 
                     // remove previus random image and set "back" image
                     game->scene->removeItem(listOfCards[counter-1]);
-                    listOfCards[counter-1]->setPixmap(cards->setActive(false, true));
+                    listOfCards[counter-1]->setActive(false, true);
                     game->scene->addItem(listOfCards[counter-1]);
 
                     // remove "active" image and set random image
                     game->scene->removeItem(listOfCards[counter]);
-                    listOfCards[counter]->setPixmap(cards->setImageRegularNeutral(generator->getRandomNubmer(counter)));
+                    listOfCards[counter]->Picture_Neutral( RandomNumber, true);
                     game->scene->addItem(listOfCards[counter]);
 
                     // remove "back" image and set "activ" image
                     game->scene->removeItem(listOfCards[counter+1]);
-                    listOfCards[counter+1]->setPixmap(cards->setActive(true, true));
+                    listOfCards[counter+1]->setActive(true, true);
                     game->scene->addItem(listOfCards[counter+1]);
 
                     counter++;
@@ -261,12 +266,12 @@ void DrawCards::addImageWithRandomNumber(){
 
                     // remove previus random image and set "back" image
                     game->scene->removeItem(listOfCards[counter-1]);
-                    listOfCards[counter-1]->setPixmap(cards->setActive(false, true));
+                    listOfCards[counter-1]->setActive(false, true);
                     game->scene->addItem(listOfCards[counter-1]);
 
                     // remove "active" image  and set random image
                     game->scene->removeItem(listOfCards[counter]);
-                    listOfCards[counter]->setPixmap(cards->setImageRegularNeutral(generator->getRandomNubmer(counter)));
+                    listOfCards[counter]->Picture_Neutral( RandomNumber, true );
                     game->scene->addItem(listOfCards[counter]);
 
                     counter++;
@@ -274,7 +279,7 @@ void DrawCards::addImageWithRandomNumber(){
                 } else if(counter == difficultLvl){
                     // remove random image and set "back" image
                     game->scene->removeItem(listOfCards[counter-1]);
-                    listOfCards[counter-1]->setPixmap(cards->setActive(false, true));
+                    listOfCards[counter-1]->setActive(false, true);
                     game->scene->addItem(listOfCards[counter-1]);
 
                     counter++;
@@ -299,12 +304,12 @@ void DrawCards::addImageWithRandomNumber(){
 
                     //remove first image and set random image
                     game->scene->removeItem(listOfCards[counter]);
-                    listOfCards[counter]->setPixmap(cards->setImageVeryHardNeutral(generator->getRandomNubmer(counter)));
+                    listOfCards[counter]->Picture_Neutral( RandomNumber, false );
                     game->scene->addItem(listOfCards[counter]);
 
                     // remove "back" image in next object and set "active" image
                     game->scene->removeItem(listOfCards[counter+1]);
-                    listOfCards[counter+1]->setPixmap(cards->setActive(true, false));
+                    listOfCards[counter+1]->setActive(true, false);
                     game->scene->addItem(listOfCards[counter+1]);
 
                     counter++;
@@ -313,17 +318,17 @@ void DrawCards::addImageWithRandomNumber(){
 
                     // remove previus random image and set "back" image
                     game->scene->removeItem(listOfCards[counter-1]);
-                    listOfCards[counter-1]->setPixmap(cards->setActive(false, false));
+                    listOfCards[counter-1]->setActive(false, false);
                     game->scene->addItem(listOfCards[counter-1]);
 
                     // remove "active" image and set random image
                     game->scene->removeItem(listOfCards[counter]);
-                    listOfCards[counter]->setPixmap(cards->setImageVeryHardNeutral(generator->getRandomNubmer(counter)));
+                    listOfCards[counter]->Picture_Neutral( RandomNumber, false );
                     game->scene->addItem(listOfCards[counter]);
 
                     // remove "back" image and set "activ" image
                     game->scene->removeItem(listOfCards[counter+1]);
-                    listOfCards[counter+1]->setPixmap(cards->setActive(true, false));
+                    listOfCards[counter+1]->setActive(true, false);
                     game->scene->addItem(listOfCards[counter+1]);
 
                     counter++;
@@ -332,12 +337,12 @@ void DrawCards::addImageWithRandomNumber(){
 
                     // remove previus random image and set "back" image
                     game->scene->removeItem(listOfCards[counter-1]);
-                    listOfCards[counter-1]->setPixmap(cards->setActive(false, false));
+                    listOfCards[counter-1]->setActive(false, false);
                     game->scene->addItem(listOfCards[counter-1]);
 
                     // remove "active" image  and set random image
                     game->scene->removeItem(listOfCards[counter]);
-                    listOfCards[counter]->setPixmap(cards->setImageVeryHardNeutral(generator->getRandomNubmer(counter)));
+                    listOfCards[counter]->Picture_Neutral( RandomNumber, false );
                     game->scene->addItem(listOfCards[counter]);
 
                     counter++;
@@ -345,7 +350,7 @@ void DrawCards::addImageWithRandomNumber(){
                 } else if(counter == difficultLvl){
                     // remove random image and set "back" image
                     game->scene->removeItem(listOfCards[counter-1]);
-                    listOfCards[counter-1]->setPixmap(cards->setActive(false, false));
+                    listOfCards[counter-1]->setActive(false, false);
                     game->scene->addItem(listOfCards[counter-1]);
 
                     counter++;
@@ -386,17 +391,18 @@ void DrawCards::connectCardWithMap(){
 void DrawCards::showImageAfterReminding(int x){
 
     Generator_of_random_numbers *generator = new Generator_of_random_numbers();
+    int RandomNumber = generator->getRandomNubmer(x);
 
     if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39){
 
         game->scene->removeItem(listOfCards[x]);
-        listOfCards[x]->setPixmap(cards->setImageRegularNeutral(generator->getRandomNubmer(x)));
+        listOfCards[x]->Picture_Neutral( RandomNumber, true );
         game->scene->addItem(listOfCards[x]);
 
     } else if( difficultLvl == 52 ){
 
         game->scene->removeItem(listOfCards[x]);
-        listOfCards[x]->setPixmap(cards->setImageVeryHardNeutral(generator->getRandomNubmer(x)));
+        listOfCards[x]->Picture_Neutral( RandomNumber, false );
         game->scene->addItem(listOfCards[x]);
 
     } else
@@ -471,6 +477,8 @@ bool DrawCards::isItRepeat(int xNumber, int selected){
 void DrawCards::remember(int x){
 
     Generator_of_random_numbers *generator = new Generator_of_random_numbers();
+    int RandomNumber = generator->getRandomNubmer(x);
+
 
     // add value to statistic ( correct answer )
     stat->setCorrect(1);
@@ -478,13 +486,13 @@ void DrawCards::remember(int x){
     if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39){
 
         game->scene->removeItem(listOfCards[x]);
-        listOfCards[x]->setPixmap(cards->setImageRegularCorrect(generator->getRandomNubmer(x)));
+        listOfCards[x]->Picture_Correct( RandomNumber, true );
         game->scene->addItem(listOfCards[x]);
 
     } else if( difficultLvl == 52 ){
 
         game->scene->removeItem(listOfCards[x]);
-        listOfCards[x]->setPixmap(cards->setImageVeryHardCorrect(generator->getRandomNubmer(x)));
+        listOfCards[x]->Picture_Wrong( RandomNumber, false );
         game->scene->addItem(listOfCards[x]);
 
     } else
@@ -498,6 +506,8 @@ void DrawCards::remember(int x){
 void DrawCards::wrong(int x){
 
     Generator_of_random_numbers *generator = new Generator_of_random_numbers();
+    int RandomNumber = generator->getRandomNubmer(x);
+
 
     // add value to statistic ( wrong answer )
     stat->setWrong(1);
@@ -505,13 +515,13 @@ void DrawCards::wrong(int x){
     if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39){
 
         game->scene->removeItem(listOfCards[x]);
-        listOfCards[x]->setPixmap(cards->setImageRegularWrong(generator->getRandomNubmer(x)));
+        listOfCards[x]->Picture_Wrong( RandomNumber, true );
         game->scene->addItem(listOfCards[x]);
 
     } else if( difficultLvl == 52 ){
 
         game->scene->removeItem(listOfCards[x]);
-        listOfCards[x]->setPixmap(cards->setImageVeryHardWrong(generator->getRandomNubmer(x)));
+        listOfCards[x]->Picture_Wrong( RandomNumber, false );
         game->scene->addItem(listOfCards[x]);
 
     } else

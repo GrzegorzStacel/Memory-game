@@ -36,3 +36,31 @@ void Cards::setActive(bool isActive, bool lvl){
 
 }
 
+void Cards::Picture_Neutral(int value, bool lvl){
+
+    if( lvl == true )
+        setPixmap(picture.setImageRegularNeutral(value));
+
+    else if( lvl == false )
+        setPixmap(picture.setImageVeryHardNeutral(value));
+
+}
+
+void Cards::Picture_Correct(int value, bool lvl){
+
+    if( lvl == true)
+        setPixmap(picture.setImageRegularCorrect(value));
+
+    else if( lvl == false  )
+        setPixmap(picture.setImageVeryHardCorrect(value));
+}
+
+void Cards::Picture_Wrong(int value, bool lvl){
+
+    if( lvl == true )
+        setPixmap(picture.setImageRegularWrong(value));
+
+    else if( lvl == false )
+        setPixmap(picture.setImageVeryHardWrong(value));
+}
+

@@ -24,12 +24,6 @@ public:
 
     QString setActive(bool side, bool lvl);
 
-    inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
-
-signals:
-
-    //signals
-    void clicked();
 };
 
 #endif // GRAPHIC_CARDS_H
