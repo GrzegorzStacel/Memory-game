@@ -65,7 +65,6 @@ public:
     // setters
     void setResetDrawCards();
     void setVariableForChooseImage(const int value)         { variableForChooseImage = value; }
-    void setDifficultLvl(const int value)                   { difficultLvl = value; }
 
     // getters
     int getVariableForChooseImage()                         { return variableForChooseImage; }
