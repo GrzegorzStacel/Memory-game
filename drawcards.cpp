@@ -5,6 +5,7 @@
 #include "timer.h"
 #include "generator_of_random_numbers.h"
 
+
 #include <QBrush>
 #include "QDebug"
 #include <QPixmap>
@@ -33,190 +34,36 @@ void DrawCards::drawcardsManager(int level){
 
     difficultLvl = level;
 
-    if( difficultLvl == 13 )
-        placeCardsEasy(475, 650, level);
-    if( difficultLvl == 26 )
-        placeCardsMedium(120, 720, level);
-    if( difficultLvl == 39 )
-        placeCardsHard(5, 740, level);
-    if( difficultLvl == 52 )
-        placeCardsHardcore(70, 790, level);
-}
-void DrawCards::placeCardsEasy(int x, int y, int cards){
+    {
+        Cards_Position position;
+        position.select_lvl(level);
 
-    int X_SHIFT = 0;
-    int Y_SHIFT = 0;
-    bool isActive = false; // this variable is used by the constructor as the card argument in (this->) createBoard method
-
-    for( int i = 0, n = cards; i < n; i++){
-
-        if( i == 0 )
-            isActive = true;
-        else
-            isActive = false;
-
-        if( i % 3 == 0 && i != 6 ) // distance from triples
-            X_SHIFT += 100;
-
-        else if( i % 6 == 0 || i % 12 == 0 ){ // new row
-            X_SHIFT = 0;
-            Y_SHIFT -= 250;
-        }
-
-        if( i == 0 || i == 6) // distance of first cards from the left side
-            X_SHIFT = 50;
-        else // distance from cards (inside triples)
-            X_SHIFT += 150;
-
-        if( i == 12 ){ // distance in third row (last card)
-            X_SHIFT = 475;
-            Y_SHIFT -= 250;
-        }
-
-        createBoard(x + X_SHIFT, y + Y_SHIFT, isActive);
-
-        // coordinates for correct and wrong buttons in DrawCards::showImageAfterReminding(int x) method
-        x_posOfCard[i] = x + X_SHIFT;
-        y_posOfCard[i] = y + Y_SHIFT;
-    }
-}
-
-void DrawCards::placeCardsMedium(int x, int y, int cards){
-
-    int X_SHIFT = 0;
-    int Y_SHIFT = 0;
-    bool isActive = false; // this variable is used by the constructor as the card argument in (this->) createBoard method
-
-    for( int i = 0; i < cards; i++){
-
-        if( i == 0 )
-            isActive = true;
-        else
-            isActive = false;
-
-
-        if( i % 3 == 0 && i != 9 && i != 18 && i != 24 ) // distance from triples
-            X_SHIFT += 100;
-
-        else if( i == 9 || i == 18 || i == 24 ){ // new row
-            X_SHIFT = 0;
-            Y_SHIFT -= 230;
-        }
-
-
-        if( i == 0 || i == 9  ) // distance of first cards from the left side
-            X_SHIFT = 50;
-        else // distance from cards (inside triples)
-            X_SHIFT += 150;
-
-
-        if( i == 18 ) // distance in third row
-            X_SHIFT = 325;
-
-        else if( i == 24 ) // distance in fourth row
-            X_SHIFT = 670;
-
-
-        createBoard(x + X_SHIFT, y + Y_SHIFT, isActive);
-
-        // coordinates for correct and wrong buttons in DrawCards::showImageAfterReminding(int x) method
-        x_posOfCard[i] = x + X_SHIFT;
-        y_posOfCard[i] = y + Y_SHIFT;
-    }
-}
-
-void DrawCards::placeCardsHard(int x, int y, int cards){
-
-    int X_SHIFT = 0;
-    int Y_SHIFT = 0;
-    bool isActive = false; // this variable is used by the constructor as the card argument in (this->) createBoard method
-
-    for( int i = 0; i < cards; i++){
-
-        if( i == 0 )
-            isActive = true;
-        else
-            isActive = false;
-
-
-        if( i % 3 == 0 && i != 12 && i != 24 && i != 36) // distance from triples
-            X_SHIFT += 40;
-
-        else if( i == 12 || i == 24 || i == 36 ){ // new row
-            X_SHIFT = 0;
-            Y_SHIFT -= 230;
-        }
-
-
-        if( i == 0 || i == 12 || i == 24 ) // distance of first cards from the left side
-            X_SHIFT = 30;
-        else // distance from cards (inside triples)
-            X_SHIFT += 145;
-
-
-        if( i == 36 ) // distance in fourth row
-            X_SHIFT = 730;
-
-
-        createBoard(x + X_SHIFT, y + Y_SHIFT, isActive);
-
-        // coordinates for correct and wrong buttons in DrawCards::showImageAfterReminding(int x) method
-        x_posOfCard[i] = x + X_SHIFT;
-        y_posOfCard[i] = y + Y_SHIFT;
-    }
-}
-
-void DrawCards::placeCardsHardcore(int x, int y, int cards){
-
-    int X_SHIFT = 0;
-    int Y_SHIFT = 0;
-    bool isActive = false; // this variable is used by the constructor as the card argument in (this->) createBoard method
-
-    for( int i = 0; i < cards; i++){
-
-        if( i == 0 )
-            isActive = true;
-        else
-            isActive = false;
-
-
-        if( i % 3 == 0 && i != 12 && i != 24 && i != 36 && i != 48) // distance from triples
-            X_SHIFT += 40;
-
-        else if( i == 12 || i == 24 || i == 36 || i == 48){ // new row
-            X_SHIFT = 0;
-            Y_SHIFT -= 190;
-        }
-
-
-        if( i == 0 || i == 12 || i == 24 || i == 36) // distance of first cards from the left side
-            X_SHIFT = 30;
-        else // distance from cards (inside triples)
-            X_SHIFT += 135;
-
-
-        if( i == 48 ) // distance in fourth row
-            X_SHIFT = 630;
-
-
-        createBoard(x + X_SHIFT, y + Y_SHIFT, isActive);
-
-        // coordinates for correct and wrong buttons in method DrawCards::showImageAfterReminding(int x)
-        x_posOfCard[i] = x + X_SHIFT;
-        y_posOfCard[i] = y + Y_SHIFT;
+        createCards(position);
     }
 
+
 }
+void DrawCards::createCards(Cards_Position & position){
 
+    int x = 0, y = 0;
+    bool activ, which;
 
-void DrawCards::createBoard(int x, int y, bool iisActive){
+    for(int i = 0; i < difficultLvl; ++i ){
 
-    cards = new Cards(iisActive, true, x, y );
+        x = position.getX_POS(i);
+        y = position.getY_POS(i);
+        activ = position.getActive(i);
+        which = position.getWhich_Card();
 
-    cards->setPos(x, y);
-    listOfCards.append(cards);
-    connect(cards, SIGNAL(clicked()), this, SLOT(addImageWithRandomNumber()));
-    game->scene->addItem(cards);
+        cards = new Cards(activ, true, x, y );
+
+        cards->setPos(x, y);
+        listOfCards.append(cards);
+        connect(cards, SIGNAL(clicked()), this, SLOT(addImageWithRandomNumber()));
+        game->scene->addItem(cards);
+    }
+
+    // Cheating variable that speeds up tests
     //counter = difficultLvl - 1; // TODO cheat variable for tests
     //counterEnd = 11;
 

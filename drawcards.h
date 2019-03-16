@@ -5,6 +5,7 @@
 #include "cards.h"
 #include "statistic.h"
 #include "graphic_others.h"
+#include "cards_position.h"
 
 #include <QObject>
 #include <QGraphicsSceneMouseEvent>
@@ -40,14 +41,11 @@ private:
     static int difficultLvl;
 
     // private methods
-    void createBoard(int x, int y, bool iisActive);
+    void createCards(Cards_Position &);
     void connectCardWithMap();
     bool isItRepeat(int, int);
     void manageAnswers();
-    void placeCardsEasy(int x, int y, int cards);
-    void placeCardsMedium(int x, int y, int cards);
-    void placeCardsHard(int x, int y, int cards);
-    void placeCardsHardcore(int x, int y, int cards);
+
 
 public:
 
