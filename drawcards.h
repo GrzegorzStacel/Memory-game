@@ -44,7 +44,10 @@ private:
     void connectCardWithMap();
     bool isItRepeat(int, int);
     void manageAnswers();
-
+    void placeCardsEasy(int x, int y, int cards);
+    void placeCardsMedium(int x, int y, int cards);
+    void placeCardsHard(int x, int y, int cards);
+    void placeCardsHardcore(int x, int y, int cards);
 
 public:
 
@@ -56,10 +59,7 @@ public:
     static bool isActive;
 
     // public methods
-    void placeCardsEasy(int x, int y, int cards);
-    void placeCardsMedium(int x, int y, int cards);
-    void placeCardsHard(int x, int y, int cards);
-    void placeCardsHardcore(int x, int y, int cards);
+    void drawcardsManager(int level);
     inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
 
     // setters

@@ -29,7 +29,19 @@ int DrawCards::difficultLvl;
 DrawCards::DrawCards(){
 
 }
+void DrawCards::drawcardsManager(int level){
 
+    difficultLvl = level;
+
+    if( difficultLvl == 13 )
+        placeCardsEasy(475, 650, level);
+    if( difficultLvl == 26 )
+        placeCardsMedium(120, 720, level);
+    if( difficultLvl == 39 )
+        placeCardsHard(5, 740, level);
+    if( difficultLvl == 52 )
+        placeCardsHardcore(70, 790, level);
+}
 void DrawCards::placeCardsEasy(int x, int y, int cards){
 
     int X_SHIFT = 0;

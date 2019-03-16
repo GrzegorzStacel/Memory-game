@@ -8,8 +8,6 @@
 #include <QtDebug>
 #include <QTimer>
 #include <QTime>
-//#include <QSqlQuery>
-//#include <QSqlQueryModel>
 
 Game::Game(){
 
@@ -64,17 +62,7 @@ void Game::start(){
     timer.start();
 
     draw = new DrawCards();
-    draw->setDifficultLvl(difficultLvl);
-
-    if( difficultLvl == 13 )
-        draw->placeCardsEasy(475, 650, difficultLvl);
-    if( difficultLvl == 26 )
-        draw->placeCardsMedium(120, 720, difficultLvl);
-    if( difficultLvl == 39 )
-        draw->placeCardsHard(5, 740, difficultLvl);
-    if( difficultLvl == 52 )
-        draw->placeCardsHardcore(70, 790, difficultLvl);
-
+    draw->drawcardsManager(difficultLvl);
 
 }
 
