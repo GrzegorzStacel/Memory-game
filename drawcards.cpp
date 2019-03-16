@@ -211,13 +211,7 @@ void DrawCards::placeCardsHardcore(int x, int y, int cards){
 
 void DrawCards::createBoard(int x, int y, bool iisActive){
 
-    if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39 )
-        cards = new Cards(iisActive, true, x, y );
-    else if( difficultLvl == 52 )
-        cards = new Cards(iisActive, false, x, y);
-    else
-        qDebug() << "Error in method DrawCards::createBoard";
-
+    cards = new Cards(iisActive, true, x, y );
 
     cards->setPos(x, y);
     listOfCards.append(cards);
