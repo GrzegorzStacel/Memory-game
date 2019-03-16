@@ -281,23 +281,26 @@ void DrawCards::showImageAfterReminding(int x){
     Graphic_others *corr = new Graphic_others();
     Graphic_others *wron = new Graphic_others();
 
+    int x_pos = listOfCards[x]->getX_POS();
+    int y_pos = listOfCards[x]->getY_POS();
+
     // Add the buttons correct and wrong
 
     if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39){
 
         corr->setPixmap(corr->setImageOthers(7));
-        corr->setPos(x_posOfCard[x] + 20, y_posOfCard[x] + 20);
+        corr->setPos(x_pos + 20, y_pos + 20);
 
         wron->setPixmap(wron->setImageOthers(8));
-        wron->setPos(x_posOfCard[x] + 35, y_posOfCard[x] + 105);
+        wron->setPos(x_pos + 35, y_pos + 105);
 
     } else if( difficultLvl == 52 ){
 
         corr->setPixmap(corr->setImageOthers(9));
-        corr->setPos(x_posOfCard[x] + 15, y_posOfCard[x] + 15);
+        corr->setPos(x_pos + 15, y_pos + 15);
 
         wron->setPixmap(wron->setImageOthers(10));
-        wron->setPos(x_posOfCard[x] + 25, y_posOfCard[x] + 100);
+        wron->setPos(x_pos + 25, y_pos + 100);
 
     } else
         qDebug() << "Error in method DrawCards::showImageAfterReminding(); - if( difficultLvl == 13 ||...";
