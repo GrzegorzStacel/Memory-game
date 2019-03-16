@@ -16,7 +16,7 @@
 
 extern Game *game;
 
-int DrawCards::counter;
+int DrawCards::counter = 0;
 int DrawCards::counterEnd = 0;
 int DrawCards::tmp;
 int DrawCards::x_posOfCard[];
@@ -355,16 +355,17 @@ void DrawCards::addImageWithRandomNumber(){
 
                     counter++;
 
+qDebug() << "counter hardcore last: " << counter;
                     timer time;
                     time.setMRunning(false);
                     isActive = false;
                     time.stop();
 
                     // create text annoucning winner
-                    //graphic = new Graphic_others();
-                    graphic->setPos(game->scene->width()/4+70, 15);
-                    graphic->setPixmap(graphic->setImageOthers(5));
-                    game->scene->addItem(graphic);
+                    inf_clock_stop = new Graphic_others();
+                    inf_clock_stop->setPos(game->scene->width()/4+70, 15);
+                    inf_clock_stop->setPixmap(graphic->setImageOthers(5));
+                    game->scene->addItem(inf_clock_stop);
 
                     connectCardWithMap();
                 }
