@@ -20,8 +20,6 @@ extern Game *game;
 int DrawCards::counter = 0;
 int DrawCards::counterEnd = 0;
 int DrawCards::tmp;
-int DrawCards::x_posOfCard[];
-int DrawCards::y_posOfCard[];
 int DrawCards::antiRepetition[];
 bool DrawCards::isActive = true;
 int DrawCards::variableForChooseImage;
@@ -397,7 +395,6 @@ void DrawCards::manageAnswers(){
 
         //counterEnd = 12; // TODO delete counterend = 12
     }
-
 
     // remove buttons (correct and wrong) under selected card
     for(int i = 0; i < buttons.size(); i++){

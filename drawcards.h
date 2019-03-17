@@ -35,8 +35,6 @@ private:
     static int tmp;
     static int counter;
     static int counterEnd;
-    static int x_posOfCard[52]; // TODO change value to difficult
-    static int y_posOfCard[52]; // TODO change value to difficult
     static int variableForChooseImage;
     static int difficultLvl;
 
