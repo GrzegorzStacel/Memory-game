@@ -134,7 +134,7 @@ void DrawCards::addImageWithRandomNumber(){
                     listOfCards[counter-1]->setActive(false, true);
                     game->scene->addItem(listOfCards[counter-1]);
 
-                    //counter++;
+                    counter++;
 
                     timer time;
                     time.setMRunning(false);
