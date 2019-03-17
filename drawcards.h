@@ -37,6 +37,7 @@ private:
     static int counterEnd;
     static int variableForChooseImage;
     static int difficultLvl;
+    bool finish;
 
     // private methods
     void createCards(Cards_Position &);

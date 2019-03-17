@@ -61,6 +61,8 @@ void DrawCards::createCards(Cards_Position & position){
         game->scene->addItem(cards);
     }
 
+    finish = true;
+
     // Cheating variable that speeds up tests
     //counter = difficultLvl - 1; // TODO cheat variable for tests
     //counterEnd = 11;
@@ -141,10 +143,17 @@ void DrawCards::addImageWithRandomNumber(){
                     isActive = false;
                     time.stop();
 
-                    // create text annoucning winner
-                    inf_clock_stop->setPos(game->scene->width()/4+70, 15);
-                    inf_clock_stop->setPixmap(inf_clock_stop->setImageOthers(5));
-                    game->scene->addItem(inf_clock_stop);
+
+                    if( finish ){
+
+                        // create text annoucning winner
+                        inf_clock_stop->setPos(game->scene->width()/4+70, 15);
+                        inf_clock_stop->setPixmap(inf_clock_stop->setImageOthers(5));
+                        game->scene->addItem(inf_clock_stop);
+
+                        finish = false;
+
+                    }
 
                     connectCardWithMap();
                 }
@@ -211,10 +220,16 @@ void DrawCards::addImageWithRandomNumber(){
                     isActive = false;
                     time.stop();
 
-                    // create text annoucning winner
-                    inf_clock_stop->setPos(game->scene->width()/4+70, 15);
-                    inf_clock_stop->setPixmap(inf_clock_stop->setImageOthers(5));
-                    game->scene->addItem(inf_clock_stop);
+                    if( finish ){
+
+                        // create text annoucning winner
+                        inf_clock_stop->setPos(game->scene->width()/4+70, 15);
+                        inf_clock_stop->setPixmap(inf_clock_stop->setImageOthers(5));
+                        game->scene->addItem(inf_clock_stop);
+
+                        finish = false;
+
+                    }
 
                     connectCardWithMap();
                 }
