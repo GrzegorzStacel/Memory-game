@@ -55,7 +55,7 @@ void DrawCards::createCards(Cards_Position & position){
         activ = position.getActive(i);
         which = position.getWhich_Card();
 
-        cards = new Cards(activ, true, x, y );
+        cards = new Cards(activ, which, x, y );
 
         cards->setPos(x, y);
         listOfCards.append(cards);
