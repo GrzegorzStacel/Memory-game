@@ -144,9 +144,8 @@ void DrawCards::addImageWithRandomNumber(){
                     time.stop();
 
                     // create text annoucning winner
-                    inf_clock_stop = new Graphic_others();
                     inf_clock_stop->setPos(game->scene->width()/4+70, 15);
-                    inf_clock_stop->setPixmap(graphic->setImageOthers(5));
+                    inf_clock_stop->setPixmap(inf_clock_stop->setImageOthers(5));
                     game->scene->addItem(inf_clock_stop);
 
                     connectCardWithMap();
@@ -215,9 +214,8 @@ void DrawCards::addImageWithRandomNumber(){
                     time.stop();
 
                     // create text annoucning winner
-                    inf_clock_stop = new Graphic_others();
                     inf_clock_stop->setPos(game->scene->width()/4+70, 15);
-                    inf_clock_stop->setPixmap(graphic->setImageOthers(5));
+                    inf_clock_stop->setPixmap(inf_clock_stop->setImageOthers(5));
                     game->scene->addItem(inf_clock_stop);
 
                     connectCardWithMap();
