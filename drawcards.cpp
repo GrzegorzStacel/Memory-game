@@ -19,10 +19,10 @@ extern Game *game;
 
 int DrawCards::counter = 0;
 int DrawCards::counterEnd = 0;
+int DrawCards::variableForChooseImage;
 int DrawCards::tmp;
 bool DrawCards::isActive = true;
-int DrawCards::variableForChooseImage;
-int DrawCards::difficultLvl;
+
 
 DrawCards::DrawCards(){
 
@@ -38,8 +38,8 @@ void DrawCards::drawcardsManager(int level){
         createCards(position);
     }
 
-
 }
+
 void DrawCards::createCards(Cards_Position & position){
 
     int x = 0, y = 0;
@@ -278,9 +278,10 @@ void DrawCards::showImageAfterReminding(int x){
             listOfCards[i]->setEnabled(false);
 
     // check if the card has been re-selected - if yes set disable this card
+
     if( isItRepeat( x, tmp ) == false ){
 
-        antiRepetition.append( x );
+        antiRepetition.insert( tmp, x );
         tmp++;
         counterEnd++;
 
@@ -334,9 +335,20 @@ bool DrawCards::isItRepeat(int xNumber, int selected){
     if( selected <= 0 )
         return false;
 
+
+for(int i =0; i<selected; i++){
+    qDebug() << i << "A. isrepeat: " << antiRepetition.value(i);
+    qDebug() << i << "B. xNumber: " << xNumber << endl;
+}
+qDebug() << "==================================";
+
+
     for(int i = 0; i < selected; i++){
-        if( antiRepetition[i] == xNumber)
+    qDebug() << "sprawdzam antirepetition( " << i << " ): " << antiRepetition.value(i) << " i xnumber : " << xNumber;
+        if( antiRepetition.value( i ) == xNumber){
+            qDebug() << "antirepetition( " << i << " ) " << antiRepetition.value(i) << " == xnumber czyli nr karty ( " << xNumber << " )";
             return true;
+        }
     }
 
     return false;
@@ -435,6 +447,7 @@ void DrawCards::manageAnswers(){
     int n = 0;
 
     do{
+        qDebug() << "i = " << i << " ,antirepetition ( " << n << " ) : " << antiRepetition.value(n) << " , tmp : " << tmp;
         if( i == antiRepetition.value( n ) && n <= tmp ){
 
             listOfCards[ antiRepetition.value( n ) ]->setEnabled(false);

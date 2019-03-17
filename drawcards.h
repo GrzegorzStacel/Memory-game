@@ -32,11 +32,13 @@ private:
     QList<Cards *> listOfCards;
     QList<Graphic_others *> buttons;
     QList<int> antiRepetition;
-    static int tmp;
+
     static int counter;
     static int counterEnd;
     static int variableForChooseImage;
-    static int difficultLvl;
+
+    static int tmp;
+    int difficultLvl;
     bool finish;
 
     // private methods
