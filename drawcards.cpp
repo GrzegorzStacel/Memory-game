@@ -20,7 +20,6 @@ extern Game *game;
 int DrawCards::counter = 0;
 int DrawCards::counterEnd = 0;
 int DrawCards::tmp;
-int DrawCards::antiRepetition[];
 bool DrawCards::isActive = true;
 int DrawCards::variableForChooseImage;
 int DrawCards::difficultLvl;
@@ -280,7 +279,8 @@ void DrawCards::showImageAfterReminding(int x){
 
     // check if the card has been re-selected - if yes set disable this card
     if( isItRepeat( x, tmp ) == false ){
-        antiRepetition[ tmp ] = x;
+
+        antiRepetition.append( x );
         tmp++;
         counterEnd++;
 
@@ -422,11 +422,11 @@ void DrawCards::manageAnswers(){
 
     for(int j = 0; j < tmp - 1; j++)
         for(int i = 0; i < tmp - 1; i++)
-          if(antiRepetition[i] > antiRepetition[i + 1]) {
+          if(antiRepetition.value( i )  > antiRepetition.value( i + 1 )) {
 
-            x = antiRepetition[i];
-            antiRepetition[i] = antiRepetition[i + 1];
-            antiRepetition[i + 1] = x;
+            x = antiRepetition.value( i );
+            antiRepetition.insert( i, antiRepetition.value( i + 1 ) );
+            antiRepetition.insert( i + 1, x );
     }
 
 
@@ -435,12 +435,12 @@ void DrawCards::manageAnswers(){
     int n = 0;
 
     do{
-        if( i == antiRepetition[n] && n <= tmp ){
+        if( i == antiRepetition.value( n ) && n <= tmp ){
 
-
-            listOfCards[ antiRepetition[n] ]->setEnabled(false);
+            listOfCards[ antiRepetition.value( n ) ]->setEnabled(false);
             n++;
             i++;
+
         } else{
 
             listOfCards[i]->setEnabled(true);
@@ -471,8 +471,7 @@ void DrawCards::setResetDrawCards(){
     counterEnd = 0;
     tmp = 0;
 
-    for( int i = 0; i < difficultLvl; i++)
-        antiRepetition[i] = 0;
+    antiRepetition.clear();
 
     isActive = true;
     listOfCards.clear();

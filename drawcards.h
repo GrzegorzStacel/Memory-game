@@ -31,7 +31,7 @@ private:
     //private attributes
     QList<Cards *> listOfCards;
     QList<Graphic_others *> buttons;
-    static int antiRepetition[52]; // TODO change value to difficult
+    QList<int> antiRepetition;
     static int tmp;
     static int counter;
     static int counterEnd;
