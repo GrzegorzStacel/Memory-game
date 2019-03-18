@@ -44,7 +44,8 @@ SOURCES += \
     database.cpp \
     statistic_set_data.cpp \
     graphic_cards.cpp \
-    cards_position.cpp
+    cards_position.cpp \
+    traverse.cpp
 
 HEADERS += \
     game.h \
@@ -63,7 +64,8 @@ HEADERS += \
     database.h \
     statistic_set_data.h \
     graphic_cards.h \
-    cards_position.h
+    cards_position.h \
+    traverse.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
