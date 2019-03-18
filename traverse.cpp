@@ -1,6 +1,11 @@
 #include "traverse.h"
 
-Traverse::Traverse()
-{
+#include <QDebug>
 
+Traverse::Traverse(){
+   qDebug() << "in";
 }
+
+//void Traverse::lets_start(){
+//    qDebug() << "run";
+//}

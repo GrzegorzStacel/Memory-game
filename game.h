@@ -11,6 +11,7 @@
 
 #include "statistic.h"
 #include "database.h"
+#include "traverse.h"
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
@@ -37,7 +38,7 @@ public:
     DrawCards *draw;
     QGraphicsScene *scene;
     QGraphicsTextItem *titleText;
-    MainButtons *playButton, *quitbutton, *statisticsbutton, *optionsbutton;
+    MainButtons *playButton, *quitbutton, *statisticsbutton, *optionsbutton, *travers;
     game_over *overGame;
     timer timer;
     options_difficulty_level *difficult;

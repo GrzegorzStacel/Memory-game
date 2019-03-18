@@ -88,22 +88,29 @@ void Game::displayMainMenu(){
     connect(playButton,SIGNAL(clicked()), this, SLOT(start()));
     scene->addItem(playButton);
 
+    // create the travers button
+    Traverse *trav = new Traverse();
+//    travers = new MainButtons(QString("Travers"));
+//    travers->setPos(bxPos,550);
+//    connect(travers, SIGNAL(clicked()), trav, SLOT(lets_start()));
+//    scene->addItem(travers);
+//    trav->lets_start();
     // create the statistics button
     statisticsbutton = new MainButtons(QString("Statistic"));
-    statisticsbutton->setPos(bxPos, 550);
+    statisticsbutton->setPos(bxPos, 650);
     connect(statisticsbutton, SIGNAL(clicked()), this, SLOT(statisticbutton()));
     scene->addItem(statisticsbutton);
 
     // create the options button
     optionsbutton = new MainButtons(QString("Options"));
     difficult = new options_difficulty_level();
-    optionsbutton->setPos(bxPos, 650);
+    optionsbutton->setPos(bxPos, 750);
     connect(optionsbutton, SIGNAL(clicked()), difficult, SLOT(show_options()));
     scene->addItem(optionsbutton);
 
     // create the quit button
     quitbutton = new MainButtons(QString("Quit"));
-    quitbutton->setPos(bxPos,750);
+    quitbutton->setPos(bxPos,850);
     connect(quitbutton, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quitbutton);
 
