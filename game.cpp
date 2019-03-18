@@ -90,11 +90,11 @@ void Game::displayMainMenu(){
 
     // create the travers button
     Traverse *trav = new Traverse();
-//    travers = new MainButtons(QString("Travers"));
-//    travers->setPos(bxPos,550);
-//    connect(travers, SIGNAL(clicked()), trav, SLOT(lets_start()));
-//    scene->addItem(travers);
-//    trav->lets_start();
+    travers = new MainButtons(QString("Travers"));
+    travers->setPos(bxPos,550);
+    connect(travers, SIGNAL(clicked()), trav, SLOT(lets_start()));
+    scene->addItem(travers);
+
     // create the statistics button
     statisticsbutton = new MainButtons(QString("Statistic"));
     statisticsbutton->setPos(bxPos, 650);

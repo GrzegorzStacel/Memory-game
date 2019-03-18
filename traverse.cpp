@@ -1,11 +1,14 @@
 #include "traverse.h"
+#include "game.h"
 
 #include <QDebug>
 
+extern Game *game;
+
 Traverse::Traverse(){
-   qDebug() << "in";
+
 }
 
-//void Traverse::lets_start(){
-//    qDebug() << "run";
-//}
+void Traverse::lets_start(){
+    qDebug() << "run";
+}
