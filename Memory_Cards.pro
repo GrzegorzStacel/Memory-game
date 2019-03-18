@@ -42,7 +42,9 @@ SOURCES += \
     statistic_is_best_time.cpp \
     who_is_best.cpp \
     database.cpp \
-    statistic_set_data.cpp
+    statistic_set_data.cpp \
+    graphic_cards.cpp \
+    cards_position.cpp
 
 HEADERS += \
     game.h \
@@ -59,7 +61,9 @@ HEADERS += \
     statistic_is_best_time.h \
     who_is_best.h \
     database.h \
-    statistic_set_data.h
+    statistic_set_data.h \
+    graphic_cards.h \
+    cards_position.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

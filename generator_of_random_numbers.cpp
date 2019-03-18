@@ -7,6 +7,7 @@ int Generator_of_random_numbers::RandomNumbers[52];
 Generator_of_random_numbers::Generator_of_random_numbers(){
 
 }
+
 void Generator_of_random_numbers::GenerateNumber(int difficultLvl){
 
     srand(time ( nullptr ));

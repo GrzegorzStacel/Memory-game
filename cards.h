@@ -1,6 +1,9 @@
 #ifndef CARDS_H
 #define CARDS_H
 
+
+#include "graphic_cards.h"
+
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsTextItem>
 #include <QObject>
@@ -9,24 +12,33 @@
 class Cards : public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 
-public:
+private:
+    bool isActive;
+    bool level;
+    int x_pos_card;
+    int y_pos_card;
+    int graphic;
 
+public:
     // constructors
     Cards();
-    Cards(bool isActive, bool lvl);
+    Cards(bool active, bool lvl, int x_car, int y_car);
 
-    // public methods
-    QString setImageRegularNeutral(int number);
-    QString setImageRegularWrong(int number);
-    QString setImageRegularCorrect(int number);
 
-    QString setImageVeryHardNeutral(int number);
-    QString setImageVeryHardWrong(int number);
-    QString setImageVeryHardCorrect(int number);
+    // Public Methods
+    void setActive(bool isActive, bool lvl);
+    void Picture_Neutral(int value, bool lvl);
+    void Picture_Correct(int value, bool lvl);
+    void Picture_Wrong(int value, bool lvl);
 
-    QString setActive(bool side, bool lvl);
+    // getters
+    int getX_POS() const { return x_pos_card; }
+    int getY_POS() const { return y_pos_card; }
+
 
     inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
+    graphic_cards picture;
+
 
 signals:
 

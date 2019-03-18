@@ -22,6 +22,7 @@ timer::timer(){
 }
 
 void timer::start(){
+
     DrawCards *draw = new DrawCards();
     draw->isActive = true;
 
