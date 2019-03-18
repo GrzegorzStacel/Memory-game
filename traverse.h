@@ -1,8 +1,8 @@
 #ifndef TRAVERSE_H
 #define TRAVERSE_H
 
-
 #include "mainbuttons.h"
+#include "traverse_visibility_managmement.h"
 
 #include <QObject>
 #include <QGraphicsSceneMouseEvent>
@@ -17,14 +17,12 @@ public:
     inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
 
     // Public Attributes
-    MainButtons *adds_new, *exercise;
+    Traverse_visibility_managmement *visible;
 
 
 
 public slots:
     void traverse_menu();
-    void Add_New();
-    void Exercise();
 
 signals:
     void clicked();
