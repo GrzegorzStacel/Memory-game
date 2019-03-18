@@ -74,6 +74,7 @@ public slots:
     void showImageAfterReminding(int); // second part of game ( reminder from memory )
     void remember(int x); // if the player remembers well
     void wrong(int x); // if the player misbehaves
+    void back_button();
 
 
 

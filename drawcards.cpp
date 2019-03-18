@@ -4,6 +4,7 @@
 #include "statisticbesttime.h"
 #include "timer.h"
 #include "generator_of_random_numbers.h"
+#include "graphic_others.h"
 
 
 #include <QBrush>
@@ -28,6 +29,13 @@ DrawCards::DrawCards(){
 
 }
 void DrawCards::drawcardsManager(int level){
+
+    Graphic_others *buttonBack = new Graphic_others();
+    buttonBack->setPixmap(buttonBack->setImageOthers(1));
+    buttonBack->setPos(30, 30);
+    game->scene->addItem(buttonBack);
+    connect(buttonBack, SIGNAL(clicked()), this, SLOT(back_button()));
+    connect(buttonBack, SIGNAL(clicked()), game, SLOT(displayMainMenu()));
 
     difficultLvl = level;
 
@@ -473,8 +481,21 @@ void DrawCards::setResetDrawCards(){
     tmp = 0;
 
     antiRepetition.clear();
+    listOfCards.clear();
+    buttons.clear();
 
     isActive = true;
-    listOfCards.clear();
+
 }
 
+void DrawCards::back_button(){
+
+    // Reset all variables if the user clicked the "back" button and returned to the main menu
+    timer timer;
+    timer.stop();
+
+    setResetDrawCards();
+
+    statistic sta;
+    sta.ResetStatisticVariable();
+}

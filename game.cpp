@@ -72,6 +72,7 @@ void Game::displayMainMenu(){
 
     scene->clear();
 
+
     // create the title text
     titleText = new QGraphicsTextItem(QString("Memory Cards"));
     QFont titleFont("comic sans", 50);
