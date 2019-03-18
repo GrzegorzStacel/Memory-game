@@ -38,12 +38,12 @@ void Game::start(){
         DataBase db;
 
         // Set the user settings - difficult
-        result = db.select("SELECT difficult FROM user_settings WHERE id = 1", 0);
+        result = db.select("SELECT difficult FROM user_settings WHERE id = 1");
 
         // Update the best time and amount of correct for later comparisons in who_is_best::comparison()
         QString best_id = db.select("SELECT id FROM statistic_db WHERE correct = (SELECT MAX(correct) FROM statistic_db) "
                   "AND t_time = (SELECT MIN(t_time) FROM statistic_db "
-                   "WHERE correct = (SELECT MAX(correct) FROM statistic_db))", 0);
+                   "WHERE correct = (SELECT MAX(correct) FROM statistic_db))");
 
         db.insert("UPDATE user_settings SET b_time = (SELECT t_time FROM statistic_db WHERE id = " + best_id + "), "
                   "b_correct = (SELECT correct FROM statistic_db WHERE id = " + best_id + ");");
@@ -130,7 +130,7 @@ void Game::displayMainMenu(){
 
     {
         DataBase db;
-        result = db.select("SELECT difficult FROM user_settings WHERE id = 1", 0);
+        result = db.select("SELECT difficult FROM user_settings WHERE id = 1");
     }
 
     showDifficult = result.toInt();

@@ -69,7 +69,7 @@ void statistic::showstatic(){
     over->drawPanel(x_pos/5, y_pos/5, x_pos/2 + 150, y_pos/2 + 20, Qt::white, 0.75);
 
     // adds a label showing all the time spent memorizing cards
-    QGraphicsTextItem *Ttime = new QGraphicsTextItem(QString("Total time: \t\t" + db.select("SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( t_time ) ) ) FROM statistic_db;", 0).mid(0,8)));
+    QGraphicsTextItem *Ttime = new QGraphicsTextItem(QString("Total time: \t\t" + db.select("SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( t_time ) ) ) FROM statistic_db;").mid(0,8)));
     QFont title("comic sans", 24, QFont::Bold);
     Ttime->setFont(title);
     Ttime->setPos(420, 230);
@@ -89,14 +89,14 @@ void statistic::showstatic(){
 
 
     // adds a label showing all correct answers
-    QGraphicsTextItem *Tcorrect = new QGraphicsTextItem(QString("Total correct: \t" + db.select("SELECT SUM(correct) FROM statistic_db", 0)));
+    QGraphicsTextItem *Tcorrect = new QGraphicsTextItem(QString("Total correct: \t" + db.select("SELECT SUM(correct) FROM statistic_db")));
     Tcorrect->setDefaultTextColor(Qt::darkGreen);
     Tcorrect->setFont(title);
     Tcorrect->setPos(420, 550);
     game->scene->addItem(Tcorrect);
 
     // adds a label showing all wrong answers
-    QGraphicsTextItem *Twrong = new QGraphicsTextItem(QString("Total wrong: \t" + db.select("SELECT SUM(wrong) FROM statistic_db",0)));
+    QGraphicsTextItem *Twrong = new QGraphicsTextItem(QString("Total wrong: \t" + db.select("SELECT SUM(wrong) FROM statistic_db")));
     Twrong->setDefaultTextColor(Qt::darkRed);
     Twrong->setFont(title);
     Twrong->setPos(420, 610);
@@ -127,7 +127,7 @@ void statistic::manageStatistic(){
         DataBase db;
 
         QString clock = time.getTimeStringHour() + time.getTimeStringMin() + time.getTimeStringSec();
-        QString difficult = db.select("SELECT difficult FROM user_settings WHERE id = 1", 0);
+        QString difficult = db.select("SELECT difficult FROM user_settings WHERE id = 1");
         QString corr = QString::number(getCorrect());
         QString wro = QString::number(getWrong());
 

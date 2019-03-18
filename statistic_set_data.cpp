@@ -11,14 +11,14 @@ void statistic_set_data::set_the_data(int level){
     QString bestID = db.select("SELECT * FROM statistic_db WHERE correct = "
                    "(SELECT MAX(correct) FROM statistic_db WHERE difficult = " + QString::number(level) + ")"
                    "AND t_time = (SELECT MIN(t_time) FROM statistic_db "
-                   "WHERE correct = (SELECT MAX(correct) FROM statistic_db WHERE difficult = " + QString::number(level) + "))",0);
+                   "WHERE correct = (SELECT MAX(correct) FROM statistic_db WHERE difficult = " + QString::number(level) + "))");
 
 
     if(bestID != "Error load in database. DataBase::select(QString, int)"){
 
-        time = db.select("SELECT t_time FROM statistic_db WHERE id = " + bestID + ";" , 0).remove(8, 4);
-        correct = "Correct: " + db.select("SELECT correct FROM statistic_db WHERE id = " + bestID + ";" , 0);
-        wrong = "Wrong: " + db.select("SELECT wrong FROM statistic_db WHERE id = " + bestID + ";" , 0);
+        time = db.select("SELECT t_time FROM statistic_db WHERE id = " + bestID + ";").remove(8, 4);
+        correct = "Correct: " + db.select("SELECT correct FROM statistic_db WHERE id = " + bestID + ";");
+        wrong = "Wrong: " + db.select("SELECT wrong FROM statistic_db WHERE id = " + bestID + ";");
 
     } else {
         time = "No result";

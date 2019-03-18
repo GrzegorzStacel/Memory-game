@@ -14,7 +14,7 @@ public:
         DataBase();
 
     // Public Methods
-        QString select(QString value, int column);
+        QString select(QString value);
         void insert(QString value);
         void connect();
 

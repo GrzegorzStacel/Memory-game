@@ -20,7 +20,7 @@ void DataBase::connect(){
 
 }
 
-QString DataBase::select(QString value, int column){
+QString DataBase::select(QString value){
 
 
     if(dba.open()) {
@@ -30,7 +30,7 @@ QString DataBase::select(QString value, int column){
             if(ask.exec(value)){
 
                 while(ask.next())
-                     return ask.value(column).toString();
+                     return ask.value(0).toString();
 
             }
 

@@ -19,8 +19,8 @@ int Who_Is_Best::Comparison(){
     Receive_Value();
 
     DataBase db;
-    int Actual_Correct = db.select("SELECT correct FROM statistic_db ORDER BY id DESC LIMIT 1;)", 0).toInt();
-    int Best_Correct = db.select("SELECT b_correct FROM user_settings WHERE id = 1", 0).toInt();
+    int Actual_Correct = db.select("SELECT correct FROM statistic_db ORDER BY id DESC LIMIT 1;)").toInt();
+    int Best_Correct = db.select("SELECT b_correct FROM user_settings WHERE id = 1").toInt();
 
 
     //Numbers are the text version used in the summary result when the user ends the game
@@ -56,7 +56,7 @@ void Who_Is_Best::Receive_Value(){
 
     DataBase db;
 
-    QString Actual = db.select("SELECT t_time, id FROM statistic_db ORDER BY id DESC LIMIT 1;)", 0);
+    QString Actual = db.select("SELECT t_time, id FROM statistic_db ORDER BY id DESC LIMIT 1;)");
 
     count_ActualTime = 0;
     count_ActualTime += Actual.mid(0,2).toInt() * 3600000;
@@ -64,7 +64,7 @@ void Who_Is_Best::Receive_Value(){
     count_ActualTime += Actual.mid(6,2).toInt() * 1000;
 
 
-    QString Best = db.select("SELECT b_time FROM user_settings WHERE id = 1", 0);
+    QString Best = db.select("SELECT b_time FROM user_settings WHERE id = 1");
 
     count_BestTime = 0;
     count_BestTime += Best.mid(0,2).toInt() * 3600000;
