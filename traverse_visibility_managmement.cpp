@@ -22,6 +22,7 @@ Traverse_visibility_managmement::Traverse_visibility_managmement(){
 }
 
 void Traverse_visibility_managmement::showMenu(){
+
     int y_pos = 600;
     game->scene->clear();
 
@@ -37,8 +38,13 @@ void Traverse_visibility_managmement::showMenu(){
     exercise->setPos(bxPos,500);
     connect(exercise, SIGNAL(clicked()), this, SLOT(Exercise()));
 
-    if(isMenu == false)
+    // Checks whether the user has already created his first batch of cards, if not the button with the exercises will be hidden
+    if(isMenu == false){
+
+        adds_new->setToolTip("Create your first batch of cards to unlock other functionalities");
         y_pos = 500;
+
+    }
     else
         game->scene->addItem(exercise);
 
