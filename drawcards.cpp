@@ -63,8 +63,8 @@ void DrawCards::createCards(Cards_Position & position){
     finish = true;
 
     // Cheating variable that speeds up tests
-    //counter = difficultLvl - 1; // TODO cheat variable for tests
-    //counterEnd = 11;
+    counter = difficultLvl - 1; // TODO cheat variable for tests
+    counterEnd = 11;
 
 }
 
@@ -335,20 +335,9 @@ bool DrawCards::isItRepeat(int xNumber, int selected){
     if( selected <= 0 )
         return false;
 
-
-for(int i =0; i<selected; i++){
-    qDebug() << i << "A. isrepeat: " << antiRepetition.value(i);
-    qDebug() << i << "B. xNumber: " << xNumber << endl;
-}
-qDebug() << "==================================";
-
-
     for(int i = 0; i < selected; i++){
-    qDebug() << "sprawdzam antirepetition( " << i << " ): " << antiRepetition.value(i) << " i xnumber : " << xNumber;
-        if( antiRepetition.value( i ) == xNumber){
-            qDebug() << "antirepetition( " << i << " ) " << antiRepetition.value(i) << " == xnumber czyli nr karty ( " << xNumber << " )";
+        if( antiRepetition.value( i ) == xNumber)
             return true;
-        }
     }
 
     return false;
@@ -447,7 +436,6 @@ void DrawCards::manageAnswers(){
     int n = 0;
 
     do{
-        qDebug() << "i = " << i << " ,antirepetition ( " << n << " ) : " << antiRepetition.value(n) << " , tmp : " << tmp;
         if( i == antiRepetition.value( n ) && n <= tmp ){
 
             listOfCards[ antiRepetition.value( n ) ]->setEnabled(false);

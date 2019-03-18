@@ -8,6 +8,7 @@
 
 #include "graphic_others.h"
 #include "statistic_is_best_time.h"
+#include "options_difficulty_level.h"
 
 #include <QFont>
 #include <QWhatsThis>
@@ -56,13 +57,20 @@ void game_over::drawButtons(){
 
     // create playAgain button
     MainButtons* playAgain = new MainButtons(QString("Play Again"));
-    playAgain->setPos(700, 430);
+    playAgain->setPos(600, 430);
     game->scene->addItem(playAgain);
-    connect(playAgain,SIGNAL(clicked()),this,SLOT(restartGame()));
+    connect(playAgain, SIGNAL(clicked()),this,SLOT(restartGame()));
+
+    // create options button
+    MainButtons* options = new MainButtons(QString("Options"));
+    options_difficulty_level *difficult = new options_difficulty_level();
+    options->setPos(850, 430);
+    game->scene->addItem(options);
+    connect(options, SIGNAL(clicked()), difficult, SLOT(show_options()));
 
     // create quit button
     MainButtons* quit = new MainButtons(QString("Quit"));
-    quit->setPos(1000, 430);
+    quit->setPos(1100, 430);
     game->scene->addItem(quit);
     connect(quit, SIGNAL(clicked()), game, SLOT(close()));
 
