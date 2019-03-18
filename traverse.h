@@ -1,7 +1,11 @@
 #ifndef TRAVERSE_H
 #define TRAVERSE_H
 
+
+#include "mainbuttons.h"
+
 #include <QObject>
+#include <QGraphicsSceneMouseEvent>
 
 class Traverse : public QObject {
     Q_OBJECT
@@ -10,10 +14,20 @@ public:
     // Constructors
     Traverse();
 
+    inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
+
+    // Public Attributes
+    MainButtons *adds_new, *exercise;
+
+
 
 public slots:
-    void lets_start();
+    void traverse_menu();
+    void Add_New();
+    void Exercise();
 
+signals:
+    void clicked();
 };
 
 #endif // TRAVERSE_H
