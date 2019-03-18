@@ -5,7 +5,7 @@
 
 extern Game *game;
 
-Traverse_visibility_managmement::Traverse_visibility_managmement(){
+Traverse_visibility_managmement::Traverse_visibility_managmement() {
 
     // Checks whether the user has created associations for some color from the cards
     if(db->select("SELECT pack_of_cards FROM user_settings WHERE id = 1").toInt() == 0)
@@ -13,12 +13,10 @@ Traverse_visibility_managmement::Traverse_visibility_managmement(){
     else
         isMenu = true;
 
-    qDebug() << "ismenu: " << isMenu;
 
     // Gets the number of well-known user-color cards
     isNew = db->select("SELECT new_pack_of_cards FROM user_settings WHERE id = 1").toInt();
 
-    qDebug() << "isnew: " << isNew;
 }
 
 void Traverse_visibility_managmement::showMenu(){
@@ -27,10 +25,10 @@ void Traverse_visibility_managmement::showMenu(){
     game->scene->clear();
 
     // create the Add New Deck Of Cards button
-    adds_new = new MainButtons(QString("Travers"));
+    adds_new = new MainButtons(QString("Add new"));
     double bxPos = game->width()/2 - adds_new->boundingRect().width()/2;
     adds_new->setPos(bxPos,400);
-    connect(adds_new, SIGNAL(clicked()), this, SLOT(Add_New()));
+    connect(adds_new, SIGNAL(clicked()), this, SLOT(Add_New_Menu()));
     game->scene->addItem(adds_new);
 
     // create the Polygon For Memorization button
@@ -57,7 +55,26 @@ void Traverse_visibility_managmement::showMenu(){
 
     }
 
-void Traverse_visibility_managmement::Add_New(){
+void Traverse_visibility_managmement::Add_New_Menu(){
+
+    game->scene->clear();
+
+    for (int i = 0; i < isNew; ++i) {
+        cards = new Cards();
+        ListOfCards.append(cards);
+    }
+
+
+    int x_pos = 450;
+
+    for (int i = 13, n = 0; n < isNew; ++n, i+=13) {
+
+        ListOfCards[n]->Picture_Neutral( i - 1, true);
+        ListOfCards[n]->setPos(x_pos += 200, 400);
+        game->scene->addItem(ListOfCards[n]);
+
+    }
+
 
 
 }

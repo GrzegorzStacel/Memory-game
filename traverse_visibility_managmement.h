@@ -3,20 +3,17 @@
 
 #include "database.h"
 #include "mainbuttons.h"
+#include "cards.h"
 
+#include <QGraphicsPixmapItem>
 #include <QObject>
 
-class Traverse_visibility_managmement : public QObject {
+class Traverse_visibility_managmement : public QObject, public QGraphicsPixmapItem{
    Q_OBJECT
 
 public:
     // Constructors
     Traverse_visibility_managmement();
-
-
-    // Public Attributes
-    DataBase *db;
-    MainButtons *adds_new, *exercise, *back;
 
     // Public Methods
     void showMenu();
@@ -26,10 +23,15 @@ private:
     bool isMenu;
     int isNew;
 
+    // Private Attributes
+    DataBase *db;
+    MainButtons *adds_new, *exercise, *back;
+    QList<Cards *> ListOfCards;
+    Cards *cards;
 
 
 public slots:
-    void Add_New();
+    void Add_New_Menu();
     void Exercise();
 };
 
