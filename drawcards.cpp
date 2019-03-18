@@ -437,8 +437,8 @@ void DrawCards::manageAnswers(){
           if(antiRepetition.value( i )  > antiRepetition.value( i + 1 )) {
 
             x = antiRepetition.value( i );
-            antiRepetition.insert( i, antiRepetition.value( i + 1 ) );
-            antiRepetition.insert( i + 1, x );
+            antiRepetition.replace( i, antiRepetition.value( i + 1 ) );
+            antiRepetition.replace( i + 1, x );
     }
 
 
