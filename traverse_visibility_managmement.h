@@ -18,6 +18,8 @@ public:
     // Public Methods
     void showMenu();
 
+    inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
+
 private:
     // Private Attributes
     bool isMenu;
@@ -30,9 +32,13 @@ private:
     Cards *cards;
 
 
+signals:
+    void clicked();
+
 public slots:
     void Add_New_Menu();
     void Exercise();
+    void Learn(int x);
 };
 
 #endif // TRAVERSE_VISIBILITY_MANAGMEMENT_H
