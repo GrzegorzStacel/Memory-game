@@ -2,7 +2,9 @@
 #define TRAVERSE_H
 
 #include "mainbuttons.h"
-#include "traverse_visibility_managmement.h"
+#include "traverse_exercise.h"
+#include "traverse_create_new.h"
+#include "database.h"
 
 #include <QObject>
 #include <QGraphicsSceneMouseEvent>
@@ -14,18 +16,36 @@ public:
     // Constructors
     Traverse();
 
+
+    // Public Methods
     inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
 
-    // Public Attributes
-    Traverse_visibility_managmement *visible;
 
+
+private:
+    // Private Attributes
+    bool isMenu;
+    int isNew;
+
+
+    // Private Object
+    DataBase *db;
+    MainButtons *adds_new, *exercise, *back;
+    QList<Cards *> ListOfCards;
+    Cards *cards;
+    Traverse_Create_new *create;
+    Traverse_exercise *traverse_exer;
+
+    // Private Methods
+    void Add_New_Menu();
 
 
 public slots:
-    void traverse_menu();
+    void showMenu();
 
 signals:
     void clicked();
+
 };
 
 #endif // TRAVERSE_H

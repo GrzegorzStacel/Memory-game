@@ -4,14 +4,14 @@
 
 #include <QObject>
 
-class Traverse_Create : public QObject {
+class Traverse_Create_new : public QObject {
     Q_OBJECT
 
 public:
     // Constructors
-    Traverse_Create();
+    Traverse_Create_new();
 
-public slots:
+    // Public Attributes
     void Learn(int x);
 
 };
