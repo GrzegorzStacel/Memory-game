@@ -28,13 +28,13 @@ void Traverse_visibility_managmement::showMenu(){
     adds_new = new MainButtons(QString("Add new"));
     double bxPos = game->width()/2 - adds_new->boundingRect().width()/2;
     adds_new->setPos(bxPos,400);
-    connect(adds_new, SIGNAL(clicked()), this, SLOT(Add_New_Menu()));
+    connect(adds_new, &MainButtons::clicked, this, [=](){ this->Add_New_Menu(); } );
     game->scene->addItem(adds_new);
 
     // create the Polygon For Memorization button
     exercise = new MainButtons(QString("Your Deck"));
     exercise->setPos(bxPos,500);
-    connect(exercise, SIGNAL(clicked()), this, SLOT(Exercise()));
+    connect(exercise, &MainButtons::clicked, this, [=](){ this->Exercise(); } );
 
     // Checks whether the user has already created his first batch of cards, if not the button with the exercises will be hidden
     if(isMenu == false){
@@ -50,7 +50,7 @@ void Traverse_visibility_managmement::showMenu(){
     // create the back button to main menu
     back = new MainButtons(QString("Back"));
     back->setPos(bxPos,y_pos);
-    connect(back, SIGNAL(clicked()), game, SLOT(displayMainMenu()));
+    connect(back, &MainButtons::clicked, game, SLOT(displayMainMenu()));
     game->scene->addItem(back);
 
     }

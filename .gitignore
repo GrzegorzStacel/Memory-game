@@ -10,6 +10,8 @@
 *.dylib
 
 # Qt-es
+.vcxproj.filters
+.vcxproj
 object_script.*.Release
 object_script.*.Debug
 *_plugin_import.cpp
@@ -47,3 +49,5 @@ CMakeLists.txt.user*
 *.qrc
 
 files/
+release/
+debug/
