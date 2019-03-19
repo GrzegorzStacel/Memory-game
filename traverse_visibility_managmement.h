@@ -4,6 +4,7 @@
 #include "database.h"
 #include "mainbuttons.h"
 #include "cards.h"
+#include "traverse_create.h"
 
 #include <QGraphicsPixmapItem>
 #include <QObject>
@@ -30,7 +31,7 @@ private:
     MainButtons *adds_new, *exercise, *back;
     QList<Cards *> ListOfCards;
     Cards *cards;
-
+    Traverse_Create *create;
 
 signals:
     void clicked();
@@ -38,7 +39,6 @@ signals:
 public slots:
     void Add_New_Menu();
     void Exercise();
-    void Learn(int x);
 };
 
 #endif // TRAVERSE_VISIBILITY_MANAGMEMENT_H

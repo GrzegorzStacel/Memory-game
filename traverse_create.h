@@ -2,10 +2,18 @@
 #define TRAVERSE_CREATE_H
 
 
-class Traverse_Create
-{
+#include <QObject>
+
+class Traverse_Create : public QObject {
+    Q_OBJECT
+
 public:
+    // Constructors
     Traverse_Create();
+
+public slots:
+    void Learn(int x);
+
 };
 
 #endif // TRAVERSE_CREATE_H

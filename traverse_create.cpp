@@ -1,6 +1,11 @@
 #include "traverse_create.h"
 
-Traverse_Create::Traverse_Create()
-{
+#include <QDebug>
 
+Traverse_Create::Traverse_Create(){
+
+}
+
+void Traverse_Create::Learn(int x){
+    qDebug() << "in learn" << x;
 }

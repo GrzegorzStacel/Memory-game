@@ -56,12 +56,12 @@ void Traverse_visibility_managmement::showMenu(){
     }
 
 void Traverse_visibility_managmement::Add_New_Menu(){
-
+qDebug() << "add";
     game->scene->clear();
 
     for (int i = 0; i < isNew; ++i) {
         cards = new Cards();
-        connect(cards, &Cards::clicked, this, [=](){ this->Learn(i); } );
+        connect(cards, &Cards::clicked, create, [=](){ create->Learn(i); } );
         ListOfCards.append(cards);
     }
 
@@ -74,15 +74,14 @@ void Traverse_visibility_managmement::Add_New_Menu(){
         ListOfCards[n]->setPos(x_pos += 200, 400);
         game->scene->addItem(ListOfCards[n]);
 
-
     }
 
 }
 
-void Traverse_visibility_managmement::Exercise(){
+
+
+void Traverse_visibility_managmement::Exercise(){ // TODO Move to other class
     qDebug() << "in exercose";
 }
 
-void Traverse_visibility_managmement::Learn(int x){
-    qDebug() << "in learn" << x;
-}
+
