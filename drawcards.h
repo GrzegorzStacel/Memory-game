@@ -16,7 +16,7 @@
 #include <QGraphicsPixmapItem>
 
 #include <QtAlgorithms>
-
+#include <QPointer>
 class DrawCards : public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 
@@ -29,8 +29,8 @@ public:
 private:
 
     //private attributes
-    QList<Cards *> listOfCards;
-    QList<Graphic_others *> buttons;
+    QList< QPointer <Cards> > listOfCards;
+    QList< QPointer <Graphic_others> > buttons;
     QList<int> antiRepetition;
 
     static int counter;
@@ -51,9 +51,9 @@ private:
 public:
 
     // public attributes
-    Cards *cards;
-    statistic *stat;
-    Graphic_others *inf_clock_stop = new Graphic_others();
+    QPointer <Cards> cards;
+    QPointer <statistic> stat;
+    QPointer <Graphic_others> inf_clock_stop = new Graphic_others;
 
     static bool isActive;
 

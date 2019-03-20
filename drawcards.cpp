@@ -30,7 +30,7 @@ DrawCards::DrawCards(){
 }
 void DrawCards::drawcardsManager(int level){
 
-    Graphic_others *buttonBack = new Graphic_others();
+    QPointer <Graphic_others> buttonBack = new Graphic_others;
     buttonBack->setPixmap(buttonBack->setImageOthers(1));
     buttonBack->setPos(30, 30);
     game->scene->addItem(buttonBack);
@@ -79,8 +79,8 @@ void DrawCards::createCards(Cards_Position & position){
 void DrawCards::addImageWithRandomNumber(){
 
 
-    Generator_of_random_numbers *generator = new Generator_of_random_numbers();
-    int RandomNumber = generator->getRandomNubmer(counter);
+    Generator_of_random_numbers generator;
+    int RandomNumber = generator.getRandomNubmer(counter);
 
 
 
@@ -247,7 +247,7 @@ void DrawCards::addImageWithRandomNumber(){
 
 void DrawCards::connectCardWithMap(){
 
-    QSignalMapper* signalMapper = new QSignalMapper(this); // TODO find another way to implement the connections of each object separately with the appropriate signal
+    QPointer <QSignalMapper> signalMapper = new QSignalMapper(this); // TODO find another way to implement the connections of each object separately with the appropriate signal
 
         for( int i = 0; i < listOfCards.size(); i++){
 
@@ -262,8 +262,8 @@ void DrawCards::connectCardWithMap(){
 
 void DrawCards::showImageAfterReminding(int x){
 
-    Generator_of_random_numbers *generator = new Generator_of_random_numbers();
-    int RandomNumber = generator->getRandomNubmer(x);
+    Generator_of_random_numbers generator;
+    int RandomNumber = generator.getRandomNubmer(x);
 
     if( difficultLvl == 13 || difficultLvl == 26 || difficultLvl == 39){
 
@@ -298,8 +298,8 @@ void DrawCards::showImageAfterReminding(int x){
     }
 
 
-    Graphic_others *corr = new Graphic_others();
-    Graphic_others *wron = new Graphic_others();
+    QPointer <Graphic_others> corr = new Graphic_others;
+    QPointer <Graphic_others> wron = new Graphic_others;
 
     int x_pos = listOfCards[x]->getX_POS();
     int y_pos = listOfCards[x]->getY_POS();
@@ -353,8 +353,8 @@ bool DrawCards::isItRepeat(int xNumber, int selected){
 
 void DrawCards::remember(int x){
 
-    Generator_of_random_numbers *generator = new Generator_of_random_numbers();
-    int RandomNumber = generator->getRandomNubmer(x);
+    Generator_of_random_numbers generator;
+    int RandomNumber = generator.getRandomNubmer(x);
 
 
     // add value to statistic ( correct answer )
@@ -382,8 +382,8 @@ void DrawCards::remember(int x){
 
 void DrawCards::wrong(int x){
 
-    Generator_of_random_numbers *generator = new Generator_of_random_numbers();
-    int RandomNumber = generator->getRandomNubmer(x);
+    Generator_of_random_numbers  generator;
+    int RandomNumber = generator.getRandomNubmer(x);
 
 
     // add value to statistic ( wrong answer )
@@ -466,7 +466,7 @@ void DrawCards::manageAnswers(){
 
         stat->manageStatistic();
 
-        game_over *gameOver = new game_over();
+        QPointer <game_over> gameOver = new game_over;
         gameOver->drawButtons();
 
     }
