@@ -1,12 +1,11 @@
 #include "cards.h"
-//#include "drawcards.h"
 
 #include <QDebug>
 
 
 
 
-Cards::Cards(){
+Cards::Cards(QObject *parent) : QObject (parent) {
 
 }
 

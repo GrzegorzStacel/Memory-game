@@ -21,7 +21,7 @@ private:
 
 public:
     // constructors
-    Cards();
+    Cards(QObject *parent = nullptr);
     Cards(bool active, bool lvl, int x_car, int y_car);
 
 
