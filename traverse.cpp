@@ -64,7 +64,7 @@ void Traverse::Add_New_Menu(){
     // Create back button
     Graphic_others *buttonBack = new Graphic_others();
     buttonBack->setPixmap(buttonBack->setImageOthers(1));
-    buttonBack->setPos(30, 30);
+    buttonBack->setPos(20, 20);
     game->scene->addItem(buttonBack);
     connect(buttonBack, SIGNAL(clicked()), this, SLOT(showMenu()));
 
