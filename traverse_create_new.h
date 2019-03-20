@@ -1,8 +1,11 @@
 #ifndef TRAVERSE_CREATE_H
 #define TRAVERSE_CREATE_H
 
+#include "graphic_others.h"
 
 #include <QObject>
+#include <QTextEdit>
+#include <QPushButton>
 
 class Traverse_Create_new : public QObject {
     Q_OBJECT
@@ -22,7 +25,18 @@ private:
 
     // Pribate Attributes
     QList<Graphic_others> list;
+    QList<QTextEdit> text_list;
     int group_card;
+    bool is_save;
+
+    // Private Object
+    QGraphicsProxyWidget* pProxyWidget;
+    QTextEdit *text;
+    QPushButton *save_button;
+
+public slots:
+    void save_changes();
+
 };
 
 #endif // TRAVERSE_CREATE_H

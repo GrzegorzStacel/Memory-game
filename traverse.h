@@ -18,6 +18,7 @@ public:
 
 
     // Public Methods
+    void Add_New_Menu();
     inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
 
 
@@ -35,9 +36,6 @@ private:
     Cards *cards;
     Traverse_Create_new *create;
     Traverse_exercise *traverse_exer;
-
-    // Private Methods
-    void Add_New_Menu();
 
 
 public slots:
