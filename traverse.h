@@ -14,7 +14,7 @@ class Traverse : public QObject {
 
 public:
     // Constructors
-    Traverse();
+    Traverse(QObject *parent = nullptr);
 
 
     // Public Methods
@@ -30,12 +30,13 @@ private:
 
 
     // Private Object
-    DataBase *db;
-    MainButtons *adds_new, *exercise, *back;
-    QList<Cards *> ListOfCards;
-    Cards *cards;
-    Traverse_Create_new *create;
-    Traverse_exercise *traverse_exer;
+    DataBase db;
+    QPointer <MainButtons> adds_new, exercise, back;
+    QPointer <Cards> cards;
+    QPointer <Traverse_Create_new> create;
+    QPointer <Traverse_exercise> traverse_exer;
+
+    QList< QPointer <Cards> > ListOfCards;
 
 
 public slots:

@@ -5,17 +5,17 @@
 
 extern Game *game;
 
-Traverse::Traverse(){
+Traverse::Traverse(QObject *parent) : QObject (parent){
 
     // Checks whether the user has created associations for some color from the cards
-    if(db->select("SELECT pack_of_cards FROM user_settings WHERE id = 1").toInt() == 0)
+    if(db.select("SELECT pack_of_cards FROM user_settings WHERE id = 1").toInt() == 0)
         isMenu = false;
     else
         isMenu = true;
 
 
     // Gets the number of well-known user-color cards
-    isNew = db->select("SELECT new_pack_of_cards FROM user_settings WHERE id = 1").toInt();
+    isNew = db.select("SELECT new_pack_of_cards FROM user_settings WHERE id = 1").toInt();
 
 }
 
@@ -33,7 +33,7 @@ void Traverse::showMenu(){
     game->scene->addItem(adds_new);
 
     // create the Polygon For Memorization button
-    traverse_exer = new Traverse_exercise();
+    traverse_exer = new Traverse_exercise;
     exercise = new MainButtons(QString("Your Deck"));
     exercise->setPos(bxPos,500);
     connect(exercise, SIGNAL(clicked()), traverse_exer, SLOT(Exercise()));
@@ -62,7 +62,7 @@ void Traverse::Add_New_Menu(){
     game->scene->clear();
 
     // Create back button
-    Graphic_others *buttonBack = new Graphic_others();
+    QPointer <Graphic_others> buttonBack = new Graphic_others;
     buttonBack->setPixmap(buttonBack->setImageOthers(1));
     buttonBack->setPos(20, 20);
     game->scene->addItem(buttonBack);
@@ -72,7 +72,7 @@ void Traverse::Add_New_Menu(){
     create = new Traverse_Create_new();
 
     for (int i = 0; i < isNew; ++i) {
-        cards = new Cards();
+        cards = new Cards;
         connect(cards, &Cards::clicked, create, [=](){ create->Learn(i); } );
         ListOfCards.append(cards);
     }
