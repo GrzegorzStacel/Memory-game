@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QTextEdit>
 #include <QPushButton>
+#include <QPointer>
 
 class Traverse_Create_new : public QObject {
     Q_OBJECT
@@ -30,9 +31,9 @@ private:
     bool is_save;
 
     // Private Object
-    QGraphicsProxyWidget* pProxyWidget;
-    QTextEdit *text;
-    QPushButton *save_button;
+    QGraphicsProxyWidget *pProxyWidget;
+    QPointer <QTextEdit> text;
+    QPointer <QPushButton> save_button;
 
 public slots:
     void save_changes();
