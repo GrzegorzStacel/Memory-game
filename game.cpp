@@ -9,10 +9,10 @@
 #include <QTimer>
 #include <QTime>
 
-Game::Game(){
+Game::Game() {
 
     //create a scene
-    scene = new QGraphicsScene();
+    scene = new QGraphicsScene;
     scene->setSceneRect(0,0,1920,990);
 
 
@@ -56,12 +56,12 @@ void Game::start(){
     scene->clear();
 
 
-    Generator_of_random_numbers *generator = new Generator_of_random_numbers();
-    generator->GenerateNumber(difficultLvl);
+    Generator_of_random_numbers generator;
+    generator.GenerateNumber(difficultLvl);
 
     timer.start();
 
-    draw = new DrawCards();
+    draw = new DrawCards;
     draw->drawcardsManager(difficultLvl);
 
 }
@@ -89,7 +89,7 @@ void Game::displayMainMenu(){
     scene->addItem(playButton);
 
     // create the travers button
-    Traverse *trav = new Traverse();
+    QPointer <Traverse> trav = new Traverse;
     travers = new MainButtons(QString("Travers"));
     travers->setPos(bxPos,550);
     connect(travers, SIGNAL(clicked()), trav, SLOT(showMenu()));
@@ -103,7 +103,7 @@ void Game::displayMainMenu(){
 
     // create the options button
     optionsbutton = new MainButtons(QString("Options"));
-    difficult = new options_difficulty_level();
+    difficult = new options_difficulty_level;
     optionsbutton->setPos(bxPos, 750);
     connect(optionsbutton, SIGNAL(clicked()), difficult, SLOT(show_options()));
     scene->addItem(optionsbutton);
@@ -116,14 +116,14 @@ void Game::displayMainMenu(){
 
     // creating information with information about the last selected / and current level of difficulty
     //cards = new Cards();
-    Graphic_others *actual_lvl = new Graphic_others();
+    QPointer <Graphic_others> actual_lvl = new Graphic_others;
     actual_lvl->setPixmap(actual_lvl->setImageOthers(2));
     actual_lvl->setToolTip("Click the options button to change the difficulty level");
     actual_lvl->setPos(bxPos + 300, 800);
     scene->addItem(actual_lvl);
 
     // showing the label with actually level of difficulty
-    Graphic_options *graphic = new Graphic_options();
+    QPointer <Graphic_options> graphic = new Graphic_options;
 
     int showDifficult = 0;
     QString result;
@@ -156,7 +156,7 @@ void Game::statisticbutton(){
 
     scene->clear();
 
-    statistic *stat = new statistic();
+    QPointer <statistic> stat = new statistic;
     stat->showstatic();
 }
 

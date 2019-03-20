@@ -35,14 +35,14 @@ private:
 public:
 
     // public attributes
-    DrawCards *draw;
-    QGraphicsScene *scene;
-    QGraphicsTextItem *titleText;
-    MainButtons *playButton, *quitbutton, *statisticsbutton, *optionsbutton, *travers;
-    game_over *overGame;
+    QPointer <DrawCards> draw;
+    QPointer <QGraphicsScene> scene;
+    QPointer <QGraphicsTextItem> titleText;
+    QPointer <MainButtons> playButton, quitbutton, statisticsbutton, optionsbutton, travers;
+    QPointer <game_over> overGame;
+    QPointer <options_difficulty_level> difficult;
+    QPointer <statistic> sta;
     timer timer;
-    options_difficulty_level *difficult;
-    statistic *sta;
 
 
 
