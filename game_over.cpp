@@ -16,20 +16,21 @@
 
 extern Game *game;
 
-game_over::game_over(){
+game_over::game_over(QObject *parent) : QObject (parent){
 
 }
 
 void game_over::drawPanel(double x, double y, double width, double height, QColor color, double opacity){
 
     // draws a panel at the specified location with the specified properties
-    QGraphicsRectItem* panel = new QGraphicsRectItem(x,y,width,height);
+    QGraphicsRectItem *panel = new QGraphicsRectItem(x,y,width,height);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(color);
     panel->setBrush(brush);
     panel->setOpacity(opacity);
     game->scene->addItem(panel);
+
 }
 
 void game_over::drawButtons(){
@@ -48,7 +49,7 @@ void game_over::drawButtons(){
     drawPanel(470, 150, x_pos/2, y_pos/2 + 260, Qt::lightGray, 0.85);
 
     // create text annoucning winner
-    QGraphicsTextItem* overText = new QGraphicsTextItem("Congratulations!");
+    QPointer <QGraphicsTextItem> overText = new QGraphicsTextItem("Congratulations!");
     QFont titleFont("comic sans", 60);
     overText->setFont(titleFont);
     double txPos3 = x_pos/2 - overText->boundingRect().width()/2;
@@ -56,33 +57,33 @@ void game_over::drawButtons(){
     game->scene->addItem(overText);
 
     // create playAgain button
-    MainButtons* playAgain = new MainButtons(QString("Play Again"));
+    QPointer <MainButtons> playAgain = new MainButtons(QString("Play Again"));
     playAgain->setPos(600, 430);
     game->scene->addItem(playAgain);
     connect(playAgain, SIGNAL(clicked()),this,SLOT(restartGame()));
 
     // create options button
-    MainButtons* options = new MainButtons(QString("Options"));
+    QPointer <MainButtons> options = new MainButtons(QString("Options"));
     options_difficulty_level *difficult = new options_difficulty_level();
     options->setPos(850, 430);
     game->scene->addItem(options);
     connect(options, SIGNAL(clicked()), difficult, SLOT(show_options()));
 
     // create quit button
-    MainButtons* quit = new MainButtons(QString("Quit"));
+    QPointer <MainButtons> quit = new MainButtons(QString("Quit"));
     quit->setPos(1100, 430);
     game->scene->addItem(quit);
     connect(quit, SIGNAL(clicked()), game, SLOT(close()));
 
     // set the image with "Your memorizing time ", correct and wrong
-    Graphic_others *graphic = new Graphic_others();
+    QPointer <Graphic_others> graphic = new Graphic_others;
     graphic->setPixmap(graphic->setImageOthers(11));
     graphic->setPos(550, 350);
     game->scene->addItem(graphic);
 
     // create text with the time reminding
-    timer *time = new timer();
-    QGraphicsTextItem* clock2 = new QGraphicsTextItem(time->getTime());
+    QPointer <timer> time = new timer;
+    QPointer <QGraphicsTextItem> clock2 = new QGraphicsTextItem(time->getTime());
     clock2->setDefaultTextColor(Qt::darkBlue);
     QFont title2("comic sans", 18, QFont::Bold);
     clock2->setFont(title2);
@@ -90,7 +91,7 @@ void game_over::drawButtons(){
     game->scene->addItem(clock2);
 
     // create a label that displays a summary of the statistics of the completed game - correct answers
-    QGraphicsTextItem* stats1 = new QGraphicsTextItem(QString(QString::number(stat->getCorrect())));
+    QPointer <QGraphicsTextItem> stats1 = new QGraphicsTextItem(QString(QString::number(stat->getCorrect())));
     stats1->setDefaultTextColor(Qt::darkGreen);
     QFont title3("comic sans", 15, QFont::Bold);
     stats1->setFont(title3);
@@ -98,15 +99,15 @@ void game_over::drawButtons(){
     game->scene->addItem(stats1);
 
     // create a label that displays a summary of the statistics of the completed game - wrong answers
-    QGraphicsTextItem* stats2 = new QGraphicsTextItem(QString(QString::number(stat->getWrong())));
+    QPointer <QGraphicsTextItem> stats2 = new QGraphicsTextItem(QString(QString::number(stat->getWrong())));
     stats2->setDefaultTextColor(Qt::darkRed);
     stats2->setFont(title3);
     stats2->setPos(1120,755);
     game->scene->addItem(stats2);
 
     // Show icon in arrow up/down or point depending on the time obtained
-    statistic_Is_Best_Time *is_best = new statistic_Is_Best_Time();
-    QGraphicsTextItem* Summary_Text = new QGraphicsTextItem(is_best->Set_Icon_Time());
+    QPointer <statistic_Is_Best_Time> is_best = new statistic_Is_Best_Time;
+    QPointer <QGraphicsTextItem> Summary_Text = new QGraphicsTextItem(is_best->Set_Icon_Time());
     QString text_colour = is_best->Set_Colour_Of_Text();
     Summary_Text->setDefaultTextColor(text_colour);
     QFont SummaryFont("comic sans", 15, 87);
@@ -115,7 +116,7 @@ void game_over::drawButtons(){
     game->scene->addItem(Summary_Text);
 
     // creates an icon that leads to statistics
-    Graphic_others *stat_icon = new Graphic_others();
+    QPointer <Graphic_others> stat_icon = new Graphic_others;
     stat_icon->setToolTip("Your statistics");
     stat_icon->setPixmap(stat_icon->setImageOthers(6));
     stat_icon->setPos(x_pos/5 + 100, 170);
@@ -129,10 +130,10 @@ void game_over::drawButtons(){
 void game_over::restartGame(){
 
     // reset important counters
-    DrawCards *draw = new DrawCards();
+    QPointer <DrawCards> draw = new DrawCards;
     draw->setResetDrawCards();
 
-    timer *time = new timer();
+    QPointer <timer> time = new timer;
     time->ResetTimerVariable();
 
     stat->ResetStatisticVariable();

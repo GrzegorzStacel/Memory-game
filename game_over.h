@@ -11,6 +11,7 @@
 #include <QCloseEvent>
 #include <QGraphicsTextItem>
 #include <QDebug>
+#include <QPointer>
 
 class game_over : public QObject{
     Q_OBJECT
@@ -18,10 +19,10 @@ class game_over : public QObject{
 public:
 
     // constructors
-    game_over();
+    game_over(QObject *parent = nullptr);
 
     // public attributes
-    statistic *stat;
+    QPointer <statistic> stat;
 
 
 
@@ -30,7 +31,7 @@ public:
     void drawButtons();
 
     void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QPointer <QCloseEvent> event);
 
 
 public slots:
