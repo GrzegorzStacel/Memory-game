@@ -1,12 +1,13 @@
 #include "traverse_create_new.h"
 #include "game.h"
 #include "traverse.h"
+#include "database.h"
 
 #include <QDebug>
 
 extern Game *game;
 
-Traverse_Create_new::Traverse_Create_new(){
+Traverse_Create_new::Traverse_Create_new(QObject *paretn) : QObject (paretn){
 
 }
 
@@ -25,34 +26,43 @@ void Traverse_Create_new::Learn(int value){
 
 
     add_button(group_card - 13, 250, 50);
-    add_button(group_card - 12, 800, 50);
-    add_button(group_card - 11, 1300, 50);
+//    add_button(group_card - 12, 800, 50);
+//    add_button(group_card - 11, 1300, 50);
 
-    add_button(group_card - 10, 250, 230);
-    add_button(group_card - 9, 800, 230);
-    add_button(group_card - 8, 1300, 230);
+//    add_button(group_card - 10, 250, 230);
+//    add_button(group_card - 9, 800, 230);
+//    add_button(group_card - 8, 1300, 230);
 
-    add_button(group_card - 7, 250, 410);
-    add_button(group_card - 6, 800, 410);
-    add_button(group_card - 5, 1300, 410);
+//    add_button(group_card - 7, 250, 410);
+//    add_button(group_card - 6, 800, 410);
+//    add_button(group_card - 5, 1300, 410);
 
-    add_button(group_card - 4, 250, 590);
-    add_button(group_card - 3, 800, 590);
-    add_button(group_card - 2, 1300, 590);
+//    add_button(group_card - 4, 250, 590);
+//    add_button(group_card - 3, 800, 590);
+//    add_button(group_card - 2, 1300, 590);
 
-    add_button(group_card - 1, 800, 770);
+//    add_button(group_card - 1, 800, 770);
 
+    bool change = false;
 
-    text = new QTextEdit("My");
+    // Create fild with text edit
+    list_text.append( text  = new QTextEdit("My") );
     text->move(370,70);
     text->resize(350,100);
-
     pProxyWidget = game->scene->addWidget(text);
 
+
+
+    connect(text, &QTextEdit::textChanged, this, [&](){ change = true;     save_button->show(); } );
+
+    QString description = text->toPlainText();
+
+
+    // Create button with save option
     save_button = new QPushButton("Save");
     save_button->move(380, 180);
     pProxyWidget = game->scene->addWidget(save_button);
-    connect(save_button, SIGNAL(clicked()), this, SLOT(save_changes()) );
+    connect(save_button, &QPushButton::clicked, this, [=](){ this->save_changes(value, description); } );
 
 
 
@@ -77,7 +87,19 @@ void Traverse_Create_new::which_graphic(int value){
     else if(value == 3) group_card = 52;
 }
 
-void Traverse_Create_new::save_changes(){
-    qDebug() << "Save";
+void Traverse_Create_new::save_changes(int colour, QString description){
+
+    int id_card = 10;
+
+    DataBase db;
+    db.insert("INSERT INTO user_cards (colour, id_card, description) "
+              "VALUES (" + QString::number(colour) + ", " + QString::number(id_card) + ", \"" + description + "\" );");
+
+    save_button->hide();
+}
+
+void Traverse_Create_new::update(QString description){
+
+    qDebug() << "update";
 }
 

@@ -13,7 +13,8 @@ class Traverse_Create_new : public QObject {
 
 public:
     // Constructors
-    Traverse_Create_new();
+    Traverse_Create_new(QObject *parent = nullptr);
+
 
     // Public Attributes
     void Learn(int x);
@@ -23,20 +24,28 @@ private:
     // Private Methods
     void add_button(int value, int x_pos, int y_pos);
     void which_graphic(int value);
+    void save_changes(int colour, QString description);
+    void update(QString description);
 
     // Pribate Attributes
     QList<Graphic_others> list;
-    QList<QTextEdit> text_list;
+    QList<QTextEdit> text_list;    
+    QList <QPointer <QTextEdit> > list_text;
+
+
+    QGraphicsProxyWidget *pProxyWidget;
+    QPointer <QPushButton> save_button;
+    QPointer <QTextEdit> text;
+
     int group_card;
     bool is_save;
 
-    // Private Object
-    QGraphicsProxyWidget *pProxyWidget;
-    QPointer <QTextEdit> text;
-    QPointer <QPushButton> save_button;
 
-public slots:
-    void save_changes();
+
+
+
+
+
 
 };
 

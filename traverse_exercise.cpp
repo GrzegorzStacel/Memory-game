@@ -5,7 +5,7 @@
 
 extern Game *game;
 
-Traverse_exercise::Traverse_exercise() {
+Traverse_exercise::Traverse_exercise(QObject *parent) : QObject (parent) {
 
 }
 

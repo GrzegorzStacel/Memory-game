@@ -12,7 +12,7 @@ class Traverse_exercise : public QObject, public QGraphicsPixmapItem{
 
 public:
     // Constructors
-    Traverse_exercise();
+    Traverse_exercise(QObject *parent = nullptr);
 
 public slots:
     void Exercise();
