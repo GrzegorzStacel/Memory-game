@@ -7,7 +7,7 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsSceneMouseEvent>
 #include <QDebug>
-
+#include <QPointer>
 class MainButtons : public QObject, public QGraphicsRectItem{
     Q_OBJECT
 
@@ -20,7 +20,7 @@ public:
 private:
 
     // private attributes
-    QGraphicsTextItem *text;
+    QPointer <QGraphicsTextItem> text;
 
     // private methods
     void drawRect(int x, int y);

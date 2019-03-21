@@ -18,7 +18,7 @@ class options_difficulty_level : public QObject {
 public:
 
     // constructors
-    options_difficulty_level();
+    options_difficulty_level(QObject *parent = nullptr);
 
 signals:
     void clicked();

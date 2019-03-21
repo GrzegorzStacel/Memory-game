@@ -30,7 +30,7 @@ private:
 
     QDateTime mStartTime;
     qint64 mSessionTime;
-    game_over *gameover;
+    QPointer <game_over> gameover;
 
 
 public:

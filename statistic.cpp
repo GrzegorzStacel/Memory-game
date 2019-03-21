@@ -15,6 +15,9 @@ extern Game *game;
 int statistic::correct;
 int statistic::wrong;
 
+statistic::statistic(QObject *parent) : QObject (parent){
+
+}
 
 void statistic::hall_of_glory(int level, int X_Position, int Y_Position){
 
@@ -23,7 +26,7 @@ void statistic::hall_of_glory(int level, int X_Position, int Y_Position){
     set.set_the_data(level);
 
     // Information on the level of difficulty
-    QGraphicsTextItem *diffi = new QGraphicsTextItem(QString(set.difficult));
+    QPointer <QGraphicsTextItem> diffi = new QGraphicsTextItem(QString(set.difficult));
     QFont font("comic sans", 21, QFont::Bold);
     diffi->setDefaultTextColor(set.colour);
     diffi->setFont(font);
@@ -31,21 +34,21 @@ void statistic::hall_of_glory(int level, int X_Position, int Y_Position){
     game->scene->addItem(diffi);
 
     // adds a label showing the user best time
-    QGraphicsTextItem *collapse = new QGraphicsTextItem(QString(set.time));
+    QPointer <QGraphicsTextItem> collapse = new QGraphicsTextItem(QString(set.time));
     collapse->setDefaultTextColor(set.colour);
     collapse->setFont(font);
     collapse->setPos( X_Position + 270, Y_Position );
     game->scene->addItem(collapse);
 
     // adds a label showing value of correct answers from the best time
-    QGraphicsTextItem *TbestCorrect = new QGraphicsTextItem(QString(set.correct));
+    QPointer <QGraphicsTextItem> TbestCorrect = new QGraphicsTextItem(QString(set.correct));
     TbestCorrect->setFont(font);
     TbestCorrect->setDefaultTextColor(Qt::darkGreen);
     TbestCorrect->setPos( X_Position + 470, Y_Position );
     game->scene->addItem(TbestCorrect);
 
     // adds a label showing value of wrong answers from the best time
-    QGraphicsTextItem *TbestWrong = new QGraphicsTextItem(QString(set.wrong));
+    QPointer <QGraphicsTextItem> TbestWrong = new QGraphicsTextItem(QString(set.wrong));
     TbestWrong->setFont(font);
     TbestWrong->setDefaultTextColor(Qt::darkRed);
     TbestWrong->setPos( X_Position + 680, Y_Position );
@@ -53,15 +56,13 @@ void statistic::hall_of_glory(int level, int X_Position, int Y_Position){
 
 }
 
-statistic::statistic(){
 
-}
 
 void statistic::showstatic(){
 
     DataBase db;
 
-    game_over *over = new game_over();
+    QPointer <game_over> over = new game_over;
 
     double x_pos = game->scene->width();
     double y_pos = game->scene->height();
@@ -69,7 +70,7 @@ void statistic::showstatic(){
     over->drawPanel(x_pos/5, y_pos/5, x_pos/2 + 150, y_pos/2 + 20, Qt::white, 0.75);
 
     // adds a label showing all the time spent memorizing cards
-    QGraphicsTextItem *Ttime = new QGraphicsTextItem(QString("Total time: \t\t" + db.select("SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( t_time ) ) ) FROM statistic_db;").mid(0,8)));
+    QPointer <QGraphicsTextItem> Ttime = new QGraphicsTextItem(QString("Total time: \t\t" + db.select("SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( t_time ) ) ) FROM statistic_db;").mid(0,8)));
     QFont title("comic sans", 24, QFont::Bold);
     Ttime->setFont(title);
     Ttime->setPos(420, 230);
@@ -77,7 +78,7 @@ void statistic::showstatic(){
 
 
     // adds a label showing the user best time
-    QGraphicsTextItem *Tbest = new QGraphicsTextItem(QString("Best time "));
+    QPointer <QGraphicsTextItem> Tbest = new QGraphicsTextItem(QString("Best time "));
     Tbest->setFont(title);
     Tbest->setPos(470, 290);
     game->scene->addItem(Tbest);
@@ -89,21 +90,21 @@ void statistic::showstatic(){
 
 
     // adds a label showing all correct answers
-    QGraphicsTextItem *Tcorrect = new QGraphicsTextItem(QString("Total correct: \t" + db.select("SELECT SUM(correct) FROM statistic_db")));
+    QPointer <QGraphicsTextItem> Tcorrect = new QGraphicsTextItem(QString("Total correct: \t" + db.select("SELECT SUM(correct) FROM statistic_db")));
     Tcorrect->setDefaultTextColor(Qt::darkGreen);
     Tcorrect->setFont(title);
     Tcorrect->setPos(420, 550);
     game->scene->addItem(Tcorrect);
 
     // adds a label showing all wrong answers
-    QGraphicsTextItem *Twrong = new QGraphicsTextItem(QString("Total wrong: \t" + db.select("SELECT SUM(wrong) FROM statistic_db")));
+    QPointer <QGraphicsTextItem> Twrong = new QGraphicsTextItem(QString("Total wrong: \t" + db.select("SELECT SUM(wrong) FROM statistic_db")));
     Twrong->setDefaultTextColor(Qt::darkRed);
     Twrong->setFont(title);
     Twrong->setPos(420, 610);
     game->scene->addItem(Twrong);
 
     // create the back button
-    Graphic_others *buttonBack = new Graphic_others();
+    QPointer <Graphic_others> buttonBack = new Graphic_others;
     buttonBack->setPixmap(buttonBack->setImageOthers(1));
     buttonBack->setPos(1270, 630);
     connect(buttonBack, SIGNAL(clicked()), game, SLOT(displayMainMenu()));

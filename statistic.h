@@ -18,7 +18,7 @@ class statistic : public QObject {
 
 public:
     // constructors
-    statistic();
+    statistic(QObject *parent = nullptr);
 
     // public methods
     void showstatic();

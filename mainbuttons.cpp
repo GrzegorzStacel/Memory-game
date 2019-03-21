@@ -52,12 +52,12 @@ void MainButtons::hoverLeaveEvent(QGraphicsSceneHoverEvent *){
 
 void MainButtons::handleClickWrong(){
 
-    DrawCards *draw = new DrawCards();
+    QPointer <DrawCards> draw = new DrawCards;
     emit buttonClickedWrong(draw->getVariableForChooseImage());
 }
 
 void MainButtons::handleClickCorrect(){
 
-    DrawCards *draw = new DrawCards();
+    QPointer <DrawCards> draw = new DrawCards;
     emit buttonClickedCorrect(draw->getVariableForChooseImage());
 }

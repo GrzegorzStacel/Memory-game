@@ -7,6 +7,8 @@
 #include <QString>
 #include <QGraphicsPixmapItem>
 
+#include <QPointer>
+
 class statistic_Is_Best_Time : public statistic, public QGraphicsPixmapItem {
 
 public:

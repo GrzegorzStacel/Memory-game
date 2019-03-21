@@ -9,9 +9,9 @@ statistic_Is_Best_Time::statistic_Is_Best_Time(){
 
 QString statistic_Is_Best_Time::Set_Icon_Time(){
 
-    Who_Is_Best *who = new Who_Is_Best();
+    Who_Is_Best who;
 
-    value = who->score();
+    value = who.score();
 
     switch (value) {
         //Better time
