@@ -25,11 +25,14 @@ public:
 
     // Public Methods
     void set_scene();
-    void set_is_save(bool value){ is_save = value; }
     void start() { set_buttons(); set_scene(); }
 
     // getters
     int get_id_colour(){ return id_colour; }
+
+    // setters
+    void set_is_save(bool value){ is_save = value; }
+    void save_button_hide() { save_button.hide(); }
 
 
 private:

@@ -52,7 +52,7 @@ void Traverse_Create_new::which_graphic(){
 
 
 void Traverse_Create_new::save_changes(){
-
+qDebug() << "Save";
     QString id_card = QString::number( list_object[counter]->get_id_colour() );
     description = list_object[counter]->text.toPlainText();
 
@@ -60,7 +60,7 @@ void Traverse_Create_new::save_changes(){
     db.insert("INSERT INTO user_cards (colour, id_card, description) "
               "VALUES (" + QString::number(number_of_colour) + ", " + id_card + ", \"" + description + "\" );");
 
-    list_object[counter]->save_button.hide();
+    list_object[counter]->save_button_hide();
     list_object[counter]->set_is_save(true);
 
     counter++;
@@ -77,7 +77,7 @@ void Traverse_Create_new::save_changes(){
 
 
 void Traverse_Create_new::update(int obj_number){
-
+qDebug() << "Update";
     QString id_card_ = QString::number( list_object[counter]->get_id_colour() );
     description = list_object[counter]->text.toPlainText();
 

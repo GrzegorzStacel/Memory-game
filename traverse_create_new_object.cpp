@@ -22,9 +22,10 @@ void Traverse_Create_New_Object::set_scene(){
 
     update_button.hide();
 
-    QPointer <Traverse_Create_new> traverse;
+    QPointer <Traverse_Create_new> traverse = new Traverse_Create_new;
 
     connect(&save_button, &QPushButton::clicked, traverse, [=](){ traverse->save_changes(); } );
+
 
     connect(&text, &QTextEdit::selectionChanged, this, [=](){
 
@@ -54,12 +55,12 @@ void Traverse_Create_New_Object::set_buttons(){
 
     // Create button with save options
     save_button.setText("Save");
-    save_button.move(x_pos + 20, y_pos + 50);
+    save_button.move(x_pos + 130, y_pos + 120);
 
 
     // Create button with update options
     update_button.setText("Update");
-    update_button.move(x_pos + 40, y_pos + 50);
+    update_button.move(x_pos + 130, y_pos + 120);
     update_button.hide();
 
 }
