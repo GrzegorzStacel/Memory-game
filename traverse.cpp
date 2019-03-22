@@ -72,9 +72,11 @@ void Traverse::Add_New_Menu(){
     create = new Traverse_Create_new();
 
     for (int i = 0; i < isNew; ++i) {
+
         cards = new Cards;
         connect(cards, &Cards::clicked, create, [=](){ create->Learn(i); } );
         ListOfCards.append(cards);
+
     }
 
 

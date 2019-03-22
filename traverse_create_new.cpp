@@ -4,6 +4,7 @@
 #include "database.h"
 
 #include <QDebug>
+#include <QString>
 
 extern Game *game;
 
@@ -15,7 +16,9 @@ Traverse_Create_new::Traverse_Create_new(QObject *paretn) : QObject (paretn){
 
 void Traverse_Create_new::Learn(int value){
 
-    which_graphic(value);
+    number_of_colour = value;
+
+    which_graphic();
     game->scene->clear();
 
     // Create back button
@@ -26,37 +29,43 @@ void Traverse_Create_new::Learn(int value){
     game->scene->addItem(buttonBack);
     connect(buttonBack, &Graphic_others::clicked, traverse, [=](){ traverse->Add_New_Menu(); } );
 
+
     create_objects();
 
+    list_object[counter]->start();
+
 }
 
 
 
-void Traverse_Create_new::which_graphic(int value){
+void Traverse_Create_new::which_graphic(){
 
     // Chose the group of cards to learning
-    if(value == 0)      group_card = 13;
-    else if(value == 1) group_card = 26;
-    else if(value == 2) group_card = 39;
-    else if(value == 3) group_card = 52;
+    if(number_of_colour == 0)      group_card = 13;
+    else if(number_of_colour == 1) group_card = 26;
+    else if(number_of_colour == 2) group_card = 39;
+    else if(number_of_colour == 3) group_card = 52;
 }
 
 
 
 
 
-void Traverse_Create_new::save_changes(int colour){
+void Traverse_Create_new::save_changes(){
 
-    int id_card = 10;
+    QString id_card = QString::number( list_object[counter]->get_id_colour() );
     description = list_object[counter]->text.toPlainText();
 
     DataBase db;
     db.insert("INSERT INTO user_cards (colour, id_card, description) "
-              "VALUES (" + QString::number(colour) + ", " + QString::number(id_card) + ", \"" + description + "\" );");
+              "VALUES (" + QString::number(number_of_colour) + ", " + id_card + ", \"" + description + "\" );");
 
     list_object[counter]->save_button.hide();
-    is_save = true;
+    list_object[counter]->set_is_save(true);
+
     counter++;
+
+    list_object[counter]->start();
 
 //    if( ! disconnect(save_button, nullptr, this, nullptr) )
 //        qDebug() << "Disconnect save is broken - Traverse_Create_new::save_changes(int, QString)";
@@ -67,14 +76,15 @@ void Traverse_Create_new::save_changes(int colour){
 
 
 
-void Traverse_Create_new::update(int id_card){
+void Traverse_Create_new::update(int obj_number){
 
+    QString id_card_ = QString::number( list_object[counter]->get_id_colour() );
     description = list_object[counter]->text.toPlainText();
 
     DataBase db;
-    db.select("UPDATE user_cards SET description = \"" + description + "\" WHERE id = " + QString::number(id_card) + ";" );
+    db.select("UPDATE user_cards SET description = \"" + description + "\" WHERE id = " + id_card_ + ";" );
 
-    list_object[counter]->update_button.hide();
+    list_object[obj_number]->update_button.hide();
 
     //if( ! disconnect(update_button, nullptr, this, nullptr) )
       //  qDebug() << "Disconnect update is broken - Traverse_Create_new::save_changes(int, QString)";
@@ -87,7 +97,6 @@ void Traverse_Create_new::update(int id_card){
 
 void Traverse_Create_new::get_coordinate(int value){
 
-    is_save = false;
 
     switch (value) {
 
@@ -115,14 +124,16 @@ void Traverse_Create_new::get_coordinate(int value){
 
 void Traverse_Create_new::create_objects(){
 
-    int x_pos = 0, y_pos = 0;
+    int x_pos = 0, y_pos = 0, obj_number = 0;
 
     for(int i = group_card - 13; i < group_card; ++i){
 
         get_coordinate(i);
 
-        object = new Traverse_Create_New_Object(i, x_pos, y_pos);
+        object = new Traverse_Create_New_Object(i, x_pos, y_pos, obj_number);
         list_object.append(object);
+
+        obj_number++;
 
     }
 }

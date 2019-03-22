@@ -23,13 +23,13 @@ public:
 
 
     // Public Methods
-    void save_changes(int colour);
-    void update(int id_card);
+    void save_changes();
+    void update(int obj_number);
 
 
 private:
     // Private Methods
-    void which_graphic(int value);
+    void which_graphic();
     void get_coordinate(int value);
     void create_objects();
 
@@ -39,9 +39,9 @@ private:
 
     QString description;
     int group_card;
-    bool is_save;
     int counter;
     int x_pos, y_pos;
+    int number_of_colour;
 
 
 

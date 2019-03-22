@@ -14,7 +14,7 @@ class Traverse_Create_New_Object : public QObject {
 public:
     // Constructors
     Traverse_Create_New_Object(QObject *parent = nullptr);
-    Traverse_Create_New_Object(int value, int x, int y);
+    Traverse_Create_New_Object(int value, int x, int y, int object);
 
     // Public Attributes
     graphic_cards picture;
@@ -22,6 +22,15 @@ public:
     QTextEdit text;
 
     QGraphicsProxyWidget *ProxyWidget;
+
+    // Public Methods
+    void set_scene();
+    void set_is_save(bool value){ is_save = value; }
+    void start() { set_buttons(); set_scene(); }
+
+    // getters
+    int get_id_colour(){ return id_colour; }
+
 
 private:
     // Private Methods
@@ -31,6 +40,9 @@ private:
     int id_colour;
     int x_pos;
     int y_pos;
+    bool is_save;
+    int object_number;
 };
+
 
 #endif // TRAVERSE_CREATE_NEW_OBJECT_H
