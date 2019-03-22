@@ -28,11 +28,13 @@ public:
     void start() { set_buttons(); set_scene(); }
 
     // getters
-    int get_id_colour(){ return id_colour; }
+    int get_id_colour()     { return id_colour; }
+    bool get_is_save()      { return is_save; }
+    int get_object_number() { return object_number; }
 
     // setters
     void set_is_save(bool value){ is_save = value; }
-    void save_button_hide() { save_button.hide(); }
+    void save_button_hide() { save_button.hide(); qDebug() << "hide"; }
 
 
 private:

@@ -2,7 +2,7 @@
 #include "game.h"
 #include "traverse.h"
 #include "database.h"
-
+#include <QPushButton>
 #include <QDebug>
 #include <QString>
 
@@ -34,6 +34,8 @@ void Traverse_Create_new::Learn(int value){
 
     list_object[counter]->start();
 
+    connect_object();
+
 }
 
 
@@ -52,7 +54,8 @@ void Traverse_Create_new::which_graphic(){
 
 
 void Traverse_Create_new::save_changes(){
-qDebug() << "Save";
+
+    list_object[counter]->save_button_hide();
     QString id_card = QString::number( list_object[counter]->get_id_colour() );
     description = list_object[counter]->text.toPlainText();
 
@@ -66,6 +69,7 @@ qDebug() << "Save";
     counter++;
 
     list_object[counter]->start();
+    connect_object();
 
 //    if( ! disconnect(save_button, nullptr, this, nullptr) )
 //        qDebug() << "Disconnect save is broken - Traverse_Create_new::save_changes(int, QString)";
@@ -124,7 +128,7 @@ void Traverse_Create_new::get_coordinate(int value){
 
 void Traverse_Create_new::create_objects(){
 
-    int x_pos = 0, y_pos = 0, obj_number = 0;
+    int obj_number = 0;
 
     for(int i = group_card - 13; i < group_card; ++i){
 
@@ -136,5 +140,27 @@ void Traverse_Create_new::create_objects(){
         obj_number++;
 
     }
+}
+
+void Traverse_Create_new::connect_object(){
+
+    connect( & list_object[counter]->save_button, &QPushButton::clicked, this, [=](){ this->save_changes(); } );
+
+
+    connect( & list_object[counter]->text, &QTextEdit::selectionChanged, this, [=](){
+
+        if( list_object[counter]->get_is_save() ) {
+
+            list_object[counter]->update_button.show();
+
+            connect( & list_object[counter]->update_button, &QPushButton::clicked, this, [=]{
+
+                                        this->update(list_object[counter]->get_object_number());
+
+                                        } );
+        }
+
+    } );
+
 }
 

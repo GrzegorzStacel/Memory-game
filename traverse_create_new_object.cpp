@@ -22,21 +22,21 @@ void Traverse_Create_New_Object::set_scene(){
 
     update_button.hide();
 
-    QPointer <Traverse_Create_new> traverse = new Traverse_Create_new;
+//    QPointer <Traverse_Create_new> traverse = new Traverse_Create_new;
 
-    connect(&save_button, &QPushButton::clicked, traverse, [=](){ traverse->save_changes(); } );
+//    connect(&save_button, &QPushButton::clicked, traverse, [=](){ traverse->save_changes(); } );
 
 
-    connect(&text, &QTextEdit::selectionChanged, this, [=](){
+//    connect(&text, &QTextEdit::selectionChanged, this, [=](){
 
-        if(is_save){
+//        if(is_save){
 
-            update_button.show();
+//            update_button.show();
 
-            connect(&update_button, &QPushButton::clicked, traverse, [=]{ traverse->update(object_number); } );
-        }
+//            connect(&update_button, &QPushButton::clicked, traverse, [=]{ traverse->update(object_number); } );
+//        }
 
-    } );
+//    } );
 
 }
 
@@ -55,12 +55,12 @@ void Traverse_Create_New_Object::set_buttons(){
 
     // Create button with save options
     save_button.setText("Save");
-    save_button.move(x_pos + 130, y_pos + 120);
+    save_button.move(x_pos + 130, y_pos + 125);
 
 
     // Create button with update options
     update_button.setText("Update");
-    update_button.move(x_pos + 130, y_pos + 120);
+    update_button.move(x_pos + 130, y_pos + 125);
     update_button.hide();
 
 }

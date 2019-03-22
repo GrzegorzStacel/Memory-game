@@ -32,6 +32,7 @@ private:
     void which_graphic();
     void get_coordinate(int value);
     void create_objects();
+    void connect_object();
 
     // Pribate Attributes
     QPointer< Traverse_Create_New_Object> object;
