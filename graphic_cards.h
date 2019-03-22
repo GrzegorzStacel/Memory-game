@@ -11,7 +11,7 @@ class graphic_cards : public QObject, public QGraphicsPixmapItem{
 
 public:
     // Constructors
-    graphic_cards();
+    graphic_cards(QObject *parent = nullptr);
 
     // public methods
     QString setImageRegularNeutral(int number);

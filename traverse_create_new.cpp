@@ -8,8 +8,10 @@
 extern Game *game;
 
 Traverse_Create_new::Traverse_Create_new(QObject *paretn) : QObject (paretn){
-
+    counter = 0;
 }
+
+
 
 void Traverse_Create_new::Learn(int value){
 
@@ -24,59 +26,11 @@ void Traverse_Create_new::Learn(int value){
     game->scene->addItem(buttonBack);
     connect(buttonBack, &Graphic_others::clicked, traverse, [=](){ traverse->Add_New_Menu(); } );
 
-
-    add_button(group_card - 13, 250, 50);
-//    add_button(group_card - 12, 800, 50);
-//    add_button(group_card - 11, 1300, 50);
-
-//    add_button(group_card - 10, 250, 230);
-//    add_button(group_card - 9, 800, 230);
-//    add_button(group_card - 8, 1300, 230);
-
-//    add_button(group_card - 7, 250, 410);
-//    add_button(group_card - 6, 800, 410);
-//    add_button(group_card - 5, 1300, 410);
-
-//    add_button(group_card - 4, 250, 590);
-//    add_button(group_card - 3, 800, 590);
-//    add_button(group_card - 2, 1300, 590);
-
-//    add_button(group_card - 1, 800, 770);
-
-    bool change = false;
-
-    // Create fild with text edit
-    list_text.append( text  = new QTextEdit("My") );
-    text->move(370,70);
-    text->resize(350,100);
-    pProxyWidget = game->scene->addWidget(text);
-
-
-
-    connect(text, &QTextEdit::textChanged, this, [&](){ change = true;     save_button->show(); } );
-
-    QString description = text->toPlainText();
-
-
-    // Create button with save option
-    save_button = new QPushButton("Save");
-    save_button->move(380, 180);
-    pProxyWidget = game->scene->addWidget(save_button);
-    connect(save_button, &QPushButton::clicked, this, [=](){ this->save_changes(value, description); } );
-
-
+    create_objects();
 
 }
 
-void Traverse_Create_new::add_button(int value, int x_pos, int y_pos){
 
-    QPointer <graphic_cards> picture = new graphic_cards;
-    picture->setPixmap(picture->setImageVeryHardNeutral(value));
-    picture->setScale(0.85);
-    picture->setPos(x_pos, y_pos);
-    game->scene->addItem(picture);
-
-}
 
 void Traverse_Create_new::which_graphic(int value){
 
@@ -87,19 +41,89 @@ void Traverse_Create_new::which_graphic(int value){
     else if(value == 3) group_card = 52;
 }
 
-void Traverse_Create_new::save_changes(int colour, QString description){
+
+
+
+
+void Traverse_Create_new::save_changes(int colour){
 
     int id_card = 10;
+    description = list_object[counter]->text.toPlainText();
 
     DataBase db;
     db.insert("INSERT INTO user_cards (colour, id_card, description) "
               "VALUES (" + QString::number(colour) + ", " + QString::number(id_card) + ", \"" + description + "\" );");
 
-    save_button->hide();
+    list_object[counter]->save_button.hide();
+    is_save = true;
+    counter++;
+
+//    if( ! disconnect(save_button, nullptr, this, nullptr) )
+//        qDebug() << "Disconnect save is broken - Traverse_Create_new::save_changes(int, QString)";
+
 }
 
-void Traverse_Create_new::update(QString description){
 
-    qDebug() << "update";
+
+
+
+void Traverse_Create_new::update(int id_card){
+
+    description = list_object[counter]->text.toPlainText();
+
+    DataBase db;
+    db.select("UPDATE user_cards SET description = \"" + description + "\" WHERE id = " + QString::number(id_card) + ";" );
+
+    list_object[counter]->update_button.hide();
+
+    //if( ! disconnect(update_button, nullptr, this, nullptr) )
+      //  qDebug() << "Disconnect update is broken - Traverse_Create_new::save_changes(int, QString)";
+
+}
+
+
+
+
+
+void Traverse_Create_new::get_coordinate(int value){
+
+    is_save = false;
+
+    switch (value) {
+
+        case 0:  x_pos = 250;     y_pos = 50;     break;
+        case 1:   x_pos = 800;     y_pos = 50;     break;
+        case 2:    x_pos = 1300;    y_pos = 50;     break;
+
+        case 3:  x_pos = 250;     y_pos = 230;    break;
+        case 4:   x_pos = 800;     y_pos = 230;    break;
+        case 5:    x_pos = 1300;    y_pos = 230;    break;
+
+        case 6:  x_pos = 250;     y_pos = 410;    break;
+        case 7:   x_pos = 800;     y_pos = 410;    break;
+        case 8:    x_pos = 1300;    y_pos = 410;    break;
+
+        case 9:  x_pos = 250;     y_pos = 590;    break;
+        case 10:  x_pos = 800;    y_pos = 590;    break;
+        case 11:   x_pos = 1300;   y_pos = 590;    break;
+
+        case 12: x_pos = 800;    y_pos = 770;    break;
+
+    }
+
+}
+
+void Traverse_Create_new::create_objects(){
+
+    int x_pos = 0, y_pos = 0;
+
+    for(int i = group_card - 13; i < group_card; ++i){
+
+        get_coordinate(i);
+
+        object = new Traverse_Create_New_Object(i, x_pos, y_pos);
+        list_object.append(object);
+
+    }
 }
 

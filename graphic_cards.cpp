@@ -1,6 +1,6 @@
 #include "graphic_cards.h"
 
-graphic_cards::graphic_cards(){
+graphic_cards::graphic_cards(QObject *parent) : QObject (parent) {
 
 }
 
