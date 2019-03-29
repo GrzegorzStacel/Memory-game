@@ -35,9 +35,9 @@ QString DataBase::select(QString value){
             }
 
         } else
-            qDebug() << "Error DataBase::select(QString, int): " << dba.lastError();
+            qDebug() << "Error DataBase::select(QString) - " << dba.lastError();
 
-    return "Error load in database. DataBase::select(QString, int)";
+    return "Error load in database. DataBase::select(QString)";
 }
 
 void DataBase::insert(QString value){

@@ -1,7 +1,6 @@
 #include "traverse_create_new.h"
 #include "game.h"
 #include "traverse.h"
-#include "database.h"
 #include <QPushButton>
 #include <QDebug>
 #include <QString>
@@ -29,7 +28,6 @@ void Traverse_Create_new::Learn(int value){
     game->scene->addItem(buttonBack);
     connect(buttonBack, &Graphic_others::clicked, traverse, [=](){ traverse->Add_New_Menu(); } );
 
-
     create_objects();
 
     list_object[counter]->start();
@@ -50,53 +48,37 @@ void Traverse_Create_new::which_graphic(){
 }
 
 
-
-
-
 void Traverse_Create_new::save_changes(){
 
-    list_object[counter]->save_button_hide();
     QString id_card = QString::number( list_object[counter]->get_id_colour() );
     description = list_object[counter]->text.toPlainText();
 
-    DataBase db;
-    db.insert("INSERT INTO user_cards (colour, id_card, description) "
+    db.insert("INSERT INTO user_cards ( colour, id_card, description) "
               "VALUES (" + QString::number(number_of_colour) + ", " + id_card + ", \"" + description + "\" );");
 
     list_object[counter]->save_button_hide();
     list_object[counter]->set_is_save(true);
 
-    counter++;
+    if( counter < 13){
 
-    list_object[counter]->start();
-    connect_object();
+        counter++;
 
-//    if( ! disconnect(save_button, nullptr, this, nullptr) )
-//        qDebug() << "Disconnect save is broken - Traverse_Create_new::save_changes(int, QString)";
+        list_object[counter]->start();
+        connect_object();
 
+    }
 }
-
-
-
 
 
 void Traverse_Create_new::update(int obj_number){
 qDebug() << "Update";
-    QString id_card_ = QString::number( list_object[counter]->get_id_colour() );
-    description = list_object[counter]->text.toPlainText();
+    description = list_object[obj_number]->text.toPlainText();
 
-    DataBase db;
-    db.select("UPDATE user_cards SET description = \"" + description + "\" WHERE id = " + id_card_ + ";" );
+    db.select("UPDATE user_cards SET description = \"" + description + "\" WHERE id_card = " + QString::number(obj_number) + " AND colour = " + QString::number(number_of_colour) + " ;" );
 
     list_object[obj_number]->update_button.hide();
 
-    //if( ! disconnect(update_button, nullptr, this, nullptr) )
-      //  qDebug() << "Disconnect update is broken - Traverse_Create_new::save_changes(int, QString)";
-
 }
-
-
-
 
 
 void Traverse_Create_new::get_coordinate(int value){
@@ -137,9 +119,30 @@ void Traverse_Create_new::create_objects(){
         object = new Traverse_Create_New_Object(i, x_pos, y_pos, obj_number);
         list_object.append(object);
 
+
+        text = new QTextEdit();
+        list_text.append(text);
+
+
         obj_number++;
 
-    }
+        connect( & list_object[i]->text, &QTextEdit::selectionChanged, this, [=](){
+
+
+                    connect( & list_object[i]->text, &QTextEdit::textChanged, this, [=](){
+
+                        if( list_object[i]->get_is_save() )
+                                list_object[i]->update_button.show(); } );
+
+
+                    connect( & list_object[i]->update_button, &QPushButton::clicked, this, [=](){ this->update(i); } );
+
+            qDebug() << "first id colour: " << list_object[i]->get_id_colour(); }
+
+
+
+
+    ); }
 }
 
 void Traverse_Create_new::connect_object(){
@@ -147,20 +150,77 @@ void Traverse_Create_new::connect_object(){
     connect( & list_object[counter]->save_button, &QPushButton::clicked, this, [=](){ this->save_changes(); } );
 
 
-    connect( & list_object[counter]->text, &QTextEdit::selectionChanged, this, [=](){
 
-        if( list_object[counter]->get_is_save() ) {
+//    connect( & list_object[counter]->text, &QTextEdit::selectionChanged, this, [=](){
 
-            list_object[counter]->update_button.show();
 
-            connect( & list_object[counter]->update_button, &QPushButton::clicked, this, [=]{
+//        if( counter > 0 ) {
 
-                                        this->update(list_object[counter]->get_object_number());
+//            for (int i = counter; i >= 0; --i) {
 
-                                        } );
-        }
+//                actual_description = list_object[i]->text.toPlainText();
 
-    } );
+//    qDebug() << "Actual : " << actual_description;
+
+//                QString write = db.select("SELECT description FROM user_cards WHERE id = " + QString::number(i+1) + " AND colour = " + QString::number(number_of_colour ) + " ;" );
+
+//    qDebug() << "Write : " << write;
+
+//                if( actual_description == write ){
+
+//                    if( list_object[i]->get_is_save() ) {
+
+//                        list_object[i]->update_button.show();
+
+////                            QString desc;
+////                            int in = i;
+//                            connect( & list_object[i]->text, &QTextEdit::textChanged, this, [=](){
+
+//                                description = list_object[i]->text.toPlainText();
+
+//                    qDebug() << "desc : " <<  description;
+
+//                            });
+
+//qDebug() << "desc 2: " << description;
+
+
+//                        connect( & list_object[i]->update_button, &QPushButton::clicked, this, [=]{
+
+//                                                    this->update(i);
+
+//                                                    } );
+//                    }//if
+//                }//if
+//            }//for
+//        }//if
+//        }//connect
+//    );
+//}
+
+
+
+
+
+
+
+
+
+
+//        int object_number = list_object[counter]->get_object_number();
+
+//qDebug() << "object number: " << object_number;
+
+//        if( list_object[object_number]->get_is_save() ) {
+
+//qDebug() << "connect is save " << list_object[object_number]->get_is_save() ;
+
+//            list_object[object_number]->update_button.show();
+
+//            connect( & list_object[object_number]->update_button, &QPushButton::clicked, this, [=]{
+
+//                                        this->update(object_number);
+
+//                                        } );
 
 }
-
