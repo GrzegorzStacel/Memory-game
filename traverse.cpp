@@ -52,7 +52,7 @@ void Traverse::showMenu(){
     // create the back button to main menu
     back = new MainButtons(QString("Back"));
     back->setPos(bxPos,y_pos);
-    connect(back, SIGNAL(clicked()), game, SLOT(displayMainMenu()));
+    connect(back, &MainButtons::clicked, game, [=](){ game->displayMainMenu(); } );
     game->scene->addItem(back);
 
     }
@@ -66,7 +66,8 @@ void Traverse::Add_New_Menu(){
     buttonBack->setPixmap(buttonBack->setImageOthers(1));
     buttonBack->setPos(20, 20);
     game->scene->addItem(buttonBack);
-    connect(buttonBack, SIGNAL(clicked()), this, SLOT(showMenu()));
+    connect(buttonBack, &Graphic_others::clicked, this, [=](){ this->showMenu();
+                                                               ListOfCards.clear(); } );
 
 
     create = new Traverse_Create_new();
