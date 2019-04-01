@@ -13,6 +13,7 @@ public:
     // Constructors
     graphic_cards(QObject *parent = nullptr);
 
+
     // public methods
     QString setImageRegularNeutral(int number);
     QString setImageRegularWrong(int number);

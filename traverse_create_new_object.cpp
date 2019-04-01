@@ -18,24 +18,18 @@ void Traverse_Create_New_Object::set_scene(){
     ProxyWidget = game->scene->addWidget(&text);
     ProxyWidget = game->scene->addWidget(&save_button);
     ProxyWidget = game->scene->addWidget(&update_button);
+    picture.setParent(this);
 
     update_button.hide();
 
-//    QPointer <Traverse_Create_new> traverse = new Traverse_Create_new;
+}
 
-//    connect(&save_button, &QPushButton::clicked, traverse, [=](){ traverse->save_changes(); } );
+void Traverse_Create_New_Object::clear(){
 
-
-//    connect(&text, &QTextEdit::selectionChanged, this, [=](){
-
-//        if(is_save){
-
-//            update_button.show();
-
-//            connect(&update_button, &QPushButton::clicked, traverse, [=]{ traverse->update(object_number); } );
-//        }
-
-//    } );
+   game->scene->removeItem(text.graphicsProxyWidget());
+   game->scene->removeItem(save_button.graphicsProxyWidget());
+   game->scene->removeItem(update_button.graphicsProxyWidget());
+   game->scene->removeItem(&picture);
 
 }
 

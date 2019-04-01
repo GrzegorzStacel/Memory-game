@@ -14,7 +14,6 @@ Traverse::Traverse(QObject *parent) : QObject (parent){
     else
         isMenu = true;
 
-
     // Gets the number of well-known user-color cards
     isNew = db.select("SELECT new_pack_of_cards FROM user_settings WHERE id = 1").toInt();
 
@@ -76,7 +75,7 @@ void Traverse::Add_New_Menu(){
     for (int i = 0; i < isNew; ++i) {
 
         cards = new Cards;
-        connect(cards, &Cards::clicked, create, [=](){ create->Learn(i); } );
+        connect(cards, &Cards::clicked, create, [=](){ create->Learn(i, *this); } );
         ListOfCards.append(cards);
 
     }
@@ -91,6 +90,12 @@ void Traverse::Add_New_Menu(){
         game->scene->addItem(ListOfCards[n]);
 
     }
+
+}
+
+void Traverse::clear(){
+
+    ListOfCards.clear();
 
 }
 

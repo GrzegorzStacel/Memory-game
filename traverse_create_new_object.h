@@ -2,6 +2,7 @@
 #define TRAVERSE_CREATE_NEW_OBJECT_H
 
 #include "graphic_cards.h"
+
 #include <QGraphicsProxyWidget>
 #include <QPushButton>
 #include <QTextEdit>
@@ -26,6 +27,7 @@ public:
     // Public Methods
     void set_scene();
     void start() { set_buttons(); set_scene(); }
+    void clear();
 
     // getters
     int get_id_colour()     { return id_colour; }

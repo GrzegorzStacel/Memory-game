@@ -2,12 +2,12 @@
 #define MAINBUTTONS_H
 
 #include <QGraphicsTextItem>
-
 #include <QObject>
 #include <QGraphicsRectItem>
 #include <QGraphicsSceneMouseEvent>
 #include <QDebug>
 #include <QPointer>
+
 class MainButtons : public QObject, public QGraphicsRectItem{
     Q_OBJECT
 

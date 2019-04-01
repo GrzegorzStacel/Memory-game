@@ -21,6 +21,7 @@ public:
     // Public Methods
     void Add_New_Menu();
     inline void mousePressEvent(QGraphicsSceneMouseEvent *) { emit clicked(); }
+    void clear();
 
 
 
@@ -34,7 +35,6 @@ private:
     DataBase db;
     QPointer <MainButtons> adds_new, exercise, back;
     QPointer <Cards> cards;
-//    QPointer <Traverse_Create_New> create;
     QPointer <Traverse_exercise> traverse_exer;
 
     QList< QPointer <Cards> > ListOfCards;
