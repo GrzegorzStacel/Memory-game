@@ -15,7 +15,7 @@ Traverse::Traverse(QObject *parent) : QObject (parent){
         isMenu = true;
 
     // Gets the number of well-known user-color cards
-    isNew = db.select("SELECT new_pack_of_cards FROM user_settings WHERE id = 1").toInt();
+    isNew = db.select("SELECT pack_of_cards FROM user_settings WHERE id = 1").toInt();
 
 }
 
@@ -66,14 +66,14 @@ void Traverse::Add_New_Menu(){
     buttonBack->setPixmap(buttonBack->setImageOthers(1));
     buttonBack->setPos(20, 20);
     game->scene->addItem(buttonBack);
-    connect(buttonBack, &Graphic_others::clicked, this, [=](){ this->showMenu();
-                                                               ListOfCards.clear(); } );
+    connect(buttonBack, &Graphic_others::clicked, this, [=](){  this->showMenu();
+                                                                ListOfCards.clear(); } );
 
 
     QPointer <Traverse_Create_New> create = new Traverse_Create_New();
 
-    for (int i = 0; i < isNew; ++i) {
-
+    for (int i = 0; i <= isNew; ++i) {
+qDebug() << isNew;
         cards = new Cards;
         connect(cards, &Cards::clicked, create, [=](){ create->Learn(i, *this); } );
         ListOfCards.append(cards);
@@ -83,7 +83,7 @@ void Traverse::Add_New_Menu(){
 
     int x_pos = 450;
 
-    for (int i = 13, n = 0; n < isNew; ++n, i+=13) {
+    for (int i = 13, n = 0; n <= isNew; ++n, i+=13) {
 
         ListOfCards[n]->Picture_Neutral( i - 1, true);
         ListOfCards[n]->setPos(x_pos += 200, 400);
