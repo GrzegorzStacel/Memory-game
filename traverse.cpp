@@ -73,9 +73,10 @@ void Traverse::Add_New_Menu(){
     QPointer <Traverse_Create_New> create = new Traverse_Create_New();
 
     for (int i = 0; i <= isNew; ++i) {
-qDebug() << isNew;
+
         cards = new Cards;
-        connect(cards, &Cards::clicked, create, [=](){ create->Learn(i, *this); } );
+        connect(cards, &Cards::clicked, create, [=](){
+            create->Learn(i, *this); } );
         ListOfCards.append(cards);
 
     }

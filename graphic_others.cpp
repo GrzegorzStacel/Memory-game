@@ -21,6 +21,7 @@ QString Graphic_others::setImageOthers(int number){
         case 9: return ":/others/images/others/correctVeryHard.png";
         case 10: return ":/others/images/others/wrongVeryHard.png";
         case 11: return ":/others/images/others/summaryGameOver.png";
+        case 12: return ":/others/images/others/buttonDone.png";
 
 
         default: qDebug() << "We have a problem in method Cards::setImageOthers";

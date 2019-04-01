@@ -25,12 +25,7 @@ void Traverse_Create_New::Learn(int value, Traverse &Traverse_Object){
     buttonBack->setPixmap(buttonBack->setImageOthers(1));
     buttonBack->setPos(20, 20);
     game->scene->addItem(buttonBack);
-    connect(buttonBack, &Graphic_others::clicked ,&Traverse_Object,
-            [&](){
-                this->cleaning_before_back(Traverse_Object);
-            } );
-
-
+    connect(buttonBack, &Graphic_others::clicked ,&Traverse_Object, [&](){ this->cleaning_before_back(Traverse_Object); } );
 
     create_objects();
 
@@ -60,7 +55,7 @@ void Traverse_Create_New::save_changes(){
     list_object[counter]->save_button_hide();
     list_object[counter]->set_is_save(true);
 
-    if( counter <= 11){
+    if( counter < 12){
 
         counter++;
 
@@ -70,13 +65,12 @@ void Traverse_Create_New::save_changes(){
         if( counter == 12 ) {
 
             {
-                int check = db.select("SELECT new_pack_of_cards FROM user_settings").toInt();
+                int check = db.select("SELECT pack_of_cards FROM user_settings WHERE id = 1;").toInt();
 
                 if( check <= 3 )
-                    db.insert("UPDATE user_settings SET new_pack_of_cards = " + QString::number(++check) + " ;");
+                    db.insert("UPDATE user_settings SET pack_of_cards = " + QString::number(++check) + " WHERE id = 1;");
 
-            }
-
+            }            
         }
     }
 }
@@ -147,16 +141,15 @@ void Traverse_Create_New::create_objects(){
 
                     connect( & list_object[j]->update_button, &QPushButton::clicked, this, [=](){ this->update(j); } );
 
-            qDebug() << "first id colour: " << list_object[j]->get_id_colour(); }
-
-         );
+        } );
     }
 }
 
 void Traverse_Create_New::connect_save_button(){
-
-    connect( & list_object[counter]->save_button, &QPushButton::clicked, this, [=](){ this->save_changes(); if(counter == 12) ending(); } );
-
+    if( counter < 12 )
+        connect( & list_object[counter]->save_button, &QPushButton::clicked, this, [=](){ this->save_changes(); } );
+    else
+        connect( & list_object[12]->save_button, &QPushButton::clicked, this, [&]() { this->save_changes(); this->ending(); });
 }
 
 void Traverse_Create_New::ending(){
@@ -167,7 +160,7 @@ void Traverse_Create_New::ending(){
     buttonDone->setPixmap(buttonDone->setImageOthers(12));
     buttonDone->setPos(20, 20);
     game->scene->addItem(buttonDone);
-    connect(buttonDone, &Graphic_others::clicked, traverse, [=](){ traverse->showMenu(); } );
+    connect(buttonDone, &Graphic_others::clicked, traverse, [=](){ this->cleaning_before_back(*traverse); } );
 
 }
 

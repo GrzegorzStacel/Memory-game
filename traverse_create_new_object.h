@@ -36,7 +36,7 @@ public:
 
     // setters
     void set_is_save(bool value){ is_save = value; }
-    void save_button_hide() { save_button.hide(); qDebug() << "hide"; }
+    void save_button_hide() { save_button.hide(); }
 
 
 private:
