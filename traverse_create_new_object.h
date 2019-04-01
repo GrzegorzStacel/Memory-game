@@ -26,7 +26,7 @@ public:
 
     // Public Methods
     void set_scene();
-    void start() { set_buttons(); set_scene(); }
+    void start() { set_buttons(); set_scene(); text.setFocus(); }
     void clear();
 
     // getters
