@@ -1,5 +1,6 @@
 #include "traverse.h"
 #include "game.h"
+#include "traverse_create_new.h"
 
 #include <QDebug>
 
@@ -70,7 +71,7 @@ void Traverse::Add_New_Menu(){
                                                                ListOfCards.clear(); } );
 
 
-    create = new Traverse_Create_new();
+    QPointer <Traverse_Create_New> create = new Traverse_Create_New();
 
     for (int i = 0; i < isNew; ++i) {
 

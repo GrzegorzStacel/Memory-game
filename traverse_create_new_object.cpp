@@ -1,5 +1,4 @@
 #include "traverse_create_new_object.h"
-#include "traverse_create_new.h"
 #include "game.h"
 
 extern Game *game;

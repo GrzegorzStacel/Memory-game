@@ -3,8 +3,9 @@
 
 #include "mainbuttons.h"
 #include "traverse_exercise.h"
-#include "traverse_create_new.h"
 #include "database.h"
+#include "cards.h"
+//#include "traverse_create_new.h"
 
 #include <QObject>
 #include <QGraphicsSceneMouseEvent>
@@ -33,7 +34,7 @@ private:
     DataBase db;
     QPointer <MainButtons> adds_new, exercise, back;
     QPointer <Cards> cards;
-    QPointer <Traverse_Create_new> create;
+//    QPointer <Traverse_Create_New> create;
     QPointer <Traverse_exercise> traverse_exer;
 
     QList< QPointer <Cards> > ListOfCards;

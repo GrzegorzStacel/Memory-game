@@ -46,9 +46,9 @@ SOURCES += \
     graphic_cards.cpp \
     cards_position.cpp \
     traverse.cpp \
-    traverse_create_new.cpp \
     traverse_exercise.cpp \
-    traverse_create_new_object.cpp
+    traverse_create_new_object.cpp \
+    traverse_create_new.cpp
 
 HEADERS += \
     game.h \
@@ -69,9 +69,9 @@ HEADERS += \
     graphic_cards.h \
     cards_position.h \
     traverse.h \
-    traverse_create_new.h \
     traverse_exercise.h \
-    traverse_create_new_object.h
+    traverse_create_new_object.h \
+    traverse_create_new.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

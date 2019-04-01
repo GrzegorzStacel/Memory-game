@@ -1,9 +1,6 @@
 #ifndef TRAVERSE_EXERCISE_H
 #define TRAVERSE_EXERCISE_H
 
-#include "cards.h"
-#include "traverse_create_new.h"
-
 #include <QGraphicsPixmapItem>
 #include <QObject>
 
