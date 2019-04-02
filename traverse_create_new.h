@@ -16,10 +16,10 @@ class Traverse_Create_New : public QObject {
 
 public:
     // Constructors
-    Traverse_Create_New(QObject *parent = nullptr);
+    explicit Traverse_Create_New(Traverse &obj, QObject *parent = nullptr);
 
     // Public Attributes
-    void Learn(int x, Traverse &object);
+    void Learn(int x);
 
     // Public Methods
     void save_changes();
@@ -31,13 +31,14 @@ private:
     void get_coordinate(int value);
     void create_objects();
     void connect_save_button();
-    void ending();
+    void back_button(int number_of_image);
     void cleaning_before_back(Traverse &Traverse_Object);
 
     // Pribate Attributes
     QPointer< Traverse_Create_New_Object> object;
     QList< QPointer <Traverse_Create_New_Object> > list_object;
 
+    QPointer< Traverse > Traverse_Object;
     QPointer< QTextEdit > text;
     QList< QPointer <QTextEdit> > list_text;
     QPointer< Graphic_others > buttonBack;

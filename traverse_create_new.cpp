@@ -7,25 +7,21 @@
 
 extern Game *game;
 
-Traverse_Create_New::Traverse_Create_New(QObject *paretn) : QObject (paretn) {
+Traverse_Create_New::Traverse_Create_New(Traverse &obj, QObject *parent) : QObject (parent) {
 
     counter = 0;
-
+    Traverse_Object = &obj;
 }
 
-void Traverse_Create_New::Learn(int value, Traverse &Traverse_Object){
+void Traverse_Create_New::Learn(int value){
 
     number_of_colour = value;
 
     which_graphic();
     game->scene->clear();
 
-    // Create back button
-    buttonBack = new Graphic_others;
-    buttonBack->setPixmap(buttonBack->setImageOthers(1));
-    buttonBack->setPos(20, 20);
-    game->scene->addItem(buttonBack);
-    connect(buttonBack, &Graphic_others::clicked ,&Traverse_Object, [&](){ this->cleaning_before_back(Traverse_Object); } );
+    // Add the back button
+    back_button(1);
 
     create_objects();
 
@@ -91,21 +87,21 @@ void Traverse_Create_New::get_coordinate(int value){
 
     switch (value) {
 
-        case 0:  x_pos = 250;     y_pos = 50;     break;
-        case 1:   x_pos = 800;     y_pos = 50;     break;
-        case 2:    x_pos = 1300;    y_pos = 50;     break;
+        case 0:  x_pos = 250;     y_pos = 50;   break;
+         case 1:  x_pos = 800;     y_pos = 50;   break;
+          case 2:  x_pos = 1300;    y_pos = 50;   break;
 
         case 3:  x_pos = 250;     y_pos = 230;    break;
-        case 4:   x_pos = 800;     y_pos = 230;    break;
-        case 5:    x_pos = 1300;    y_pos = 230;    break;
+         case 4:   x_pos = 800;    y_pos = 230;    break;
+          case 5:   x_pos = 1300;   y_pos = 230;    break;
 
         case 6:  x_pos = 250;     y_pos = 410;    break;
-        case 7:   x_pos = 800;     y_pos = 410;    break;
-        case 8:    x_pos = 1300;    y_pos = 410;    break;
+         case 7:  x_pos = 800;     y_pos = 410;    break;
+          case 8:  x_pos = 1300;    y_pos = 410;    break;
 
         case 9:  x_pos = 250;     y_pos = 590;    break;
-        case 10:  x_pos = 800;    y_pos = 590;    break;
-        case 11:   x_pos = 1300;   y_pos = 590;    break;
+         case 10: x_pos = 800;     y_pos = 590;    break;
+          case 11: x_pos = 1300;    y_pos = 590;    break;
 
         case 12: x_pos = 800;    y_pos = 770;    break;
 
@@ -150,18 +146,18 @@ void Traverse_Create_New::connect_save_button(){
     if( counter < 12 )
         connect( & list_object[counter]->save_button, &QPushButton::clicked, this, [=](){ this->save_changes(); } );
     else
-        connect( & list_object[12]->save_button, &QPushButton::clicked, this, [&]() { this->save_changes(); this->ending(); });
+        connect( & list_object[12]->save_button, &QPushButton::clicked, this, [&]() { this->save_changes(); this->back_button(12); });
 }
 
-void Traverse_Create_New::ending(){
+void Traverse_Create_New::back_button(int number_of_image){
 
-    // Create done button
+    // Create back button
     QPointer <Traverse> traverse = new Traverse;
     QPointer <Graphic_others> buttonDone = new Graphic_others;
-    buttonDone->setPixmap(buttonDone->setImageOthers(12));
+    buttonDone->setPixmap(buttonDone->setImageOthers(number_of_image));
     buttonDone->setPos(20, 20);
     game->scene->addItem(buttonDone);
-    connect(buttonDone, &Graphic_others::clicked, traverse, [=](){ this->cleaning_before_back(*traverse); } );
+    connect(buttonDone, &Graphic_others::clicked, Traverse_Object, [=](){ this->cleaning_before_back(*Traverse_Object); } );
 
 }
 

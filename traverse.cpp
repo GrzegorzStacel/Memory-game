@@ -70,13 +70,12 @@ void Traverse::Add_New_Menu(){
                                                                 ListOfCards.clear(); } );
 
 
-    QPointer <Traverse_Create_New> create = new Traverse_Create_New();
+    QPointer <Traverse_Create_New> create = new Traverse_Create_New( *this );
 
     for (int i = 0; i <= isNew; ++i) {
 
         cards = new Cards;
-        connect(cards, &Cards::clicked, create, [=](){
-            create->Learn(i, *this); } );
+        connect(cards, &Cards::clicked, create, [=](){ create->Learn( i ); } );
         ListOfCards.append(cards);
 
     }
