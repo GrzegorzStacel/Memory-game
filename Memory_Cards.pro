@@ -48,7 +48,8 @@ SOURCES += \
     traverse.cpp \
     traverse_exercise.cpp \
     traverse_create_new_object.cpp \
-    traverse_create_new.cpp
+    traverse_create_new.cpp \
+    traverse_create_continue.cpp
 
 HEADERS += \
     game.h \
@@ -71,7 +72,8 @@ HEADERS += \
     traverse.h \
     traverse_exercise.h \
     traverse_create_new_object.h \
-    traverse_create_new.h
+    traverse_create_new.h \
+    traverse_create_continue.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
