@@ -85,7 +85,17 @@ void Traverse::Add_New_Menu(){
 
     for (int i = 13, n = 0; n <= isNew; ++n, i+=13) {
 
-        ListOfCards[n]->Picture_Neutral( i - 1, true);
+        if( n == 4 ){
+            ListOfCards[n-1]->Picture_Correct( i - 14, true);
+            break;
+
+        } else if( n < isNew ){
+            ListOfCards[n]->Picture_Correct( i - 1, true);
+
+        } else
+            ListOfCards[n]->Picture_Neutral( i - 1, true);
+
+
         ListOfCards[n]->setPos(x_pos += 200, 400);
         game->scene->addItem(ListOfCards[n]);
 
