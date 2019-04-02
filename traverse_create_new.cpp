@@ -63,7 +63,7 @@ void Traverse_Create_New::save_changes(){
             {
                 int check = db.select("SELECT pack_of_cards FROM user_settings WHERE id = 1;").toInt();
 
-                if( check <= 3 )
+                if( check <= 4 )
                     db.insert("UPDATE user_settings SET pack_of_cards = " + QString::number(++check) + " WHERE id = 1;");
 
             }            

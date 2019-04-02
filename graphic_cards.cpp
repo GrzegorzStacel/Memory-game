@@ -52,7 +52,7 @@ QString graphic_cards::setImageRegularNeutral(int number){
         case 38: return ":/others/images/cards/easy, medium, hard/spade/neutral/krol_spade_regular_neutral.png";
         case 39: return ":/others/images/cards/easy, medium, hard/spade/neutral/as_spade_regular_neutral.png";
         // diamond - only for traverse_visibility_management
-        case 52: return ":/others/images/cards/easy, medium, hard/diamond/Neutral/krol_diamond_neutral.png";
+        case 52: return ":/others/images/cards/easy, medium, hard/diamond/Neutral/as_diamond_neutral.png";
 
         default: qDebug() << "We have a problem in method graphic_cards::setImageRegularNeutral";
                  return ":/others/images/cards/back.png";
@@ -155,7 +155,8 @@ QString graphic_cards::setImageRegularCorrect(int number){
         case 37: return ":/others/images/cards/easy, medium, hard/spade/correct/dama_spade_regular_correct.png";
         case 38: return ":/others/images/cards/easy, medium, hard/spade/correct/krol_spade_regular_correct.png";
         case 39: return ":/others/images/cards/easy, medium, hard/spade/correct/as_spade_regular_correct.png";
-
+        // diamond - only for traverse_visibility_management
+        case 52: return ":/others/images/cards/easy, medium, hard/diamond/Correct/as_diamond__correct.png";
         default: qDebug() << "We have a problem in method graphic_cards::setImageRegularCorrect";
             return nullptr;
 
