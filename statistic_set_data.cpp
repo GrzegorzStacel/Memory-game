@@ -14,7 +14,7 @@ void statistic_set_data::set_the_data(int level){
                    "WHERE correct = (SELECT MAX(correct) FROM statistic_db WHERE difficult = " + QString::number(level) + "))");
 
 
-    if(bestID != "Error load in database. DataBase::select(QString, int)"){
+    if(bestID != "Error load in database. DataBase::select(QString)"){
 
         time = db.select("SELECT t_time FROM statistic_db WHERE id = " + bestID + ";").remove(8, 4);
         correct = "Correct: " + db.select("SELECT correct FROM statistic_db WHERE id = " + bestID + ";");
