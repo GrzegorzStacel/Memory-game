@@ -27,6 +27,7 @@ void Traverse_Create_New::Learn(int value){
 
     // Show first group of elements
     list_object[counter]->start();
+    list_object[counter]->text.setFocus();
     connect_save_button();
 
 }
@@ -52,7 +53,7 @@ void Traverse_Create_New::save_changes(){
               " AND id_card = " + id_card + ";");
 
 
-    list_object[counter]->save_button_hide();
+    list_object[counter]->save_button.hide();
     list_object[counter]->set_is_save(true);
 
     if( counter < 12){
@@ -127,10 +128,6 @@ void Traverse_Create_New::create_objects(){
 
         object = new Traverse_Create_New_Object(i, x_pos, y_pos, object_number);
         list_object.append(object);
-
-        text = new QTextEdit();
-        list_text.append(text);
-
 
         object_number++;
 
