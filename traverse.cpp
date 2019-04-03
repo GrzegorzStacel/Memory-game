@@ -1,6 +1,7 @@
 #include "traverse.h"
 #include "game.h"
 #include "traverse_create_new.h"
+#include "traverse_create_continue.h"
 
 #include <QDebug>
 
@@ -71,13 +72,19 @@ void Traverse::Add_New_Menu(){
 
 
     QPointer <Traverse_Create_New> create = new Traverse_Create_New( *this );
+    QPointer <Traverse_Create_Continue> continues = new Traverse_Create_Continue( *this );
 
-    for (int i = 0; i <= isNew; ++i) {
+    for(int i = 0; i <= isNew; ++i) {
+
+        if(i == 4) break;
 
         cards = new Cards;
-        connect(cards, &Cards::clicked, create, [=](){ create->Learn( i ); } );
         ListOfCards.append(cards);
 
+        if(i < isNew)
+            connect(cards, &Cards::clicked, create, [=](){ continues->continue_start( i ); } );
+        else if(i == isNew)
+            connect(cards, &Cards::clicked, create, [=](){ create->Learn( i ); } );
     }
 
 

@@ -45,8 +45,12 @@ void Traverse_Create_New::save_changes(){
     QString id_card = QString::number( list_object[counter]->get_id_colour() );
     description = list_object[counter]->text.toPlainText();
 
-    db.insert("INSERT INTO user_cards ( colour, id_card, description) "
-              "VALUES (" + QString::number(number_of_colour) + ", " + id_card + ", \"" + description + "\" );");
+    int id_card_to_update = (group_card + counter) - 12;
+
+    db.insert("UPDATE user_cards SET description = \"" + description + "\", is_it_saved = " + QString::number(0) +
+              " WHERE id = " + QString::number(id_card_to_update) + " AND is_it_saved = 0 AND colour = " + QString::number(number_of_colour) +
+              " AND id_card = " + id_card + ";");
+
 
     list_object[counter]->save_button_hide();
     list_object[counter]->set_is_save(true);

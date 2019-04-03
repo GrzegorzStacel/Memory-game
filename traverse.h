@@ -6,6 +6,7 @@
 #include "database.h"
 #include "cards.h"
 
+
 #include <QObject>
 #include <QGraphicsSceneMouseEvent>
 
