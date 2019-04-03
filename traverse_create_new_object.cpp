@@ -6,7 +6,7 @@ extern Game *game;
 Traverse_Create_New_Object::Traverse_Create_New_Object(QObject *parent) : QObject (parent) {}
 
 Traverse_Create_New_Object::Traverse_Create_New_Object(int value, int x, int y, int object)
-        : id_colour(value), x_pos(x), y_pos(y), object_number(object){
+        : id_colour(value), x_pos(x), y_pos(y), object_number(object) {
 
     is_save = false;
 
@@ -42,6 +42,7 @@ void Traverse_Create_New_Object::set_buttons(){
 
 
     // Create fild with text edit
+    text.setText(description);
     text.move(x_pos + 120, y_pos + 20);
     text.resize(350,100);
 

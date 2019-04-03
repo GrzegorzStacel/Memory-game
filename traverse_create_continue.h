@@ -5,13 +5,19 @@
 
 #include <QObject>
 
-class Traverse_Create_Continue : public Traverse {
+class Traverse_Create_Continue : public Traverse_Create_New {
     Q_OBJECT
 
 public:
     // Constructors
     Traverse_Create_Continue(Traverse &obj);
-    void continue_start();
+    void continue_start(int value);
+
+private:
+    // Private attributes
+    void add_description();
+
+    DataBase db;
 
 
 };

@@ -19,14 +19,13 @@ public:
 
     // Public Attributes
     graphic_cards picture;
-    QPushButton save_button, update_button;
     QTextEdit text;
-
     QGraphicsProxyWidget *ProxyWidget;
+    QPushButton save_button, update_button;
 
     // Public Methods
     void set_scene();
-    void start() { set_buttons(); set_scene(); text.setFocus(); }
+    void start() { set_buttons(); set_scene();}
     void clear();
 
     // getters
@@ -36,8 +35,6 @@ public:
 
     // setters
     void set_is_save(bool value){ is_save = value; }
-    void save_button_hide() { save_button.hide(); }
-
 
 private:
     // Private Methods
@@ -49,6 +46,9 @@ private:
     int y_pos;
     bool is_save;
     int object_number;
+    QString description;
+
+
 };
 
 

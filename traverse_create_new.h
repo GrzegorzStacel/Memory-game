@@ -27,29 +27,31 @@ public:
 
 private:
     // Private Methods
-    void which_graphic();
-    void get_coordinate(int value);
-    void create_objects();
     void connect_save_button();
-    void back_button(int number_of_image);
     void cleaning_before_back(Traverse &Traverse_Object);
 
-    // Pribate Attributes
+    // Private Attributes
     QPointer< Traverse_Create_New_Object> object;
+    DataBase db;
+    QString actual_description;
+    int x_pos, y_pos;
+    int activ_object;
+
+protected:
+    // Protected Attributes
     QList< QPointer <Traverse_Create_New_Object> > list_object;
 
     QPointer< Traverse > Traverse_Object;
-    QPointer< QTextEdit > text;
-    QList< QPointer <QTextEdit> > list_text;
-    QPointer< Graphic_others > buttonBack;
-    DataBase db;
-    QString description;
-    QString actual_description;
+    int number_of_colour;
     int group_card;
     int counter;
-    int x_pos, y_pos;
-    int number_of_colour;
-    int activ_object;
+    QString description;
+
+    // Protected Methods
+    void which_graphic();
+    void get_coordinate(int value);
+    void back_button(int number_of_image);
+    void create_objects();
 
 };
 
