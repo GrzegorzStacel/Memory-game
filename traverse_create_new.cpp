@@ -80,7 +80,10 @@ void Traverse_Create_New::update(int obj_number){
 
     description = list_object[obj_number]->text.toPlainText();
 
-    db.select("UPDATE user_cards SET description = \"" + description + "\" WHERE id_card = " + QString::number(obj_number) + " AND colour = " + QString::number(number_of_colour) + " ;" );
+    int show_id_card = (group_card - 13) + obj_number;
+
+    db.select("UPDATE user_cards SET description = \"" + description + "\" "
+              "WHERE id_card = " + QString::number(show_id_card) + " AND colour = " + QString::number(number_of_colour) + " ;" );
 
     list_object[obj_number]->update_button.hide();
     list_object[counter]->text.setFocus();
