@@ -16,6 +16,8 @@ public:
 private:
     // Private attributes
     void add_description();
+    void connect_save_button();
+    void save_changes();
 
     DataBase db;
 

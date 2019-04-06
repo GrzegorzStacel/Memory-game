@@ -45,6 +45,7 @@ protected:
     int number_of_colour;
     int group_card;
     int counter;
+    int who_is_active;
     QString description;
 
     // Protected Methods

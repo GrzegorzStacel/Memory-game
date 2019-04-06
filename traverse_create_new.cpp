@@ -48,7 +48,7 @@ void Traverse_Create_New::save_changes(){
 
     int id_card_to_update = (group_card + counter) - 12;
 
-    db.insert("UPDATE user_cards SET description = \"" + description + "\", is_it_saved = " + QString::number(0) +
+    db.insert("UPDATE user_cards SET description = \"" + description + "\", is_it_saved = " + QString::number(1) +
               " WHERE id = " + QString::number(id_card_to_update) + " AND is_it_saved = 0 AND colour = " + QString::number(number_of_colour) +
               " AND id_card = " + id_card + ";");
 
@@ -133,6 +133,8 @@ void Traverse_Create_New::create_objects(){
 
         connect( & list_object[j]->text, &QTextEdit::selectionChanged, this, [=](){
 
+                    // Variable used in the derived class
+                    who_is_active = j;
 
                     connect( & list_object[j]->text, &QTextEdit::textChanged, this, [=](){
 
