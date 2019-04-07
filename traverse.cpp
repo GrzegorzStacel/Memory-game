@@ -2,6 +2,7 @@
 #include "game.h"
 #include "traverse_create_new.h"
 #include "traverse_create_continue.h"
+#include "traverse_create_update.h"
 
 #include <QDebug>
 
@@ -15,13 +16,12 @@ Traverse::Traverse(QObject *parent) : QObject (parent){
     else
         isMenu = true;
 
-    // Gets the number of well-known user-color cards
-    isNew = db.select("SELECT pack_of_cards FROM user_settings WHERE id = 1").toInt();
-
 }
 
 
 void Traverse::showMenu(){
+
+    update();
 
     int y_pos = 600;
     game->scene->clear();
@@ -60,6 +60,7 @@ void Traverse::showMenu(){
 
 void Traverse::Add_New_Menu(){
 
+    update();
     game->scene->clear();
 
     // Create back button
@@ -70,22 +71,7 @@ void Traverse::Add_New_Menu(){
     connect(buttonBack, &Graphic_others::clicked, this, [=](){  this->showMenu();
                                                                 ListOfCards.clear(); } );
 
-
-    QPointer <Traverse_Create_New> create = new Traverse_Create_New( *this );
-    QPointer <Traverse_Create_Continue> continues = new Traverse_Create_Continue( *this );
-
-    for(int i = 0; i <= isNew; ++i) {
-
-        if(i == 4) break;
-
-        cards = new Cards;
-        ListOfCards.append(cards);
-
-        if(i < isNew)
-            connect(cards, &Cards::clicked, create, [=](){ continues->continue_start( i ); } );
-        else if(i == isNew)
-            connect(cards, &Cards::clicked, create, [=](){ create->Learn( i ); } );
-    }
+    connections();
 
 
     int x_pos = 450;
@@ -114,6 +100,49 @@ void Traverse::clear(){
 
     ListOfCards.clear();
 
+}
+
+void Traverse::connections(){
+
+    QPointer <Traverse_Create_New> create = new Traverse_Create_New( *this );
+    QPointer <Traverse_Create_Continue> continues = new Traverse_Create_Continue( *this );
+    QPointer <Traverse_Create_Update> update = new Traverse_Create_Update( *this );
+    int is_finish = 0;
+
+    for(int i = 0, k = 13; i <= isNew; k += 13, ++i) {
+
+        bool tmp_judge_complete = true, tmp_judge_continues = true;
+
+        if(i == 4) break;
+
+        is_finish = db.select("SELECT SUM(is_it_saved) FROM user_cards "
+                              "WHERE id_card >= " + QString::number(k - 13) + " AND id_card <= " + QString::number(k - 1) + ";").toInt();
+
+        cards = new Cards;
+        ListOfCards.append(cards);
+
+        if( is_finish == 13 )
+            tmp_judge_complete = false;
+
+        if( is_finish >= 1 )
+            tmp_judge_continues = false;
+
+
+        if(i == isNew && tmp_judge_complete && !tmp_judge_continues)
+            connect(cards, &Cards::clicked, create, [=](){ continues->continue_start( i ); } );
+
+        else if( i == isNew && tmp_judge_complete && tmp_judge_continues)
+            connect(cards, &Cards::clicked, create, [=](){ create->Learn( i ); } );
+
+        else
+            connect(cards, &Cards::clicked, create, [=](){ update->update_start( i ); } );
+    }
+}
+
+void Traverse::update(){
+
+    // Gets the number of well-known user-color cards
+    isNew = db.select("SELECT pack_of_cards FROM user_settings WHERE id = 1").toInt();
 }
 
 

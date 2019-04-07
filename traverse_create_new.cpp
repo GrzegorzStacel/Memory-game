@@ -63,16 +63,7 @@ void Traverse_Create_New::save_changes(){
         list_object[counter]->start();
         connect_save_button();
 
-        if( counter == 12 ) {
-
-            {
-                int check = db.select("SELECT pack_of_cards FROM user_settings WHERE id = 1;").toInt();
-
-                if( check <= 4 )
-                    db.insert("UPDATE user_settings SET pack_of_cards = " + QString::number(++check) + " WHERE id = 1;");
-
-            }            
-        }
+        update_pack_of_cards();
     }
 }
 
@@ -148,6 +139,20 @@ void Traverse_Create_New::create_objects(){
     }
 }
 
+void Traverse_Create_New::update_pack_of_cards(){
+
+    if( counter == 12 ) {
+
+        {
+            int check = db.select("SELECT pack_of_cards FROM user_settings WHERE id = 1;").toInt();
+
+            if( check <= 4 )
+                db.insert("UPDATE user_settings SET pack_of_cards = " + QString::number(++check) + " WHERE id = 1;");
+
+        }
+    }
+}
+
 void Traverse_Create_New::connect_save_button(){
     if( counter < 12 )
         connect( & list_object[counter]->save_button, &QPushButton::clicked, this, [=](){ this->save_changes(); } );
@@ -158,7 +163,6 @@ void Traverse_Create_New::connect_save_button(){
 void Traverse_Create_New::back_button(int number_of_image){
 
     // Create back button
-    QPointer <Traverse> traverse = new Traverse;
     QPointer <Graphic_others> buttonDone = new Graphic_others;
     buttonDone->setPixmap(buttonDone->setImageOthers(number_of_image));
     buttonDone->setPos(20, 20);
@@ -174,7 +178,6 @@ void Traverse_Create_New::cleaning_before_back(Traverse &Traverse_Object){
         list_object[i]->clear();
     }
 
-    list_object.clear();
     Traverse_Object.clear();
     Traverse_Object.Add_New_Menu();
 

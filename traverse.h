@@ -30,6 +30,10 @@ private:
     bool isMenu;
     int isNew;
 
+    // Private Methods
+    void connections();
+    void update();
+
 
     // Private Object
     DataBase db;

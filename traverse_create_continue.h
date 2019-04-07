@@ -11,7 +11,10 @@ class Traverse_Create_Continue : public Traverse_Create_New {
 public:
     // Constructors
     Traverse_Create_Continue(Traverse &obj);
+
+    // Public Methods
     void continue_start(int value);
+
 
 private:
     // Private attributes

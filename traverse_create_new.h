@@ -53,6 +53,7 @@ protected:
     void get_coordinate(int value);
     void back_button(int number_of_image);
     void create_objects();
+    void update_pack_of_cards();
 
 };
 
