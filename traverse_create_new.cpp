@@ -174,6 +174,7 @@ void Traverse_Create_New::cleaning_before_back(Traverse &Traverse_Object){
         list_object[i]->clear();
     }
 
+    list_object.clear();
     Traverse_Object.clear();
     Traverse_Object.Add_New_Menu();
 
