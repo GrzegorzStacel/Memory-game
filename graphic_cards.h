@@ -23,6 +23,7 @@ public:
     QString setImageVeryHardWrong(int number);
     QString setImageVeryHardCorrect(int number);
 
+    QString setImageOrange(int number);
     QString setActive(bool side, bool lvl);
 
 };

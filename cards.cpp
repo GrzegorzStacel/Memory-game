@@ -62,4 +62,3 @@ void Cards::Picture_Wrong(int value, bool lvl){
     else if( lvl == false )
         setPixmap(picture.setImageVeryHardWrong(value));
 }
-

@@ -247,17 +247,8 @@ void DrawCards::addImageWithRandomNumber(){
 
 void DrawCards::connectCardWithMap(){
 
-    QPointer <QSignalMapper> signalMapper = new QSignalMapper(this); // TODO find another way to implement the connections of each object separately with the appropriate signal
-
-        for( int i = 0; i < listOfCards.size(); i++){
-
-            connect (listOfCards[i], SIGNAL(clicked()), signalMapper, SLOT(map()));
-            signalMapper -> setMapping (listOfCards[i], i);
-
-        }
-
-    connect (signalMapper, SIGNAL(mapped(int)), this, SLOT(showImageAfterReminding(int)));
-
+    for( int i = 0; i < listOfCards.size(); i++)
+        connect ( listOfCards[i], &Cards::clicked, this, [=](){ showImageAfterReminding(i); } );
 }
 
 void DrawCards::showImageAfterReminding(int x){

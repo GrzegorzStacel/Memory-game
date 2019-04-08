@@ -27,7 +27,7 @@ void Traverse::showMenu(){
     game->scene->clear();
 
     // create the Add New Deck Of Cards button
-    adds_new = new MainButtons(QString("Add new"));
+    adds_new = new MainButtons(QString("Manager"));
     double bxPos = game->width()/2 - adds_new->boundingRect().width()/2;
     adds_new->setPos(bxPos,400);
     connect(adds_new, &MainButtons::clicked, this, [=](){ this->Add_New_Menu(); } );
@@ -71,22 +71,42 @@ void Traverse::Add_New_Menu(){
     connect(buttonBack, &Graphic_others::clicked, this, [=](){  this->showMenu();
                                                                 ListOfCards.clear(); } );
 
+    QPointer <Graphic_others> guide = new Graphic_others;
+    guide->setPixmap(guide->setImageOthers(13));
+    guide->setPos(1400, 750);
+    game->scene->addItem(guide);
+
+
     connections();
 
 
-    int x_pos = 450;
+    int x_pos = 450, sum_is_it_saved = 0;
+    bool is_continue = false;
 
     for (int i = 13, n = 0; n <= isNew; ++n, i+=13) {
+
+        is_continue = false;
+
+        sum_is_it_saved = db.select("SELECT SUM(is_it_saved) FROM user_cards "
+                                      "WHERE id_card >= " + QString::number(i - 13) + " AND id_card <= " + QString::number(i - 1) + ";").toInt();
+
+        if(sum_is_it_saved == 0)
+            is_continue = true;
+        if(sum_is_it_saved == 13)
+            is_continue = true;
+
 
         if( n == 4 ){
             ListOfCards[n-1]->Picture_Correct( i - 14, true);
             break;
 
-        } else if( n < isNew ){
+        } else if( n < isNew && is_continue ){
             ListOfCards[n]->Picture_Correct( i - 1, true);
 
-        } else
+        } else if(is_continue)
             ListOfCards[n]->Picture_Neutral( i - 1, true);
+        else
+            ListOfCards[n]->Picture_Orange(i);
 
 
         ListOfCards[n]->setPos(x_pos += 200, 400);
