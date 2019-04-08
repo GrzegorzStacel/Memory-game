@@ -17,17 +17,16 @@ public:
 
 
 private:
-    // Private attributes
-    void add_description();
+    // Private attributes    
     void connect_save_button();
-    void save_changes();
-    void how_many_save();
-
-    DataBase db;
 
     // Private Attributes
     int sum_is_it_save_from_db;
 
+protected:
+    // Protected Methods
+    void how_many_save();
+    void add_description();
 
 };
 

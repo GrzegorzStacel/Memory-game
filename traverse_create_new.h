@@ -22,7 +22,7 @@ public:
     void Learn(int x);
 
     // Public Methods
-    void save_changes();
+
     void update(int obj_number);
 
 private:
@@ -32,7 +32,6 @@ private:
 
     // Private Attributes
     QPointer< Traverse_Create_New_Object> object;
-    DataBase db;
     QString actual_description;
     int x_pos, y_pos;
     int activ_object;
@@ -42,10 +41,10 @@ protected:
     QList< QPointer <Traverse_Create_New_Object> > list_object;
 
     QPointer< Traverse > Traverse_Object;
+    DataBase db;
     int number_of_colour;
     int group_card;
     int counter;
-    int who_is_active;
     QString description;
 
     // Protected Methods
@@ -54,6 +53,7 @@ protected:
     void back_button(int number_of_image);
     void create_objects();
     void update_pack_of_cards();
+    void save_changes(int counter);
 
 };
 
