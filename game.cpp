@@ -78,39 +78,39 @@ void Game::displayMainMenu(){
     QFont titleFont("comic sans", 50);
     titleText->setFont(titleFont);
     double txPos = this->width()/2 - titleText->boundingRect().width()/2;
-    titleText->setPos(txPos, 250);
+    titleText->setPos(txPos, 100);
     scene->addItem(titleText);
 
     // create the play button
     playButton = new MainButtons(QString("Play"));
     double bxPos = this->width()/2 - playButton->boundingRect().width()/2;
-    playButton->setPos(bxPos,450);
+    playButton->setPos(bxPos,300);
     connect(playButton,SIGNAL(clicked()), this, SLOT(start()));
     scene->addItem(playButton);
 
     // create the travers button
     QPointer <Traverse> trav = new Traverse;
     travers = new MainButtons(QString("Travers"));
-    travers->setPos(bxPos,550);
+    travers->setPos(bxPos,400);
     connect(travers, SIGNAL(clicked()), trav, SLOT(showMenu()));
     scene->addItem(travers);
 
     // create the statistics button
     statisticsbutton = new MainButtons(QString("Statistic"));
-    statisticsbutton->setPos(bxPos, 650);
+    statisticsbutton->setPos(bxPos, 500);
     connect(statisticsbutton, SIGNAL(clicked()), this, SLOT(statisticbutton()));
     scene->addItem(statisticsbutton);
 
     // create the options button
     optionsbutton = new MainButtons(QString("Options"));
     difficult = new options_difficulty_level;
-    optionsbutton->setPos(bxPos, 750);
+    optionsbutton->setPos(bxPos, 600);
     connect(optionsbutton, SIGNAL(clicked()), difficult, SLOT(show_options()));
     scene->addItem(optionsbutton);
 
     // create the quit button
     quitbutton = new MainButtons(QString("Quit"));
-    quitbutton->setPos(bxPos,850);
+    quitbutton->setPos(bxPos,700);
     connect(quitbutton, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quitbutton);
 

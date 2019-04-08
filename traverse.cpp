@@ -27,7 +27,7 @@ void Traverse::showMenu(){
     game->scene->clear();
 
     // create the Add New Deck Of Cards button
-    adds_new = new MainButtons(QString("Add new"));
+    adds_new = new MainButtons(QString("Manager"));
     double bxPos = game->width()/2 - adds_new->boundingRect().width()/2;
     adds_new->setPos(bxPos,400);
     connect(adds_new, &MainButtons::clicked, this, [=](){ this->Add_New_Menu(); } );
