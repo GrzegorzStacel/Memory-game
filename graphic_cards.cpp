@@ -360,6 +360,18 @@ QString graphic_cards::setImageVeryHardCorrect(int number){
     }
 }
 
+QString graphic_cards::setImageOrange(int number){
+    switch (number) {
+        case 13: return ":/others/images/cards/easy, medium, hard/heart/Others/as_serc_regular_correct_orange.png";
+        case 26: return ":/others/images/cards/easy, medium, hard/clover/Others/as_clover_regular_correct_orange.png";
+        case 39: return ":/others/images/cards/easy, medium, hard/spade/Others/as_spade_regular_correct_orange.png";
+        case 52: return ":/others/images/cards/easy, medium, hard/diamond/Others/as_diamond__correct_orange.png";
+
+        default: qDebug() << "We have a problem in method graphic_cards::setImageOrange";
+            return nullptr;
+    }
+}
+
 QString graphic_cards::setActive(bool side, bool lvl){
 
     if( lvl == true ){

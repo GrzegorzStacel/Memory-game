@@ -30,6 +30,7 @@ public:
     void Picture_Neutral(int value, bool lvl);
     void Picture_Correct(int value, bool lvl);
     void Picture_Wrong(int value, bool lvl);
+    void Picture_Orange(int value) { setPixmap( picture.setImageOrange(value) ); }
 
     // getters
     int getX_POS() const { return x_pos_card; }

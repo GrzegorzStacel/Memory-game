@@ -80,19 +80,33 @@ void Traverse::Add_New_Menu(){
     connections();
 
 
-    int x_pos = 450;
+    int x_pos = 450, sum_is_it_saved = 0;
+    bool is_continue = false;
 
     for (int i = 13, n = 0; n <= isNew; ++n, i+=13) {
+
+        is_continue = false;
+
+        sum_is_it_saved = db.select("SELECT SUM(is_it_saved) FROM user_cards "
+                                      "WHERE id_card >= " + QString::number(i - 13) + " AND id_card <= " + QString::number(i - 1) + ";").toInt();
+
+        if(sum_is_it_saved == 0)
+            is_continue = true;
+        if(sum_is_it_saved == 13)
+            is_continue = true;
+
 
         if( n == 4 ){
             ListOfCards[n-1]->Picture_Correct( i - 14, true);
             break;
 
-        } else if( n < isNew ){
+        } else if( n < isNew && is_continue ){
             ListOfCards[n]->Picture_Correct( i - 1, true);
 
-        } else
+        } else if(is_continue)
             ListOfCards[n]->Picture_Neutral( i - 1, true);
+        else
+            ListOfCards[n]->Picture_Orange(i);
 
 
         ListOfCards[n]->setPos(x_pos += 200, 400);
