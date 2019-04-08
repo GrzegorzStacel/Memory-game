@@ -71,6 +71,12 @@ void Traverse::Add_New_Menu(){
     connect(buttonBack, &Graphic_others::clicked, this, [=](){  this->showMenu();
                                                                 ListOfCards.clear(); } );
 
+    QPointer <Graphic_others> guide = new Graphic_others;
+    guide->setPixmap(guide->setImageOthers(13));
+    guide->setPos(1400, 750);
+    game->scene->addItem(guide);
+
+
     connections();
 
 
