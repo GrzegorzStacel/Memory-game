@@ -1,0 +1,310 @@
+<RCC>
+    <qresource prefix="/background">
+        <file>images/others/bg.jpg</file>
+        <file>images/others/bg_1920x1080.jpg</file>
+        <file>images/others/guide.jpg</file>
+    </qresource>
+    <qresource prefix="/others">
+        <file>images/cards/back.png</file>
+        <file>images/cards/active.png</file>
+        <file>images/others/statisticsIconS.png</file>
+        <file>images/others/informationFrame.png</file>
+        <file>images/cards/easy, medium, hard/clover/correct/10_clover_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/clover/correct/2_clover_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/clover/correct/3_clover_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/clover/correct/4_clover_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/clover/correct/5_clover_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/clover/correct/6_clover_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/clover/correct/7_clover_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/clover/correct/8_clover_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/clover/correct/9_clover_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/clover/correct/as_clover_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/clover/correct/dama_clover_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/clover/correct/jopek_clover_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/clover/correct/krol_clover_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/clover/neutral/10_clover_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/clover/neutral/2_clover_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/clover/neutral/3_clover_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/clover/neutral/4_clover_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/clover/neutral/5_clover_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/clover/neutral/6_clover_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/clover/neutral/7_clover_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/clover/neutral/8_clover_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/clover/neutral/9_clover_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/clover/neutral/as_clover_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/clover/neutral/dama_clover_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/clover/neutral/jopek_clover_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/clover/neutral/krol_clover_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/clover/wrong/10_clover_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/clover/wrong/2_clover_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/clover/wrong/3_clover_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/clover/wrong/4_clover_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/clover/wrong/5_clover_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/clover/wrong/6_clover_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/clover/wrong/7_clover_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/clover/wrong/8_clover_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/clover/wrong/9_clover_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/clover/wrong/as_clover_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/clover/wrong/dama_clover_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/clover/wrong/jopek_clover_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/clover/wrong/krol_clover_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/heart/correct/10_serc_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/heart/correct/2_serc_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/heart/correct/3_serc_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/heart/correct/4_serc_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/heart/correct/5_serc_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/heart/correct/6_serc_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/heart/correct/7_serc_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/heart/correct/8_serc_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/heart/correct/9_serc_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/heart/correct/as_serc_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/heart/correct/dama_serc_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/heart/correct/jopek_serc_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/heart/correct/krol_serc_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/heart/neutral/10_serc_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/heart/neutral/2_serc_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/heart/neutral/3_serc_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/heart/neutral/4_serc_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/heart/neutral/5_serc_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/heart/neutral/6_serc_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/heart/neutral/7_serc_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/heart/neutral/8_serc_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/heart/neutral/9_serc_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/heart/neutral/as_serc_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/heart/neutral/dama_serc_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/heart/neutral/jopek_serc_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/heart/neutral/krol_serc_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/heart/wrong/10_serc_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/heart/wrong/2_serc_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/heart/wrong/3_serc_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/heart/wrong/4_serc_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/heart/wrong/5_serc_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/heart/wrong/6_serc_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/heart/wrong/7_serc_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/heart/wrong/8_serc_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/heart/wrong/9_serc_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/heart/wrong/as_serc_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/heart/wrong/dama_serc_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/heart/wrong/jopek_serc_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/heart/wrong/krol_serc_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/spade/correct/10_spade_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/spade/correct/2_spade_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/spade/correct/3_spade_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/spade/correct/4_spade_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/spade/correct/5_spade_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/spade/correct/6_spade_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/spade/correct/7_spade_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/spade/correct/8_spade_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/spade/correct/9_spade_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/spade/correct/as_spade_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/spade/correct/dama_spade_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/spade/correct/jopek_spade_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/spade/correct/krol_spade_regular_correct.png</file>
+        <file>images/cards/easy, medium, hard/spade/neutral/10_spade_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/spade/neutral/2_spade_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/spade/neutral/3_spade_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/spade/neutral/4_spade_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/spade/neutral/5_spade_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/spade/neutral/6_spade_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/spade/neutral/7_spade_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/spade/neutral/8_spade_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/spade/neutral/9_spade_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/spade/neutral/as_spade_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/spade/neutral/dama_spade_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/spade/neutral/jopek_spade_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/spade/neutral/krol_spade_regular_neutral.png</file>
+        <file>images/cards/easy, medium, hard/spade/wrong/10_spade_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/spade/wrong/2_spade_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/spade/wrong/3_spade_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/spade/wrong/4_spade_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/spade/wrong/5_spade_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/spade/wrong/6_spade_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/spade/wrong/7_spade_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/spade/wrong/8_spade_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/spade/wrong/9_spade_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/spade/wrong/as_spade_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/spade/wrong/dama_spade_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/spade/wrong/jopek_spade_regular_wrong.png</file>
+        <file>images/cards/easy, medium, hard/spade/wrong/krol_spade_regular_wrong.png</file>
+        <file>images/cards/very hard/clover/correct/10_clover_very_hard_correct.png</file>
+        <file>images/cards/very hard/clover/correct/2_clover_very_hard_correct.png</file>
+        <file>images/cards/very hard/clover/correct/3_clover_very_hard_correct.png</file>
+        <file>images/cards/very hard/clover/correct/4_clover_very_hard_correct.png</file>
+        <file>images/cards/very hard/clover/correct/5_clover_very_hard_correct.png</file>
+        <file>images/cards/very hard/clover/correct/6_clover_very_hard_correct.png</file>
+        <file>images/cards/very hard/clover/correct/7_clover_very_hard_correct.png</file>
+        <file>images/cards/very hard/clover/correct/8_clover_very_hard_correct.png</file>
+        <file>images/cards/very hard/clover/correct/9_clover_very_hard_correct.png</file>
+        <file>images/cards/very hard/clover/correct/as_clover_very_hard_correct.png</file>
+        <file>images/cards/very hard/clover/correct/dama_clover_very_hard_correct.png</file>
+        <file>images/cards/very hard/clover/correct/jopek_clover_very_hard_correct.png</file>
+        <file>images/cards/very hard/clover/correct/krol_clover_very_hard_correct.png</file>
+        <file>images/cards/very hard/clover/neutral/10_clover_very_hard_neutral.png</file>
+        <file>images/cards/very hard/clover/neutral/2_clover_very_hard_neutral.png</file>
+        <file>images/cards/very hard/clover/neutral/3_clover_very_hard_neutral.png</file>
+        <file>images/cards/very hard/clover/neutral/4_clover_very_hard_neutral.png</file>
+        <file>images/cards/very hard/clover/neutral/5_clover_very_hard_neutral.png</file>
+        <file>images/cards/very hard/clover/neutral/6_clover_very_hard_neutral.png</file>
+        <file>images/cards/very hard/clover/neutral/7_clover_very_hard_neutral.png</file>
+        <file>images/cards/very hard/clover/neutral/8_clover_very_hard_neutral.png</file>
+        <file>images/cards/very hard/clover/neutral/9_clover_very_hard_neutral.png</file>
+        <file>images/cards/very hard/clover/neutral/as_clover_very_hard_neutral.png</file>
+        <file>images/cards/very hard/clover/neutral/dama_clover_very_hard_neutral.png</file>
+        <file>images/cards/very hard/clover/neutral/jopek_clover_very_hard_neutral.png</file>
+        <file>images/cards/very hard/clover/neutral/krol_clover_very_hard_neutral.png</file>
+        <file>images/cards/very hard/diamond/correct/10_diamond_very_hard_correct.png</file>
+        <file>images/cards/very hard/diamond/correct/2_diamond_very_hard_correct.png</file>
+        <file>images/cards/very hard/diamond/correct/3_diamond_very_hard_correct.png</file>
+        <file>images/cards/very hard/diamond/correct/4_diamond_very_hard_correct.png</file>
+        <file>images/cards/very hard/diamond/correct/5_diamond_very_hard_correct.png</file>
+        <file>images/cards/very hard/diamond/correct/6_diamond_very_hard_correct.png</file>
+        <file>images/cards/very hard/diamond/correct/7_diamond_very_hard_correct.png</file>
+        <file>images/cards/very hard/diamond/correct/8_diamond_very_hard_correct.png</file>
+        <file>images/cards/very hard/diamond/correct/9_diamond_very_hard_correct.png</file>
+        <file>images/cards/very hard/diamond/correct/as_diamond_very_hard_correct.png</file>
+        <file>images/cards/very hard/diamond/correct/dama_diamond_very_hard_correct.png</file>
+        <file>images/cards/very hard/diamond/correct/jopek_diamond_very_hard_correct.png</file>
+        <file>images/cards/very hard/diamond/correct/krol_diamond_very_hard_correct.png</file>
+        <file>images/cards/very hard/diamond/neutral/10_diamond_very_hard_neutral.png</file>
+        <file>images/cards/very hard/diamond/neutral/2_diamond_very_hard_neutral.png</file>
+        <file>images/cards/very hard/diamond/neutral/3_diamond_very_hard_neutral.png</file>
+        <file>images/cards/very hard/diamond/neutral/4_diamond_very_hard_neutral.png</file>
+        <file>images/cards/very hard/diamond/neutral/5_diamond_very_hard_neutral.png</file>
+        <file>images/cards/very hard/diamond/neutral/6_diamond_very_hard_neutral.png</file>
+        <file>images/cards/very hard/diamond/neutral/7_diamond_very_hard_neutral.png</file>
+        <file>images/cards/very hard/diamond/neutral/8_diamond_very_hard_neutral.png</file>
+        <file>images/cards/very hard/diamond/neutral/9_diamond_very_hard_neutral.png</file>
+        <file>images/cards/very hard/diamond/neutral/as_diamond_very_hard_neutral.png</file>
+        <file>images/cards/very hard/diamond/neutral/dama_diamond_very_hard_neutral.png</file>
+        <file>images/cards/very hard/diamond/neutral/jopek_diamond_very_hard_neutral.png</file>
+        <file>images/cards/very hard/diamond/neutral/krol_diamond_very_hard_neutral.png</file>
+        <file>images/cards/very hard/diamond/wrong/10_diamond_very_hard_wrong.png</file>
+        <file>images/cards/very hard/diamond/wrong/2_diamond_very_hard_wrong.png</file>
+        <file>images/cards/very hard/diamond/wrong/3_diamond_very_hard_wrong.png</file>
+        <file>images/cards/very hard/diamond/wrong/4_diamond_very_hard_wrong.png</file>
+        <file>images/cards/very hard/diamond/wrong/5_diamond_very_hard_wrong.png</file>
+        <file>images/cards/very hard/diamond/wrong/6_diamond_very_hard_wrong.png</file>
+        <file>images/cards/very hard/diamond/wrong/7_diamond_very_hard_wrong.png</file>
+        <file>images/cards/very hard/diamond/wrong/8_diamond_very_hard_wrong.png</file>
+        <file>images/cards/very hard/diamond/wrong/9_diamond_very_hard_wrong.png</file>
+        <file>images/cards/very hard/diamond/wrong/as_diamond_very_hard_wrong.png</file>
+        <file>images/cards/very hard/diamond/wrong/dama_diamond_very_hard_wrong.png</file>
+        <file>images/cards/very hard/diamond/wrong/jopek_diamond_very_hard_wrong.png</file>
+        <file>images/cards/very hard/diamond/wrong/krol_diamond_very_hard_wrong.png</file>
+        <file>images/cards/very hard/heart/correct/10_serc_very_hard_correct.png</file>
+        <file>images/cards/very hard/heart/correct/2_serc_very_hard_correct.png</file>
+        <file>images/cards/very hard/heart/correct/3_serc_very_hard_correct.png</file>
+        <file>images/cards/very hard/heart/correct/4_serc_very_hard_correct.png</file>
+        <file>images/cards/very hard/heart/correct/5_serc_very_hard_correct.png</file>
+        <file>images/cards/very hard/heart/correct/6_serc_very_hard_correct.png</file>
+        <file>images/cards/very hard/heart/correct/7_serc_very_hard_correct.png</file>
+        <file>images/cards/very hard/heart/correct/8_serc_very_hard_correct.png</file>
+        <file>images/cards/very hard/heart/correct/9_serc_very_hard_correct.png</file>
+        <file>images/cards/very hard/heart/correct/as_serc_very_hard_correct.png</file>
+        <file>images/cards/very hard/heart/correct/dama_serc_very_hard_correct.png</file>
+        <file>images/cards/very hard/heart/correct/jopek_serc_very_hard_correct.png</file>
+        <file>images/cards/very hard/heart/correct/krol_serc_very_hard_correct.png</file>
+        <file>images/cards/very hard/heart/neutral/10_serc_very_hard_neutral.png</file>
+        <file>images/cards/very hard/heart/neutral/2_serc_very_hard_neutral.png</file>
+        <file>images/cards/very hard/heart/neutral/3_serc_very_hard_neutral.png</file>
+        <file>images/cards/very hard/heart/neutral/4_serc_very_hard_neutral.png</file>
+        <file>images/cards/very hard/heart/neutral/5_serc_very_hard_neutral.png</file>
+        <file>images/cards/very hard/heart/neutral/6_serc_very_hard_neutral.png</file>
+        <file>images/cards/very hard/heart/neutral/7_serc_very_hard_neutral.png</file>
+        <file>images/cards/very hard/heart/neutral/8_serc_very_hard_neutral.png</file>
+        <file>images/cards/very hard/heart/neutral/9_serc_very_hard_neutral.png</file>
+        <file>images/cards/very hard/heart/neutral/as_serc_very_hard_neutral.png</file>
+        <file>images/cards/very hard/heart/neutral/dama_serc_very_hard_neutral.png</file>
+        <file>images/cards/very hard/heart/neutral/jopek_serc_very_hard_neutral.png</file>
+        <file>images/cards/very hard/heart/neutral/krol_serc_very_hard_neutral.png</file>
+        <file>images/cards/very hard/heart/wrong/10_serc_very_hard_wrong.png</file>
+        <file>images/cards/very hard/heart/wrong/3_serc_very_hard_wrong.png</file>
+        <file>images/cards/very hard/heart/wrong/4_serc_very_hard_wrong.png</file>
+        <file>images/cards/very hard/heart/wrong/5_serc_very_hard_wrong.png</file>
+        <file>images/cards/very hard/heart/wrong/6_serc_very_hard_wrong.png</file>
+        <file>images/cards/very hard/heart/wrong/7_serc_very_hard_wrong.png</file>
+        <file>images/cards/very hard/heart/wrong/8_serc_very_hard_wrong.png</file>
+        <file>images/cards/very hard/heart/wrong/9_serc_very_hard_wrong.png</file>
+        <file>images/cards/very hard/heart/wrong/as_serc_very_hard_wrong.png</file>
+        <file>images/cards/very hard/heart/wrong/dama_serc_very_hard_wrong.png</file>
+        <file>images/cards/very hard/heart/wrong/jopek_serc_very_hard_wrong.png</file>
+        <file>images/cards/very hard/heart/wrong/krol_serc_very_hard_wrong.png</file>
+        <file>images/cards/very hard/spade/correct/10_spade_very_hard_correct.png</file>
+        <file>images/cards/very hard/spade/correct/2_spade_very_hard_correct.png</file>
+        <file>images/cards/very hard/spade/correct/3_spade_very_hard_correct.png</file>
+        <file>images/cards/very hard/spade/correct/4_spade_very_hard_correct.png</file>
+        <file>images/cards/very hard/spade/correct/5_spade_very_hard_correct.png</file>
+        <file>images/cards/very hard/spade/correct/6_spade_very_hard_correct.png</file>
+        <file>images/cards/very hard/spade/correct/7_spade_very_hard_correct.png</file>
+        <file>images/cards/very hard/spade/correct/8_spade_very_hard_correct.png</file>
+        <file>images/cards/very hard/spade/correct/9_spade_very_hard_correct.png</file>
+        <file>images/cards/very hard/spade/correct/as_spade_very_hard_correct.png</file>
+        <file>images/cards/very hard/spade/correct/dama_spade_very_hard_correct.png</file>
+        <file>images/cards/very hard/spade/correct/jopek_spade_very_hard_correct.png</file>
+        <file>images/cards/very hard/spade/correct/krol_spade_very_hard_correct.png</file>
+        <file>images/cards/very hard/spade/neutral/10_spade_very_hard_neutral.png</file>
+        <file>images/cards/very hard/spade/neutral/2_spade_very_hard_neutral.png</file>
+        <file>images/cards/very hard/spade/neutral/3_spade_very_hard_neutral.png</file>
+        <file>images/cards/very hard/spade/neutral/4_spade_very_hard_neutral.png</file>
+        <file>images/cards/very hard/spade/neutral/5_spade_very_hard_neutral.png</file>
+        <file>images/cards/very hard/spade/neutral/6_spade_very_hard_neutral.png</file>
+        <file>images/cards/very hard/spade/neutral/7_spade_very_hard_neutral.png</file>
+        <file>images/cards/very hard/spade/neutral/8_spade_very_hard_neutral.png</file>
+        <file>images/cards/very hard/spade/neutral/9_spade_very_hard_neutral.png</file>
+        <file>images/cards/very hard/spade/neutral/as_spade_very_hard_neutral.png</file>
+        <file>images/cards/very hard/spade/neutral/dama_spade_very_hard_neutral.png</file>
+        <file>images/cards/very hard/spade/neutral/jopek_spade_very_hard_neutral.png</file>
+        <file>images/cards/very hard/spade/neutral/krol_spade_very_hard_neutral.png</file>
+        <file>images/cards/very hard/spade/wrong/10_spade_very_hard_wrong.png</file>
+        <file>images/cards/very hard/spade/wrong/2_spade_very_hard_wrong.png</file>
+        <file>images/cards/very hard/spade/wrong/3_spade_very_hard_wrong.png</file>
+        <file>images/cards/very hard/spade/wrong/4_spade_very_hard_wrong.png</file>
+        <file>images/cards/very hard/spade/wrong/5_spade_very_hard_wrong.png</file>
+        <file>images/cards/very hard/spade/wrong/6_spade_very_hard_wrong.png</file>
+        <file>images/cards/very hard/spade/wrong/7_spade_very_hard_wrong.png</file>
+        <file>images/cards/very hard/spade/wrong/8_spade_very_hard_wrong.png</file>
+        <file>images/cards/very hard/spade/wrong/9_spade_very_hard_wrong.png</file>
+        <file>images/cards/very hard/spade/wrong/as_spade_very_hard_wrong.png</file>
+        <file>images/cards/very hard/spade/wrong/dama_spade_very_hard_wrong.png</file>
+        <file>images/cards/very hard/spade/wrong/jopek_spade_very_hard_wrong.png</file>
+        <file>images/cards/very hard/spade/wrong/krol_spade_very_hard_wrong.png</file>
+        <file>images/cards/very hard/clover/wrong/10_clover_very_hard_wrong.png</file>
+        <file>images/cards/very hard/clover/wrong/2_clover_very_hard_wrong.png</file>
+        <file>images/cards/very hard/clover/wrong/3_clover_very_hard_wrong.png</file>
+        <file>images/cards/very hard/clover/wrong/4_clover_very_hard_wrong.png</file>
+        <file>images/cards/very hard/clover/wrong/5_clover_very_hard_wrong.png</file>
+        <file>images/cards/very hard/clover/wrong/6_clover_very_hard_wrong.png</file>
+        <file>images/cards/very hard/clover/wrong/7_clover_very_hard_wrong.png</file>
+        <file>images/cards/very hard/clover/wrong/8_clover_very_hard_wrong.png</file>
+        <file>images/cards/very hard/clover/wrong/9_clover_very_hard_wrong.png</file>
+        <file>images/cards/very hard/clover/wrong/as_clover_very_hard_wrong.png</file>
+        <file>images/cards/very hard/clover/wrong/dama_clover_very_hard_wrong.png</file>
+        <file>images/cards/very hard/clover/wrong/jopek_clover_very_hard_wrong.png</file>
+        <file>images/cards/very hard/clover/wrong/krol_clover_very_hard_wrong.png</file>
+        <file>images/others/options/buttonEasy.png</file>
+        <file>images/others/options/buttonHard.png</file>
+        <file>images/others/options/buttonHardcore.png</file>
+        <file>images/others/options/buttonMedium.png</file>
+        <file>images/others/options/difficultLevel.png</file>
+        <file>images/others/options/Options.png</file>
+        <file>images/others/buttonBack.png</file>
+        <file>images/others/actuallyLvl.png</file>
+        <file>images/cards/backVeryHard.png</file>
+        <file>images/cards/activeVeryHard.png</file>
+        <file>images/others/correct.png</file>
+        <file>images/others/wrong.png</file>
+        <file>images/others/correctVeryHard.png</file>
+        <file>images/others/wrongVeryHard.png</file>
+        <file>images/others/summaryGameOver.png</file>
+        <file>images/others/empty.png</file>
+        <file>images/cards/very hard/heart/wrong/2_serc_very_hard_wrong.png</file>
+        <file>images/others/buttonDone.png</file>
+        <file>images/cards/easy, medium, hard/diamond/Correct/as_diamond__correct.png</file>
+        <file>images/cards/easy, medium, hard/diamond/Neutral/as_diamond_neutral.png</file>
+        <file>images/cards/easy, medium, hard/clover/Others/as_clover_regular_correct_orange.png</file>
+        <file>images/cards/easy, medium, hard/diamond/Others/as_diamond__correct_orange.png</file>
+        <file>images/cards/easy, medium, hard/heart/Others/as_serc_regular_correct_orange.png</file>
+        <file>images/cards/easy, medium, hard/spade/Others/as_spade_regular_correct_orange.png</file>
+    </qresource>
+    <qresource prefix="/"/>
+</RCC>
